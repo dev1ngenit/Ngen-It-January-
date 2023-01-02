@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Validator;
+use Helper;
 
 class RFQController extends Controller
 {
@@ -39,8 +40,10 @@ class RFQController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function RFQstore(Request $request)
     {
+        //dd($request->all());
+        Helper::imageDirectory();
         $validator = Validator::make(
             $request->all(),
             [
@@ -51,28 +54,57 @@ class RFQController extends Controller
         );
 
         if ($validator->passes()) {
-            RFQ::create([
-                'name'            => $request->name,
-                'email'           => $request->email,
-                'phone'           => $request->phone,
-                'company_name'    => $request->company_name,
-                'license'         => $request->license,
-                'registration_id' => $request->registration_id,
-                'pcn_number'      => $request->pcn_number,
-                'authorization'   => $request->authorization,
-                'message'         => $request->message,
-                'message_type'    => $request->message_type,
-                'status'          => $request->status,
-                'sales_man_id'    => $request->sales_man_id,
-            ]);
-            Toastr::success('Data successfully Inserted.');
+            $mainFile = $request->file('image');
+            $imgPath = storage_path('app/public/');
+
+            if (empty($mainFile)) {
+                RFQ::create([
+                    'product_id'      => $request->product_id,
+                    'user_id'         => $request->user_id,
+                    'partner_id'      => $request->partner_id,
+                    'solution_id'     => $request->solution_id,
+                    'name'            => $request->name,
+                    'email'           => $request->email,
+                    'phone'           => $request->phone,
+                    'company_name'    => $request->company_name,
+                    'qty'             => $request->qty,
+                    'message'         => $request->message,
+                    'message_type'    => $request->message_type,
+                    'status'          => 'pending',
+                    'call'            => $request->call,
+                ]);
+            } else {
+                $globalFunImg =  Helper::singleImageUpload($mainFile, $imgPath, 157, 87);
+                if ($globalFunImg['status'] == 1) {
+                    RFQ::create([
+                        'product_id'      => $request->product_id,
+                        'user_id'         => $request->user_id,
+                        'partner_id'      => $request->partner_id,
+                        'solution_id'     => $request->solution_id,
+                        'name'            => $request->name,
+                        'email'           => $request->email,
+                        'image'           => $globalFunImg['file_name'],
+                        'phone'           => $request->phone,
+                        'company_name'    => $request->company_name,
+                        'qty'             => $request->qty,
+                        'message'         => $request->message,
+                        'message_type'    => $request->message_type,
+                        'status'          => 'pending',
+                        'call'            => $request->call,
+                    ]);
+                } else {
+                    Toastr::warning('Image upload failed! plz try again.');
+                }
+            }
+            Toastr::success('Data Inserted Successfully');
+
         } else {
             $messages = $validator->messages();
             foreach ($messages->all() as $message) {
                 Toastr::error($message, 'Failed', ['timeOut' => 30000]);
             }
         }
-        return redirect()->back();
+        return redirect()->route('rfq.common');
     }
 
     /**

@@ -72,7 +72,7 @@
                                     <div class="col-sm-9 text-secondary">
                                         <input type="file" name="image" class="form-control" id="image" accept="image/*" />
                                         <div class="form-text">Accepts only png, jpg, jpeg images</div>
-                                        <img id="showImage" height="87px" width="157px"  src="https://cdn.pixabay.com/photo/2017/02/07/02/16/cloud-2044823_960_720.png" alt="">
+                                        <img class="img-thumbnail" id="showImage" height="80px" width="80px"  src="https://cdn.pixabay.com/photo/2017/02/07/02/16/cloud-2044823_960_720.png" alt="">
                                     </div>
                                 </div>
 

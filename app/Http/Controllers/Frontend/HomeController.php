@@ -131,6 +131,13 @@ class HomeController extends Controller
         return view('frontend.pages.contact.support',$data);
     }
 
+    public function RFQCommon()
+    {
+        $data['setting'] = Setting::latest()->first();
+        return view('frontend.pages.common.rfq_common',$data);
+    }
+
+
 
 
 
@@ -284,7 +291,7 @@ class HomeController extends Controller
         //dd($id);
 
             $data['sproduct'] = Product::where('slug',$id)->first();
-
+            //dd($data['sproduct']);
 
 
         if (!empty($data['sproduct']->cat_id)) {

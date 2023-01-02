@@ -30,7 +30,8 @@
         <!-- Content area -->
         <div class="content">
             <div class="row">
-                <div class="col-lg-9">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8">
                     <div class="card mt-1">
                         <div class="card-header">
                             <div class="row">
@@ -50,7 +51,7 @@
                         </div>
 
                         <div class="card-body">
-                            <table class="datatable table table-bordered table-hover">
+                            <table class="clientSuccessDT datatable table table-bordered table-hover">
                                 <thead>
                                     <tr>
                                         <th width="10%">Sl No:</th>
@@ -97,3 +98,19 @@
 
 
 @endsection
+
+@once
+    @push('scripts')
+        <script type="text/javascript">
+            $('.clientSuccessDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 25, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [3],
+                }, ],
+            });
+        </script>
+    @endpush
+@endonce

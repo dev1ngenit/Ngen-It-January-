@@ -42,7 +42,7 @@ class BrandController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title' => 'required|max:70',
+                'title' => 'required|max:100',
                 'image'   => 'required|image|mimes:png,jpg,jpeg|max:10000',
             ],
             [
@@ -54,12 +54,12 @@ class BrandController extends Controller
         if ($validator->passes()) {
             $mainFile = $request->file('image');
             $imgPath = storage_path('app/public/');
-            $slug=Str::slug($request->title);
-            $count=Brand::where('slug',$slug)->count();
-            if($count>0){
+            $slug = Str::slug($request->title);
+            $count = Brand::where('slug', $slug)->count();
+            if ($count > 0) {
                 $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
             }
-            $data['slug']=$slug;
+            $data['slug'] = $slug;
             if (empty($mainFile)) {
                 Brand::create([
                     'title'    => $request->title,
@@ -104,21 +104,13 @@ class BrandController extends Controller
         if (!empty($brand)) {
             $validator =
                 [
-                    [
-                        'title' => 'required|max: 30',
-                        'image' => 'required|image|mimes:png,jpg,jpeg|max:5000',
-                    ],
-                    [
-                        'image' => 'The file must be an image.',
-                        'mimes' => 'The: attribute must be a file of type: PNG - JPEG - JPG'
-                    ]
+                    'title' => 'required|max:100',
+                    'image' => 'image|mimes:png,jpg,jpeg|max:5000',
                 ];
         } else {
             $validator =
                 [
-                    [
-                        'title' => 'required|max:30',
-                    ]
+                    'title' => 'required|max:100',
                 ];
         }
         $validator = Validator::make($request->all(), $validator);

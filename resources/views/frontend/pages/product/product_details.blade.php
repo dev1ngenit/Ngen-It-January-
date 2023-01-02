@@ -89,7 +89,7 @@
             {{-- <h6> Estimate the total price of this item</h6> --}}
 
             <div class="row">
-                <div class="col-lg-10 ">
+                <div class="col-lg-10">
 
                     <p>{!! $sproduct->short_desc !!}</p>
 
@@ -256,6 +256,7 @@
             </div>
         </div>
     </div>
+
 </section>
 <!-------End-------->
 
@@ -304,56 +305,68 @@
 
 
 <!-- left modal -->
-<div class="modal modal_outer left_modal fade" id="get_quote_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" >
-    <div class="modal-dialog" role="document">
+<div class="modal modal_outer fade" id="get_quote_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" >
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
 
 
-        <div class="modal-content ">
-            <!-- <input type="hidden" name="email_e" value="admin@filmscafe.in"> -->
-            <div class="modal-header" style="background: #ae0a46;color: white;">
-              <h2 class="modal-title">Get a Quote</h2>
+        <div class="modal-content">
+
+            <div class="modal-header p-0 m-0 pl-5 pr-3 py-2" style="background: #ae0a46;color: white;">
+              <h5 class="modal-title">Get a Quote</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            @if (Auth::check())
-                <form action="" method="post" id="get_quote_frm">
+            @if (Auth::user())
+                <form action="{{route('rfq.add')}}" method="post" id="get_quote_frm">
                     @csrf
+                    <div class="card mx-4">
+                        <div class="card-body px-4 py-2">
+                            <div class="row border" style="font-size: 0.8rem;">
+                                <div class="col-lg-3 pl-2">{{Auth::user()->name}}</div>
+                                <div class="col-lg-4" style="margin: 5px 0px">{{Auth::user()->email}}</div>
+                                <div class="col-lg-4" style="margin: 5px 0px">
+                                    {{Auth::user()->phone}}
+                                    <div class="form-group" id="Rfquser" style="display:none">
+                                        <input type="text" required="" class="form-control" id="phone" name="phone" value="{{Auth::user()->phone}}" placeholder="Phone Number" style="font-size: 0.8rem;">
+                                    </div>
+                                </div>
+                                <div class="col-lg-1" style="margin: 5px 0px"><a href="javascript:void(0);" id="editRfquser"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
+                            </div>
+                        </div>
+
+                    </div>
                     <input type="hidden" name="product_id" value="{{$sproduct->id}}">
+                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                    <input type="hidden" name="name" value="{{Auth::user()->name}}">
+                    <input type="hidden" name="email" value="{{Auth::user()->email}}">
                     <div class="modal-body get_quote_view_modal_body">
+
+
                         <div class="form-row">
 
-                            <div class="form-group col-sm-6">
-                                <label for="name">Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="" id="name" name="name" value="{{Auth::user()->name}}" readonly>
+                            <div class="form-group col-sm-4 m-0">
+
+                                <input type="text" class="form-control mt-4" id="contact" name="company_name" placeholder="Company Name" style="font-size: 0.7rem;">
                             </div>
-                            <div class="form-group col-sm-6">
-                                <label for="email">Email <span class="text-danger">*</span></label>
-                                <input type="email" required="" class="form-control" id="email" name="email" value="{{Auth::user()->email}}" readonly>
+                            <div class="form-group col-sm-4 m-0">
+
+                                <input type="number" class="form-control mt-4" id="contact" name="qty" placeholder="Quantity" style="font-size: 0.7rem;">
                             </div>
-                            <div class="form-group  col-sm-6">
-                                <label for="contact">Mobile Number <span class="text-danger">*</span></label>
-                                <input type="email" required="" class="form-control" id="phone" name="phone" value="{{Auth::user()->phone}}" >
+                            <div class="form-group col-sm-4">
+                                <label class="m-0" for="image" style="font-size: 0.7rem;">Upload Image</label>
+                                <input type="file" name="image" class="form-control" id="image" accept="image/*" style="font-size: 0.7rem;"/>
+                                <div class="form-text" style="font-size:11px;">Only png, jpg, jpeg images</div>
+
                             </div>
 
-                            <div class="form-group  col-sm-6">
-                                <label for="contact">Company Name </label>
-                                <input type="email" class="form-control" id="contact" name="company_name">
-                            </div>
-                            <div class="form-group  col-sm-6">
-                                <label for="contact">Quantity </label>
-                                <input type="email" class="form-control" id="contact" name="qty">
-                            </div>
-                            <div class="form-group  col-sm-6">
-                                <label for="contact">Custom Image </label>
-                                <input type="file" name="image" class="form-control" id="image" accept="image/*" />
-                                            <div class="form-text">Accepts only png, jpg, jpeg images</div>
-                                            <img id="showImage" height="70px" width="70px"  src="https://cdn.pixabay.com/photo/2017/02/07/02/16/cloud-2044823_960_720.png" alt="">
+                            <div class="form-group col-sm-12 border text-white" style="background: #7e7d7c">
+                                    <h6 class="text-center pt-1">Product Name : {{$sproduct->name}}</h6>
                             </div>
 
-                            <div class="form-group  col-sm-12">
-                                <label for="message">Type Message</label>
-                                <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                            <div class="form-group col-sm-12">
+
+                                <textarea class="form-control" id="message" name="message" rows="1" placeholder="Additional Information..."></textarea>
                             </div>
 
                             <div class="form-group  col-sm-12 px-3 mx-3">
@@ -362,66 +375,68 @@
 
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit &nbsp;<i class="fa fa-paper-plane"></i></button>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                    <button type="reset" class="btn btn-light col-lg-3 mr-auto" data-dismiss="modal"><i class="fas fa-window-close mr-2"></i> Cancel</button>
-                    <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit &nbsp;<i class="fa fa-paper-plane"></i></button>
-                    </div>
+
                 </form>
             @elseif (Auth::guard('partner')->user())
-                <form action="" method="post" id="get_quote_frm">
+                <form action="{{route('rfq.add')}}" method="post" id="get_quote_frm">
                     @csrf
+                    <div class="card mx-4">
+                        <div class="card-body p-4">
+                            <div class="row border">
+                                <div class="col-lg-3 pl-2">Name: {{Auth::guard('partner')->user()->name}}</div>
+                                <div class="col-lg-4" style="margin: 5px 0px">{{Auth::guard('partner')->user()->primary_email_address}}</div>
+                                <div class="col-lg-4" style="margin: 5px 0px">{{Auth::guard('partner')->user()->company_number}}</div>
+                                <div class="col-lg-1" style="margin: 5px 0px"><a href="javascript:void(0);" id="editRfqpartner"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
+                            </div>
+                        </div>
+                    </div>
                     <input type="hidden" name="product_id" value="{{$sproduct->id}}">
+                    <input type="hidden" name="partner_id" value="{{Auth::guard('partner')->user()->id}}">
+                    <input type="hidden" name="name" value="{{Auth::guard('partner')->user()->name}}">
+                    <input type="hidden" name="primary_email_address" value="{{Auth::guard('partner')->user()->primary_email_address}}">
                     <div class="modal-body get_quote_view_modal_body">
-                        <div class="form-row">
-
+                        <div class="row" id="Rfqpartner" style="display:none">
                             <div class="form-group col-sm-6">
-                                <label for="name">Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" required="" id="name" name="name" value="{{Auth::guard('partner')->user()->name}}" readonly>
+                                <input type="text" required="" class="form-control" id="phone" name="company_number" value="{{Auth::guard('partner')->user()->company_number}}" placeholder="Company Phone Number">
                             </div>
-                            <div class="form-group col-sm-6">
-                                <label for="email">Email <span class="text-danger">*</span></label>
-                                <input type="email" required="" class="form-control" id="email" name="email" value="{{Auth::guard('partner')->user()->primary_email_address}}" readonly>
-                            </div>
-                            <div class="form-group  col-sm-6">
-                                <label for="contact">Mobile Number <span class="text-danger">*</span></label>
-                                <input type="email" required="" class="form-control" id="phone" name="phone" value="{{Auth::guard('partner')->user()->phone}}">
-                            </div>
-
                             <div class="form-group  col-sm-6">
                                 <label for="contact">Company Name </label>
-                                <input type="email" class="form-control" id="contact" name="company_name">
+                                <input type="text" class="form-control" id="contact" name="company_name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group  col-sm-6">
+
+                                <input type="number" class="form-control" id="contact" name="qty" placeholder="Quantity">
                             </div>
                             <div class="form-group  col-sm-6">
-                                <label for="contact">Quantity </label>
-                                <input type="email" class="form-control" id="contact" name="qty">
-                            </div>
-                            <div class="form-group  col-sm-6">
-                                <label for="contact">Custom Image </label>
+                                <label for="contact">Upload Image </label>
                                 <input type="file" name="image" class="form-control" id="image" accept="image/*" />
-                                            <div class="form-text">Accepts only png, jpg, jpeg images</div>
-                                            <img id="showImage" height="70px" width="70px"  src="https://cdn.pixabay.com/photo/2017/02/07/02/16/cloud-2044823_960_720.png" alt="">
+                                <div class="form-text" style="font-size:11px;">Accepts only png, jpg, jpeg images</div>
                             </div>
 
                             <div class="form-group  col-sm-12">
-                                <label for="message">Type Message</label>
-                                <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                                <textarea class="form-control" id="message" name="message" rows="1" placeholder="Additional Text.."></textarea>
                             </div>
 
                             <div class="form-group  col-sm-12 px-3 mx-3">
                                 <input class="mr-2" type="checkbox" name="call" id="call" value="1">
                                 <label for="call">Also Please Call Me</label>
-
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-light col-lg-3 mr-auto" data-dismiss="modal"><i class="fas fa-window-close mr-2"></i> Cancel</button>
+                            <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit &nbsp;<i class="fa fa-paper-plane"></i></button>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                    <button type="reset" class="btn btn-light col-lg-3 mr-auto" data-dismiss="modal"><i class="fas fa-window-close mr-2"></i> Cancel</button>
-                    <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit &nbsp;<i class="fa fa-paper-plane"></i></button>
-                    </div>
+
                 </form>
             @else
-                <form action="" method="post" id="get_quote_frm">
+                <form action="{{route('rfq.add')}}" method="post" id="get_quote_frm">
                     @csrf
                     <input type="hidden" name="product_id" value="{{$sproduct->id}}">
                     <div class="modal-body get_quote_view_modal_body">
@@ -437,22 +452,21 @@
                             </div>
                             <div class="form-group  col-sm-6">
                                 <label for="contact">Mobile Number <span class="text-danger">*</span></label>
-                                <input type="email" required="" class="form-control" id="phone" name="phone">
+                                <input type="text" required="" class="form-control" id="phone" name="phone">
                             </div>
 
                             <div class="form-group  col-sm-6">
                                 <label for="contact">Company Name </label>
-                                <input type="email" class="form-control" id="contact" name="company_name">
+                                <input type="text" class="form-control" id="contact" name="company_name">
                             </div>
                             <div class="form-group  col-sm-6">
                                 <label for="contact">Quantity </label>
-                                <input type="email" class="form-control" id="contact" name="qty">
+                                <input type="number" class="form-control" id="contact" name="qty">
                             </div>
                             <div class="form-group  col-sm-6">
                                 <label for="contact">Custom Image </label>
                                 <input type="file" name="image" class="form-control" id="image" accept="image/*" />
-                                            <div class="form-text">Accepts only png, jpg, jpeg images</div>
-                                            <img id="showImage" height="70px" width="70px"  src="https://cdn.pixabay.com/photo/2017/02/07/02/16/cloud-2044823_960_720.png" alt="">
+                                <div class="form-text" style="font-size:11px;">Accepts only png, jpg, jpeg images</div>
                             </div>
 
                             <div class="form-group  col-sm-12">
@@ -466,11 +480,12 @@
 
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-light col-lg-3 mr-auto" data-dismiss="modal"><i class="fas fa-window-close mr-2"></i> Cancel</button>
+                            <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit &nbsp;<i class="fa fa-paper-plane"></i></button>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                    <button type="reset" class="btn btn-light col-lg-3 mr-auto" data-dismiss="modal"><i class="fas fa-window-close mr-2"></i> Cancel</button>
-                    <button type="submit" class="btn btn-primary col-lg-3" id="submit_btn">Submit &nbsp;<i class="fa fa-paper-plane"></i></button>
-                    </div>
+
                 </form>
             @endif
 
@@ -535,4 +550,17 @@
         document.getElementById("defaultOpen").click();
 
 </script>
+
+<script>
+
+    $(document).ready(function(){
+        $('#editRfquser').click(function() {
+            $("#Rfquser").toggle(this.checked);
+        });
+
+    });
+</script>
+
+
+
 @endsection

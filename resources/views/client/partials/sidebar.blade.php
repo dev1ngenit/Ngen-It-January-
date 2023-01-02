@@ -27,3 +27,19 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    //---------Sidebar list Show Hide----------
+    $(document).ready(function() {
+        $(".accordion-heading").click(function() {
+            if ($(".accordion-body").is(':visible')) {
+                $(".accordion-body").slideUp(3600);
+                $(".plusminus").text('+')
+            } else {
+                $(this).next(".accordion-body").slideDown(3600);
+                $(this).children(".plusminus").text('-');
+            }
+        });
+    });
+</script>

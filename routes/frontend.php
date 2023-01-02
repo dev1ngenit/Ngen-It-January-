@@ -189,7 +189,7 @@ Route::post('cart_store', [App\Http\Controllers\Frontend\CartController::class,'
 
 
 
-//Contact
+//RFQ
 Route::get('rfq', [HomeController::class, 'rfqCreate'])->name('rfq.create');
-Route::post('rfq', [RFQController::class, 'store'])->name('rfq.store');
-
+Route::post('rfq/store', [RFQController::class, 'RFQstore'])->name('rfq.add');
+Route::get('rfq_common', [HomeController::class, 'RFQCommon'])->name('rfq.common');

@@ -59,17 +59,17 @@
                                 <div class="tab-pane fade show active" id="js-tab1">
                                     <div id="table1" class="card cardT">
 
-                                        <table class="datatable table table-bordered table-hover">
+                                        <table class="solutionDetailsDT datatable table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Sl No:</th>
-                                                    <th>name</th>
-                                                    <th>header</th>
-                                                    <th>row_two_title</th>
-                                                    <th>row_two_header</th>
-                                                    <th>row_three_title</th>
-                                                    <th>row_three_header</th>
-                                                    <th class="text-center">Actions</th>
+                                                    <th width="5%">Sl No:</th>
+                                                    <th width="15%">Name</th>
+                                                    <th width="10%">Header</th>
+                                                    <th width="15%">Row Two Title</th>
+                                                    <th width="15%">Row Two Header</th>
+                                                    <th width="15%">Row Three Title</th>
+                                                    <th width="15%">Row Three Header</th>
+                                                    <th width="10%" class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -81,8 +81,14 @@
                                                             </td>
                                                             <td>{{ $solutionDetail->header }}</td>
                                                             <td>{{ $solutionDetail->row_two_title }}</td>
-                                                            <td>{{ $solutionDetail->row_two_header }}</td>
-                                                            <td>{{ $solutionDetail->row_three_title }}</td>
+                                                            <td data-bs-popup="tooltip"
+                                                                title="{{ $solutionDetail->row_two_header }}">
+                                                                {{ Str::limit($solutionDetail->row_two_header, 50, '...') }}
+                                                            </td>
+                                                            <td data-bs-popup="tooltip"
+                                                                title="{{ $solutionDetail->row_three_title }}">
+                                                                {{ Str::limit($solutionDetail->row_three_title, 50, '...') }}
+                                                            </td>
                                                             <td>{{ $solutionDetail->row_three_header }}</td>
                                                             <td class="text-center">
                                                                 <a href="{{ route('solutionDetails.edit', [$solutionDetail->id]) }}"
@@ -118,3 +124,20 @@
 
 
 @endsection
+
+
+@once
+    @push('scripts')
+        <script type="text/javascript">
+            $('.solutionDetailsDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 26, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [7],
+                }, ],
+            });
+        </script>
+    @endpush
+@endonce

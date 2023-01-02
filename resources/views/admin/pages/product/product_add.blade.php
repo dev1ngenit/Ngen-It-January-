@@ -420,17 +420,7 @@
     $(document).ready(function(){
 
 
-        // var isChecked = $('#dealId').prop('checked');
-        // if(isChecked == true){
-        //         alert(5);
-        //     // if ($( "#dealexpand" ).hasClass('d-none')) {
-        //         $( "#dealexpand" ).removeClass( 'd-none');
-        //     // } else {
-
-        //     // }
-        // }else{
-        //     $( "#dealexpand" ).addClass( 'd-none');
-        // }
+       
 
         $('#dealId').click(function() {
             $("#dealExpand").toggle(this.checked);

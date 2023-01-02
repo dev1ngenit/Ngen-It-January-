@@ -109,10 +109,10 @@
                                                             <h6 class="mb-0">Solution Name</h6>
                                                         </div>
                                                         <div class="form-group col-sm-12 text-secondary">
-                                                              <input type="text" name="name" class="form-control maxlength"
-                                                                  maxlength="100"/>
-                                                          </div>
-                                                      </div>
+                                                            <input type="text" name="name"
+                                                                class="form-control maxlength" maxlength="100" />
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -160,8 +160,8 @@
                                                     <h6 class="mb-0">Solution Card Section Title </h6>
                                                 </div>
                                                 <div class="form-group col-sm-8 text-secondary">
-                                                    <input type="text" name="row_two_title" class="form-control maxlength"
-                                                        maxlength="100" />
+                                                    <input type="text" name="row_two_title"
+                                                        class="form-control maxlength" maxlength="100" />
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -180,11 +180,13 @@
                                                             <h6 class="mb-0">Solution Card-1 </h6>
                                                         </div>
                                                         <div class="form-group col-sm-12 text-secondary">
-                                                            <select name="solution_card_one_id" data-placeholder="Select Solution Card-1.."
+                                                            <select name="solution_card_one_id"
+                                                                data-placeholder="Select Solution Card-1.."
                                                                 class="form-control select">
                                                                 <option></option>
                                                                 @foreach ($solution_cards as $solution_card)
-                                                                    <option class="form-control" value="{{ $solution_card->id }}">
+                                                                    <option class="form-control"
+                                                                        value="{{ $solution_card->id }}">
                                                                         {{ $solution_card->title }}</option>
                                                                 @endforeach
                                                             </select>
@@ -194,14 +196,16 @@
                                                 <div class="col-lg-4 col-sm-4">
                                                     <div class="row mb-3">
                                                         <div class="col-sm-12">
-                                                            <h6 class="mb-0">Solution Card-2  </h6>
+                                                            <h6 class="mb-0">Solution Card-2 </h6>
                                                         </div>
                                                         <div class="form-group col-sm-12 text-secondary">
-                                                            <select name="solution_card_two_id" data-placeholder="Select Solution Card-2.."
+                                                            <select name="solution_card_two_id"
+                                                                data-placeholder="Select Solution Card-2.."
                                                                 class="form-control select">
                                                                 <option></option>
                                                                 @foreach ($solution_cards as $solution_card)
-                                                                    <option class="form-control" value="{{ $solution_card->id }}">
+                                                                    <option class="form-control"
+                                                                        value="{{ $solution_card->id }}">
                                                                         {{ $solution_card->title }}</option>
                                                                 @endforeach
                                                             </select>
@@ -215,10 +219,12 @@
                                                         </div>
                                                         <div class="form-group col-sm-12 text-secondary">
                                                             <select name="solution_card_three_id"
-                                                                data-placeholder="Select Solution Card-3..." class="form-control select">
+                                                                data-placeholder="Select Solution Card-3..."
+                                                                class="form-control select">
                                                                 <option></option>
                                                                 @foreach ($solution_cards as $solution_card)
-                                                                    <option class="form-control" value="{{ $solution_card->id }}">
+                                                                    <option class="form-control"
+                                                                        value="{{ $solution_card->id }}">
                                                                         {{ $solution_card->title }}</option>
                                                                 @endforeach
                                                             </select>
@@ -232,11 +238,13 @@
                                                             <h6 class="mb-0">Solution Card-4 </h6>
                                                         </div>
                                                         <div class="form-group col-sm-12 text-secondary">
-                                                            <select name="solution_card_four_id" data-placeholder="Select Solution Card-4..."
+                                                            <select name="solution_card_four_id"
+                                                                data-placeholder="Select Solution Card-4..."
                                                                 class="form-control select">
                                                                 <option></option>
                                                                 @foreach ($solution_cards as $solution_card)
-                                                                    <option class="form-control" value="{{ $solution_card->id }}">
+                                                                    <option class="form-control"
+                                                                        value="{{ $solution_card->id }}">
                                                                         {{ $solution_card->title }}</option>
                                                                 @endforeach
                                                             </select>
@@ -250,11 +258,13 @@
                                                             <h6 class="mb-0">Solution Card-5 </h6>
                                                         </div>
                                                         <div class="form-group col-sm-12 text-secondary">
-                                                            <select name="solution_card_five_id" data-placeholder="Select Solution Card-5..."
+                                                            <select name="solution_card_five_id"
+                                                                data-placeholder="Select Solution Card-5..."
                                                                 class="form-control select">
                                                                 <option></option>
                                                                 @foreach ($solution_cards as $solution_card)
-                                                                    <option class="form-control" value="{{ $solution_card->id }}">
+                                                                    <option class="form-control"
+                                                                        value="{{ $solution_card->id }}">
                                                                         {{ $solution_card->title }}</option>
                                                                 @endforeach
                                                             </select>
@@ -348,10 +358,12 @@
                                                     </div>
                                                     <div class="form-group col-sm-12 text-secondary">
                                                         <select name="solution_card_six_id"
-                                                            data-placeholder="Select Solution Card-6.." class="form-control select">
+                                                            data-placeholder="Select Solution Card-6.."
+                                                            class="form-control select">
                                                             <option></option>
                                                             @foreach ($solution_cards as $solution_card)
-                                                                <option class="form-control" value="{{ $solution_card->id }}">
+                                                                <option class="form-control"
+                                                                    value="{{ $solution_card->id }}">
                                                                     {{ $solution_card->title }}</option>
                                                             @endforeach
                                                         </select>
@@ -365,10 +377,12 @@
                                                     </div>
                                                     <div class="form-group col-sm-12 text-secondary">
                                                         <select name="solution_card_seven_id"
-                                                            data-placeholder="Select Solution Card-7.." class="form-control select">
+                                                            data-placeholder="Select Solution Card-7.."
+                                                            class="form-control select">
                                                             <option></option>
                                                             @foreach ($solution_cards as $solution_card)
-                                                                <option class="form-control" value="{{ $solution_card->id }}">
+                                                                <option class="form-control"
+                                                                    value="{{ $solution_card->id }}">
                                                                     {{ $solution_card->title }}</option>
                                                             @endforeach
                                                         </select>
@@ -382,10 +396,12 @@
                                                     </div>
                                                     <div class="form-group col-sm-12 text-secondary">
                                                         <select name="solution_card_eight_id"
-                                                            data-placeholder="Select Solution Card-8.." class="form-control select">
+                                                            data-placeholder="Select Solution Card-8.."
+                                                            class="form-control select">
                                                             <option></option>
                                                             @foreach ($solution_cards as $solution_card)
-                                                                <option class="form-control" value="{{ $solution_card->id }}">
+                                                                <option class="form-control"
+                                                                    value="{{ $solution_card->id }}">
                                                                     {{ $solution_card->title }}</option>
                                                             @endforeach
                                                         </select>

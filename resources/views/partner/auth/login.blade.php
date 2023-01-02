@@ -40,7 +40,10 @@
                             <input type="text" name="name" placeholder="Full Name" required>
                         </div>
                         <div class="field">
-                            <input type="text" name="primary_email_address" placeholder="john@doe.com" required>
+                            <input type="email" name="primary_email_address" placeholder="john@doe.com" required>
+                        </div>
+                        <div class="field">
+                            <input type="text" name="company_number" placeholder="Company Phone Number" required>
                         </div>
                         <div class="field">
                             <input type="password" name="password" placeholder="Password" required>

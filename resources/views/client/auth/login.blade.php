@@ -38,7 +38,10 @@
                             <input type="text" name="name" placeholder="Full Name" required>
                         </div>
                         <div class="field">
-                            <input type="text" name="email" placeholder="Email Address" required>
+                            <input type="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="field">
+                            <input type="text" name="phone" placeholder="Phone Number" required>
                         </div>
                         <div class="field">
                             <input type="password" name="password" placeholder="Password" required>

@@ -118,20 +118,7 @@
 </script>
 
 
-<script>
-    //---------Sidebar list Show Hide----------
-    $(document).ready(function() {
-        $(".accordion-heading").click(function() {
-            if ($(".accordion-body").is(':visible')) {
-                $(".accordion-body").slideUp(300);
-                $(".plusminus").text('+')
-            } else {
-                $(this).next(".accordion-body").slideDown(300);
-                $(this).children(".plusminus").text('-');
-            }
-        });
-    });
-</script>
+
 
 
 <script>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\JobController;
+use App\Http\Controllers\Admin\RFQController;
 use App\Http\Controllers\Admin\RowController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\PageController;

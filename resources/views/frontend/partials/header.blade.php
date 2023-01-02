@@ -30,7 +30,7 @@
                 <div class="top_menu_item_wrapper">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Your Dashboard
-                    </a>
+                    </a> 
                     <div class="dropdown-menu top_menu_item" aria-labelledby="navbarDropdown" style="border-radius: 8px">
                         @auth
                         <a class="dropdown-item px-3 py-1 p-0" href="{{route('client.dashboard')}}" style="border-bottom: 1px #ffffff dotted">Client Dashboard</a>

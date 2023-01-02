@@ -34,7 +34,7 @@ class IndustryController extends Controller
     public function create()
     {
         $data['industrys'] = Industry::latest()->get();
-        return view('admin.pages.industry.add',$data);
+        return view('admin.pages.industry.add', $data);
     } // End Method
 
 
