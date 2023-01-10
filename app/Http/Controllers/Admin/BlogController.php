@@ -143,25 +143,21 @@ class BlogController extends Controller
         if (!empty($blog)) {
             $validator =
                 [
-                    [
-                        'badge' => 'required|max:70',
-                        'title' => 'required|max:200',
-                        'tags' => 'required|max:250',
-                        'image' => 'required|image|mimes:png,jpg,jpeg|max:5000',
-                    ],
-                    [
-                        'image' => 'The file must be an image.',
-                        'mimes' => 'The: attribute must be a file of type: PNG - JPEG - JPG'
-                    ]
+
+                    'badge' => 'required|max:70',
+                    'title' => 'required|max:200',
+                    'tags' => 'required|max:250',
+                    'image' => 'required|image|mimes:png,jpg,jpeg|max:5000',
+
                 ];
         } else {
             $validator =
                 [
-                    [
-                        'badge' => 'required|max:70',
-                        'title' => 'required|max:200',
-                        'tags' => 'required|max:250',
-                    ]
+
+                    'badge' => 'required|max:70',
+                    'title' => 'required|max:200',
+                    'tags' => 'required|max:250',
+
                 ];
         }
         $validator = Validator::make($request->all(), $validator);

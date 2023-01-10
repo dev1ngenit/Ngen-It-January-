@@ -77,16 +77,16 @@ class ClientStoryController extends Controller
                 $globalFunImg =  Helper::singleImageUpload($mainFile, $imgPath, 1180, 400);
                 if ($globalFunImg['status'] == 1) {
                     ClientStory::create([
-                    'badge'       => $request->badge,
-                    'title'       => $request->title,
-                    'header'      => $request->header,
-                    'created_by'  => $request->created_by,
-                    'tags'        => $request->tags,
-                    'short_des'   => $request->short_des,
-                    'long_des'    => $request->long_des,
-                    'footer'      => $request->footer,
-                    'image'       => $globalFunImg['file_name'],
-                    'created_at'  => Carbon::now(),
+                        'badge'       => $request->badge,
+                        'title'       => $request->title,
+                        'header'      => $request->header,
+                        'created_by'  => $request->created_by,
+                        'tags'        => $request->tags,
+                        'short_des'   => $request->short_des,
+                        'long_des'    => $request->long_des,
+                        'footer'      => $request->footer,
+                        'image'       => $globalFunImg['file_name'],
+                        'created_at'  => Carbon::now(),
                     ]);
                 } else {
                     Toastr::warning('Image upload failed! plz try again.');
@@ -141,24 +141,16 @@ class ClientStoryController extends Controller
         if (!empty($story)) {
             $validator =
                 [
-                    [
-                        'badge' => 'required|max:70',
-                        'title' => 'required|max:200',
-                        'tags' => 'required|max:250',
-                        'image' => 'required|image|mimes:png,jpg,jpeg|max:10000',
-                    ],
-                    [
-                        'image' => 'The file must be an image.',
-                        'mimes' => 'The: attribute must be a file of type: PNG - JPEG - JPG & must be less than 10MB.'
-                    ]
+                    'badge' => 'required|max:70',
+                    'title' => 'required|max:200',
+                    'tags' => 'required|max:250',
+                    'image' => 'required|image|mimes:png,jpg,jpeg|max:10000',
                 ];
         } else {
             $validator =
                 [
-                    [
-                        'title' => 'required|max:200',
-                        'tags' => 'required|max:250',
-                    ]
+                    'title' => 'required|max:200',
+                    'tags' => 'required|max:250',
                 ];
         }
         $validator = Validator::make($request->all(), $validator);

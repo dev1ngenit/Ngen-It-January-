@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Rfq;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -100,14 +101,14 @@ class ClientController extends Controller
 
     public function ClientDashboard(){
 
-        return view('client.dashboard');
+        return view('client.pages.dashboard.index');
 
     }
 
     public function ClientProfile(){
         if (Auth::user()->id){
             $data['user'] = User::where('id', Auth::user()->id)->first();
-        return view('client.profile',$data);
+        return view('client.pages.profile',$data);
         }else{
             Toastr::error('Login first.');
             return redirect()->back();
@@ -115,14 +116,14 @@ class ClientController extends Controller
     }
 
     public function ClientTrack(){
-        return view('client.track');
+        return view('client.pages.track');
     } // End Mehtod
 
     public function ClientProfileUpdate(){
 
         if (Auth::user()->id){
             $data = User::where('id', Auth::user()->id)->first();
-        return view('client.profile_update',compact('data'));
+        return view('client.pages.profile_update',compact('data'));
         }else{
             Toastr::error('Login first.');
             return redirect()->back();
@@ -199,7 +200,7 @@ class ClientController extends Controller
 
             $status = $profile->fill($data)->save();
             Toastr::success('Your Profile Updated Successfully');
-            return redirect()->route('client.profile');
+            return redirect()->route('client.pages.profile');
         } else {
             $messages = $validator->messages();
             foreach ($messages->all() as $message) {
@@ -210,6 +211,33 @@ class ClientController extends Controller
 
 
     } // End Mehtod
+
+    public function ClientChangePassword(){
+        return view('admin.pages.profile.change_password');
+    } // End Mehtod
+
+
+    public function ClientUpdatePassword(Request $request){
+        // Validation
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+
+        // Match The Old Password
+        if (!Hash::check($request->old_password, auth::user()->password)) {
+            return back()->with("error", "Old Password Doesn't Match!!");
+        }
+
+        // Update The new password
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+
+        ]);
+        return back()->with("status", "Password Changed Successfully");
+
+    } // End Mehtod
+
 
 
 
@@ -224,7 +252,12 @@ class ClientController extends Controller
     } // End Mehtod
 
 
-    
+    public function ClientRFQ(){
+
+        $data['rfqs'] = Rfq::where('user_id' , Auth::user()->id)->get();
+        return view('client.pages.rfq',$data);
+
+    }
 
 
 }

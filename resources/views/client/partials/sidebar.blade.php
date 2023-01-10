@@ -1,45 +1,91 @@
-<div id="mySidebar">
-    <!--Sidebar-->
-    <div class="user_dashboard_sidebar_title text-center">
-        <img src="{{ (!empty(Auth::user()->photo)) ? url('upload/Profile/user/'.Auth::user()->photo):url('upload/no_image.jpg') }}" alt="{{Auth::user()->name}}" class="rounded-pill bg-primary" style="width: 170px; height:160px; padding: 2px">
-        <h2 class="mt-2">{{Auth::user()->name}}<span onclick="userDashboardSidebarClicked()" class="d-flex justify-content-end mt-0">
-            <i class="fa-solid fa-chevron-left fa-sm" style="margin-top: -20px;color: #707063;cursor: pointer;">
-            </i>
-        </span>
-        </h2>
-        <p style="font-size:14px">Welcome back {{Auth::user()->email}}</p>
-        <a href="{{route('client.logout')}}" class="common_button_logout mb-2">Logout - not you?</a>
-        <hr><br>
-    </div>
-    <div class="user_dashboard_sidebar_nav">
-        <a href="#">My Company</a>
-        <a href="{{route('client.dashboard')}}">Dashboard</a>
-        <p class="accordion-heading">Tools<span class="plusminus float-right mr-4">+</span></p>
-        <div class="accordion-body" style="display: none;">
-            <a href="{{route('user.order.page')}}">Saved Carts / Order Templates</a>
+@php
+    $setting = App\Models\Admin\Setting::latest()->first();
+@endphp
+
+
+<div class="sidebar sidebar-dark sidebar-main sidebar-expand-lg" style="background:rgb(83, 80, 80)">
+
+    <!-- Sidebar content -->
+    <div class="sidebar-content">
+
+        <!-- Sidebar header -->
+        <div class="sidebar-section">
+            <div class="sidebar-section-body d-flex justify-content-center">
+
+                <!-- Sidebar user -->
+				<div class="sidebar-resize-hide sidebar-section">
+					<div class="sidebar-section-body text-center pt-0">
+						<div class="card-img-actions d-inline-block mb-3">
+							<img class="img-fluid rounded-circle"
+                            src="{{ (!empty(Auth::user()->photo)) ? url('upload/Profile/user/'.Auth::user()->photo):url('upload/no_image.jpg') }}"
+                            width="150" height="150" alt="">
+							<div class="card-img-actions-overlay card-img rounded-circle">
+								<a href="#" class="btn btn-outline-white btn-icon rounded-pill">
+									<i class="ph-pencil"></i>
+								</a>
+							</div>
+						</div>
+
+			    		<h5 class="mb-0">Hello {{Auth::user()->name}}</h5>
+			    		{{-- <span class="text-muted">UX/UI designer</span> --}}
+
+						<div class="d-flex justify-content-center mt-3">
+							<a href="#" class="link-pink" data-bs-popup="tooltip" title="Dribbble">
+								<i class="ph-dribbble-logo"></i>
+							</a>
+							<a href="#" class="link-info mx-2" data-bs-popup="tooltip" title="Twitter">
+								<i class="ph-twitter-logo"></i>
+							</a>
+							<a href="#" class="link-indigo" data-bs-popup="tooltip" title="Teams">
+								<i class="ph-microsoft-teams-logo"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- /sidebar user -->
+
+                {{-- <h5 class="sidebar-resize-hide flex-grow-1 my-auto">Hello, {{Auth::user()->name}}!</h5> --}}
+
+                <div>
+                    <button type="button" class="btn btn-flat-white btn-icon btn-sm rounded-pill border-transparent sidebar-control sidebar-main-resize d-none d-lg-inline-flex">
+                        <i class="ph-arrows-left-right"></i>
+                    </button>
+
+                    <button type="button" class="btn btn-flat-white btn-icon btn-sm rounded-pill border-transparent sidebar-mobile-main-toggle d-lg-none">
+                        <i class="ph-x"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <p class="accordion-heading">Personalization<span class="plusminus float-right mr-4">+</span></p>
-        <div class="accordion-body" style="display: none;">
-            <a href="#">Personal Product List</a>
-            <a href="#">User Subsciptions</a>
-            <a href="{{route('client.profile')}}">User Profile</a>
-            <a href="{{route('client.profile_update')}}">Profile Update</a>
+        <!-- /sidebar header -->
+
+
+        <!-- Main navigation -->
+        <div class="sidebar-section">
+            <ul class="nav nav-sidebar" data-nav-type="accordion">
+
+
+                <li class="nav-item">
+                    <a href="{{route('client.dashboard')}}" class="nav-link active">
+                        <i class="ph-house"></i>
+                        <span>
+                            Dashboard
+
+                        </span>
+                    </a>
+                </li>
+                @if (Auth::user()->status == 'active')
+
+                @else
+                @endif
+
+
+
+            </ul>
         </div>
+        <!-- /main navigation -->
+
     </div>
+    <!-- /sidebar content -->
+
 </div>
-
-
-<script>
-    //---------Sidebar list Show Hide----------
-    $(document).ready(function() {
-        $(".accordion-heading").click(function() {
-            if ($(".accordion-body").is(':visible')) {
-                $(".accordion-body").slideUp(3600);
-                $(".plusminus").text('+')
-            } else {
-                $(this).next(".accordion-body").slideDown(3600);
-                $(this).children(".plusminus").text('-');
-            }
-        });
-    });
-</script>

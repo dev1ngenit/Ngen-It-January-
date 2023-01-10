@@ -37,6 +37,8 @@ return new class extends Migration
             $table->text('row_five_header')->nullable();
             $table->string('row_five_title')->nullable();
 
+            $table->text('footer')->nullable();
+
 
             $table->timestamps();
         });

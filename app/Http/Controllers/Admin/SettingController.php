@@ -18,9 +18,8 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $setting=Setting::first();
-        return view('admin.pages.setting.all',compact('setting'));
-
+        $setting = Setting::first();
+        return view('admin.pages.setting.all', compact('setting'));
     }
 
     /**
@@ -41,7 +40,7 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        
+
 
         $validator = Validator::make(
             $request->all(),
@@ -60,11 +59,9 @@ class SettingController extends Controller
 
         if ($validator->passes()) {
             $data = $request->all();
-            if ($request->logo)
-            {
-                $destination = 'upload/logoimage'.$request->logo;
-                if (File::exists($destination))
-                {
+            if ($request->logo) {
+                $destination = 'upload/logoimage' . $request->logo;
+                if (File::exists($destination)) {
                     File::delete($destination);
                 }
                 $image = $request->logo;
@@ -72,25 +69,22 @@ class SettingController extends Controller
                 $request->logo->move('upload/logoimage', $imagename);
                 $data['logo'] = $imagename;
             }
-            if ($request->favicon)
-            {
-                $destination = 'upload/faviconimage'.$request->favicon;
-                if (File::exists($destination))
-                {
+            if ($request->favicon) {
+                $destination = 'upload/faviconimage' . $request->favicon;
+                if (File::exists($destination)) {
                     File::delete($destination);
                 }
                 $image     = $request->favicon;
-                $imagename = time().'.'.$image->getClientoriginalExtension();
+                $imagename = time() . '.' . $image->getClientoriginalExtension();
                 $request->favicon->move('upload/faviconimage', $imagename);
                 $data['favicon'] = $imagename;
             }
-                $settings=Setting::first();
-                $status=$settings->fill($data)->save();
+            $settings = Setting::first();
+            $status = $settings->fill($data)->save();
 
             if ($status) {
                 Toastr::success('Data Updated Successfully');
-            }else
-            {
+            } else {
                 Toastr::warning('Sorry ! Please try again.');
             }
         } else {
@@ -134,7 +128,6 @@ class SettingController extends Controller
      */
     public function update(Request $request, $id)
     {
-
     }
 
     /**

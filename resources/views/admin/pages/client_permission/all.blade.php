@@ -38,7 +38,7 @@
                                     <h4 class="mb-0 text-center">All Client Permission</h4>
                                 </div>
 
-                                <table class="datatable table table-bordered table-hover">
+                                <table class="datatable table table-bordered table-hover clientpermissionDT">
                                     <thead>
                                         <tr>
                                             <th>id</th>
@@ -46,7 +46,6 @@
                                             <th>image</th>
                                             <th>phone</th>
                                             <th>country</th>
-                                            <th>post_code</th>
                                             <th>email</th>
                                             <th>status</th>
                                             <th class="text-center">Actions</th>
@@ -58,12 +57,11 @@
                                                 <tr>
                                                     <td>{{ ++$key }}</td>
                                                     <td>{{ $clientPermission->name }}</td>
-                                                    <td class="text-center"><img
+                                                    <td class="text-center"><img class="rounded-circle"
                                                             src="{{ asset('upload/Profile/user/' . $clientPermission->photo) }}"
                                                             height="50" width="50" alt=""></td>
                                                     <td>{{ $clientPermission->phone }}</td>
                                                     <td>{{ $clientPermission->country }}</td>
-                                                    <td>{{ $clientPermission->postal }}</td>
                                                     <td>{{ $clientPermission->email }}</td>
                                                     <td>
                                                         @if ($clientPermission->status == 'active')
@@ -71,21 +69,22 @@
                                                         @else
                                                             <span class="badge bg-danger">Pending</span>
                                                         @endif
-                                                        <div class="form-check form-switch mb-2">
 
-                                                            <input name="toggle" type="checkbox" class="form-check-input form-check-input-danger" value="{{$clientPermission->id}}" id="sc_r_danger" {{(($clientPermission->status=='inactive') ? 'checked' : '')}}>
-
-                                                        </div>
                                                     </td>
-                                                    <td class="text-center">
-                                                        <a href="{{ route('clientPermission.edit', [$clientPermission->id]) }}"
-                                                            class="text-primary">
-                                                            <i class="icon-pencil"></i>
-                                                        </a>
-                                                        <a href="{{ route('clientPermission.destroy', [$clientPermission->id]) }}"
-                                                            class="text-danger delete mx-2">
-                                                            <i class="delete icon-trash"></i>
-                                                        </a>
+                                                    <td>
+
+                                                        <div class="text-center">
+                                                            <div class="form-switch mb-2">
+                                                                <input name="toggle" type="checkbox"
+                                                                    class="form-check-input form-check-input-danger"
+                                                                    value="{{ $clientPermission->id }}" id="sc_r_danger"
+                                                                    {{ $clientPermission->status == 'inactive' ? 'checked' : '' }}>
+                                                            </div>
+                                                            <a href="{{ route('clientPermission.destroy', [$clientPermission->id]) }}"
+                                                                class="text-danger delete mx-2">
+                                                                <i class="delete icon-trash"></i>
+                                                            </a>
+                                                        </div>
 
                                                     </td>
                                                 </tr>
@@ -108,32 +107,47 @@
     </div>
 
     <script>
-        $(document).ready(function(){
-        $('input[name=toggle]').change(function() {
-        var mode= $(this).prop('checked');
-        var id=$(this).val();
-        $.ajax({
-            url:"{{route('client.status')}}",
-            type:"POST",
-            data:{
-                _token:'{{csrf_token()}}',
-                mode:mode,
-                id:id,
-            },
-            success:function (response) {
-
-                if (response.status) {
-                    alert(response.msg);
-                }
-                else{
-                    alert('Please Try Again!');
-                }
-                window.location.reload();
-            }
-
+        $(document).ready(function() {
+            $('input[name=toggle]').change(function() {
+                var mode = $(this).prop('checked');
+                var id = $(this).val();
+                $.ajax({
+                    url: "{{ route('client.status') }}",
+                    type: "POST",
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        mode: mode,
+                        id: id,
+                    },
+                    success: function(response) {
+                        if (response.status) {
+                            console.log(response.msg);
+                        } else {
+                            console.log('Please Try Again!');
+                        }
+                        window.location.reload();
+                    }
+                })
+            })
         })
 
-       })
-    })
-      </script>
+
+
+    </script>
 @endsection
+
+@once
+    @push('scripts')
+        <script type="text/javascript">
+            $('.clientpermissionDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 26, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [2, 6, 7],
+                }, ],
+            });
+        </script>
+    @endpush
+@endonce

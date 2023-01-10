@@ -12,7 +12,7 @@ style="background: linear-gradient(179deg, #ae0a46, #ae0a46b5);">
         @endphp
 
         <div class="navbar-brand flex-1 flex-lg-0">
-            <a href="{{route('admin.dashboard')}}" class="d-inline-flex align-items-center">
+            <a href="{{route('client.dashboard')}}" class="d-inline-flex align-items-center">
                 <img src="{{ (!file_exists('upload/logoimage/'.$setting->logo)) ? $setting->logo:url('upload/logoimage/'.$setting->logo) }}" alt="">
                 {{-- <img src="{{asset('upload/logoimage/'.$setting->logo)}}" class="d-none d-sm-inline-block h-16px ms-3" alt=""> --}}
             </a>
@@ -237,18 +237,18 @@ style="background: linear-gradient(179deg, #ae0a46, #ae0a46b5);">
             <li class="nav-item nav-item-dropdown-lg dropdown ms-lg-2">
                 <a href="#" class="navbar-nav-link align-items-center rounded-pill p-1" data-bs-toggle="dropdown">
                     <div class="status-indicator-container">
-                        <img src="{{ (!empty(Auth::user()->photo)) ? url('upload/Profile/admin/'.Auth::user()->photo):url('upload/no_image.jpg') }}" class="w-32px h-32px rounded-pill" alt="">
+                        <img src="{{ (!empty(Auth::user()->photo)) ? url('upload/Profile/user/'.Auth::user()->photo):url('upload/no_image.jpg') }}" class="w-32px h-32px rounded-pill" alt="">
                         <span class="status-indicator bg-success"></span>
                     </div>
                     <span class="d-none d-lg-inline-block mx-lg-2">{{Auth::user()->name}}</span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a href="{{ route('admin.profile') }}" class="dropdown-item">
+                    <a href="{{ route('client.profile') }}" class="dropdown-item">
                         <i class="ph-user-circle me-2"></i>
                         My profile
                     </a>
-                    <a href="{{ route('admin.change.password') }}" class="dropdown-item">
+                    <a href="{{ route('client.change.password') }}" class="dropdown-item">
                         <i class="ph-password"></i>
                         Change Password
                     </a>
@@ -266,11 +266,11 @@ style="background: linear-gradient(179deg, #ae0a46, #ae0a46b5);">
                         <span class="badge bg-primary rounded-pill ms-auto">26</span>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a href="{{ route('admin.profile') }}" class="dropdown-item">
+                    <a href="{{ route('client.profile') }}" class="dropdown-item">
                         <i class="ph-gear me-2"></i>
                         Account settings
                     </a>
-                    <a href="{{ route('admin.logout') }}" class="dropdown-item">
+                    <a href="{{ route('client.logout') }}" class="dropdown-item">
                         <i class="ph-sign-out me-2"></i>
                         Logout
                     </a>

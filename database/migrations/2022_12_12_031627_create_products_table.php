@@ -29,22 +29,24 @@ return new class extends Migration
             $table->longText('accessories')->nullable();
             $table->longText('warranty')->nullable();
             $table->string('thumbnail');
-            $table->integer('stock')->default(1);
+            $table->integer('qty')->default(1);
             //$table->enum('condition',['default','new','hot'])->default('default');
-            $table->enum('status',['active','inactive'])->default('active');
+            // $table->enum('stock',['unlimited','limited','available','stock_out'])->default('available')->nullable();
+            $table->string('stock')->nullable();
             $table->float('price',8,2)->nullabale();
             $table->float('discount',8,2)->nullabale();
             $table->string('deal')->nullable();
             $table->string('industry')->nullable();
             $table->string('solution')->nullable();
             $table->enum('refurbished',['0','1'])->default('0')->nullable();
+            $table->enum('rfq',['0','1'])->default('0')->nullable();
             $table->string('product_type');
             $table->unsignedBigInteger('cat_id')->nullable();
             $table->unsignedBigInteger('sub_cat_id')->nullable();
             $table->unsignedBigInteger('sub_sub_cat_id')->nullable();
             $table->unsignedBigInteger('sub_sub_sub_cat_id')->nullable();
             $table->unsignedBigInteger('brand_id')->nullable();
-
+            $table->enum('status',['active','inactive'])->default('active');
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('SET NULL');
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('SET NULL');
             $table->foreign('sub_cat_id')->references('id')->on('sub_categories')->onDelete('SET NULL');

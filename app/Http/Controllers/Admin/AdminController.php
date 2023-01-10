@@ -5,8 +5,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Middleware\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -123,10 +126,10 @@ class AdminController extends Controller
     }// End Mehtod
 
 
-    public function AddAdmin(){
-        $roles = Role::all();
-        return view('admin.pages.admin.add_admin',compact('roles'));
-    }// End Mehtod
+    // public function AddAdmin(){
+    //     $roles = Role::all();
+    //     return view('admin.pages.admin.add_admin',compact('roles'));
+    // }// End Mehtod
 
 
 
@@ -159,12 +162,12 @@ class AdminController extends Controller
 
 
 
-    public function EditAdminRole($id){
+    // public function EditAdminRole($id){
 
-        $user = User::findOrFail($id);
-        $roles = Role::all();
-        return view('admin.pages.admin.edit_admin',compact('user','roles'));
-    }// End Mehtod
+    //     $user = User::findOrFail($id);
+    //     $roles = Role::all();
+    //     return view('admin.pages.admin.edit_admin',compact('user','roles'));
+    // }// End Mehtod
 
 
     public function AdminUserUpdate(Request $request,$id){

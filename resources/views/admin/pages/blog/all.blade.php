@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="card-body">
-                            <table class="datatable table table-bordered table-hover">
+                            <table class="blogDT datatable table table-bordered table-hover">
                                 <thead class="text-center">
                                     <tr>
                                         <th width="10%">Sl No:</th>
@@ -66,22 +66,23 @@
                                 <tbody>
                                     @if ($blogs)
                                         @foreach ($blogs as $key => $story)
-                                        <tr>
-                                            <td>{{++$key}}</td>
-                                            <td class="text-center"><img  src="{{ asset('storage/thumb/'.$story->image) }}" height="40" width="70" alt=""></td>
-                                            <td>{{$story->badge}}</td>
-                                            <td>{{$story->title}}</td>
-                                            <td class="text-center">
-                                                <a href="{{ route('blog.edit',$story->id) }}" class="text-primary">
-                                                    <i class="icon-pencil"></i>
-                                                </a>
-                                                <a href="{{ route('blog.destroy', [$story->id]) }}"
-                                                    class="text-danger delete mx-2">
-                                                    <i class="delete icon-trash"></i>
-                                                </a>
-
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td>{{ ++$key }}</td>
+                                                <td class="text-center"><img
+                                                        src="{{ asset('storage/thumb/' . $story->image) }}" height="40"
+                                                        width="70" alt=""></td>
+                                                <td>{{ $story->badge }}</td>
+                                                <td>{{ $story->title }}</td>
+                                                <td class="text-center">
+                                                    <a href="{{ route('blog.edit', $story->id) }}" class="text-primary">
+                                                        <i class="icon-pencil"></i>
+                                                    </a>
+                                                    <a href="{{ route('blog.destroy', [$story->id]) }}"
+                                                        class="text-danger delete mx-2">
+                                                        <i class="delete icon-trash"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
                                         @endforeach
                                     @endif
                                 </tbody>
@@ -103,5 +104,18 @@
     </div>
 @endsection
 
-@push('script')
-@endpush
+@once
+    @push('scripts')
+        <script type="text/javascript">
+            $('.blogDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 20, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [1, 4],
+                }, ],
+            });
+        </script>
+    @endpush
+@endonce

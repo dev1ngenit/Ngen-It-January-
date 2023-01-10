@@ -36761,3 +36761,18 @@ html[data-color-theme=dark] .sidebar-expand.sidebar-end {
 .small{
     font-size: 12px;
 }
+
+.border-radius-5{
+    border-radius: 5px !important;
+}
+.border-radius-8{
+    border-radius: 8px !important;
+}
+
+.border-radius-10{
+    border-radius: 10px !important;
+}
+.bg-ash{
+    background: #5f5753;
+    color: white;
+}

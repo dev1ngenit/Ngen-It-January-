@@ -43,6 +43,251 @@
                                 enctype="multipart/form-data" id="myform">
                                 @csrf
                                 @method('PUT')
+
+                                <!--Banner Section-->
+                                <div class="row border">
+                                    <div class="col-12 text-center">
+                                        <h5 class="border-bottom p-2">Banner Section</h5>
+                                    </div>
+                                    <div class="row mb-3 mt-2">
+                                        <div class="col-lg-6">
+                                            <div class="col-lg-12 mb-4">
+                                                <div class="col-sm-12">
+                                                    <h6 class="mb-0">Badge </h6>
+                                                </div>
+                                                <div class="form-group col-sm-9 text-secondary">
+                                                    <input type="text" id="badge" name="badge" class="form-control maxlength"
+                                                    maxlength="125" value="{{ $feature->badge }}"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="col-sm-12">
+                                                    <h6 class="mb-0">Title </h6>
+                                                </div>
+                                                <div class="form-group col-sm-9 text-secondary">
+                                                    <input type="text" name="title" class="form-control maxlength"
+                                                        maxlength="100" value="{{ $feature->logo }}"/>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="col-lg-12">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12">
+                                                        <h6 class="mb-0">Logo </h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        <input type="file" name="logo" class="form-control" id="image"
+                                                            accept="image/*" value="{{$feature->logo}}"/>
+                                                        <div class="form-text">Accepts only png, jpg, jpeg images</div>
+                                                        <img id="showImage" height="50px" width="50px"
+                                                            src="{{ asset('storage/thumb/' . $feature->logo) }}"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12">
+                                                        <h6 class="mb-0">Image </h6>
+                                                    </div>
+                                                    <div class="col-sm-9 text-secondary">
+                                                        <input type="file" name="image" class="form-control" id="image1"
+                                                            accept="image/*" value="{{$feature->image}}"/>
+                                                        <div class="form-text">Accepts only png, jpg, jpeg images</div>
+                                                        <img id="showImage1" height="50px" width="50px"
+                                                            src="{{ asset('storage/thumb/' . $feature->image) }}"
+                                                            alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <!--End Banner Section-->
+
+                                <!--- Short Description -->
+                                <div class="row border my-3 p-4">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Short Description For Homepage</h6>
+                                    </div>
+                                    <div class="form-group col-sm-9 text-secondary">
+                                        <textarea name="header" class="form-control" rows="3"
+                                        style=" font-size: 12px; font-weight: 500;">{{$feature->header}}</textarea>
+                                    </div>
+                                </div>
+                                <!--- Short Description -->
+
+                                <!---ROw with List--->
+                                <div class="row border mb-1">
+                                    <div class="row my-2">
+                                        <div class="col-lg-9">
+                                            <h5 class="text-center text-primary">Row with List</h5>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <a href="{{ route('row.create') }}" type="button"
+                                                class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
+                                                <span class="btn-labeled-icon bg-black bg-opacity-20">
+                                                    <i class="icon-eye"></i>
+                                                </span>
+                                                Add Row
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <hr class="p-0 m-0">
+
+                                    <div class="row mb-3 mt-2">
+                                        <div class="col-sm-4">
+                                            <h6 class="mb-0">Row With List </h6>
+                                        </div>
+                                        <div class="form-group col-sm-8 text-secondary">
+                                            <select name="row_one_id" data-placeholder="Select Row One.."
+                                                class="form-select">
+                                                <option></option>
+                                                @foreach ($rows as $row)
+                                                    <option class="form-control" value="{{ $row->id }}" {{ ($row->id == $feature->row_one_id) ? 'selected' : '' }}>
+                                                        {{ $row->title }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!---ROw with List--->
+
+                                <!---ROw with Right Image--->
+                                <div class="row border mb-1">
+                                    <div class="row my-2">
+                                        <div class="col-lg-9">
+                                            <h5 class="text-center text-primary">Row with Right Image</h5>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <a href="{{ route('row.create') }}" type="button"
+                                                class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
+                                                <span class="btn-labeled-icon bg-black bg-opacity-20">
+                                                    <i class="icon-eye"></i>
+                                                </span>
+                                                Add Row
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <hr class="p-0 m-0">
+
+                                    <div class="row mb-3 mt-2">
+                                        <div class="col-sm-4">
+                                            <h6 class="mb-0">Row With Right Image </h6>
+                                        </div>
+                                        <div class="form-group col-sm-8 text-secondary">
+                                            <select name="row_two_id" data-placeholder="Select Row Two.."
+                                                class="form-select">
+                                                <option></option>
+                                                @foreach ($rows as $row)
+                                                    <option class="form-control" value="{{ $row->id }}" {{ ($row->id == $feature->row_two_id) ? 'selected' : '' }}>
+                                                        {{ $row->title }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---ROw with Right Image--->
+
+
+
+
+
+                                <!--Row Three with Background Color-->
+
+                                <div class="row border mb-1">
+                                    <div class="col-12 text-center">
+                                        <h5 class="border-bottom pb-2">Row Three with Background Color</h5>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-4">
+                                            <h6 class="mb-0">Title </h6>
+                                        </div>
+                                        <div class="form-group col-sm-8 text-secondary">
+                                            <input type="text" name="row_three_title"
+                                                class="form-control maxlength" maxlength="100" value="{{$feature->row_three_title}}"/>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-4">
+                                            <h6 class="mb-0">Short Description</h6>
+                                        </div>
+                                        <div class="form-group col-sm-8 text-secondary">
+                                            <textarea name="row_three_header" id="" class="form-control" cols="30" rows="3">{{$feature->row_three_header}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--End Row Three with Background Color-->
+
+
+                                <!--Related Features Row-->
+
+                                <div class="row border mb-1">
+                                    <div class="col-12 text-center">
+                                        <h5 class="border-bottom pb-2">Related Features Row</h5>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-4">
+                                            <h6 class="mb-0">Title </h6>
+                                        </div>
+                                        <div class="form-group col-sm-8 text-secondary">
+                                            <input type="text" name="row_five_title"
+                                                class="form-control maxlength" maxlength="100" value="{{$feature->row_five_title}}"/>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-4">
+                                            <h6 class="mb-0">Short Description</h6>
+                                        </div>
+                                        <div class="form-group col-sm-8 text-secondary">
+                                            <textarea name="row_five_header" id="" class="form-control" cols="30" rows="3">{{$feature->row_five_header}}</textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Related Features Row-->
+
+
+                                <!---Footer--->
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Footer </h6>
+                                    </div>
+                                    <div class="form-group col-sm-9 text-secondary">
+                                        <textarea class="form-control" name="footer" id="footer" style=" font-size: 12px; font-weight: 500;">{{$feature->footer}}</textarea>
+                                    </div>
+                                </div>
+                                <!---Footer--->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Title</h6>

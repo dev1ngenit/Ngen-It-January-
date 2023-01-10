@@ -116,32 +116,71 @@
 
                                     <textarea class="form-control" name="warranty" id="warranty"  style=" font-size: 12px; font-weight: 500;" ></textarea>
                                 </div>
-                                <div class="border border-3 p-2 rounded">
-                                    <div class="row g-3">
 
+
+
+                                <div class="border border-3 p-2 rounded">
+                                    <div class="row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputCostPerPrice" class="form-label">Product Code <span class="text-danger">*</span></label>
+                                            <input type="text" name="product_code" class="form-control"
+                                                id="inputCostPerPrice" placeholder="WX-548">
+                                        </div>
+                                        <div class="form-group col-md-3 m-4">
+
+                                            <input class="form-check-input" name="rfq" type="checkbox" id="rfqId" value="1" {{ $products->rfq == '1' ? 'checked' : '' }}>
+                                            <label for="rfqId" class="form-label">RFQ </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="row" id="rfqExpand">
                                         <div class="form-group col-md-6">
                                             <label for="inputPrice" class="form-label">Product Price</label>
                                             <input type="text" name="price" class="form-control" id="inputPrice"
-                                            value="{{ $products->price }}">
+                                                value="{{ $products->price }}">
                                         </div>
                                         <div class="col-md-6">
                                             <label for="inputCompareatprice" class="form-label">Discount Price </label>
                                             <input type="text" name="discount" class="form-control"
                                                 id="inputCompareatprice" value="{{ $products->discount }}">
                                         </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputCostPerPrice" class="form-label">Product Code</label>
-                                            <input type="text" name="product_code" class="form-control"
-                                                id="inputCostPerPrice" value="{{ $products->product_code }}">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputStarPoints" class="form-label">Product Quantity</label>
-                                            <input type="text" name="stock" class="form-control"
-                                                id="inputStarPoints" value="{{ $products->stock }}">
-                                        </div>
+                                    </div>
 
+                                </div>
+
+                                <div class="border border-3 p-2 rounded mt-2">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group col-sm-10 dropdown">
+                                                <label class="col-form-label col-lg-12">Stock Availability <span class="text-danger">*</span></label>
+
+                                                <select class="form-select stock_select" name="stock" data-placeholder="Select Stock Option...">
+                                                    <option></option>
+
+                                                        <option class="form-select" value="available" {{ $products->stock == 'available' ? 'selected' : '' }}>
+                                                            Available
+                                                        </option>
+                                                        <option class="form-select" value="limited" {{ $products->stock == 'limited' ? 'selected' : '' }}>
+                                                            Limited</option>
+                                                        <option class="form-select" value="unlimited" {{ $products->stock == 'unlimited' ? 'selected' : '' }}>
+                                                            UnLimited</option>
+                                                        <option class="form-select" value="stock_out" {{ $products->stock == 'stock_out' ? 'selected' : '' }}>
+                                                            Out of Stock</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group col-sm-10 qty_display d-none">
+                                                <label for="inputStarPoints" class="form-label">Product Quantity</label>
+                                                    <input type="number" name="qty" class="form-control"
+                                                    id="inputStarPoints" value="{{ $products->qty }}">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
+
                                 <div class="border border-3 p-2 rounded mt-1">
                                     <div class="row g-3">
 
@@ -154,24 +193,18 @@
                                             </div>
                                         </div>
 
-                                        {{-- <div class="col-md-3">
+                                        <div class="col-md-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="dealId" {{ ( $products->deal != Null) ? 'checked' : '' }}>
-                                                <label class="form-check-label" for="dealId" > Deals</label>
-                                            </div>
-                                        </div> --}}
-                                        <div class="col-md-3"></div>
-                                        <div class="form-group col-md-6" id="dealExpand">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <label class="form-check-label" for="dealId" > Deals : </label>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <input type="text" name="deal" class="form-control" id="dealID"
-                                                value="{{ $products->deal }}" style=" font-size: 12px; font-weight: 500;">
-                                                </div>
+                                                <input class="form-check-input" type="checkbox" id="dealId" {{ (!empty($products->deal)) ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="dealId"> Deals</label>
                                             </div>
                                         </div>
+                                        <div class="form-group col-md-4 d-none" id="dealExpand">
+                                            <input type="number" name="deal" class="form-control"
+                                            placeholder="Enter Deals" style=" font-size: 12px; font-weight: 500;" value="{{ $products->deal }}">
+                                        </div>
+
+
 
                                     </div>
                                 </div>
@@ -249,7 +282,7 @@
                                                 <option class="form-control" value="hardware" {{ ( $products->product_type == 'hardware' ) ? 'selected' : '' }}>
                                                     Hardware</option>
                                                 <option class="form-control" value="software" {{ ( $products->product_type == 'software' ) ? 'selected' : '' }}>
-                                                        Software</option>
+                                                    Software</option>
 
                                             </select>
                                         </div>
@@ -273,7 +306,8 @@
                                             <label class="col-form-label col-lg-12">Related Industries</label>
 
                                                 <select class="form-control select" name="industry_id[]" data-placeholder="Select related Industries..."
-                                                multiple="multiple" data-tags="true">
+                                                multiple="multiple" data-tags="true" value="{{ $products->industry }}">
+                                                
                                                     @foreach ($industrys as $item)
                                                     <option value="{{ $item->title }}"> {{ $item->title }}</option>
                                                     @endforeach
@@ -365,8 +399,11 @@
                                             <td>
                                                 <a href="javascript:void(0);" class="btn btn-primary px-1" data-bs-toggle="modal" data-bs-target="#update_multi_img_{{$img->id}}">
                                                     <i class="icon-pencil"></i></a>
-                                                <a href="{{ route('product.multiimg.delete',$img->id) }}" class="btn btn-danger"
-                                                    id="delete"> Delete </a>
+                                                    <a href="{{ route('product.multiimg.delete', [$img->id]) }}"
+                                                        class="btn btn-danger delete px-1">
+                                                        <i class="delete icon-trash"></i>
+                                                    </a>
+
                                             </td>
                                         </tr>
 
@@ -394,7 +431,7 @@
                                                                 <div class="col-sm-9 text-secondary">
                                                                     <input type="file" name="photo" class="form-control" id="image2" accept="image/*" value="{{ asset($img->photo) }}"/>
                                                                     <div class="form-text">Accepts only png, jpg, jpeg images</div>
-                                                                    <img class="mt-2" id="showImage2" height="100px" width="100px"  src="{{ asset($img->photo) }}" alt="">
+                                                                    <img class="mt-2" id="showImage2" height="100px" width="100px"  src="{{ asset($img->photo) }}" >
 
                                                                 </div>
                                                             </div>
@@ -447,81 +484,6 @@
 
 </script>
 
-
-<script type="text/javascript">
-	$(document).ready(function (){
-        $('#myForm').validate({
-            rules: {
-                product_name: {
-                    required : true,
-                },
-                 short_descp: {
-                    required : true,
-                },
-                 product_thambnail: {
-                    required : true,
-                },
-                 multi_img: {
-                    required : true,
-                },
-                 selling_price: {
-                    required : true,
-                },
-                 product_code: {
-                    required : true,
-                },
-                 product_qty: {
-                    required : true,
-                },
-                 brand_id: {
-                    required : true,
-                },
-                 category_id: {
-                    required : true,
-                },
-                 subcategory_id: {
-                    required : true,
-                },
-            },
-            messages :{
-                product_name: {
-                    required : 'Please Enter Product Name',
-                },
-                short_descp: {
-                    required : 'Please Enter Short Description',
-                },
-                product_thambnail: {
-                    required : 'Please Select Product Thambnail Image',
-                },
-                multi_img: {
-                    required : 'Please Select Product Multi Image',
-                },
-                selling_price: {
-                    required : 'Please Enter Selling Price',
-                },
-                product_code: {
-                    required : 'Please Enter Product Code',
-                },
-                 product_qty: {
-                    required : 'Please Enter Product Quantity',
-                },
-
-            },
-            errorElement : 'span',
-            errorPlacement: function (error,element) {
-                error.addClass('invalid-feedback');
-                element.closest('.form-group').append(error);
-            },
-            highlight : function(element, errorClass, validClass){
-                $(element).addClass('is-invalid');
-            },
-            unhighlight : function(element, errorClass, validClass){
-                $(element).removeClass('is-invalid');
-            },
-        });
-    });
-
-</script>
 
 
 
@@ -617,22 +579,46 @@
 
 </script>
 
+
+
+
+@endsection
+
+@once
+@push('scripts')
 <script>
     //---------Sidebar list Show Hide----------
 
-    //$(document).ready(function(){
+    $(document).ready(function(){
 
 
-    //     var isChecked = $('#dealId').prop('checked');
-    //     if(isChecked == true){
+        var isChecked = $('#rfqId').prop('checked');
+        var dealisChecked = $('#dealId').prop('checked');
+        if(isChecked == true){
+        $( "#rfqExpand" ).addClass( 'd-none');
+
+        }else{
+
+        }
+
+        if(dealisChecked == true){
+            //alert(5);
+        $( "#dealExpand" ).removeClass( 'd-none');
+
+        }else{
+
+        }
 
 
-    //     $( "#dealExpand" ).removeClass( 'd-none');
+        $('#rfqId').click(function() {
 
-    //     }else{
-    //         alert(5);
-    //         $( "#dealExpand" ).addClass( 'd-none');
-    //     }
+        $("#rfqExpand").toggle('slow');
+
+        });
+
+        $('#dealId').click(function() {
+            $("#dealExpand").toggle(this.checked);
+        });
 
 
 
@@ -641,10 +627,41 @@
     //      });
 
 
-    // });
+     });
 
 
 </script>
 
 
-@endsection
+<script>
+
+        var stock_value1 = $('.stock_select').find(":selected").val() ;
+
+            if (stock_value1 == 'available') {
+                $(".qty_display").removeClass("d-none");
+            }
+            else if (stock_value1 == 'limited'){
+                $(".qty_display").removeClass("d-none");
+            }
+            else {
+                $(".qty_display").addClass("d-none");
+            }
+
+    $('.stock_select').on('change', function() {
+
+            var stock_value = $(this).find(":selected").val() ;
+
+            if (stock_value == 'available') {
+                $(".qty_display").removeClass("d-none");
+            }
+            else if (stock_value == 'limited'){
+                $(".qty_display").removeClass("d-none");
+            }
+            else {
+                $(".qty_display").addClass("d-none");
+            }
+
+        });
+</script>
+@endpush
+@endonce

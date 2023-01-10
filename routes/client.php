@@ -14,13 +14,22 @@ Route::get ('/dashboard',       [ClientController::class, 'ClientDashboard'])  -
 Route::get ('/profile',         [ClientController::class, 'ClientProfile'])  ->name('client.profile');
 Route::get ('/profile_update',  [ClientController::class, 'ClientProfileUpdate'])  ->name('client.profile_update');
 Route::post('/profile/store',   [ClientController::class, 'ClientProfileStore'   ])  ->name('client.profile.store');
+Route::get('/change/password',  [ClientController::class, 'ClientChangePassword'])->name('client.change.password');
+Route::post('/update/password', [ClientController::class, 'ClientUpdatePassword'])->name('client.update.password');
+Route::get('client/logout',     [ClientController::class, 'clientDestroy'])->name('client.logout');
+
+
+
+
+
 Route::get ('/track',           [ClientController::class, 'ClientTrack'])  ->name('client.track');
+Route::get ('/rfq',             [ClientController::class, 'ClientRFQ'])  ->name('client.rfq');
 
 
 // });
 
 // Route::middleware('auth')->group(function () {
-Route::get('client/logout',     [ClientController::class, 'clientDestroy'])->name('client.logout');
+
 
 
  // User Dashboard All Route

@@ -95,6 +95,8 @@ class FeatureController extends Controller
                     'row_four_header'  => $request->row_four_header,
                     'row_five_title'   => $request->row_five_title,
                     'row_five_header'  => $request->row_five_header,
+                    'footer'           => $request->footer,
+
                 ]);
 
             Toastr::success('Data Inserted Successfully');
@@ -186,19 +188,21 @@ class FeatureController extends Controller
 
             $feature->update([
 
-                'logo'             => $globalFunImgLogo['status'] == 1 ? $globalFunImgLogo['file_name']: $feature->logo,
-                'image'            => $globalFunImage['status']   == 1 ? $globalFunImage['file_name']  : $feature->image,
-                'row_one_id'       => $request->row_one_id,
-                'row_two_id'       => $request->row_two_id,
-                'badge'            => $request->badge,
-                'title'            => $request->title,
-                'header'           => $request->header,
-                'row_three_title'  => $request->row_three_title,
-                'row_three_header' => $request->row_three_header,
-                'row_four_title'   => $request->row_four_title,
-                'row_four_header'  => $request->row_four_header,
-                'row_five_title'   => $request->row_five_title,
-                'row_five_header'  => $request->row_five_header,
+                    'logo'             => $globalFunImgLogo['status'] == 1 ? $globalFunImgLogo['file_name']: $feature->logo,
+                    'image'            => $globalFunImage['status']   == 1 ? $globalFunImage['file_name']  : $feature->image,
+                    'row_one_id'       => $request->row_one_id,
+                    'row_two_id'       => $request->row_two_id,
+
+                    'badge'            => $request->badge,
+                    'title'            => $request->title,
+                    'header'           => $request->header,
+                    'row_three_title'  => $request->row_three_title,
+                    'row_three_header' => $request->row_three_header,
+                    'row_four_title'   => $request->row_four_title,
+                    'row_four_header'  => $request->row_four_header,
+                    'row_five_title'   => $request->row_five_title,
+                    'row_five_header'  => $request->row_five_header,
+                    'footer'           => $request->footer,
 
             ]);
 

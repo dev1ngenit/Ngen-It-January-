@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id')->nullable();
             $table->unsignedBigInteger('industry_id')->nullable();
-            $table->unsignedBigInteger('solution_id')->nullable();
             $table->timestamps();
         });
     }

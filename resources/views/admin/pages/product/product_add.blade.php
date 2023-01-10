@@ -72,20 +72,20 @@
 
                                         <div class="form-group mb-3 row">
                                             <div class="form-group col-lg-6">
-                                                {{-- <label for="inputProductTitle" class="form-label" style=" font-size: 12px; font-weight: 600;">Product Name</label> --}}
+                                                 <label for="inputProductTitle" class="form-label" style=" font-size: 12px; font-weight: 600;">Product Name <span class="text-danger">*</span></label>
                                                 <textarea class="form-control" name="name" id="" cols="350" rows="1" style=" font-size: 12px; font-weight: 600;" placeholder="Product Name"></textarea>
                                                 {{-- <input type="text" name="product_name" class="form-control"
                                                     id="inputProductTitle" placeholder="Enter product Name" style=" font-size: 12px; font-weight: 500;"> --}}
                                             </div>
 
                                             <div class="form-group col-lg-3">
-                                                {{-- <label for="inputProductTitle" class="form-label" style=" font-size: 12px; font-weight: 600;">Product Name</label> --}}
+                                                <label for="inputProductTitle" class="form-label" style=" font-size: 12px; font-weight: 600;">SKU Code <span class="text-danger">*</span></label>
                                                 <input type="text" name="sku_code" class="form-control"
                                                     id="inputProductTitle" placeholder="Enter SKU Code" style=" font-size: 12px; font-weight: 500;">
                                             </div>
 
                                             <div class="form-group col-lg-3">
-                                                {{-- <label for="inputProductTitle" class="form-label" style=" font-size: 12px; font-weight: 600;">Product Name</label> --}}
+                                                 <label for="inputProductTitle" class="form-label" style=" font-size: 12px; font-weight: 600;">Manufacturing Code <span class="text-danger">*</span></label>
                                                 <input type="text" name="mf_code" class="form-control"
                                                     id="inputProductTitle" placeholder="Manufacturing Code" style=" font-size: 12px; font-weight: 500;">
                                             </div>
@@ -93,51 +93,46 @@
 
                                         <div class="form-group mb-3 row">
                                             <div class="col-lg-4">
-                                                {{-- <label for="inputProductTitle" class="form-label">Product Tags</label> --}}
+
                                                 <input type="text" name="tags" class="form-control visually-hidden" data-role="tagsinput" placeholder="Product Tags">
-                                                {{-- <input type="text" name="tags" class="form-control tokenfield-basic" data-role="tagsinput"
-                                                     placeholder="Product Tags" style=" font-size: 12px; font-weight: 500;"> --}}
+
 
                                             </div>
 
                                             <div class="col-lg-4">
-                                                {{-- <label for="inputProductTitle" class="form-label">Product Size</label> --}}
-                                                {{-- <input type="text" name="size" class="form-control tokenfield-basic"
-                                                   placeholder="Product Sizes" style=" font-size: 12px; font-weight: 500;"> --}}
+
                                                    <input type="text" name="size" class="form-control visually-hidden" data-role="tagsinput" placeholder="Product Sizes">
                                             </div>
 
                                             <div class="col-lg-4">
-                                                {{-- <label for="inputProductTitle" class="form-label">Product Color</label> --}}
-                                                {{-- <input type="text" name="color" class="form-control tokenfield-basic"
-                                                    placeholder="Product Color" style=" font-size: 12px; font-weight: 500;"> --}}
+
                                                     <input type="text" name="color" class="form-control visually-hidden" data-role="tagsinput" placeholder="Product Color">
                                             </div>
                                         </div>
 
                                         <div class="form-group mb-3">
-                                            {{-- <label for="inputProductDescription" class="form-label">Short Description</label> --}}
+
                                             <textarea name="short_desc" class="form-control" id="short_desc" rows="3" style=" font-size: 12px; font-weight: 500;"></textarea>
                                         </div>
 
                                         <div class="mb-3">
-                                            {{-- <label for="inputProductDescription" class="form-label">Long Description</label> --}}
+
                                             <textarea class="form-control" name="overview" id="overview" style=" font-size: 12px; font-weight: 500;"></textarea>
                                         </div>
 
                                         <div class="mb-3">
-                                            {{-- <label for="inputProductDescription" class="form-label">Long Description</label> --}}
+
                                             <textarea class="form-control" name="specification" id="specification" style=" font-size: 12px; font-weight: 500;"></textarea>
                                         </div>
 
                                         <div class="mb-3">
-                                            {{-- <label for="inputProductDescription" class="form-label">Long Description</label> --}}
+
                                             <textarea class="form-control" name="accessories" id="accessories" style=" font-size: 12px; font-weight: 500;"></textarea>
                                         </div>
 
                                         <div class="row form-group">
                                             <div class="form-group mb-3 col-lg-6">
-                                                <label for="inputProductTitle" class="form-label">Main Thumbnail</label>
+                                                <label for="inputProductTitle" class="form-label">Main Thumbnail <span class="text-danger">*</span></label>
                                                 <input name="thumbnail" class="form-control" type="file" id="formFile"
                                                     onChange="mainThamUrl(this)">
 
@@ -147,7 +142,7 @@
 
 
                                             <div class="form-group mb-3 col-lg-6">
-                                                <label for="inputProductTitle" class="form-label">Multiple Images</label>
+                                                <label for="inputProductTitle" class="form-label">Multiple Images <span class="text-danger">*</span></label>
                                                 <input class="form-control" name="multi_img[]" type="file" id="multiImg"
                                                     multiple="" required>
 
@@ -166,8 +161,20 @@
                                         <textarea class="form-control" name="warranty" id="warranty"  style=" font-size: 12px; font-weight: 500;" ></textarea>
                                     </div>
                                     <div class="border border-3 p-2 rounded">
-                                        <div class="row g-3">
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="inputCostPerPrice" class="form-label">Product Code <span class="text-danger">*</span></label>
+                                                <input type="text" name="product_code" class="form-control"
+                                                    id="inputCostPerPrice" placeholder="WX-548">
+                                            </div>
+                                            <div class="form-group col-md-3 m-4">
 
+                                                <input class="form-check-input" name="rfq" type="checkbox" id="rfqId" value="1">
+                                                <label for="rfqId" class="form-label">RFQ </label>
+
+                                            </div>
+                                        </div>
+                                        <div class="row" id="rfqExpand">
                                             <div class="form-group col-md-6">
                                                 <label for="inputPrice" class="form-label">Product Price</label>
                                                 <input type="text" name="price" class="form-control" id="inputPrice"
@@ -178,39 +185,45 @@
                                                 <input type="text" name="discount" class="form-control"
                                                     id="inputCompareatprice" placeholder="00.00">
                                             </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="inputCostPerPrice" class="form-label">Product Code</label>
-                                                <input type="text" name="product_code" class="form-control"
-                                                    id="inputCostPerPrice" placeholder="WX-548">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label for="inputStarPoints" class="form-label">Product Quantity</label>
-                                                <input type="number" name="stock" class="form-control"
-                                                    id="inputStarPoints" placeholder="10,50,100,200,500">
-                                            </div>
+                                        </div>
 
+                                    </div>
+
+                                    <div class="border border-3 p-2 rounded mt-1">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group col-sm-10 dropdown">
+                                                    <label class="col-form-label col-lg-12">Stock Availability <span class="text-danger">*</span></label>
+
+                                                    <select class="form-select stock_select" name="stock" data-placeholder="Select Stock Option...">
+                                                        <option></option>
+
+                                                            <option class="form-select" value="available">
+                                                                Available
+                                                            </option>
+                                                            <option class="form-select" value="limited">
+                                                                Limited</option>
+                                                            <option class="form-select" value="unlimited">
+                                                                UnLimited</option>
+                                                            <option class="form-select" value="stock_out">
+                                                                Out of Stock</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group col-sm-10 qty_display d-none">
+                                                    <label for="inputStarPoints" class="form-label">Product Quantity</label>
+                                                        <input type="number" name="qty" class="form-control"
+                                                        id="inputStarPoints" placeholder="10,50,100,200,500">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+
+
                                     <div class="border border-3 p-2 rounded mt-1">
                                         <div class="row g-3">
-                                            {{-- <div class="col-md-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" name="hot_deals" type="checkbox"
-                                                        value="1" id="flexCheckDefault1">
-                                                    <label class="form-check-label" for="flexCheckDefault1"> Hot
-                                                        Deals</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" name="featured" type="checkbox"
-                                                        value="1" id="flexCheckDefault2">
-                                                    <label class="form-check-label"
-                                                        for="flexCheckDefault2">Featured</label>
-                                                </div>
-                                            </div> --}}
-
                                             <div class="col-md-3">
                                                 <div class="form-check">
                                                     <input class="form-check-input" name="refurbished"
@@ -300,28 +313,16 @@
                                             </div>
 
                                             <div class="form-group col-md-6">
-                                                <label for="inputCollection" class="form-label">Product Type</label>
-                                                <select name="product_type" data-placeholder="Select Product Type.." class="form-control select" required>
+                                                <label for="inputCollection" class="form-label">Product Type <span class="text-danger">*</span></label>
+                                                <select name="product_type" data-placeholder="Select Product Type.." class="form-select" required>
                                                     <option></option>
                                                     <option class="form-control" value="hardware">
                                                         Hardware</option>
                                                     <option class="form-control" value="software">
-                                                            Software</option>
-
+                                                        Software</option>
                                                 </select>
                                             </div>
 
-
-                                            {{-- <div class="form-group col-md-6">
-                                                <label for="inputCollection" class="form-label">Select Vendor</label>
-                                                <select name="vendor_id" class="form-select" id="inputCollection">
-                                                    <option>Select Vendor</option>
-                                                    @foreach ($activeVendor as $vendor)
-                                                        <option class="form-control-lg" value="{{ $vendor->id }}">
-                                                            {{ $vendor->first_name }} {{ $vendor->last_name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div> --}}
                                         </div>
 
                                         <div class="row">
@@ -341,7 +342,7 @@
                                                     <select class="form-control select" name="industry_id[]" data-placeholder="Select related Industries..."
                                                     multiple="multiple" data-tags="true">
                                                         @foreach ($industrys as $item)
-                                                        <option value="{{ $item->title }}"> {{ $item->title }}</option>
+                                                        <option value="{{ $item->id }}"> {{ $item->title }}</option>
                                                         @endforeach
                                                     </select>
                                             </div>
@@ -419,12 +420,16 @@
 
     $(document).ready(function(){
 
-
-       
-
         $('#dealId').click(function() {
             $("#dealExpand").toggle(this.checked);
         });
+
+        $('#rfqId').click(function() {
+
+            $("#rfqExpand").toggle('slow');
+
+        });
+
 
     });
 
@@ -432,4 +437,24 @@
 </script>
 
 @endsection
+@once
+@push('scripts')
+<script>
+    $('.stock_select').on('change', function() {
 
+            var stock_value = $(this).find(":selected").val() ;
+
+            if (stock_value == 'available') {
+                $(".qty_display").removeClass("d-none");
+            }
+            else if (stock_value == 'limited'){
+                $(".qty_display").removeClass("d-none");
+            }
+            else {
+                $(".qty_display").addClass("d-none");
+            }
+
+        });
+</script>
+@endpush
+@endonce

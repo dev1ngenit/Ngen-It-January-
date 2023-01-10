@@ -9,6 +9,7 @@ use App\Models\Admin\Success;
 use App\Models\Admin\Homepage;
 use App\Models\Admin\ClientStory;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Feature;
 use App\Models\Admin\TechGlossy;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\File;
@@ -33,7 +34,7 @@ class HomepageController extends Controller
      */
     public function create()
     {
-        $data['client_experiences'] = Client::latest()->get();
+        $data['client_experiences'] = Feature::latest()->get();
         $data['storys'] = ClientStory::all();
         $data['successes'] = Success::all();
         $data['techglossys'] = TechGlossy::all();
@@ -142,7 +143,7 @@ class HomepageController extends Controller
      */
     public function edit($id)
     {
-        $data['client_experiences'] = Client::latest()->get();
+        $data['client_experiences'] = Feature::latest()->get();
         $data['storys'] = ClientStory::all();
         $data['successes'] = Success::all();
         $data['techglossys'] = TechGlossy::all();

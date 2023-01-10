@@ -52,7 +52,7 @@
                             </div>
                         </div>
 
-                        <table class="datatable table table-bordered table-hover">
+                        <table class="datatable table table-bordered table-hover featureDT">
                             <thead>
                                 <tr>
                                     <th width="10%">Sl No:</th>
@@ -71,7 +71,7 @@
                                                     src="{{ asset('storage/thumb/' . $feature->logo) }}"
                                                     height="40" width="50" alt=""></td>
                                             <td>{{ $feature->title }}</td>
-                                            <td>{!! $feature->short_desc !!}</td>
+                                            <td>{!! $feature->header !!}</td>
                                             <td class="text-center">
                                                 <a href="{{ route('feature.edit', $features->id) }}"
                                                     class="text-primary">
@@ -104,5 +104,16 @@
     </div>
 @endsection
 
-@push('script')
+@push('scripts')
+<script>
+    $('.featureDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 26, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [0, 1, 4],
+                }, ],
+            });
+</script>
 @endpush

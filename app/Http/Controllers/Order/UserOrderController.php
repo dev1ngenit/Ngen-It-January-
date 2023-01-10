@@ -29,7 +29,7 @@ class UserOrderController extends Controller
     public function UserOrderPage(){
         $id = Auth::user()->id;
         $orders = Order::where('user_id',$id)->orderBy('id','DESC')->get();
-          return view('client.user_order',compact('orders'));
+          return view('client.pages.order.user_order',compact('orders'));
     }// End Method
 
 

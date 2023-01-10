@@ -15,6 +15,9 @@ use App\Models\Admin\Solution;
 use App\Models\Admin\MultiImage;
 use App\Models\Admin\SubCategory;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\MultiIndustry;
+use App\Models\Admin\MultiSolution;
+use App\Models\Admin\SolutionDetail;
 use App\Models\Admin\SubSubCategory;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\File;
@@ -38,7 +41,7 @@ class ProductController extends Controller
         $data['sub_sub_cats']        = SubSubCategory::orderBy('id','DESC')->get();
         $data['sub_sub_sub_cats']    = SubSubSubCategory::orderBy('id','DESC')->get();
         $data['industrys']           = Industry::orderBy('id','DESC')->get();
-        $data['solutions']           = Solution::orderBy('id','DESC')->get();
+        $data['solutions']           = SolutionDetail::orderBy('id','DESC')->get();
         return view('admin.pages.product.product_add',$data);
 
     } // End Method
@@ -48,16 +51,19 @@ class ProductController extends Controller
     public function StoreProduct(Request $request){
 
         $input   = $request->all();
-        // dd($input);
+
         if ($request->industry_id) {
             $string['industry'] = implode(',', $input['industry_id']);
+        }else{
+            $string['industry'] = '';
         }
+
         if ($request->solution_id) {
             $string['solution'] = implode(',', $input['solution_id']);
+        }else{
+            $string['solution'] = '';
         }
-
-
-
+        //dd($string['industry']);
 
         $validator = Validator::make(
             $request->all(),
@@ -106,6 +112,8 @@ class ProductController extends Controller
             'warranty'           => $request->warranty,
             'thumbnail'          => $save_url,
             'stock'              => $request->stock,
+            'qty'                => $request->qty,
+            'rfq'                => $request->rfq,
             'status'             => 'active',
             'price'              => $request->price,
             'discount'           => $request->discount,
@@ -140,6 +148,30 @@ class ProductController extends Controller
 
         ]);
         } // end foreach
+        if(!empty($request->industry_id)){
+        $industrys = $request->industry_id;
+        foreach($industrys as $industry){
+            MultiIndustry::insert([
+
+            'product_id' => $product_id,
+            'industry_id' => $industry,
+            'created_at' => Carbon::now(),
+
+            ]);
+        }
+    }
+        if(!empty($request->solution_id)){
+        $solutions = $request->solution_id;
+        foreach($solutions as $solution){
+            MultiSolution::insert([
+
+            'product_id' => $product_id,
+            'solution_id' => $solution,
+            'created_at' => Carbon::now(),
+
+            ]);
+        }
+    }
 
         /// End Multiple Image Upload From it //////
 
@@ -170,7 +202,7 @@ class ProductController extends Controller
         $data['sub_sub_cats']        = SubSubCategory::orderBy('id','DESC')->get();
         $data['sub_sub_sub_cats']    = SubSubSubCategory::orderBy('id','DESC')->get();
         $data['industrys']           = Industry::orderBy('id','DESC')->get();
-        $data['solutions']           = Solution::orderBy('id','DESC')->get();
+        $data['solutions']           = SolutionDetail::orderBy('id','DESC')->get();
 
         $data['products'] = Product::findOrFail($id);
         return view('admin.pages.product.product_edit',$data);
@@ -204,6 +236,8 @@ class ProductController extends Controller
                 'accessories'        => $request->accessories,
                 'warranty'           => $request->warranty,
                 'stock'              => $request->stock,
+                'qty'                => $request->qty,
+                'rfq'                => $request->rfq,
                 'status'             => 'active',
                 'price'              => $request->price,
                 'discount'           => $request->discount,
@@ -347,16 +381,13 @@ class ProductController extends Controller
 
     public function MulitImageDelelte($id){
         $oldImg = MultiImage::findOrFail($id);
-        unlink($oldImg->photo_name);
+        unlink($oldImg->photo);
 
         MultiImage::findOrFail($id)->delete();
 
-        $notification = array(
-            'message' => 'Product Multi Image Deleted Successfully',
-            'alert-type' => 'success'
-        );
+        Toastr::success('Product Image Deleted Successfully');
 
-        return redirect()->back()->with($notification);
+        return redirect()->back();
 
     }// End Method
 

@@ -1,5 +1,5 @@
 <div class="sidebar sidebar-dark sidebar-main sidebar-expand-lg sidebar-main-resized"
-    style="background:linear-gradient(109deg, #191c19, #2c0707eb)">
+    style="background:linear-gradient(325deg, #373837, #444141eb)">
 
     <!-- Sidebar content -->
     <div class="sidebar-content">
