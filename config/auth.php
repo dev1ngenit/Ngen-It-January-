@@ -46,6 +46,11 @@ return [
             'provider' => 'partners',
         ],
 
+        'client' => [
+            'driver' => 'session',
+            'provider' => 'clients',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -81,6 +86,11 @@ return [
             'model' => App\Models\Partner\Partner::class,
         ],
 
+        'clients' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Client\Client::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -111,6 +121,12 @@ return [
         ],
         'partners' => [
             'provider' => 'partners',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'clients' => [
+            'provider' => 'clients',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

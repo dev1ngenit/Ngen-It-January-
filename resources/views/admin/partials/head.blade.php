@@ -23,3 +23,9 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <link href="{{ asset('backend/assets/input-tags/css/tagsinput.css') }}" rel="stylesheet" />
 
+    <style>
+        table.td{
+            margin: 1px !important;
+            padding: 3px !important;
+        }
+    </style>

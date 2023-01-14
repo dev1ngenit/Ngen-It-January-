@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Rfq;
+use App\Models\Client\Client;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -19,7 +20,11 @@ class ClientController extends Controller
 {
 
     public function ClientLogin(){
-        return view('client.auth.login');
+        if (Auth::guard('client')->check()) {
+            return redirect()->route('client.dashboard');
+        } else {
+            return view('client.auth.login');
+        }
     } // End Mehtod
 
     public function clientLoginStore(Request $request)
@@ -35,7 +40,8 @@ class ClientController extends Controller
         if ($validator->passes()) {
             $credentials = $request->only('email', 'password');
             //dd($credentials);
-            if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password'],])) {
+            if (Auth::guard('client')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))){
+
                 //dd($credentials);
                 Toastr::success('You have Successfully logged in.');
                 return redirect('client/dashboard');
@@ -68,27 +74,25 @@ class ClientController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'name'     => 'required|max: 70',
-                'email'    => 'required|unique:users|max: 70',
-                'password' => 'required| min:6| max:7| confirmed',
+                'name'     => 'required|max:70',
+                'email'    => 'required|unique:clients|max:70',
+                'password' => 'required|min:6|max:11|confirmed',
             ],
         );
         if ($validator->passes()) {
-            $client = User::create([
+            $client = Client::create([
                 'name'     => $request->name,
                 'email'    => $request->email,
+                'phone'    => $request->phone,
                 'status'   => 'inactive',
                 'password' => Hash::make($request->password),
             ]);
 
             event(new Registered($client));
-
             Auth::login($client);
             Toastr::success('You have registered Successfully');
             return redirect('client/dashboard');
-
         } else {
-
             $messages = $validator->messages();
             foreach ($messages->all() as $message) {
                 Toastr::error($message, 'Failed', ['timeOut' => 30000]);
@@ -101,14 +105,15 @@ class ClientController extends Controller
 
     public function ClientDashboard(){
 
-        return view('client.pages.dashboard.index');
+        $data['client'] = Auth::guard('client');
+        return view('client.pages.dashboard.index',$data);
 
     }
 
     public function ClientProfile(){
-        if (Auth::user()->id){
-            $data['user'] = User::where('id', Auth::user()->id)->first();
-        return view('client.pages.profile',$data);
+        if (Auth::guard('client')->user()->id){
+            $data['data'] = Client::where('id', Auth::guard('client')->user()->id)->first();
+        return view('client.pages.profile.profile',$data);
         }else{
             Toastr::error('Login first.');
             return redirect()->back();
@@ -121,8 +126,8 @@ class ClientController extends Controller
 
     public function ClientProfileUpdate(){
 
-        if (Auth::user()->id){
-            $data = User::where('id', Auth::user()->id)->first();
+        if (Auth::guard('client')->user()->id){
+            $data = Client::where('id', Auth::guard('client')->user()->id)->first();
         return view('client.pages.profile_update',compact('data'));
         }else{
             Toastr::error('Login first.');
@@ -133,7 +138,7 @@ class ClientController extends Controller
     public function ClientProfileStore(Request $request){
         $data = $request->all();
 
-        $check = User::where('email', $data['email'])->first();
+        $check = Client::where('email', $data['email'])->first();
 
         if ($check) {
             $validator = Validator::make(
@@ -175,8 +180,8 @@ class ClientController extends Controller
 
 
         if ($validator->passes()) {
-            $id = Auth::user()->id;
-            $profile = User::find($id);
+            $id = Auth::guard('client')->user()->id;
+            $profile = Client::find($id);
             if ($check) {
                 $request->except('email');
             } else {
@@ -225,12 +230,12 @@ class ClientController extends Controller
         ]);
 
         // Match The Old Password
-        if (!Hash::check($request->old_password, auth::user()->password)) {
+        if (!Hash::check($request->old_password, Auth::guard('client')->user()->password)) {
             return back()->with("error", "Old Password Doesn't Match!!");
         }
 
         // Update The new password
-        User::whereId(auth()->user()->id)->update([
+        User::whereId(Auth::guard('client')->user()->id)->update([
             'password' => Hash::make($request->new_password)
 
         ]);
@@ -254,7 +259,7 @@ class ClientController extends Controller
 
     public function ClientRFQ(){
 
-        $data['rfqs'] = Rfq::where('user_id' , Auth::user()->id)->get();
+        $data['rfqs'] = Rfq::where('user_id' , Auth::guard('client')->user()->id)->get();
         return view('client.pages.rfq',$data);
 
     }

@@ -62,15 +62,13 @@
                                         <table class="datatable table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Sl No:</th>
-                                                    <th>Name</th>
-                                                    <th>phone</th>
-                                                    <th>email</th>
-                                                    <th>state</th>
-                                                    <th>country</th>
-                                                    <th>msg_type</th>
-                                                    <th>message</th>
-                                                    <th class="text-center">Actions</th>
+                                                    <th width="10%">Sl No:</th>
+                                                    <th width="15%">Name</th>
+                                                    <th width="15%">Email</th>
+                                                    <th width="10%">Country</th>
+                                                    <th width="15%">Message Type</th>
+                                                    <th width="25%">Message</th>
+                                                    <th width="10%" class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -79,9 +77,8 @@
                                                         <tr>
                                                             <td>{{ ++$key }}</td>
                                                             <td>{{ $contact->fname }}&nbsp;{{ $contact->lname }}</td>
-                                                            <td>{{ $contact->phone }}</td>
+
                                                             <td>{{ $contact->email }}</td>
-                                                            <td>{{ $contact->state }}</td>
                                                             <td>{{ $contact->country }}</td>
                                                             <td>{{ $contact->msg_type }}</td>
                                                             <td>{{ $contact->message }}</td>
@@ -119,3 +116,19 @@
 
 
 @endsection
+
+@once
+    @push('scripts')
+        <script type="text/javascript">
+            $('.contactDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 26, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [5, 6],
+                }, ],
+            });
+        </script>
+    @endpush
+@endonce

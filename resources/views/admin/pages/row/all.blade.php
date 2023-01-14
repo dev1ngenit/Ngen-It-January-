@@ -52,7 +52,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <table class="datatable table table-bordered table-hover">
+                            <table class="datatable table table-bordered table-hover rowDT">
                                 <thead>
                                     <tr>
                                         <th>Sl No:</th>
@@ -99,5 +99,18 @@
     </div>
 @endsection
 
-@push('script')
-@endpush
+@once
+    @push('scripts')
+        <script type="text/javascript">
+            $('.rowDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 26, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [ 1,  4],
+                }, ],
+            });
+        </script>
+    @endpush
+@endonce

@@ -59,17 +59,14 @@
                                 <div class="tab-pane fade show active" id="js-tab1">
                                     <div id="table1" class="card cardT">
 
-                                        <table class="datatable table table-bordered table-hover">
+                                        <table class="datatable table table-bordered table-hover rowColDT">
                                             <thead>
                                                 <tr>
-                                                    <th>Sl No:</th>
-                                                    <th>Name</th>
-                                                    <th>phone</th>
-                                                    <th>email</th>
-                                                    <th>state</th>
-                                                    <th>country</th>
-                                                    <th>message</th>
-                                                    <th class="text-center">Actions</th>
+                                                    <th width="10%">Sl No:</th>
+                                                    <th width="25">Title</th>
+                                                    <th width="25">Column One Title</th>
+                                                    <th width="25">Column Two Title</th>
+                                                    <th width="15%" class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -77,13 +74,10 @@
                                                     @foreach ($rowWithColumns as $key => $rowWithColumn)
                                                         <tr>
                                                             <td>{{ ++$key }}</td>
-                                                            <td>{{ $rowWithColumn->fname }}&nbsp;{{ $rowWithColumn->lname }}
+                                                            <td>{{ $rowWithColumn->title }}
                                                             </td>
-                                                            <td>{{ $rowWithColumn->phone }}</td>
-                                                            <td>{{ $rowWithColumn->email }}</td>
-                                                            <td>{{ $rowWithColumn->state }}</td>
-                                                            <td>{{ $rowWithColumn->country }}</td>
-                                                            <td>{{ $rowWithColumn->message }}</td>
+                                                            <td>{{ $rowWithColumn->col_one_title }}</td>
+                                                            <td>{{ $rowWithColumn->col_two_title }}</td>
                                                             <td class="text-center">
                                                                 <a href="{{ route('rowWithCol.edit', [$rowWithColumn->id]) }}"
                                                                     class="text-primary">
@@ -118,3 +112,19 @@
 
 
 @endsection
+
+@once
+    @push('scripts')
+        <script type="text/javascript">
+            $('.rowColDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 26, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [ 4],
+                }, ],
+            });
+        </script>
+    @endpush
+@endonce

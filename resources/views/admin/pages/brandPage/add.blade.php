@@ -385,10 +385,10 @@
                                 <div class="row border mb-1">
                                     <div class="row my-2">
                                         <div class="col-lg-9">
-                                            <h3 class="text-center text-primary">Left Image with Button Row</h3>
+                                            <h3 class="text-center text-primary">Row with Two Columns</h3>
                                         </div>
                                         <div class="col-lg-3">
-                                            <a href="{{ route('row.create') }}" type="button"
+                                            <a href="{{ route('rowWithCol.create') }}" type="button"
                                                 class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
                                                 <span class="btn-labeled-icon bg-black bg-opacity-20">
                                                     <i class="icon-eye"></i>

@@ -146,14 +146,26 @@
                     </ul>
                 </li>
 
-
-                <li class="nav-item">
-                    <a href="{{ route('setting.index') }}" class="nav-link">
-                        <i class="ph-gear"></i>
-                        <span>
-                            Website Settings
-                        </span>
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-layout"></i>
+                        <span>Site Settings</span>
                     </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item">
+                            <a href="{{ route('setting.index') }}" class="nav-link">
+                                <i class="ph-gear"></i>
+                                <span>
+                                    Website Settings
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('country.index') }}" class="nav-link active"><i
+                            class="ph-layout"></i>
+                                <span>Country</span></a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="nav-item nav-item-submenu">

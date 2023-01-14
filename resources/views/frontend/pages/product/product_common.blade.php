@@ -17,7 +17,7 @@
                     <a class="search_all_product_btn" href="{{ route('filter') }}">Search all Products</a>
                 </div>
                 <div class="col-lg-3 col-sm-12 d-flex justify-content-center mb-4">
-                    @if (auth()->check())
+                    @if (Auth::guard('client')->check())
                     <a class="create_your_account_btn " href="{{ route('client.dashboard') }}">Your Dashboard</a>
                     @else
                     <a class="create_your_account_btn " href="{{ route('client.login') }}">Create your account</a>
@@ -58,7 +58,7 @@
                             <a href="{{ route('product.details', $item->slug) }}"
                               class="product_item_content_name" style="font-weight: 700">{{ $item->name }}</a>
 
-                              
+
                             <!-- price -->
                              <div class="product_item_price">
                                 <span class="price_currency">USD</span>

@@ -55,8 +55,8 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="js-tab1">
                     <div class="row">
-                        <div class="col-lg-3"></div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-10">
                             <div id="table1" class="card cardTd">
 
                                 <div class="card-body">
@@ -64,24 +64,42 @@
                                         enctype="multipart/form-data">
                                         @csrf
 
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">industry_id </h6>
+                                        <div class="row border mb-3">
+                                            <div class="col-lg-4">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12">
+                                                        <h6 class="mb-0">Industry Id </h6>
+                                                    </div>
+                                                    <div class="form-group col-sm-12 text-secondary">
+                                                        <select name="industry_id" data-placeholder="Select industry_id.."
+                                                            class="form-control select">
+                                                            <option></option>
+                                                            @foreach ($industries as $industrie)
+                                                                <option class="form-control" value="{{ $industrie->id }}">
+                                                                    {{ $industrie->title }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <select name="industry_id" data-placeholder="Select industry_id.."
-                                                    class="form-control select">
-                                                    <option></option>
-                                                    @foreach ($industries as $industrie)
-                                                        <option class="form-control" value="{{ $industrie->id }}">
-                                                            {{ $industrie->title }}</option>
-                                                    @endforeach
-                                                </select>
+                                            <div class="col-lg-8">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12">
+                                                        <h6 class="mb-0">Header</h6>
+                                                    </div>
+                                                    <div class="form-group col-sm-12 text-secondary">
+                                                        <textarea name="header" id="" class="form-control" cols="30" rows="3"></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+
+
+
+
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">row_one_id </h6>
+                                                <h6 class="mb-0">Row One ID </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="row_one_id" data-placeholder="Select row_one_id.."
@@ -96,7 +114,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">row_three_id </h6>
+                                                <h6 class="mb-0">Row Three ID </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="row_three_id" data-placeholder="Select row_three_id.."
@@ -111,7 +129,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">row_five_id </h6>
+                                                <h6 class="mb-0">Row Five Id </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="row_five_id" data-placeholder="Select row_five_id.."
@@ -126,7 +144,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">solution_one_id </h6>
+                                                <h6 class="mb-0">Solution One </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="solution_one_id" data-placeholder="Select solution_one_id.."
@@ -139,7 +157,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">solution_two_id </h6>
+                                                <h6 class="mb-0">Solution Two  </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="solution_two_id" data-placeholder="Select solution_two_id.."
@@ -152,7 +170,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">solution_three_id </h6>
+                                                <h6 class="mb-0">Solution Three </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="solution_three_id"
@@ -166,7 +184,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">solution_four_id </h6>
+                                                <h6 class="mb-0">Solution Four </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="solution_four_id"
@@ -182,7 +200,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">client_story_id </h6>
+                                                <h6 class="mb-0">Client Story</h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="client_story_id" data-placeholder="Select client_story_id.."
@@ -198,7 +216,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">btn_one_name </h6>
+                                                <h6 class="mb-0">Button One Name</h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="text" name="btn_one_name" class="form-control maxlength"
@@ -207,89 +225,106 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">btn_one_link </h6>
+                                                <h6 class="mb-0">Button One link </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="text" name="btn_one_link" class="form-control maxlength"
                                                     maxlength="100" />
                                             </div>
                                         </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">row_four_title </h6>
+
+
+
+                                        <div class="row border my-3">
+                                            <div class="row">
+                                                <h6 class="text-center">Row Four</h6>
+                                                <hr>
                                             </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <input type="text" name="row_four_title"
-                                                    class="form-control maxlength" maxlength="100" />
+                                            <div class="row">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12">
+                                                        <h6 class="mb-0">Row Four title </h6>
+                                                    </div>
+                                                    <div class="form-group col-sm-12 text-secondary">
+                                                        <input type="text" name="row_four_title"
+                                                            class="form-control maxlength" maxlength="100" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12">
+                                                        <h6 class="mb-0">Row Four Header</h6>
+                                                    </div>
+                                                    <div class="form-group col-sm-12 text-secondary">
+                                                        <textarea name="row_four_header" id="" class="form-control" cols="30" rows="3"></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">row_four_col_one_title </h6>
+                                            <div class="col-lg-6">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12">
+                                                        <h6 class="mb-0">Row Four Column One title </h6>
+                                                    </div>
+                                                    <div class="form-group col-sm-12 text-secondary">
+                                                        <input type="text" name="row_four_col_one_title"
+                                                            class="form-control maxlength" maxlength="100" />
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12">
+                                                        <h6 class="mb-0">Row Four Column One Header</h6>
+                                                    </div>
+                                                    <div class="form-group col-sm-12 text-secondary">
+                                                        <textarea name="row_four_col_one_header" id="" class="form-control" cols="30" rows="3"></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <input type="text" name="row_four_col_one_title"
-                                                    class="form-control maxlength" maxlength="100" />
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">row_four_col_two_title </h6>
-                                            </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <input type="text" name="row_four_col_two_title"
-                                                    class="form-control maxlength" maxlength="100" />
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">footer_title </h6>
-                                            </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <input type="text" name="footer_title" class="form-control maxlength"
-                                                    maxlength="100" />
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">header</h6>
-                                            </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <textarea name="header" id="" class="form-control" cols="30" rows="3"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">row_four_header</h6>
-                                            </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <textarea name="row_four_header" id="" class="form-control" cols="30" rows="3"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">row_four_col_one_header</h6>
-                                            </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <textarea name="row_four_col_one_header" id="" class="form-control" cols="30" rows="3"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">row_four_col_two_header</h6>
-                                            </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <textarea name="row_four_col_two_header" id="" class="form-control" cols="30" rows="3"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">footer_header</h6>
-                                            </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <textarea name="footer_header" id="" class="form-control" cols="30" rows="3"></textarea>
+                                            <div class="col-lg-6">
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12">
+                                                        <h6 class="mb-0">Row Four Column Two title </h6>
+                                                    </div>
+                                                    <div class="form-group col-sm-12 text-secondary">
+                                                        <input type="text" name="row_four_col_two_title"
+                                                            class="form-control maxlength" maxlength="100" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mb-3">
+                                                    <div class="col-sm-12">
+                                                        <h6 class="mb-0">Row Four Column Two Header</h6>
+                                                    </div>
+                                                    <div class="form-group col-sm-12 text-secondary">
+                                                        <textarea name="row_four_col_two_header" id="" class="form-control" cols="30" rows="3"></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+
+
+                                        <div class="row border my-3">
+                                            <div class="row mb-3">
+                                                <div class="col-sm-12">
+                                                    <h6 class="mb-0">Footer Title </h6>
+                                                </div>
+                                                <div class="form-group col-sm-12 text-secondary">
+                                                    <input type="text" name="footer_title" class="form-control maxlength"
+                                                        maxlength="100" />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-12">
+                                                    <h6 class="mb-0">Footer Header</h6>
+                                                </div>
+                                                <div class="form-group col-sm-12 text-secondary">
+                                                    <textarea name="footer_header" id="" class="form-control" cols="30" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
                                         <div class="row">
                                             <div class="col-sm-4"></div>
                                             <div class="col-sm-8 text-secondary">

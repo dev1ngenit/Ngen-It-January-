@@ -30,19 +30,19 @@ return new class extends Migration
 
 
             $table->unsignedBigInteger('story1_id')->nullable();
-            $table->foreign('story1_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('story1_id')->references('id')->on('features')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('story2_id')->nullable();
-            $table->foreign('story2_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('story2_id')->references('id')->on('features')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('story3_id')->nullable();
-            $table->foreign('story3_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('story3_id')->references('id')->on('features')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('story4_id')->nullable();
-            $table->foreign('story4_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('story4_id')->references('id')->on('features')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('story5_id')->nullable();
-            $table->foreign('story5_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('story5_id')->references('id')->on('features')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('solution1_id')->nullable();
             $table->foreign('solution1_id')->references('id')->on('client_stories')->onDelete('cascade')->onUpdate('cascade');

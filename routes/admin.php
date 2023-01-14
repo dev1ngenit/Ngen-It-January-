@@ -17,6 +17,7 @@ use App\Http\Controllers\Order\ReportController;
 use App\Http\Controllers\Order\ReturnController;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\FeatureController;
 use App\Http\Controllers\Admin\PartnerPermission;
 use App\Http\Controllers\Admin\ProductController;
@@ -295,4 +296,5 @@ Route::get('job-register-user/download/{id}', [App\Http\Controllers\Frontend\Job
   // Feature
   Route::resource('feature', FeatureController::class);
   Route::resource('brandPage', BrandPageController::class);
+  Route::resource('country', CountryController::class);
 });

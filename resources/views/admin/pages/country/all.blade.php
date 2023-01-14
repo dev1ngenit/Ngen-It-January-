@@ -15,7 +15,7 @@
                     <div class="breadcrumb py-2">
                         <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
                         <a href="{{ route('admin.dashboard') }}" class="breadcrumb-item">Home</a>
-                        <span class="breadcrumb-item active">Policy Management</span>
+                        <span class="breadcrumb-item active">Country Management</span>
                     </div>
 
                     <a href="#breadcrumb_elements"
@@ -35,12 +35,12 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-9">
-                                    <h4 class="text-center">All Policys</h4>
+                                    <h4 class="text-center">All Country</h4>
                                 </div>
 
 
                                 <div class="col-lg-3">
-                                    <a href="{{ route('policy.create') }}" type="button"
+                                    <a href="{{ route('country.create') }}" type="button"
                                         class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
                                         <span class="btn-labeled-icon bg-black bg-opacity-20">
                                             <i class="icon-plus2"></i>
@@ -59,28 +59,28 @@
                                 <div class="tab-pane fade show active" id="js-tab1">
                                     <div id="table1" class="card cardT">
 
-                                        <table class="datatable table table-bordered table-hover policyDT">
+                                        <table class="datatable table table-bordered table-hover">
                                             <thead>
                                                 <tr>
                                                     <th>Sl No:</th>
-                                                    <th>name</th>
-                                                    <th>condition</th>
+                                                    <th>Region Name</th>
+                                                    <th>Country Name</th>
                                                     <th class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @if ($policys)
-                                                    @foreach ($policys as $key => $policy)
+                                                @if ($countrys)
+                                                    @foreach ($countrys as $key => $country)
                                                         <tr>
                                                             <td>{{ ++$key }}</td>
-                                                            <td>{{ $policy->name }}</td>
-                                                            <td>{{ $policy->condition }}</td>
+                                                            <td>{{ $country->region_name }}</td>
+                                                            <td>{{ $country->country_name }}</td>
                                                             <td class="text-center">
-                                                                <a href="{{ route('policy.edit', [$policy->id]) }}"
+                                                                <a href="{{ route('country.edit', [$country->id]) }}"
                                                                     class="text-primary">
                                                                     <i class="icon-pencil"></i>
                                                                 </a>
-                                                                <a href="{{ route('policy.destroy', [$policy->id]) }}"
+                                                                <a href="{{ route('country.destroy', [$country->id]) }}"
                                                                     class="text-danger delete mx-2">
                                                                     <i class="delete icon-trash"></i>
                                                                 </a>
@@ -109,19 +109,3 @@
 
 
 @endsection
-
-@once
-    @push('scripts')
-        <script type="text/javascript">
-            $('.policyDT').DataTable({
-                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
-                "iDisplayLength": 10,
-                "lengthMenu": [10, 26, 30, 50],
-                columnDefs: [{
-                    orderable: false,
-                    targets: [3],
-                }, ],
-            });
-        </script>
-    @endpush
-@endonce

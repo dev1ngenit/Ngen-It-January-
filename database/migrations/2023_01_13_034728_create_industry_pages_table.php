@@ -11,7 +11,7 @@ return new class extends Migration
      *
      * @return void
      */
-    public function up() 
+    public function up()
     {
         Schema::create('industry_pages', function (Blueprint $table) {
             $table->id();
@@ -39,10 +39,10 @@ return new class extends Migration
             $table->foreign('row_one_id')->references('id')->on('rows')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('row_three_id')->references('id')->on('rows')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('row_five_id')->references('id')->on('rows')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('solution_one_id')->references('id')->on('solutions')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('solution_two_id')->references('id')->on('solutions')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('solution_three_id')->references('id')->on('solutions')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('solution_four_id')->references('id')->on('solutions')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('solution_one_id')->references('id')->on('solution_details')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('solution_two_id')->references('id')->on('solution_details')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('solution_three_id')->references('id')->on('solution_details')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('solution_four_id')->references('id')->on('solution_details')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('client_story_id')->references('id')->on('client_stories')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

@@ -14,10 +14,10 @@
 
                 <!-- Sidebar user -->
 				<div class="sidebar-resize-hide sidebar-section">
-					<div class="sidebar-section-body text-center pt-0">
+					<div class="sidebar-section-body text-center pt-0 pb-1">
 						<div class="card-img-actions d-inline-block mb-3">
 							<img class="img-fluid rounded-circle"
-                            src="{{ (!empty(Auth::user()->photo)) ? url('upload/Profile/user/'.Auth::user()->photo):url('upload/no_image.jpg') }}"
+                            src="{{ (!empty(Auth::guard('client')->user()->photo)) ? url('upload/Profile/user/'.Auth::guard('client')->user()->photo):url('upload/no_image.jpg') }}"
                             width="150" height="150" alt="">
 							<div class="card-img-actions-overlay card-img rounded-circle">
 								<a href="#" class="btn btn-outline-white btn-icon rounded-pill">
@@ -26,7 +26,7 @@
 							</div>
 						</div>
 
-			    		<h5 class="mb-0">Hello {{Auth::user()->name}}</h5>
+			    		<h5 class="mb-0">Hello {{Auth::guard('client')->user()->name}}</h5>
 			    		{{-- <span class="text-muted">UX/UI designer</span> --}}
 
 						<div class="d-flex justify-content-center mt-3">
@@ -74,9 +74,70 @@
                         </span>
                     </a>
                 </li>
-                @if (Auth::user()->status == 'active')
+                @if (Auth::guard('client')->user()->status == 'active')
 
                 @else
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-user-focus"></i>
+                        <span>Your Profile</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="{{ route('client.profile') }}" class="nav-link active"><i
+                                    class="ph-user-focus"></i>
+                                <span>Profile Details</span></a></li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="ph-user-circle-gear"></i>
+                                <span>
+                                    Change Password
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-user-focus"></i>
+                        <span>RFQ Section</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="{{ route('client.profile') }}" class="nav-link active"><i
+                                    class="ph-user-focus"></i>
+                                <span>All RFQs</span></a></li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="ph-user-circle-gear"></i>
+                                <span>
+                                    All Deals
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="ph-user-focus"></i>
+                        <span>Order Section</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="{{ route('client.profile') }}" class="nav-link active"><i
+                                    class="ph-user-focus"></i>
+                                <span>All Orders</span></a></li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="ph-user-circle-gear"></i>
+                                <span>
+                                    All Deals
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 @endif
 
 

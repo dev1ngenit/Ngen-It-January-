@@ -26,7 +26,7 @@ class PartnerController extends Controller
     {
         return view('partner.auth.register');
     }
-    public function reg(Request $request)
+    public function PartnerRegistration(Request $request)
     {
         $validator = Validator::make(
             $request->all(),
@@ -83,8 +83,8 @@ class PartnerController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'primary_email_address' => 'required|max: 70',
-                'password' => 'required|max: 70',
+                'primary_email_address' => 'required|max:70',
+                'password' => 'required|max:70',
             ],
         );
 
@@ -96,7 +96,7 @@ class PartnerController extends Controller
                 //dd($credentials);
                 Toastr::success('You have Successfully logged in.');
                 return redirect('partner/dashboard');
-                
+
             } else {
                 Toastr::error('Login details are not valid');
                 return redirect("partner/login");

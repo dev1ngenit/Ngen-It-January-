@@ -32,8 +32,8 @@
         <!-- Content area -->
         <div class="content">
             <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
                     <div class="card">
                         <div class="card-header">
                             <div class="row">
@@ -52,14 +52,13 @@
                             </div>
                         </div>
 
-                        <table class="datatable table table-bordered table-hover">
+                        <table class="datatable table table-bordered table-hover cardDT">
                             <thead>
                                 <tr>
-                                    <th>Sl No:</th>
-                                    <th>Image</th>
-                                    <th>Title</th>
-                                    <th>Short Description</th>
-                                    <th class="text-center">Actions</th>
+                                    <th width="10%">Sl No:</th>
+                                    <th width="20%">Image</th>
+                                    <th width="35%">Title</th>
+                                    <th width="15%" class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,7 +70,6 @@
                                                     src="{{ asset('storage/requestImg/' . $solutionCard->image) }}"
                                                     height="30px" width="100px" alt=""></td>
                                             <td>{{ $solutionCard->title }}</td>
-                                            <td>{{ $solutionCard->short_des }}</td>
                                             <td class="text-center">
                                                 <a href="{{ route('solutionCard.edit', $solutionCard->id) }}"
                                                     class="text-primary">
@@ -104,5 +102,18 @@
     </div>
 @endsection
 
-@push('script')
-@endpush
+@once
+    @push('scripts')
+        <script type="text/javascript">
+            $('.cardDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 26, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [1, 3],
+                }, ],
+            });
+        </script>
+    @endpush
+@endonce

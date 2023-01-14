@@ -10,7 +10,7 @@
         </h1>
     </section><br><br>
     <!-------- End--------->
-
+ 
     <!--=======// Content & Filter //=======-->
     <section class="container">
         <form action="{{ route('custom.product', $cat->slug) }}" method="POST">
@@ -334,7 +334,7 @@
                         @if ($products)
 
                             @foreach ($products as $product)
-                                
+
                             <div class="product_content_item row">
                                 <div class="col-lg-3 col-md-4 col-sm-12">
                                     <img src="{{ asset($product->thumbnail) }}" alt="{{ $product->name }}" width="150px" height="113px">

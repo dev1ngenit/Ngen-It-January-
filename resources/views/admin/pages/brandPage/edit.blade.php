@@ -211,7 +211,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">row_one_title </h6>
+                                                <h6 class="mb-0">Row One Title </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="text" name="row_one_title"
@@ -221,7 +221,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">row_one_header</h6>
+                                                <h6 class="mb-0">Row One Header</h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <textarea name="row_one_header" id="" class="form-control" cols="30" rows="3">{{ $brandPage->row_one_header }}</textarea>
@@ -237,7 +237,7 @@
                                                     id="image" accept="image/*" />
                                                 <div class="form-text">Accepts only png, jpg, jpeg images</div>
                                                 <img id="showImage" height="100px" width="350px"
-                                                    src="https://cdn.pixabay.com/photo/2017/02/07/02/16/cloud-2044823_960_720.png"
+                                                    src="{{asset('storage/requestImg/'.$brandPage->row_six_image)}}"
                                                     alt="">
                                             </div>
                                         </div>
@@ -251,7 +251,7 @@
                                                     id="image1" accept="image/*" />
                                                 <div class="form-text">Accepts only png, jpg, jpeg images</div>
                                                 <img id="showImage1" height="100px" width="350px"
-                                                    src="https://cdn.pixabay.com/photo/2017/02/07/02/16/cloud-2044823_960_720.png"
+                                                    src="{{asset('storage/requestImg/'.$brandPage->banner_image)}}"
                                                     alt="">
                                             </div>
                                         </div>

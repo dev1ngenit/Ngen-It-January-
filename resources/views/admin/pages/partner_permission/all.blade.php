@@ -38,7 +38,7 @@
                                     <h4 class="mb-0 text-center">All Partner Permission</h4>
                                 </div>
 
-                                <table class="datatable table table-bordered table-hover">
+                                <table class="datatable table table-bordered table-hover partnerpermissionDT">
                                     <thead>
                                         <tr>
                                             <th>id</th>
@@ -139,3 +139,19 @@
     })
       </script>
 @endsection
+
+@once
+    @push('scripts')
+        <script type="text/javascript">
+            $('.partnerpermissionDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 26, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [2, 6, 7],
+                }, ],
+            });
+        </script>
+    @endpush
+@endonce

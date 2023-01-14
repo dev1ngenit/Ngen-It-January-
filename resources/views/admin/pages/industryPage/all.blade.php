@@ -59,17 +59,13 @@
                                 <div class="tab-pane fade show active" id="js-tab1">
                                     <div id="table1" class="card cardT">
 
-                                        <table class="datatable table table-bordered table-hover">
+                                        <table class="datatable table table-bordered table-hover industryPageDT">
                                             <thead>
                                                 <tr>
-                                                    <th>Sl No:</th>
-                                                    <th>Header</th>
-                                                    <th>Button One Name</th>
-                                                    <th>Button One Link</th>
-                                                    <th>Row Four Title</th>
-                                                    <th>Row Four Header</th>
-                                                    <th>Row Four Col One Title</th>
-                                                    <th class="text-center">Actions</th>
+                                                    <th width="10%">Sl No:</th>
+                                                    <th width="35%">Industry Name</th>
+                                                    <th width="40%">Header</th>
+                                                    <th width="15%" class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -77,13 +73,10 @@
                                                     @foreach ($industryPages as $key => $industryPage)
                                                         <tr>
                                                             <td>{{ ++$key }}</td>
-                                                            <td>{{ $industryPage->header }}
+                                                            <td>
+                                                                {{App\Models\Admin\Industry::where('id' , $industryPage->industry_id )->value('title')}}
                                                             </td>
-                                                            <td>{{ $industryPage->btn_one_name }}</td>
-                                                            <td>{{ $industryPage->btn_one_link }}</td>
-                                                            <td>{{ $industryPage->row_four_title }}</td>
-                                                            <td>{{ $industryPage->row_four_header }}</td>
-                                                            <td>{{ $industryPage->row_four_col_one_title }}</td>
+                                                            <td>{{ $industryPage->header }}</td>
                                                             <td class="text-center">
                                                                 <a href="{{ route('industryPage.edit', [$industryPage->id]) }}"
                                                                     class="text-primary">
@@ -118,3 +111,20 @@
 
 
 @endsection
+
+@once
+    @push('scripts')
+        <script type="text/javascript">
+            $('.industryPageDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 26, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [2, 3],
+                }, ],
+            });
+        </script>
+    @endpush
+@endonce
+

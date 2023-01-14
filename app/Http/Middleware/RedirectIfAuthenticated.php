@@ -29,17 +29,12 @@ class RedirectIfAuthenticated
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
 
-                if(Auth::check() && Auth::user()->role == 'client'){
-                    return redirect('/client/dashboard');
-
-                }if(Auth::check() && Auth::user()->role == 'sales'){
+                if(Auth::check() && Auth::user()->role == 'sales'){
                     return redirect('/sales/dashboard');
 
                 }if(Auth::check() && Auth::user()->role == 'admin'){
                     return redirect('/admin/dashboard');
 
-                }if(Auth::check() && Auth::partner()){
-                    return redirect('/partner/dashboard');
                 }
 
             }

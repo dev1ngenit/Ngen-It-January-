@@ -21,7 +21,7 @@
 
 
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
 
 <script src="{{ asset('/') }}backend/assets/js/app.js"></script>
@@ -36,8 +36,6 @@
 
 <script src="{{ asset('/') }}backend/assets/demo/pages/datatables_advanced.js"></script>
 
-<script src="{{ asset('/') }}backend/assets/js/vendor/editors/ckeditor/ckeditor_classic.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/pages/editor_ckeditor_classic.js"></script>
 
 <script src="{{ asset('/') }}backend/assets/demo/pages/form_tags.js"></script>
 
@@ -58,6 +56,8 @@
 
 
 <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
+
 {!! Toastr::message() !!}
 
 

@@ -242,7 +242,7 @@
 
                                 <!--Related Features Row-->
 
-                                <div class="row border mb-1">
+                                {{-- <div class="row border mb-1">
                                     <div class="col-12 text-center">
                                         <h5 class="border-bottom pb-2">Contact Row</h5>
                                     </div>
@@ -263,13 +263,13 @@
                                             <textarea name="row_five_header" id="" class="form-control" cols="30" rows="3"></textarea>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <!--Related Features Row-->
 
 
                                 <!---Footer--->
-                                <div class="row border p-1">
+                                <div class="row border p-1 mb-2">
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
                                             <h6 class="mb-0">Footer </h6>

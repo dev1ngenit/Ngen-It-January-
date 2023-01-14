@@ -59,17 +59,15 @@
                                 <div class="tab-pane fade show active" id="js-tab1">
                                     <div id="table1" class="card cardT">
 
-                                        <table class="datatable table table-bordered table-hover">
+                                        <table class="datatable table table-bordered table-hover contactDT">
                                             <thead>
                                                 <tr>
-                                                    <th>Sl No:</th>
-                                                    <th>Name</th>
-                                                    <th>phone</th>
-                                                    <th>email</th>
-                                                    <th>state</th>
-                                                    <th>country</th>
-                                                    <th>message</th>
-                                                    <th class="text-center">Actions</th>
+                                                    <th width="10%">Sl No:</th>
+                                                    <th width="15%">Name</th>
+                                                    <th width="15%">Email</th>
+                                                    <th width="15%">Country</th>
+                                                    <th width="35%">message</th>
+                                                    <th width="10%" class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -78,9 +76,7 @@
                                                         <tr>
                                                             <td>{{ ++$key }}</td>
                                                             <td>{{ $contact->fname }}&nbsp;{{ $contact->lname }}</td>
-                                                            <td>{{ $contact->phone }}</td>
                                                             <td>{{ $contact->email }}</td>
-                                                            <td>{{ $contact->state }}</td>
                                                             <td>{{ $contact->country }}</td>
                                                             <td>{{ $contact->message }}</td>
                                                             <td class="text-center">
@@ -117,3 +113,19 @@
 
 
 @endsection
+
+@once
+    @push('scripts')
+        <script type="text/javascript">
+            $('.contactDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 26, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [4, 5],
+                }, ],
+            });
+        </script>
+    @endpush
+@endonce

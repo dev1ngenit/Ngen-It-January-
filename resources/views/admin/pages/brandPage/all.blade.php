@@ -59,15 +59,15 @@
                                 <div class="tab-pane fade show active" id="js-tab1">
                                     <div id="table1" class="card cardT">
 
-                                        <table class="datatable table table-bordered table-hover">
-                                            <thead>
+                                        <table class="datatable table table-bordered table-hover brandPageDT">
+                                            <thead> 
                                                 <tr>
-                                                    <th>Sl No:</th>
-                                                    <th>Brand Name</th>
-                                                    <th>Header</th>
-                                                    <th>Banner Image</th>
-                                                    <th>Row six image</th>
-                                                    <th class="text-center">Actions</th>
+                                                    <th width="10%">Sl No:</th>
+                                                    <th width="20%">Brand Name</th>
+                                                    <th width="30%">Header</th>
+                                                    <th width="15%">Banner Image</th>
+                                                    <th width="15%">Row six image</th>
+                                                    <th width="10%" class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -117,3 +117,20 @@
 
 
 @endsection
+
+@once
+    @push('scripts')
+        <script type="text/javascript">
+            $('.brandPageDT').DataTable({
+                dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
+                "iDisplayLength": 10,
+                "lengthMenu": [10, 26, 30, 50],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [3, 4, 5],
+                }, ],
+            });
+        </script>
+    @endpush
+@endonce
+
