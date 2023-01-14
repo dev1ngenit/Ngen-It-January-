@@ -430,12 +430,7 @@ class ProductController extends Controller
             MultiImage::where('product_id',$id)->delete();
         }
 
-        $notification = array(
-            'message' => 'Product Deleted Successfully',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->back()->with($notification);
+        return redirect()->back();
 
     }// End Method
 

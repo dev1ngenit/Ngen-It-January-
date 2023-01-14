@@ -73,11 +73,11 @@
                                             <td>{{ $feature->title }}</td>
                                             <td>{!! $feature->header !!}</td>
                                             <td class="text-center">
-                                                <a href="{{ route('feature.edit', $features->id) }}"
+                                                <a href="{{ route('feature.edit', $feature->id) }}"
                                                     class="text-primary">
                                                     <i class="icon-pencil"></i>
                                                 </a>
-                                                <a href="{{ route('feature.destroy', [$features->id]) }}"
+                                                <a href="{{ route('feature.destroy', [$feature->id]) }}"
                                                     class="text-danger delete mx-2">
                                                     <i class="delete icon-trash"></i>
                                                 </a>

@@ -41,7 +41,7 @@
                                     <h4 class="mb-0 text-center">Add Features</h4>
                                 </div>
                                 <div class="col-lg-4">
-                                    <a href="{{ route('clientExperince.index') }}" type="button"
+                                    <a href="{{ route('feature.index') }}" type="button"
                                         class="btn btn-sm btn-warning btn-labeled btn-labeled-start float-end">
                                         <span class="btn-labeled-icon bg-black bg-opacity-20">
                                             <i class="icon-plus2"></i>
@@ -70,7 +70,7 @@
                                                 </div>
                                                 <div class="form-group col-sm-9 text-secondary">
                                                     <input type="text" id="badge" name="badge" class="form-control maxlength"
-                                                    maxlength="125" placeholder="Badge"/>
+                                                    maxlength="255" placeholder="Badge"/>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
@@ -79,7 +79,7 @@
                                                 </div>
                                                 <div class="form-group col-sm-9 text-secondary">
                                                     <input type="text" name="title" class="form-control maxlength"
-                                                        maxlength="200" placeholder="Feature Title"/>
+                                                        maxlength="255" placeholder="Feature Title"/>
                                                 </div>
                                             </div>
 
@@ -224,7 +224,7 @@
                                         </div>
                                         <div class="form-group col-sm-8 text-secondary">
                                             <input type="text" name="row_three_title"
-                                                class="form-control maxlength" maxlength="100" />
+                                                class="form-control maxlength" maxlength="255" />
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -244,7 +244,7 @@
 
                                 <div class="row border mb-1">
                                     <div class="col-12 text-center">
-                                        <h5 class="border-bottom pb-2">Related Features Row</h5>
+                                        <h5 class="border-bottom pb-2">Contact Row</h5>
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-4">
@@ -252,7 +252,7 @@
                                         </div>
                                         <div class="form-group col-sm-8 text-secondary">
                                             <input type="text" name="row_five_title"
-                                                class="form-control maxlength" maxlength="100" />
+                                                class="form-control maxlength" maxlength="255" />
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -269,17 +269,44 @@
 
 
                                 <!---Footer--->
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Footer </h6>
-                                    </div>
-                                    <div class="form-group col-sm-9 text-secondary">
-                                        <textarea class="form-control" name="footer" id="footer" style=" font-size: 12px; font-weight: 500;"></textarea>
+                                <div class="row border p-1">
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Footer </h6>
+                                        </div>
+                                        <div class="form-group col-sm-9 text-secondary">
+                                            <textarea class="form-control" name="footer" id="footer" style=" font-size: 12px; font-weight: 500;"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                                 <!---Footer--->
 
+                                 <!--Contact Row-->
 
+                                 <div class="row border mb-1">
+                                    <div class="col-12 text-center">
+                                        <h5 class="border-bottom pb-2">Contact Row</h5>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-4">
+                                            <h6 class="mb-0">Title </h6>
+                                        </div>
+                                        <div class="form-group col-sm-8 text-secondary">
+                                            <input type="text" name="row_four_title"
+                                                class="form-control maxlength" maxlength="255" />
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-4">
+                                            <h6 class="mb-0">Short Description</h6>
+                                        </div>
+                                        <div class="form-group col-sm-8 text-secondary">
+                                            <textarea name="row_four_header" id="" class="form-control" cols="30" rows="3"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Contact Row-->
 
 
 

@@ -75,9 +75,10 @@
                                                     <h6 class="mb-0">Industry Title </h6>
                                                 </div>
                                                 <div class="form-group col-sm-4 text-secondary">
-                                                    <select data-placeholder="Select Your tags" class="form-control select"
-                                                        id="industry_id" name="industry_id" multiple="multiple"
-                                                        data-tags="false" data-maximum-input-length="30">
+                                                    <select data-placeholder="Select Industry" class="form-select"
+                                                        id="industry_id" name="industry_id"
+                                                        data-tags="false">
+                                                        <option></option>
                                                         @foreach ($industries as $industrie)
                                                             <option value="{{ $industrie->id }}">{{ $industrie->title }}
                                                             </option>

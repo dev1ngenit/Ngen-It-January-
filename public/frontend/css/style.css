@@ -3908,7 +3908,7 @@ switch input:checked+.slider {
 .thing_together_wrapper p{
     color: #fff;
     font-size: 17px;
-    font-family: cursive;
+    font-family: sans-serif;
     font-weight: 400;
     margin: 40px 0px;
 }

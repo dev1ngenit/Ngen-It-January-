@@ -25,6 +25,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\SubSubCategory;
 use App\Models\Admin\SubSubSubCategory;
 use App\Http\Controllers\Admin\ClientController;
+use App\Models\Admin\Feature;
+use App\Models\Admin\Row;
 
 class HomeController extends Controller
 {
@@ -60,13 +62,11 @@ class HomeController extends Controller
         }
 
         if ($data['home']) {
-            $data['feature1'] = Client::where('id', $data['home']->story1_id)->first();
-
-
-        $data['feature2'] = Client::where('id',$data['home']->story2_id)->first();
-        $data['feature3'] = Client::where('id',$data['home']->story3_id)->first();
-        $data['feature4'] = Client::where('id',$data['home']->story4_id)->first();
-        $data['feature5'] = Client::where('id',$data['home']->story5_id)->first();
+        $data['feature1'] = Feature::where('id', $data['home']->story1_id)->first();
+        $data['feature2'] = Feature::where('id',$data['home']->story2_id)->first();
+        $data['feature3'] = Feature::where('id',$data['home']->story3_id)->first();
+        $data['feature4'] = Feature::where('id',$data['home']->story4_id)->first();
+        $data['feature5'] = Feature::where('id',$data['home']->story5_id)->first();
         $data['success1'] = Success::where('id',$data['home']->success1_id)->first();
         $data['success2'] = Success::where('id',$data['home']->success2_id)->first();
         $data['success3'] = Success::where('id',$data['home']->success3_id)->first();
@@ -109,6 +109,17 @@ class HomeController extends Controller
         $data['setting'] = Setting::latest()->first();
         return view('frontend.pages.learnmore.view',$data);
     }
+
+    //Feature Details
+    public function FeatureDetails($id){
+        $data['feature'] = Feature::where('id',$id)->first();
+        $data['row_one'] = Row::where('id',$data['feature']->row_one_id)->first();
+        $data['row_two'] = Row::where('id',$data['feature']->row_two_id)->first();
+        $data['features'] = Feature::where('id' , '!=' , $id )->get();
+        return view('frontend.pages.feature.feature_details',$data);
+    }
+
+
 
 
     //Contact, Support, Location, RFQ

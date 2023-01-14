@@ -23,13 +23,13 @@
         <!-- Content area -->
         <div class="content">
             <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
                     <div class="card">
                         <div class="card-header">
 
                             <h5 class="mb-0 float-start">Features Edit Form</h5>
-                            <a href="{{ route('clientExperince.index') }}" type="button"
+                            <a href="{{ route('feature.index') }}" type="button"
                                 class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
                                 <span class="btn-labeled-icon bg-black bg-opacity-20">
                                     <i class="icon-eye"></i>
@@ -39,7 +39,7 @@
                         </div>
 
                         <div class="card-body">
-                            <form method="post" action="{{ route('clientExperince.update', $clientExperince->id) }}"
+                            <form method="post" action="{{ route('feature.update', $feature->id) }}"
                                 enctype="multipart/form-data" id="myform">
                                 @csrf
                                 @method('PUT')
@@ -66,7 +66,7 @@
                                                 </div>
                                                 <div class="form-group col-sm-9 text-secondary">
                                                     <input type="text" name="title" class="form-control maxlength"
-                                                        maxlength="100" value="{{ $feature->logo }}"/>
+                                                        maxlength="100" value="{{ $feature->title }}"/>
                                                 </div>
                                             </div>
 
@@ -163,7 +163,7 @@
                                 <div class="row border mb-1">
                                     <div class="row my-2">
                                         <div class="col-lg-9">
-                                            <h5 class="text-center text-primary">Row with Right Image</h5>
+                                            <h5 class="text-center text-primary">Row with Left Image</h5>
                                         </div>
                                         <div class="col-lg-3">
                                             <a href="{{ route('row.create') }}" type="button"
@@ -179,7 +179,7 @@
 
                                     <div class="row mb-3 mt-2">
                                         <div class="col-sm-4">
-                                            <h6 class="mb-0">Row With Right Image </h6>
+                                            <h6 class="mb-0">Row With Left Image </h6>
                                         </div>
                                         <div class="form-group col-sm-8 text-secondary">
                                             <select name="row_two_id" data-placeholder="Select Row Two.."
@@ -256,96 +256,47 @@
 
 
                                 <!---Footer--->
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Footer </h6>
-                                    </div>
-                                    <div class="form-group col-sm-9 text-secondary">
-                                        <textarea class="form-control" name="footer" id="footer" style=" font-size: 12px; font-weight: 500;">{{$feature->footer}}</textarea>
+                                <div class="row border p-1 mb-3">
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Footer </h6>
+                                        </div>
+                                        <div class="form-group col-sm-9 text-secondary">
+                                            <textarea class="form-control" name="footer" id="footer" style=" font-size: 12px; font-weight: 500;">{{$feature->footer}}</textarea>
+                                        </div>
                                     </div>
                                 </div>
                                 <!---Footer--->
 
 
+                                 <!--Contact Row-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Title</h6>
+                                 <div class="row border mb-3 mt-1">
+                                    <div class="col-12 text-center">
+                                        <h5 class="border-bottom pb-2">Contact Row</h5>
                                     </div>
-                                    <div class="form-group col-sm-9 text-secondary">
-                                        <input type="text" value="{{ $clientExperince->title }}" name="title"
-                                            class="form-control maxlength" maxlength="100" />
+                                    <div class="row mb-3">
+                                        <div class="col-sm-4">
+                                            <h6 class="mb-0">Title </h6>
+                                        </div>
+                                        <div class="form-group col-sm-8 text-secondary">
+                                            <input type="text" name="row_four_title"
+                                                class="form-control maxlength" maxlength="255" value="{{$feature->row_four_title}}"/>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-sm-4">
+                                            <h6 class="mb-0">Short Description</h6>
+                                        </div>
+                                        <div class="form-group col-sm-8 text-secondary">
+                                            <textarea name="row_four_header" id="" class="form-control" cols="30" rows="3">{!! $feature->row_four_header !!}</textarea>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Logo </h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="file" value="{{ $clientExperince->logo }}" name="logo"
-                                            class="form-control" id="image" accept="image/*" />
-                                        <div class="form-text">Accepts only png, jpg, jpeg images</div>
-                                        <img id="showImage" height="100px" width="100px"
-                                            src="{{ asset('storage/thumb/' . $clientExperince->logo) }}"
-                                            alt="">
-                                    </div>
-                                </div>
+                                <!--Contact Row-->
 
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Image </h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="file" value="{{ $clientExperince->image }}" name="image"
-                                            class="form-control" id="image1" accept="image/*" />
-                                        <div class="form-text">Accepts only png, jpg, jpeg images</div>
-                                        <img id="showImage1" height="100px" width="100px"
-                                            src="{{ asset('storage/thumb/' . $clientExperince->image) }}"
-                                            alt="">
-                                    </div>
-                                </div>
 
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Header</h6>
-                                    </div>
-                                    <div class="form-group col-sm-9 text-secondary">
-                                        <textarea name="short_desc" class="form-control" rows="3"
-                                        style=" font-size: 12px; font-weight: 500;">{{ $clientExperince->short_desc }}</textarea>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Description</h6>
-                                    </div>
-                                    <div class="form-group col-sm-9 text-secondary">
-                                        <textarea class="form-control" name="long_desc" id="long_desc"
-                                        style=" font-size: 12px; font-weight: 500;">
-                                            {{ $clientExperince->long_desc }}</textarea>
-                                    </div>
-                                </div>
 
                                 <div class="row">
                                     <div class="col-sm-3"></div>

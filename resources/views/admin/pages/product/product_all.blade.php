@@ -93,7 +93,6 @@
 
                                 <td>
 
-
                                     <a href="{{ route('edit.product',$item->id) }}" class="text-primary">
                                         <i class="icon-pencil"></i>
                                     </a>
@@ -101,10 +100,6 @@
                                         class="text-danger delete mx-2">
                                         <i class="delete icon-trash"></i>
                                     </a>
-
-
-
-
 
                                 </td>
                             </tr>

@@ -21,7 +21,7 @@ class FeatureController extends Controller
      */
     public function index()
     {
-        $data['features'] = Feature::get();
+        $data['features'] = Feature::orderBy('id', 'ASC')->get();
         return view('admin.pages.feature.all', $data);
     }
 
@@ -46,6 +46,7 @@ class FeatureController extends Controller
      */
     public function store(Request $request)
     {
+
         Helper::imageDirectory();
         $validator = Validator::make(
             $request->all(),
@@ -79,25 +80,26 @@ class FeatureController extends Controller
                 $globalFunImage = ['status' => 0];
             }
 
-                Feature::create([
-                    'row_one_id'       => $request->row_one_id,
-                    'row_two_id'       => $request->row_two_id,
+            Feature::create([
 
-                    'badge'            => $request->badge,
-                    'title'            => $request->title,
-                    'header'           => $request->header,
 
-                    'logo'             => $globalFunImgLogo['status'] == 1 ? $globalFunImgLogo['file_name']: '',
-                    'image'            => $globalFunImage['status']   == 1 ? $globalFunImage['file_name']  : '',
-                    'row_three_title'  => $request->row_three_title,
-                    'row_three_header' => $request->row_three_header,
-                    'row_four_title'   => $request->row_four_title,
-                    'row_four_header'  => $request->row_four_header,
-                    'row_five_title'   => $request->row_five_title,
-                    'row_five_header'  => $request->row_five_header,
-                    'footer'           => $request->footer,
+                'badge'            => $request->badge,
+                'title'            => $request->title,
+                'header'           => $request->header,
 
-                ]);
+                'logo'             => $globalFunImgLogo['status'] == 1 ? $globalFunImgLogo['file_name'] : '',
+                'image'            => $globalFunImage['status']   == 1 ? $globalFunImage['file_name']  : '',
+                'row_one_id'       => $request->row_one_id,
+                'row_two_id'       => $request->row_two_id,
+                'row_three_title'  => $request->row_three_title,
+                'row_three_header' => $request->row_three_header,
+                'row_four_title'   => $request->row_four_title,
+                'row_four_header'  => $request->row_four_header,
+                'row_five_title'   => $request->row_five_title,
+                'row_five_header'  => $request->row_five_header,
+                'footer'           => $request->footer,
+
+            ]);
 
             Toastr::success('Data Inserted Successfully');
         } else {
@@ -130,7 +132,6 @@ class FeatureController extends Controller
     public function edit($id)
     {
         $data['rows'] = Row::select('rows.id', 'rows.title')->get();
-
         $data['feature'] = Feature::findOrFail($id);
         return view('admin.pages.feature.edit', $data);
     }
@@ -146,18 +147,18 @@ class FeatureController extends Controller
     {
         $feature = Feature::find($id);
         if (!empty($feature)) {
-            $validator =
+            $validator = Validator::make(
+                $request->all(),
                 [
-                    [
-                        'badge'  => 'required',
-                        'title'  => 'required',
-                        'header' => 'required',
-                        'logo'   => 'required|image|mimes:png|max:10000',
-                        'image'  => 'required|image|mimes:png,jpg,jpeg|max:10000',
-                    ]
-                ];
+                    'badge'  => 'required',
+                    'title'  => 'required',
+                    'header' => 'required',
+                ]
+
+            );
         }
-        $validator = Validator::make($request->all(), $validator);
+
+
 
         if ($validator->passes()) {
             $logoMainFile  = $request->logo;
@@ -188,21 +189,20 @@ class FeatureController extends Controller
 
             $feature->update([
 
-                    'logo'             => $globalFunImgLogo['status'] == 1 ? $globalFunImgLogo['file_name']: $feature->logo,
-                    'image'            => $globalFunImage['status']   == 1 ? $globalFunImage['file_name']  : $feature->image,
-                    'row_one_id'       => $request->row_one_id,
-                    'row_two_id'       => $request->row_two_id,
-
-                    'badge'            => $request->badge,
-                    'title'            => $request->title,
-                    'header'           => $request->header,
-                    'row_three_title'  => $request->row_three_title,
-                    'row_three_header' => $request->row_three_header,
-                    'row_four_title'   => $request->row_four_title,
-                    'row_four_header'  => $request->row_four_header,
-                    'row_five_title'   => $request->row_five_title,
-                    'row_five_header'  => $request->row_five_header,
-                    'footer'           => $request->footer,
+                'logo'             => $globalFunImgLogo['status'] == 1 ? $globalFunImgLogo['file_name'] : $feature->logo,
+                'image'            => $globalFunImage['status']   == 1 ? $globalFunImage['file_name']  : $feature->image,
+                'row_one_id'       => $request->row_one_id,
+                'row_two_id'       => $request->row_two_id,
+                'badge'            => $request->badge,
+                'title'            => $request->title,
+                'header'           => $request->header,
+                'row_three_title'  => $request->row_three_title,
+                'row_three_header' => $request->row_three_header,
+                'row_four_title'   => $request->row_four_title,
+                'row_four_header'  => $request->row_four_header,
+                'row_five_title'   => $request->row_five_title,
+                'row_five_header'  => $request->row_five_header,
+                'footer'           => $request->footer,
 
             ]);
 

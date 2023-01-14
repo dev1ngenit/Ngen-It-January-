@@ -81,9 +81,9 @@
 
                     <!-- content -->
                     <div class="business_item_content" style="height: 11rem;">
-                        <p class="business_item_title">{{$feature1->title}}</p>
-                        <p class="business_item_text">{{ Str::limit($feature1->short_desc, 150) }}</p>
-                        <a href="ngenit/client_experience.html" class="business_item_button"><span>Learn More</span> <span class="business_item_button_icon"><i class="fa-solid fa-arrow-right-long"></i></span></a>
+                        <p class="business_item_title">{{$feature1->badge}}</p>
+                        <p class="business_item_text">{{ Str::limit($feature1->header, 150) }}</p>
+                        <a href="{{route('feature.details',$feature1->id)}}" class="business_item_button"><span>Learn More</span> <span class="business_item_button_icon"><i class="fa-solid fa-arrow-right-long"></i></span></a>
                     </div>
                 </div>
                 <!-- item -->
@@ -95,9 +95,9 @@
 
                     <!-- content -->
                     <div class="business_item_content" style="height: 11rem;">
-                        <p class="business_item_title">{{$feature2->title}}</p>
-                        <p class="business_item_text">{{ Str::limit($feature2->short_desc, 150) }}</p>
-                        <a href="ngenit/client_experience.html" class="business_item_button"><span>Learn More</span> <span class="business_item_button_icon"><i class="fa-solid fa-arrow-right-long"></i></span></a>
+                        <p class="business_item_title">{{$feature2->badge}}</p>
+                        <p class="business_item_text">{{ Str::limit($feature2->header, 150) }}</p>
+                        <a href="{{route('feature.details',$feature2->id)}}" class="business_item_button"><span>Learn More</span> <span class="business_item_button_icon"><i class="fa-solid fa-arrow-right-long"></i></span></a>
                     </div>
                 </div>
                 <!-- item -->
@@ -109,9 +109,9 @@
 
                     <!-- content -->
                     <div class="business_item_content" style="height: 11rem;">
-                        <p class="business_item_title">{{$feature3->title}}</p>
-                        <p class="business_item_text">{{ Str::limit($feature3->short_desc, 150) }}</p>
-                        <a href="ngenit/client_experience.html" class="business_item_button"><span>Learn More</span> <span class="business_item_button_icon"><i class="fa-solid fa-arrow-right-long"></i></span></a>
+                        <p class="business_item_title">{{$feature3->badge}}</p>
+                        <p class="business_item_text">{{ Str::limit($feature3->header, 150) }}</p>
+                        <a href="{{route('feature.details',$feature3->id)}}" class="business_item_button"><span>Learn More</span> <span class="business_item_button_icon"><i class="fa-solid fa-arrow-right-long"></i></span></a>
                     </div>
                 </div>
                 <!-- item -->
@@ -124,9 +124,9 @@
 
                     <!-- content -->
                     <div class="business_item_content" style="height: 11rem;">
-                        <p class="business_item_title">{{$feature4->title}}</p>
-                        <p class="business_item_text">{{ Str::limit($feature4->short_desc, 150) }}</p>
-                        <a href="ngenit/client_experience.html" class="business_item_button"><span>Learn More</span> <span class="business_item_button_icon"><i class="fa-solid fa-arrow-right-long"></i></span></a>
+                        <p class="business_item_title">{{$feature4->badge}}</p>
+                        <p class="business_item_text">{{ Str::limit($feature4->header, 150) }}</p>
+                        <a href="{{route('feature.details',$feature4->id)}}" class="business_item_button"><span>Learn More</span> <span class="business_item_button_icon"><i class="fa-solid fa-arrow-right-long"></i></span></a>
                     </div>
                 </div>
                 <!-- item -->
@@ -139,9 +139,9 @@
 
                     <!-- content -->
                     <div class="business_item_content" style="height: 11rem;">
-                        <p class="business_item_title">{{$feature5->title}}</p>
-                        <p class="business_item_text"> {{ Str::limit($feature5->short_desc, 150) }}</p>
-                        <a href="ngenit/client_experience.html" class="business_item_button"><span>Learn More</span> <span class="business_item_button_icon"><i class="fa-solid fa-arrow-right-long"></i></span></a>
+                        <p class="business_item_title">{{$feature5->badge}}</p>
+                        <p class="business_item_text"> {{ Str::limit($feature5->header, 150) }}</p>
+                        <a href="{{route('feature.details',$feature5->id)}}" class="business_item_button"><span>Learn More</span> <span class="business_item_button_icon"><i class="fa-solid fa-arrow-right-long"></i></span></a>
                     </div>
                 </div>
             </div>

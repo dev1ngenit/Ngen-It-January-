@@ -39,7 +39,8 @@ Route::post('/newsletter/store', [NewsLetterController::class, 'store'])->name('
 Route::get('/modal/{id}', [HomeController::class, 'modal'])->name('modal');
 
 
-
+//Feature details
+Route::get('/feature/{id}/details/', [HomeController::class, 'FeatureDetails'])->name('feature.details');
 
 
 
