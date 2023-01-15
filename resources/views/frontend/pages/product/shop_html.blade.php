@@ -16,10 +16,12 @@
                     <a class="search_all_product_btn" href="{{ route('shop') }}">Search all Products</a>
                 </div>
                 <div class="col-lg-3 col-sm-12 d-flex justify-content-center mb-4">
-                    @if (auth()->check())
+                    @if (Auth::guard('client')->user())
                     <a class="create_your_account_btn " href="{{ route('client.dashboard') }}">Your Dashboard</a>
+                    @elseif (Auth::guard('partner')->user())
+                    <a class="create_your_account_btn " href="{{ route('partner.dashboard') }}">Your Dashboard</a>
                     @else
-                    <a class="create_your_account_btn " href="{{ route('client.login') }}">Create your account</a>
+
                     @endif
 
                 </div>
@@ -109,22 +111,25 @@
     <!------Shop by category---->
 
     <!--=====Transform your devices======-->
-    <section class="container">
-        <div class="transform_devices_wrapper">
-            <div class="row" style="border: 1px solid #e3e3e3;">
-                <div class="col-lg-6 col-md-6 col-sm-12 p-0">
-                    <img class="img-fluid" src="{{ asset('storage/'.$techglossy->image) }}"
-                        alt="{{$techglossy->badge}}">
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 transform_devices_blog">
-                    <img src="images/windows-11.png" alt="">
-                    <h2>{{$techglossy->badge}}</h2>
-                    <p>{{$techglossy->header}}</p>
-                    <a href="{{route('techglossy.details',$techglossy->id)}}">Learn more</a>
+    @if ($techglossy)
+        <section class="container">
+            <div class="transform_devices_wrapper">
+                <div class="row" style="border: 1px solid #e3e3e3;">
+                    <div class="col-lg-6 col-md-6 col-sm-12 p-0">
+                        <img class="img-fluid" src="{{ asset('storage/'.$techglossy->image) }}"
+                            alt="{{$techglossy->badge}}">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 transform_devices_blog">
+                        <img src="images/windows-11.png" alt="">
+                        <h2>{{$techglossy->badge}}</h2>
+                        <p>{{$techglossy->header}}</p>
+                        <a href="{{route('techglossy.details',$techglossy->id)}}">Learn more</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
+
     <!-----Transform your devices----->
 
     <!--=====Need Help Finding Prodcut======-->
@@ -155,7 +160,7 @@
                     <p>Explore <a href="{{ route('custom.product','deals') }}">deals,</a> <a href="{{ route('custom.product','refurbished') }}">refurbished products</a> and limited-time
                         offers. From laptops to cables, accessories and printers, we offer the technology you need at
                         affordable prices — you gain the option of discounted pricing from a variety of brands.</p><br>
-                    <a href="" class="common_button">Shop & Save</a>
+                    <a href="{{route('shop')}}" class="common_button">Shop & Save</a>
                 </div>
             </div>
         </div>
@@ -184,13 +189,8 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-center mt-4">
-            <form method="GET" action="{{ url('product/filter') }}"><button type="submit" class="common_button">
-                    @foreach ($brands as $item)
-                        <input type="hidden" name="filterbrand[]" value="{{ $item->title }}">
-                    @endforeach
-                    Shop all brands
-                </button>
-            </form>
+            <a href="{{route('all.brand')}}" class="common_button">Shop all brands</a>
+
         </div>
     </section>
     <!------Shop top brands.---->

@@ -59,7 +59,7 @@
                                 <div class="tab-pane fade show active" id="js-tab1">
                                     <div id="table1" class="card cardT">
 
-                                        <table class="datatable table table-bordered table-hover">
+                                        <table class="datatable table table-bordered table-hover supportDT">
                                             <thead>
                                                 <tr>
                                                     <th width="10%">Sl No:</th>
@@ -120,7 +120,7 @@
 @once
     @push('scripts')
         <script type="text/javascript">
-            $('.contactDT').DataTable({
+            $('.supportDT').DataTable({
                 dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
                 "iDisplayLength": 10,
                 "lengthMenu": [10, 26, 30, 50],

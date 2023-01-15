@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="badge" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -72,7 +72,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="title" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
 
@@ -110,7 +110,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="header_one" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -119,7 +119,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="header_two" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -128,7 +128,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="box_one_title" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -136,7 +136,7 @@
                                         <h6 class="mb-0">Box One Short Description</h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
-                                        <textarea name="box_one_short_des" class="form-control maxlength" maxlength="100" rows="3"
+                                        <textarea name="box_one_short_des" class="form-control maxlength" maxlength="255" rows="3"
                                             style=" font-size: 12px; font-weight: 500;"></textarea>
                                     </div>
                                 </div>
@@ -146,7 +146,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="box_one_link" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -155,7 +155,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="box_two_title" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -163,7 +163,7 @@
                                         <h6 class="mb-0">Box Two Short Description</h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
-                                        <textarea name="box_two_short_des" class="form-control maxlength" maxlength="100" rows="3"
+                                        <textarea name="box_two_short_des" class="form-control maxlength" maxlength="255" rows="3"
                                             style=" font-size: 12px; font-weight: 500;"></textarea>
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="box_two_link" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -182,7 +182,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="box_three_title" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -190,7 +190,7 @@
                                         <h6 class="mb-0">Box Three Short Description</h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
-                                        <textarea name="box_three_short_des" class="form-control maxlength" maxlength="100" rows="3"
+                                        <textarea name="box_three_short_des" class="form-control maxlength" maxlength="255" rows="3"
                                             style=" font-size: 12px; font-weight: 500;"></textarea>
                                     </div>
                                 </div>
@@ -200,7 +200,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="box_three_link" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -209,7 +209,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="success_story_title" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
 
@@ -277,7 +277,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="consult_title" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -285,7 +285,7 @@
                                         <h6 class="mb-0">Consult Short Description</h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
-                                        <textarea name="consult_short_des" class="form-control maxlength" maxlength="100" rows="3"
+                                        <textarea name="consult_short_des" class="form-control maxlength" maxlength="255" rows="3"
                                             style=" font-size: 12px; font-weight: 500;"></textarea>
                                     </div>
                                 </div>
@@ -295,7 +295,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="industry_header" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
 

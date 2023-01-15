@@ -10,7 +10,7 @@
             <div class="featured_client_stories">
                 <div class="container">
                     <div class="featured_client_stories_title">
-                        <h2 class="">Featured Stories</h2>
+                        <h2 class="red">Featured Stories</h2>
                     </div>
 
                     <div class="row">

@@ -150,7 +150,7 @@ class HomeController extends Controller
 
 
 
- 
+
 
 
 
@@ -164,7 +164,7 @@ class HomeController extends Controller
     {
         $data['tag'] = DB::table('client_stories')->pluck('tags');
 
-        $data['tag_items'] = json_decode($data['tag'], true);
+        $data['tag_items'] = explode(',' , $data['tag']);
         $data['featured_storys'] = ClientStory::inRandomOrder()->limit(4)->get();
         $data['client_storys'] = ClientStory::latest()->paginate(11);
 

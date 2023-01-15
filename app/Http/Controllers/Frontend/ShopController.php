@@ -14,7 +14,7 @@ use App\Models\Admin\SubSubCategory;
 class ShopController extends Controller
 {
 
- 
+
     //Custom Product Filtering
 
     public function CustomProduct()
@@ -292,7 +292,7 @@ class ShopController extends Controller
         else{
             $products=$products->paginate(10);
         }
-
+ 
       $categories = Category::orderBy('title','ASC')->get();
       $brands = Brand::orderBy('title','ASC')->get();
       $newProduct = Product::orderBy('id','DESC')->limit(3)->get();

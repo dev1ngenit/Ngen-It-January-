@@ -62,14 +62,10 @@
                                         <table class="solutionDetailsDT datatable table table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th width="5%">Sl No:</th>
-                                                    <th width="15%">Name</th>
-                                                    <th width="10%">Header</th>
-                                                    <th width="15%">Row Two Title</th>
-                                                    <th width="15%">Row Two Header</th>
-                                                    <th width="15%">Row Three Title</th>
-                                                    <th width="15%">Row Three Header</th>
-                                                    <th width="10%" class="text-center">Actions</th>
+                                                    <th width="15%" class="text-center">Sl No:</th>
+                                                    <th width="35%" class="text-center">Name</th>
+                                                    <th width="35%" class="text-center">Header</th>
+                                                    <th width="15%" class="text-center">Actions</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -80,16 +76,7 @@
                                                             <td>{{ $solutionDetail->name }}
                                                             </td>
                                                             <td>{{ $solutionDetail->header }}</td>
-                                                            <td>{{ $solutionDetail->row_two_title }}</td>
-                                                            <td data-bs-popup="tooltip"
-                                                                title="{{ $solutionDetail->row_two_header }}">
-                                                                {{ Str::limit($solutionDetail->row_two_header, 50, '...') }}
-                                                            </td>
-                                                            <td data-bs-popup="tooltip"
-                                                                title="{{ $solutionDetail->row_three_title }}">
-                                                                {{ Str::limit($solutionDetail->row_three_title, 50, '...') }}
-                                                            </td>
-                                                            <td>{{ $solutionDetail->row_three_header }}</td>
+
                                                             <td class="text-center">
                                                                 <a href="{{ route('solutionDetails.edit', [$solutionDetail->id]) }}"
                                                                     class="text-primary">

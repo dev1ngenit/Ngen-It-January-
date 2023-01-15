@@ -60,7 +60,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Author</h6>
+                                        <h6 class="mb-0">Author <span class="text-danger"> * </span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="created_by" class="form-control maxlength"
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Badge Name</h6>
+                                        <h6 class="mb-0">Badge Name <span class="text-danger"> * </span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="badge" class="form-control maxlength"
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Title</h6>
+                                        <h6 class="mb-0">Title <span class="text-danger"> * </span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="title" class="form-control maxlength"
@@ -111,7 +111,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Tags</h6>
+                                        <h6 class="mb-0">Tags <span class="text-danger"> * </span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="tags" class="form-control visually-hidden" data-role="tagsinput" placeholder="Related Tags">

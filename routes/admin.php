@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SAS\SASController;
 use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Admin\RFQController;
 use App\Http\Controllers\Admin\RowController;
@@ -27,6 +28,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomepageController;
 use App\Http\Controllers\Admin\IndustryController;
 use App\Http\Controllers\Admin\SolutionController;
+use App\Http\Controllers\Admin\SourcingController;
 use App\Http\Controllers\Admin\BrandPageController;
 use App\Http\Controllers\Admin\LearnMoreController;
 use App\Http\Controllers\Admin\NewsLetterController;
@@ -297,4 +299,15 @@ Route::get('job-register-user/download/{id}', [App\Http\Controllers\Frontend\Job
   Route::resource('feature', FeatureController::class);
   Route::resource('brandPage', BrandPageController::class);
   Route::resource('country', CountryController::class);
+
+  //Product Sourcing
+  Route::resource('product-sourcing', SourcingController::class);
+  //Product Sourcing
+ // SAS All Route
+    Route::controller(SASController::class)->group(function(){
+
+        Route::get('/sas/sourcing' , 'SourcingSas')->name('sourcing.sas');
+
+    });
+
 });

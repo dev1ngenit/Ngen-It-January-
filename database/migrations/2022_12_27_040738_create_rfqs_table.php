@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('rfqs', function (Blueprint $table) {
             $table->id();
+            $table->string('slug');
             $table->string('rfq_code');
             $table->unsignedBigInteger('sales_man_id')->nullable();
             $table->unsignedBigInteger('client_id')->nullable();
@@ -34,7 +35,7 @@ return new class extends Migration
             $table->foreign('sales_man_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('solution_id')->references('id')->on('solution_details')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('user_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('partner_id')->references('id')->on('partners')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
