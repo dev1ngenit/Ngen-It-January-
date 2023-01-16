@@ -87,7 +87,7 @@
                                     <div class="row mb-3">
                                         <div class="col-sm-3"></div>
                                         <div class="form-group col-sm-6 text-secondary">
-                                            <label for="brand_id"><h5 class="text-center mb-1">Slect Brand</h5></label>
+                                            <label for="brand_id"><h5 class="text-center mb-1">Slect Brand <span class="text-danger">*</span></h5></label>
                                             <select name="brand_id" data-placeholder="Select brand_id.."
                                                 class="form-control select" id="brand_id">
                                                 <option></option>
@@ -102,7 +102,7 @@
                                     <div class="row mb-3">
                                         <div class="col-lg-6">
                                             <div class="col-sm-12">
-                                                <h6 class="mb-0">Banner Image </h6>
+                                                <h6 class="mb-0">Banner Image <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="col-sm-10 text-secondary">
                                                 <input type="file" name="banner_image" class="form-control"
@@ -116,7 +116,7 @@
                                         <div class="col-lg-6">
                                             <div class="row mb-3">
                                                 <div class="col-sm-12">
-                                                    <h6 class="mb-0">Header</h6>
+                                                    <h6 class="mb-0">Header <span class="text-danger">*</span></h6>
                                                 </div>
                                                 <div class="form-group col-sm-12 text-secondary">
                                                     <textarea name="header" id="" class="form-control" cols="30" rows="3"></textarea>
@@ -152,7 +152,7 @@
                                         <div class="form-group col-sm-8 text-secondary">
                                              <label for="title"><h6 class="text-center mb-1">Row One Title</h6></label>
                                             <input type="text" name="row_one_title" class="form-control maxlength"
-                                                maxlength="100" id="title"/>
+                                                maxlength="255" id="title"/>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -313,7 +313,7 @@
                                         <div class="col-lg-4"></div>
                                         <div class="col-lg-4">
                                             <div class="col-sm-12">
-                                                <h6 class="mb-0">Row Six Image (More than 1800*1200) </h6>
+                                                <h6 class="mb-0">Row Six Image (More than 1800*1200) <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="col-sm-12 text-secondary">
                                                 <input type="file" name="row_six_image" class="form-control"
@@ -332,7 +332,7 @@
                                         <div class="form-group col-sm-8 text-secondary">
                                             <label for="title"><h6 class="mb-0">Row Six title </h6></label>
                                             <input type="text" name="row_six_title" class="form-control maxlength"
-                                                maxlength="100" id="title"/>
+                                                maxlength="255" id="title"/>
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -440,7 +440,7 @@
         <div class="form-group col-sm-6 text-secondary">
             <label for="title"><h6 class="mb-0">Row Nine title </h6></label>
             <input type="text" name="row_nine_title"
-                class="form-control maxlength" maxlength="100" id="title"/>
+                class="form-control maxlength" maxlength="255" id="title"/>
         </div>
     </div>
     <div class="row mb-3">

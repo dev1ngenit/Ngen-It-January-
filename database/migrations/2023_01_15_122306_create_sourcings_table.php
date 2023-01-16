@@ -30,9 +30,8 @@ return new class extends Migration
             $table->longText('accessories')->nullable();
             $table->longText('warranty')->nullable();
             $table->string('thumbnail');
-            $table->integer('qty')->default(1);
+            $table->integer('qty')->default(1)->nullable();
             $table->string('stock')->nullable();
-            $table->float('discount', 8, 2)->nullabale();
             $table->string('deal')->nullable();
             $table->string('industry')->nullable();
             $table->string('solution')->nullable();

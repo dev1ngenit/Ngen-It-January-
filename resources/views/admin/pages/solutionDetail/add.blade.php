@@ -72,7 +72,7 @@
                                             <div class="row mb-3 mt-2">
                                                 <div class="col-sm-3"></div>
                                                 <div class="col-sm-2">
-                                                    <h6 class="mb-0">Industry Title </h6>
+                                                    <h6 class="mb-0">Industry Title <span class="text-danger">*</span> </h6>
                                                 </div>
                                                 <div class="form-group col-sm-4 text-secondary">
                                                     <select data-placeholder="Select Industry" class="form-select"
@@ -92,7 +92,7 @@
                                                     <div class="row mb-3">
 
                                                         <div class="col-sm-12">
-                                                            <h6 class="mb-0">Banner Image </h6>
+                                                            <h6 class="mb-0">Banner Image <span class="text-danger">*</span> </h6>
                                                         </div>
                                                         <div class="col-sm-12 text-secondary">
                                                             <input type="file" name="banner_image" class="form-control"
@@ -107,11 +107,11 @@
                                                 <div class="col-lg-6">
                                                     <div class="row mb-3">
                                                         <div class="col-sm-12">
-                                                            <h6 class="mb-0">Solution Name</h6>
+                                                            <h6 class="mb-0">Solution Name <span class="text-danger">*</span></h6>
                                                         </div>
                                                         <div class="form-group col-sm-12 text-secondary">
                                                             <input type="text" name="name"
-                                                                class="form-control maxlength" maxlength="100" />
+                                                                class="form-control maxlength" maxlength="255" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -120,7 +120,7 @@
                                             <div class="row mb-3">
                                                 <div class="col-1"></div>
                                                 <div class="col-sm-2">
-                                                    <h6 class="mb-0">Solution Header</h6>
+                                                    <h6 class="mb-0">Solution Header <span class="text-danger">*</span></h6>
                                                 </div>
                                                 <div class="form-group col-sm-8 text-secondary">
                                                     <textarea name="header" id="" class="form-control" cols="40" rows="3"></textarea>
@@ -158,17 +158,17 @@
                                             </div>
                                             <div class="row mb-3">
                                                 <div class="col-sm-4">
-                                                    <h6 class="mb-0">Solution Card Section Title </h6>
+                                                    <h6 class="mb-0">Solution Card Section Title <span class="text-danger">*</span> </h6>
                                                 </div>
                                                 <div class="form-group col-sm-8 text-secondary">
                                                     <input type="text" name="row_two_title"
-                                                        class="form-control maxlength" maxlength="100" />
+                                                        class="form-control maxlength" maxlength="255" />
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
 
                                                 <div class="col-sm-4">
-                                                    <h6 class="mb-0">Solution Card Section Header</h6>
+                                                    <h6 class="mb-0">Solution Card Section Header <span class="text-danger">*</span></h6>
                                                 </div>
                                                 <div class="form-group col-sm-8 text-secondary">
                                                     <textarea name="row_two_header" id="" class="form-control" cols="30" rows="3"></textarea>
@@ -286,16 +286,16 @@
                                             </div>
                                             <div class="row mb-3">
                                                 <div class="col-sm-4">
-                                                    <h6 class="mb-0">Title </h6>
+                                                    <h6 class="mb-0">Title <span class="text-danger">*</span> </h6>
                                                 </div>
                                                 <div class="form-group col-sm-8 text-secondary">
                                                     <input type="text" name="row_three_title"
-                                                        class="form-control maxlength" maxlength="100" />
+                                                        class="form-control maxlength" maxlength="255" />
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <div class="col-sm-4">
-                                                    <h6 class="mb-0">Header</h6>
+                                                    <h6 class="mb-0">Header <span class="text-danger">*</span></h6>
                                                 </div>
                                                 <div class="form-group col-sm-8 text-secondary">
                                                     <textarea name="row_three_header" id="" class="form-control" cols="30" rows="3"></textarea>
@@ -336,16 +336,16 @@
                                             </div>
                                             <div class="row mb-3">
                                                 <div class="col-sm-4">
-                                                    <h6 class="mb-0"> Title </h6>
+                                                    <h6 class="mb-0"> Title <span class="text-danger">*</span> </h6>
                                                 </div>
                                                 <div class="form-group col-sm-8 text-secondary">
                                                     <input type="text" name="row_five_title"
-                                                        class="form-control maxlength" maxlength="100" />
+                                                        class="form-control maxlength" maxlength="255" />
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
                                                 <div class="col-sm-4">
-                                                    <h6 class="mb-0"> Header</h6>
+                                                    <h6 class="mb-0"> Header <span class="text-danger">*</span></h6>
                                                 </div>
                                                 <div class="form-group col-sm-8 text-secondary">
                                                     <textarea name="row_five_header" id="" class="form-control" cols="30" rows="3"></textarea>
@@ -423,7 +423,7 @@
                                                 </div>
                                                 <div class="form-group col-sm-8 text-secondary">
                                                     <input type="text" name="row_three_title"
-                                                        class="form-control maxlength" maxlength="100" />
+                                                        class="form-control maxlength" maxlength="255" />
                                                 </div>
                                             </div>
                                             <div class="row mb-3">

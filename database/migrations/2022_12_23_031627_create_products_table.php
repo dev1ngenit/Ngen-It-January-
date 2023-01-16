@@ -29,7 +29,7 @@ return new class extends Migration
             $table->longText('accessories')->nullable();
             $table->longText('warranty')->nullable();
             $table->string('thumbnail');
-            $table->integer('qty')->default(1);
+            $table->integer('qty')->default(1)->nullable();
             //$table->enum('condition',['default','new','hot'])->default('default');
             // $table->enum('stock',['unlimited','limited','available','stock_out'])->default('available')->nullable();
             $table->string('stock')->nullable();

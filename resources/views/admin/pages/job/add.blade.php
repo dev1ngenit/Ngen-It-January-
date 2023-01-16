@@ -65,73 +65,73 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Job Title </h6>
+                                                <h6 class="mb-0">Job Title <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="text" name="name" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Number of Vacancies </h6>
+                                                <h6 class="mb-0">Number of Vacancies <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="text" name="vacancy" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Dead Line </h6>
+                                                <h6 class="mb-0">Dead Line <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="date" name="deadline" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Link </h6>
+                                                <h6 class="mb-0">Link <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="text" name="link" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Company_name </h6>
+                                                <h6 class="mb-0">Company Name <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="text" name="company_name" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Category </h6>
+                                                <h6 class="mb-0">Category <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="text" name="category" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Experience </h6>
+                                                <h6 class="mb-0">Experience <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="text" name="experience" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Job Description </h6>
+                                                <h6 class="mb-0">Job Description <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <textarea name="description" id="long_desc" ></textarea>

@@ -68,7 +68,7 @@
                                             <div class="col-lg-4">
                                                 <div class="row mb-3">
                                                     <div class="col-sm-12">
-                                                        <h6 class="mb-0">Industry Id </h6>
+                                                        <h6 class="mb-0">Industry Id <span class="text-danger">*</span></h6>
                                                     </div>
                                                     <div class="form-group col-sm-12 text-secondary">
                                                         <select name="industry_id" data-placeholder="Select industry_id.."
@@ -99,7 +99,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Row One ID </h6>
+                                                <h6 class="mb-0">Row One ID <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="row_one_id" data-placeholder="Select row_one_id.."
@@ -114,7 +114,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Row Three ID </h6>
+                                                <h6 class="mb-0">Row Three ID <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="row_three_id" data-placeholder="Select row_three_id.."
@@ -129,7 +129,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Row Five Id </h6>
+                                                <h6 class="mb-0">Row Five Id <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="row_five_id" data-placeholder="Select row_five_id.."
@@ -200,7 +200,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Client Story</h6>
+                                                <h6 class="mb-0">Client Story <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="client_story_id" data-placeholder="Select client_story_id.."

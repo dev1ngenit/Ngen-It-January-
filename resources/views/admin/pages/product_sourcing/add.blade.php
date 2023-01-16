@@ -295,7 +295,7 @@
                                             <div class="form-group col-md-6">
                                                 <label class="col-form-label col-lg-12">Related Solutions</label>
                                                 <select class="form-control select" name="solution_id[]" data-placeholder="Select related Solutions..."
-                                                    multiple="multiple" data-tags="true">
+                                                    multiple="multiple" data-tags="false">
                                                         @foreach ($solutions as $item)
                                                         <option value="{{ $item->title }}"> {{ $item->title }}</option>
                                                         @endforeach
@@ -306,7 +306,7 @@
                                                 <label class="col-form-label col-lg-12">Related Industries</label>
 
                                                     <select class="form-control select" name="industry_id[]" data-placeholder="Select related Industries..."
-                                                    multiple="multiple" data-tags="true">
+                                                    multiple="multiple" data-tags="false">
                                                         @foreach ($industrys as $item)
                                                         <option value="{{ $item->id }}"> {{ $item->title }}</option>
                                                         @endforeach
@@ -384,15 +384,15 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><input class="form-control" type="text" name="source_one_name" id=""></td>
-                                                    <td><input class="form-control" type="text" name="source_one_link" id=""></td>
-                                                    <td><input class="form-control" type="text" name="source_one_price" id=""></td>
+                                                    <td><input class="form-control" type="text" name="competetor_one_name" ></td>
+                                                    <td><input class="form-control" type="text" name="competetor_one_link" ></td>
+                                                    <td><input class="form-control" type="text" name="competetor_one_price"></td>
 
                                                 </tr>
                                                 <tr>
-                                                    <td><input class="form-control" type="text" name="source_two_name" id=""></td>
-                                                    <td><input class="form-control" type="text" name="source_two_link" id=""></td>
-                                                    <td><input class="form-control" type="text" name="source_two_price" id=""></td>
+                                                    <td><input class="form-control" type="text" name="competetor_two_name"></td>
+                                                    <td><input class="form-control" type="text" name="competetor_two_link"></td>
+                                                    <td><input class="form-control" type="text" name="competetor_two_price"></td>
 
                                                 </tr>
 

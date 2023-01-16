@@ -45,7 +45,8 @@
                             <th>Sl</th>
                             <th>Image </th>
                             <th>Product Name </th>
-                            <th>Sourcing Price </th>
+                            <th>Sourcing Price 1</th>
+                            <th>Sourcing Price 2</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -58,22 +59,11 @@
                                 <td> <img src="{{ asset($item->thumbnail) }}" style="width: 70px; height:40px;">
                                 </td>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ $item->price }}</td>
+                                <td>{{ $item->source_one_price}}</td>
+                                <td>{{ $item->source__price}}</td>
                                 <td>{{ $item->stock }}</td>
 
-                                <td>
-                                    @if ($item->discount == null)
-                                        <span class="badge rounded-pill bg-info">No Discount</span>
-                                    @else
-                                        @php
-                                            $amount = $item->price - $item->discount;
-                                            $discount = ($amount / $item->price) * 100;
-                                        @endphp
-                                        <span class="badge rounded-pill bg-danger"> {{ round($discount) }}%</span>
-                                    @endif
-                                </td>
-
-
+                        
 
                                 <td>
                                     @if ($item->status == 'active')

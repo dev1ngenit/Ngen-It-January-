@@ -63,7 +63,7 @@
                                             </div>
                                             <div class="form-group col-sm-6 text-secondary">
                                                 <input type="text" name="title" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
                                         <div class="row">

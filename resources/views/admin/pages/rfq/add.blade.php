@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0"> Name </h6>
+                                                <h6 class="mb-0"> Name<span class="text-danger">*</span> </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="text" name="name" required class="form-control maxlength"
@@ -88,7 +88,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Email </h6>
+                                                <h6 class="mb-0">Email<span class="text-danger">*</span> </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="email" name="email" required class="form-control maxlength"
@@ -97,7 +97,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Phone </h6>
+                                                <h6 class="mb-0">Phone<span class="text-danger">*</span> </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="text" name="phone" required class="form-control maxlength"

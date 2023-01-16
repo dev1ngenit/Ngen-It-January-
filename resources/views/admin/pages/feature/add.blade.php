@@ -66,7 +66,7 @@
                                         <div class="col-lg-6">
                                             <div class="col-lg-12 mb-4">
                                                 <div class="col-sm-12">
-                                                    <h6 class="mb-0">Badge </h6>
+                                                    <h6 class="mb-0">Badge <span class="text-danger">*</span> </h6>
                                                 </div>
                                                 <div class="form-group col-sm-9 text-secondary">
                                                     <input type="text" id="badge" name="badge" class="form-control maxlength"
@@ -75,7 +75,7 @@
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="col-sm-12">
-                                                    <h6 class="mb-0">Title </h6>
+                                                    <h6 class="mb-0">Title <span class="text-danger">*</span></h6>
                                                 </div>
                                                 <div class="form-group col-sm-9 text-secondary">
                                                     <input type="text" name="title" class="form-control maxlength"
@@ -89,7 +89,7 @@
                                             <div class="col-lg-12">
                                                 <div class="row mb-3">
                                                     <div class="col-sm-12">
-                                                        <h6 class="mb-0">Logo </h6>
+                                                        <h6 class="mb-0">Logo <span class="text-danger">*</span></h6>
                                                     </div>
                                                     <div class="col-sm-9 text-secondary">
                                                         <input type="file" name="logo" class="form-control" id="image"
@@ -104,7 +104,7 @@
                                             <div class="col-lg-12">
                                                 <div class="row mb-3">
                                                     <div class="col-sm-12">
-                                                        <h6 class="mb-0">Image </h6>
+                                                        <h6 class="mb-0">Image <span class="text-danger">*</span></h6>
                                                     </div>
                                                     <div class="col-sm-9 text-secondary">
                                                         <input type="file" name="image" class="form-control" id="image1"
@@ -126,7 +126,7 @@
                                 <!--- Short Description -->
                                 <div class="row border my-3 p-4">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Short Description For Homepage</h6>
+                                        <h6 class="mb-0">Short Description For Homepage <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <textarea name="header" class="form-control" rows="3"

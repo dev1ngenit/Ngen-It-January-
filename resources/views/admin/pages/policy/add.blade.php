@@ -71,7 +71,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Title </h6>
+                                                <h6 class="mb-0">Title <span class="text-danger">*</span> </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <input type="text" name="name" class="form-control maxlength"
@@ -81,7 +81,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Condition</h6>
+                                                <h6 class="mb-0">Condition <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <div class="form-check">
@@ -103,7 +103,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">Description </h6>
+                                                <h6 class="mb-0">Description <span class="text-danger">*</span> </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <textarea class="form-control" name="description" id="common" style=" font-size: 12px; font-weight: 500;"></textarea>

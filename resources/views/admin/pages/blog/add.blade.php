@@ -64,7 +64,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="created_by" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="badge" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -97,7 +97,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Banner Image </h6>
+                                        <h6 class="mb-0">Banner Image span.text-danger  </h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <input type="file" name="image" class="form-control" id="image"

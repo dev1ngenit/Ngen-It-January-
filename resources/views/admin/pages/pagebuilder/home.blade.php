@@ -15,7 +15,7 @@
                                     <h6 class="text-center" style="background:white;">Banner Section</h6>
                                     <div class="row">
                                         <div class="form-group col-lg-4 col-md-6 col-sm-12">
-                                            <label>Banner 1</label>
+                                            <label>Banner 1 <span class="text-danger">*</span></label>
                                             <input type="file" name="branner1" class="form-control"
                                                 placeholder="Upload your banner" id="image" required>
                                             <div class="form-text">Accepts only png, jpg, jpeg images</div>
@@ -25,7 +25,7 @@
                                         </div>
 
                                         <div class="form-group col-lg-4 col-md-6 col-sm-12">
-                                            <label>Banner 2</label>
+                                            <label>Banner 2 <span class="text-danger">*</span></label>
                                             <input type="file" name="branner2" class="form-control"
                                                 placeholder="Upload your banner" id="image1" required>
                                             <div class="form-text">Accepts only png, jpg, jpeg images</div>
@@ -35,7 +35,7 @@
                                         </div>
 
                                         <div class="form-group col-lg-4 col-md-6 col-sm-12">
-                                            <label>Banner 3</label>
+                                            <label>Banner 3 <span class="text-danger">*</span></label>
                                             <input type="file" name="branner3" class="form-control"
                                                 placeholder="Upload your banner" id="image2" required>
                                             <div class="form-text">Accepts only png, jpg, jpeg images</div>
@@ -86,13 +86,13 @@
                                     <h6 class="text-center" style="background:white;">Features Section</h6>
                                     <div class="row">
                                         <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                            <label>Header 1</label>
+                                            <label>Header 1 <span class="text-danger">*</span></label>
                                             <input type="text" name="header1" class="form-control"
                                                 placeholder="Write Something..." required>
                                         </div>
 
                                         <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                            <label>Header 2</label>
+                                            <label>Header 2 <span class="text-danger">*</span></label>
                                             <input type="text" name="header2" class="form-control"
                                                 placeholder="Write Something..." required>
                                         </div>

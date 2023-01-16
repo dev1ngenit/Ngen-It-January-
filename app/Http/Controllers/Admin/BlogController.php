@@ -51,9 +51,9 @@ class BlogController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'badge' => 'required|max:70',
-                'title' => 'required|max:200',
-                'tags'  => 'required|max:250',
+                'badge'   => 'required|max:70',
+                'title'   => 'required|max:200',
+                'tags'    => 'required|max:250',
                 'image'   => 'image|mimes:png,jpg,jpeg|max:10000',
             ],
             [
@@ -147,7 +147,7 @@ class BlogController extends Controller
                     'badge' => 'required|max:70',
                     'title' => 'required|max:200',
                     'tags' => 'required|max:250',
-                    'image' => 'required|image|mimes:png,jpg,jpeg|max:5000',
+                    'image' => 'image|mimes:png,jpg,jpeg|max:5000',
 
                 ];
         } else {

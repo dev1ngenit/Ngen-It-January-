@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('sas', function (Blueprint $table) {
                     $table->id();
+                    $table->unsignedBigInteger('product_id');
                     $table->string('ref_code')->nullable();
                     $table->date('create')->nullable();
                     $table->string('item_name')->nullable();
@@ -33,6 +34,7 @@ return new class extends Migration
                     $table->float('management_cost')->nullable();
                     $table->float('net_profit')->nullable();
                     $table->float('gross_profit')->nullable();
+                    $table->foreign('product_id')->references('id')->on('sourcings')->onDelete('cascade')->onUpdate('cascade');
                     $table->timestamps();
         });
     }

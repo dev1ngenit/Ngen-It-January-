@@ -59,7 +59,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Badge</h6>
+                                        <h6 class="mb-0">Badge <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="badge" class="form-control maxlength"
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Title</h6>
+                                        <h6 class="mb-0">Title <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="title" class="form-control maxlength"
@@ -78,7 +78,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Banner Image </h6>
+                                        <h6 class="mb-0">Banner Image <span class="text-danger">*</span> </h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <input type="file" name="image_banner" class="form-control" id="image"
@@ -92,7 +92,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Background Image </h6>
+                                        <h6 class="mb-0">Background Image <span class="text-danger">*</span> </h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <input type="file" name="background_image" class="form-control" id="image1"
@@ -106,7 +106,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Header One</h6>
+                                        <h6 class="mb-0">Header One <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="header_one" class="form-control maxlength"
@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Header Two</h6>
+                                        <h6 class="mb-0">Header Two <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="header_two" class="form-control maxlength"
@@ -124,7 +124,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Box One Title</h6>
+                                        <h6 class="mb-0">Box One Title <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="box_one_title" class="form-control maxlength"
@@ -133,7 +133,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Box One Short Description</h6>
+                                        <h6 class="mb-0">Box One Short Description <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <textarea name="box_one_short_des" class="form-control maxlength" maxlength="255" rows="3"
@@ -142,7 +142,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Box One link</h6>
+                                        <h6 class="mb-0">Box One link <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="box_one_link" class="form-control maxlength"
@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Box Two Title</h6>
+                                        <h6 class="mb-0">Box Two Title <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="box_two_title" class="form-control maxlength"
@@ -160,7 +160,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Box Two Short Description</h6>
+                                        <h6 class="mb-0">Box Two Short Description <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <textarea name="box_two_short_des" class="form-control maxlength" maxlength="255" rows="3"
@@ -169,7 +169,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Box Two link</h6>
+                                        <h6 class="mb-0">Box Two link <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="box_two_link" class="form-control maxlength"
@@ -178,7 +178,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Box Three Title</h6>
+                                        <h6 class="mb-0">Box Three Title <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="box_three_title" class="form-control maxlength"
@@ -187,7 +187,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Box Three Short Description</h6>
+                                        <h6 class="mb-0">Box Three Short Description <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <textarea name="box_three_short_des" class="form-control maxlength" maxlength="255" rows="3"
@@ -196,7 +196,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Box Three link</h6>
+                                        <h6 class="mb-0">Box Three link <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="box_three_link" class="form-control maxlength"
@@ -205,7 +205,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Success Story Title</h6>
+                                        <h6 class="mb-0">Success Story Title <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="success_story_title" class="form-control maxlength"
@@ -217,7 +217,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Client Story 1</h6>
+                                        <h6 class="mb-0">Client Story 1 <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <select name="success_story_one_id" class="form-control select"
@@ -232,7 +232,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Client Story 2</h6>
+                                        <h6 class="mb-0">Client Story 2 <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <select name="success_story_two_id" class="form-control select"
@@ -247,7 +247,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Client Story 3</h6>
+                                        <h6 class="mb-0">Client Story 3 <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <select name="success_story_three_id" class="form-control select"
@@ -263,7 +263,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Footer</h6>
+                                        <h6 class="mb-0">Footer <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <textarea name="footer" class="form-control maxlength" rows="3"
@@ -273,7 +273,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Consult Title</h6>
+                                        <h6 class="mb-0">Consult Title <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="consult_title" class="form-control maxlength"
@@ -282,7 +282,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Consult Short Description</h6>
+                                        <h6 class="mb-0">Consult Short Description <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <textarea name="consult_short_des" class="form-control maxlength" maxlength="255" rows="3"
@@ -291,7 +291,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Industry Header</h6>
+                                        <h6 class="mb-0">Industry Header <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <input type="text" name="industry_header" class="form-control maxlength"

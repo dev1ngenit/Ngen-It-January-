@@ -59,7 +59,7 @@
                                 <div class="row mb-3">
                                     <div class="col-sm-3"></div>
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Solution Card Image </h6>
+                                        <h6 class="mb-0">Solution Card Image <span class="text-danger">*</span> </h6>
                                     </div>
                                     <div class="col-sm-4 text-secondary">
                                         <input type="file" name="image" class="form-control" id="image"
@@ -73,11 +73,11 @@
                                 <div class="row mb-3">
                                     <div class="col-sm-2"></div>
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Title</h6>
+                                        <h6 class="mb-0">Title <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-6 text-secondary">
                                         <input type="text" name="title" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
 
@@ -85,7 +85,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Short Description </h6>
+                                        <h6 class="mb-0">Short Description <span class="text-danger">*</span> </h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
                                         <textarea name="short_des" id="" cols="70" rows="5"></textarea>

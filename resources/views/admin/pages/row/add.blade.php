@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="form-group col-sm-4 text-secondary">
                                         <input type="text" name="badge" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row">
@@ -71,7 +71,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">Row Image </h6>
+                                                <h6 class="mb-0">Row Image <span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <input type="file" name="image" class="form-control" id="image"
@@ -88,7 +88,7 @@
                                             </div>
                                             <div class="form-group col-sm-9 text-secondary">
                                                 <input type="text" name="btn_name" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -97,7 +97,7 @@
                                             </div>
                                             <div class="form-group col-sm-9 text-secondary">
                                                 <input type="text" name="link" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
                                     </div>
@@ -105,11 +105,11 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">Title</h6>
+                                                <h6 class="mb-0">Title<span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-9 text-secondary">
                                                 <input type="text" name="title" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
 
@@ -142,18 +142,18 @@
                                     </div>
                                     <div class="form-group col-sm-4 text-secondary">
                                         <input type="text" name="badge" class="form-control maxlength"
-                                            maxlength="100" />
+                                            maxlength="255" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="row mb-3">
                                             <div class="col-sm-12">
-                                                <h6 class="mb-0">Title</h6>
+                                                <h6 class="mb-0">Title<span class="text-danger">*</span></h6>
                                             </div>
                                             <div class="form-group col-sm-12 text-secondary">
                                                 <input type="text" name="title" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -173,7 +173,7 @@
                                             </div>
                                             <div class="form-group col-sm-12 text-secondary">
                                                 <input type="text" name="list_title" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -182,7 +182,7 @@
                                             </div>
                                             <div class="form-group col-sm-12 text-secondary">
                                                 <input type="text" name="list_one" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -191,7 +191,7 @@
                                             </div>
                                             <div class="form-group col-sm-12 text-secondary">
                                                 <input type="text" name="list_two" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -200,7 +200,7 @@
                                             </div>
                                             <div class="form-group col-sm-12 text-secondary">
                                                 <input type="text" name="list_three" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
                                         <div class="row mb-3">
@@ -209,7 +209,7 @@
                                             </div>
                                             <div class="form-group col-sm-12 text-secondary">
                                                 <input type="text" name="list_four" class="form-control maxlength"
-                                                    maxlength="100" />
+                                                    maxlength="255" />
                                             </div>
                                         </div>
 

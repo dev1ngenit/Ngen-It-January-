@@ -54,7 +54,7 @@ class FeatureController extends Controller
                 'badge'  => 'required',
                 'title'  => 'required',
                 'header' => 'required',
-                'logo'   => 'required|image|mimes:png|max:10000',
+                'logo'   => 'required|image|mimes:png,jpg,jpeg|max:10000',
                 'image'  => 'required|image|mimes:png,jpg,jpeg|max:10000',
 
             ],

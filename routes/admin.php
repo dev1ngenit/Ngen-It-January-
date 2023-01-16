@@ -1,6 +1,8 @@
 <?php
 
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\SAS\SASController;
 use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Admin\RFQController;
@@ -306,8 +308,61 @@ Route::get('job-register-user/download/{id}', [App\Http\Controllers\Frontend\Job
  // SAS All Route
     Route::controller(SASController::class)->group(function(){
 
-        Route::get('/sas/sourcing' , 'SourcingSas')->name('sourcing.sas');
+        Route::get('/sas/{id}/sourcing' , 'SourcingSas')->name('sourcing.sas');
 
     });
+
+
+
+
+    ///Artisan Command
+
+Route::get('/link', function () {
+    Artisan::call('storage:link');
+    Toastr::success('Link Created Successfully');
+    return redirect()->back();
+});
+//Clear Cache facade value:
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    Toastr::success('Cache facade value cleared');
+    return redirect()->back();
+
+});
+
+//Reoptimized class loader:
+Route::get('/optimize', function() {
+    $exitCode = Artisan::call('optimize:clear');
+    Toastr::success('Optimize cleared');
+    return redirect()->back();
+});
+
+//Route cache:
+Route::get('/route-cache', function() {
+    $exitCode = Artisan::call('route:cache');
+    Toastr::success('Route Cached');
+    return redirect()->back();
+});
+
+//Clear Route cache:
+Route::get('/clear-route', function() {
+    $exitCode = Artisan::call('route:clear');
+    Toastr::success('Route value cleared');
+    return redirect()->back();
+});
+
+//Clear View cache:
+Route::get('/clear-view', function() {
+    $exitCode = Artisan::call('view:clear');
+    Toastr::success('View cleared');
+    return redirect()->back();
+});
+
+//Clear Config cache:
+Route::get('/clear-config', function() {
+    $exitCode = Artisan::call('config:cache');
+    Toastr::success('Config cached');
+    return redirect()->back();
+});
 
 });

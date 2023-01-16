@@ -57,7 +57,7 @@
 
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Title </h6>
+                                        <h6 class="mb-0">Title <span class="text-danger">*</span> </h6>
                                     </div>
                                     <div class="form-group col-sm-8 text-secondary">
                                         <input type="text" name="title" class="form-control maxlength"
@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Description</h6>
+                                        <h6 class="mb-0">Description <span class="text-danger">*</span></h6>
                                     </div>
                                     <div class="form-group col-sm-8 text-secondary">
                                         <textarea name="description" class="form-control" cols="40" rows="10"></textarea>
