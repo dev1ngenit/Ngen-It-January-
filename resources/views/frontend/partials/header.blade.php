@@ -1,8 +1,11 @@
 @php
     $setting=App\Models\Admin\Setting::first();
-    $industrys = App\Models\Admin\Industry::orderBy('id','Desc')->limit(5)->get();
-    $brands = App\Models\Admin\Brand::where('category','Top')->orWhere('category','Featured')->limit(10)->get();
+    $industrys = App\Models\Admin\IndustryPage::orderBy('id','Desc')->limit(10)->get();
+    $features = App\Models\Admin\Feature::orderBy('id','Desc')->limit(10)->get();
+    $solutions = App\Models\Admin\SolutionDetail::orderBy('id','Desc')->limit(10)->get();
+    $brands = App\Models\Admin\BrandPage::orderBy('id','Desc')->limit(10)->get();
     $categorys = App\Models\Admin\Category::orderBy('id','DESC')->limit(10)->get();
+    $jobs = App\Models\Admin\Job::all();
 @endphp
 
 <header class="fixed-top">
@@ -92,6 +95,7 @@
                 </div>
             </div>
 
+
             <!--Menu-->
             <nav class="display_none" id="Main_menu">
                 <div class="menu_item_wrapper">
@@ -106,41 +110,41 @@
                             <div class="sub_menu">
                                 <div class="colum-3 colum-12">
                                     <h3 class="toggleDetails">Products<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    {{-- <p>Harness the power of technology to achieve your most ambitious goals.</p> --}}
+                                    <p>Harness the power of technology to achieve your most ambitious goals.</p>
                                     <div class="details hidden sub_sub_item">
                                         <a href="{{route('software.common')}}">Software <i class="fa-solid fa-angle-right"></i></a>
                                         <a href="{{route('hardware.common')}}">Hardware <i class="fa-solid fa-angle-right"></i></a>
                                         <a href="{{route('shop')}}">Digital Services <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Developments <i class="fa-solid fa-angle-right"></i></a>
+                                        <!-- <a href="report.html">Developments <i class="fa-solid fa-angle-right"></i></a> -->
                                     </div>
                                 </div>
                                 <div class="colum-3 colum-12">
                                     <h3 class="toggleDetails">Solutions <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    {{-- <p>Our deep expertise and end-to-end capabilities help you navigate complex IT challenges.</p> --}}
+                                    <p>Our deep expertise and end-to-end capabilities help you navigate complex IT challenges.</p>
                                     <div class="details hidden sub_sub_item">
-                                        {{-- <a href="">Smart City <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">IoT, AI, Aerobotics <i class="fa-solid fa-angle-right"></i></a> --}}
+                                        @foreach ($solutions as $item)
+                                        <a href="{{route('solution.details',$item->id)}}"> {{$item->name}}<i class="fa-solid fa-angle-right"></i></a>
+                                        @endforeach
                                     </div>
                                 </div>
                                 <div class="colum-3 colum-12">
                                     <h3 class="toggleDetails">Industry <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Our service offerings several Industries </p>
+                                    <p>Our service offerings service offerings </p>
                                     <div class="details hidden sub_sub_item">
                                         @foreach ($industrys as $item)
-                                        <a href="{{route('industry.details',$item->id)}}">{{$item->title}} <i class="fa-solid fa-angle-right"></i></a>
+                                        <a href="{{route('industry.details',$item->id)}}">{{App\Models\Admin\Industry::where('id',$item->industry_id)->value('title')}} <i class="fa-solid fa-angle-right"></i></a>
                                         @endforeach
                                     </div>
                                 </div>
-                                {{-- <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Services <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Our service offerings drive new business outcomes.</p>
+                                <div class="colum-3 colum-12">
+                                    <h3 class="toggleDetails">Features <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+
                                     <div class="details hidden sub_sub_item">
-                                        <a href="ngenit/service_single.html">Consulting services <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="ngenit/service_single.html">Managed services <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="ngenit/service_single.html">Digital HR Services <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="ngenit/service_single.html">Support Services <i class="fa-solid fa-angle-right"></i></a>
+                                        @foreach ($features as $item)
+                                        <a href="{{route('feature.details',$item->id)}}">{{$item->badge}} <i class="fa-solid fa-angle-right"></i></a>
+                                        @endforeach
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
                             <div class="sub_menu_footer">
                                 <div class="sub_menu_footer_item">
@@ -153,7 +157,7 @@
                                     <a href="{{route('all.industry')}}">View All Industry</a>
                                 </div>
                                 <div class="sub_menu_footer_item">
-                                    <a href="ngenit/service_common.html">View All Service</a>
+                                    <a href="ngenit/service_common.html">View All Features</a>
                                 </div>
                             </div>
                         </div>
@@ -161,45 +165,65 @@
                     <!--Menu Item-->
                     <div class="menu_item">
                         <button class="country-btn-portugal">Tech Contents <i class="fa-solid fa-caret-down"></i></button>
-                        <div class="manege_nav sub_menu_wrapper mr-animate-left">
+                        <div class="manege_nav sub_menu_wrapper mr-animate-left border-bottom ">
                             <!--Sub menu 2-->
                             <div class="back_menu">
                                 <div class="country-btn-portugal back_button_style"><i class="fa-solid fa-chevron-left"></i> Back</div>
                             </div>
-                            <div class="sub_menu mx-5">
-                                <div class="col-lg-4 colum-12">
-                                    <h3 class="toggleDetails">By Industry <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Harness the power of technology to achieve your most ambitious goals.</p>
-                                    <div class="details hidden sub_sub_item">
-                                        <a href="">Education <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Healthcare <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Manufacturing <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Public sector <i class="fa-solid fa-angle-right"></i></a>
+                            <div class="sub_menu row px-5">
+                                <div class="col-4 colum-12">
+                                    <h3 class="toggleDetails">Client Stories<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    <div class="d-flex">
+                                    <div class="w-50">
+                                        <img class="w-100" src="./ngenit/images/menu/1.jpg" alt="">
                                     </div>
-                                </div>
-                                <div class="col-lg-4 colum-12">
-                                    <h3 class="toggleDetails">By Solution <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Our deep expertise and end-to-end capabilities help you navigate complex IT challenges.</p>
-                                    <div class="details hidden sub_sub_item">
-                                        <a href="">Modern infrastructure <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Networking <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Procurement <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Real-time data <i class="fa-solid fa-angle-right"></i></a>
+                                    <p class="w-50 ml-3">Lane Regional Medical Center Drives Ambitious Security and Workflow Enhancements</p>
                                     </div>
-                                </div>
-                                <div class="col-lg-4 colum-12">
-                                    <h3 class="toggleDetails">By Technology <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Our service offerings service offerings </p>
-                                    <div class="details hidden sub_sub_item">
-                                        <a href="">AI & IoT <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">IT optimization <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Cloud <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Cybersecurity <i class="fa-solid fa-angle-right"></i></a>
+                                    <div class="d-flex mt-3">
+                                    <div class="w-50">
+                                        <img class="w-100" src="./ngenit/images/menu/2.jpg" alt="">
                                     </div>
-                                </div>
+                                    <p class="w-50 ml-3">Optimized Procurement Leads to Savings and Improved Productivity</p>
+                                    </div>
+                                    <button class="py-1 mt-1">View all client stories</button>
+                                    </div>
+
+                                <div class="col-4 colum-12">
+                                    <h3 class="toggleDetails">Blogs<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    <div class="d-flex">
+                                    <div class="w-50">
+                                        <img class="w-100" src="./ngenit/images/menu/3.jpg" alt="">
+                                    </div>
+                                    <p class="w-50 ml-3">How Westerra Prioritized Digital Transformation in the Face of Disruption</p>
+                                    </div>
+                                    <div class="d-flex mt-3">
+                                    <div class="w-50">
+                                        <img class="w-100" src="./ngenit/images/menu/4.jpg" alt="">
+                                    </div>
+                                    <p class="w-50 ml-3">Major Retailer Improves Operations and Employee Experience With Modern App Framework</p>
+                                    </div>
+                                    <button class="py-1 mt-1">View all client stories</button>
+                                    </div>
+
+                                <div class="col-4 colum-12">
+                                    <h3 class="toggleDetails">Tech glossary<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    <div class="d-flex">
+                                    <div class="w-50">
+                                        <img class="w-100" src="./ngenit/images/menu/5.jpg" alt="">
+                                    </div>
+                                    <p class="w-50 ml-3">Counting on Computer Vision to Empower Workers by Automating Inventory Management</p>
+                                    </div>
+                                    <div class="d-flex mt-3">
+                                    <div class="w-50">
+                                        <img class="w-100" src="./ngenit/images/menu/6.jpg" alt="">
+                                    </div>
+                                    <p class="w-50 ml-3">Hidalgo County Brings Free Public Wi-Fi to More Than 30,000 Rural, Low-Income Students</p>
+                                    </div>
+                                    <button class="py-1 mt-1">View all client stories</button>
+                                    </div>
 
                             </div>
-                            <div class="sub_menu_footer">
+                            <!-- <div class="sub_menu_footer">
                                 <div class="sub_menu_footer_item">
                                     <a href="">View All Industries</a>
                                 </div>
@@ -210,11 +234,11 @@
                                     <a href="">View All Technology</a>
                                 </div>
 
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!--Menu Item-->
-                    {{-- <div class="menu_item">
+                    <div class="menu_item">
                         <button class="country-btn-portugal">Partner & Clients <i class="fa-solid fa-caret-down"></i></button>
                         <div class="manege_nav sub_menu_wrapper mr-animate-left">
                             <!--Sub menu 3-->
@@ -275,7 +299,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                     <!--Menu Item-->
                     <div class="menu_item">
                         <button class="country-btn-portugal">Connect Us <i class="fa-solid fa-caret-down"></i></button>
@@ -284,51 +308,55 @@
                             <div class="back_menu">
                                 <div class="country-btn-portugal back_button_style"><i class="fa-solid fa-chevron-left"></i> Back</div>
                             </div>
-                            <div class="sub_menu">
-                                <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Contacts <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Harness the power of technology to achieve your most ambitious goals.</p>
-                                    <div class="details hidden sub_sub_item">
-                                        <a href="{{route('support')}}">Direct Reach <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="{{route('contact')}}">Social Connects <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Datasheets <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="{{route('about')}}">About Us <i class="fa-solid fa-angle-right"></i></a>
-                                    </div>
-                                </div>
-                                {{-- <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Service <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Our deep expertise and end-to-end capabilities help you navigate complex IT challenges.</p>
-                                    <div class="details hidden sub_sub_item">
-                                        <a href="">Webinars <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Presentations <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">PoCs <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Knowledgebase <i class="fa-solid fa-angle-right"></i></a>
-                                    </div>
-                                </div> --}}
-                                {{-- <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Events <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Our service offerings service offerings </p>
-                                    <div class="details hidden sub_sub_item">
-                                        <a href="">Online <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Venues <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="">Newsroom <i class="fa-solid fa-angle-right"></i></a>
-                                    </div>
-                                </div> --}}
-                                <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Career <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Our service offerings drive new business outcomes.</p>
-                                    <div class="details hidden sub_sub_item">
-                                        <a href="{{route('job.registration')}}">Join our team <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="{{route('job.openings')}}">Available Jobs <i class="fa-solid fa-angle-right"></i></a>
-                                    </div>
-                                </div>
-                                <div class="colum-3 colum-12">
-                                    <div class="col-lg-8 common_button2" style="border-radius: 5px;margin:5rem">
+                            <div class="sub_menu row border-bottom">
+                                <div class="col-4 colum-12 p-4">
+                                    <h3 class="text-center">Upload your CV</h3>
+                                    <div class="common_button2" style="border-radius: 5px;margin:5rem">
                                         <a class="text-white" href="{{route('job.registration')}}">Upload CV</a>
+                                    </div>
+                                    {{-- <a href="{{route('job.registration')}}" class="common_button2">CV Upload</a> --}}
+                                </div>
+                                <div class="col-8 row">
+                                    <div class="col-4 colum-12">
+                                        <h3 class="toggleDetails">Contacts <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                        <p>Harness the power of technology to achieve your most ambitious goals.</p>
+                                        <div class="details hidden sub_sub_item">
+                                            <a href="{{route('support')}}">Direct Reach <i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="{{route('contact')}}">Social Connects <i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="">Datasheets <i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="{{route('about')}}">About Us <i class="fa-solid fa-angle-right"></i></a>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <p class="mt-1"><strong><span class="border-top">Stay</span> Connected</strong></p>
+                                            <ul class="sub_menu_footer_icon">
+                                                <li><a href="{{$setting->facebook}}"><i class="h4 fa-brands fa-square-facebook"></i></a></li>
+                                                <li><a href="{{$setting->linked_in}}"></a><i class="h4 fa-brands fa-linkedin"></i></a></li>
+                                                <li><a href="{{$setting->twitter}}"></a><i class="h4 fa-brands fa-square-twitter"></i></a></li>
+                                                <li><a href="{{$setting->youtube}}"><i class="h4 fa-brands fa-youtube"></i></a></li>
+                                                <li><a href="{{$setting->instagram}}"></a><i class="h4 fa-brands fa-square-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-4 colum-12">
+                                        <h3 class="toggleDetails">Career <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                        <p>Our service offerings drive new business outcomes.</p>
+                                        <div class="details hidden sub_sub_item">
+                                            <a href="{{route('job.registration')}}">Join our team <i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="{{route('job.openings')}}">Available Jobs <i class="fa-solid fa-angle-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 colum-12">
+                                        <h3 class="toggleDetails">Media relations <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                        <p>Our service offerings drive new business outcomes.</p>
+                                        <div class="details hidden sub_sub_item">
+                                            <a href="javascript:void(0);">Under Construction </a>
+                                            {{-- <a href="ngenit/job_post.html">Available Jobs <i class="fa-solid fa-angle-right"></i></a> --}}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="sub_menu_footer">
+                            <!-- <div class="sub_menu_footer">
                                 <div class="sub_menu_footer_item">
                                     <ul class="sub_menu_footer_icon">
                                         <li><i class="fa-brands fa-square-facebook"></i></li>
@@ -337,7 +365,7 @@
                                         <li><i class="fa-brands fa-square-instagram"></i></li>
                                     </ul>
                                 </div>
-                                {{-- <div class="sub_menu_footer_item">
+                                <div class="sub_menu_footer_item">
                                     <a href="ngenit/contact_us.html">Request Service Call</a>
                                 </div>
                                 <div class="sub_menu_footer_item">
@@ -345,118 +373,104 @@
                                 </div>
                                 <div class="sub_menu_footer_item">
                                     <a href="ngenit/job_post.html">Request Free Trainings</a>
-                                </div> --}}
-                            </div>
+                                </div>
+                            </div> -->
                         </div>
                     </div>
                     <!--Menu Item-->
-
                     <div class="menu_item">
                         <button class="country-btn-portugal">Shop <i class="fa-solid fa-caret-down"></i></button>
-                        <div class="manege_nav sub_menu_wrapper mr-animate-left">
+                        <div class="manege_nav sub_menu_wrapper mr-animate-left border-bottom">
                             <!--Sub menu 5-->
                             <div class="back_menu">
                                 <div class="country-btn-portugal back_button_style"><i class="fa-solid fa-chevron-left"></i> Back</div>
                             </div>
-                            <div class="sub_menu">
-                                <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">By Product Type<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    {{-- <p>Harness the power of technology to achieve your most ambitious goals.</p> --}}
-                                    <div class="details hidden sub_sub_item">
-                                        <a href="{{route('software.common')}}">Software <i class="fa-solid fa-angle-right"></i></a>
-                                    </div>
-                                    <div class="details hidden sub_sub_item">
-                                        <a href="{{route('hardware.common')}}">Hardware <i class="fa-solid fa-angle-right"></i></a>
-                                    </div>
-                                </div>
-                                <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">By Brand <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    {{-- <p>Our service offerings drive new business outcomes.</p> --}}
+                            <div class="sub_menu row px-3">
+                                <div class="col-8">
                                     <div class="row">
-                                        @foreach ($brands as $item)
-                                        <div class="details hidden sub_sub_item col-6">
-                                            <a href="{{route('custom.product',$item->slug)}}">{{$item->title}} <i class="fa-solid fa-angle-right"></i></a>
+                                    <div class="col-4 colum-12">
+                                        <h3 class="toggleDetails">Shop by Product <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                        <p>Harness the power of technology to achieve your most ambitious goals.</p>
+                                        <div class="details hidden sub_sub_item">
+                                            <a href="ngenit/product_filters.html">Product <i class="fa-solid fa-angle-right"></i></a>
                                         </div>
-                                        @endforeach
+                                        <div class="common_button py-0">Show all products</div>
                                     </div>
-                                </div>
-                                <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">By Category <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    {{-- <p>Harness the power of technology to achieve your most ambitious goals. </p> --}}
+                                    <div class="col-4 colum-12">
+                                        <h3 class="toggleDetails">Shop by Brand <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                        <div class="row">
+                                            @foreach ($brands as $item)
+                                            <div class="details hidden sub_sub_item col-6">
+                                                <a href="{{route('custom.product',$item->slug)}}">{{App\Models\Admin\Brand::where('id',$item->brand_id)->value('title')}} <i class="fa-solid fa-angle-right"></i></a>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                        <div class="common_button py-0">Show all brands</div>
+                                    </div>
+                                    <div class="col-4 colum-12">
+                                        <h3 class="toggleDetails">Shop by Category <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                        <div class="row">
+                                            @foreach ($categorys as $item)
+                                            <div class="details hidden sub_sub_item col-6">
+                                                <a href="{{route('category.html',$item->slug)}}">{{$item->title}} <i class="fa-solid fa-angle-right"></i></a>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                        <div class="common_button py-0">Show all categories</div>
+                                    </div>
+                                    </div>
+                                    <hr>
                                     <div class="row">
-                                        @foreach ($categorys as $item)
-                                        <div class="details hidden sub_sub_item col-6">
-                                            <a href="{{route('category.html',$item->slug)}}">{{$item->title}} <i class="fa-solid fa-angle-right"></i></a>
+                                    <div class="col-6 colum-12">
+                                        <h3 class="toggleDetails">Explore our deals<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                        <p>Harness the power of technology to achieve your most ambitious goals.</p>
+                                        <div class="details hidden sub_sub_item">
+                                            <a href="{{ route('tech.deals') }}">Technology deals <i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="{{ route('refurbished') }}">certified refurbished <i class="fa-solid fa-angle-right"></i></a>
                                         </div>
-                                        @endforeach
+                                    </div>
+                                    <!-- <div class="col-6 colum-12">
+                                        <h3 class="toggleDetails">Purchasing contracts<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                        <p>Our service offerings drive new business outcomes.</p>
+                                        <div class="details hidden sub_sub_item">
+                                            <a href="ngenit/hardware_single.html">Education <i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="ngenit/hardware_single.html">Federal government <i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="ngenit/hardware_single.html">Healthcare <i class="fa-solid fa-angle-right"></i></a>
+                                        </div>
+                                    </div> -->
+
                                     </div>
                                 </div>
-                                <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Shop<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    {{-- <p>Our service offerings drive new business outcomes.</p> --}}
-                                    <div class="col-lg-8 common_button2" style="border-radius: 5px">
-                                        <a class="text-white" href="{{route('shop.html')}}">Shop All</a>
+
+                                <div class="col-4 colum-12 border-left">
+                                    <div>
+                                    <p class="font-weight-bold">Manage your purchasing and products.</p>
+                                    <p>Log in to NGenIT for smarter shopping, hardware, software and cloud management, and tailored reporting</p>
+                                    <div class="common_button2 py-1">Log in to your NGenIT account</div>
+                                    <a class="text-danger" href="">Create my NGenIT account</a>
+                                </div>
+                                <hr>
+                                <div>
+                                    <p class="font-weight-bold">Simplify and streamline with a myInsight account.</p>
+                                    <p>We’ll help you procure and manage your products throughout their lifecycle.</p>
+                                    <a class="text-danger" href="">See the benefits of our e-procurement solutions</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="sub_menu_footer">
+                            <!-- <div class="sub_menu_footer">
                                 <div class="sub_menu_footer_item">
-                                    <a href="{{route('shop.html')}}">View All Product</a>
+                                    <a href="ngenit/product_filters.html">View All Product</a>
                                 </div>
                                 <div class="sub_menu_footer_item">
-                                    <a href="{{route('all.brand')}}">View All Brand</a>
+                                    <a href="ngenit/brand_common.html">View All Brand</a>
                                 </div>
                                 <div class="sub_menu_footer_item">
-                                    <a href="{{route('all.category')}}">View All Category</a>
+                                    <a href="">View All Category</a>
                                 </div>
-                                {{-- <div class="sub_menu_footer_item">
+                                <div class="sub_menu_footer_item">
                                     <a href="ngenit/product_common.html">View All Shop</a>
-                                </div> --}}
-                            </div>
-                        </div>
-                    </div>
-
-                    @php
-                        $jobs = App\Models\Admin\Job::all();
-                    @endphp
-
-                    <div class="menu_item">
-                        <button class="country-btn-portugal">Career <i class="fa-solid fa-caret-down"></i></button>
-                        <div class="manege_nav sub_menu_wrapper mr-animate-left">
-                            <!--Sub menu 3-->
-                            <div class="back_menu">
-                                <div class="country-btn-portugal back_button_style"><i class="fa-solid fa-chevron-left"></i> Back</div>
-                            </div>
-                            <div class="sub_menu">
-                                <div class="col-1"></div>
-                                <div class="col-lg-6 colum-12">
-                                    <h3 class="toggleDetails">Job Openings <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Wanna Build Your Career in Ngen It? Explore from here.</p>
-                                    @foreach ($jobs as $item)
-                                        <div class="details hidden sub_sub_item col-6">
-                                            <a href="{{route('job.details',$item->id)}}">{{$item->category}} <i class="fa-solid fa-angle-right"></i></a>
-                                        </div>
-                                    @endforeach
                                 </div>
-                                <div class="colum-3 colum-12">
-                                    <div class="col-lg-8 common_button2" style="border-radius: 5px">
-                                        <a class="text-white" href="{{route('job.registration')}}">Upload CV</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="sub_menu_footer">
-                                <div class="sub_menu_footer_item">
-                                    <a href="javascript:void(0);"></a>
-                                </div>
-                                <div class="sub_menu_footer_item">
-                                    <a href="{{route('job.openings')}}">View All Jobs</a>
-                                </div>
-                                <div class="sub_menu_footer_item">
-                                    <a href=""></a>
-                                </div>
-
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

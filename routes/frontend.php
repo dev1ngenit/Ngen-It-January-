@@ -42,6 +42,9 @@ Route::get('/modal/{id}', [HomeController::class, 'modal'])->name('modal');
 //Feature details
 Route::get('/feature/{id}/details/', [HomeController::class, 'FeatureDetails'])->name('feature.details');
 
+//Solution details
+Route::get('/solution/{id}/details/', [HomeController::class, 'SolutionDetails'])->name('solution.details');
+
 
 
 

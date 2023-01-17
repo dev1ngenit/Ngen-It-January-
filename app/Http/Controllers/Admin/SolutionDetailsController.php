@@ -96,7 +96,7 @@ class SolutionDetailsController extends Controller
                     'row_five_header'        => $request->row_five_header,
                 ]);
             } else {
-                $globalFunImg =  Helper::singleImageUpload($mainFile, $imgPath, 157, 87);
+                $globalFunImg =  Helper::singleImageUpload($mainFile, $imgPath, 1800, 625);
                 if ($globalFunImg['status'] == 1) {
                     SolutionDetail::create([
                         'row_one_id'             => $request->row_one_id,
@@ -170,13 +170,13 @@ class SolutionDetailsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request->all());
+         //dd($request->all());
         $solutionDetails = SolutionDetail::find($id);
-        if (!empty($solutionDetails)) {
+        if (!empty($request->banner_image)) {
             $validator =
                 // dd('ima');
                 [
-
+                    'banner_image'   => 'image|mimes:png,jpg,jpeg|max:10000',
                     'industry_id'      => 'required',
                     'name'             => 'required',
                     'header'           => 'required',
@@ -202,7 +202,7 @@ class SolutionDetailsController extends Controller
                     'row_three_header' => 'required',
                     'row_five_title'   => 'required',
                     'row_five_header'  => 'required',
-                    'banner_image'   => 'image|mimes:png,jpg,jpeg|max:10000',
+
 
                 ];
         }
@@ -210,10 +210,11 @@ class SolutionDetailsController extends Controller
 
         if ($validator->passes()) {
             $mainFile = $request->banner_image;
+            //dd($mainFile);
             $uploadPath = storage_path('app/public/');
 
             if (isset($mainFile)) {
-                $globalFunImg = Helper::singleImageUpload($mainFile, $uploadPath, 157, 87);
+                $globalFunImg = Helper::singleImageUpload($mainFile, $uploadPath, 1800, 625);
             } else {
                 $globalFunImg['status'] = 0;
             }

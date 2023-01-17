@@ -27,6 +27,8 @@ use App\Models\Admin\SubSubSubCategory;
 use App\Http\Controllers\Admin\ClientController;
 use App\Models\Admin\Feature;
 use App\Models\Admin\Row;
+use App\Models\Admin\SolutionCard;
+use App\Models\Admin\SolutionDetail;
 
 class HomeController extends Controller
 {
@@ -117,6 +119,23 @@ class HomeController extends Controller
         $data['row_two'] = Row::where('id',$data['feature']->row_two_id)->first();
         $data['features'] = Feature::where('id' , '!=' , $id )->get();
         return view('frontend.pages.feature.feature_details',$data);
+    }
+
+    //Feature Details
+    public function SolutionDetails($id){
+        $data['solution'] = SolutionDetail::where('id',$id)->first();
+        $data['row_one'] = Row::where('id',$data['solution']->row_one_id)->first();
+        $data['card1'] = SolutionCard::where('id',$data['solution']->solution_card_one_id)->first();
+        $data['card2'] = SolutionCard::where('id',$data['solution']->solution_card_two_id)->first();
+        $data['card3'] = SolutionCard::where('id',$data['solution']->solution_card_three_id)->first();
+        $data['card4'] = SolutionCard::where('id',$data['solution']->solution_card_four_id)->first();
+        $data['card5'] = SolutionCard::where('id',$data['solution']->solution_card_five_id)->first();
+        $data['card6'] = SolutionCard::where('id',$data['solution']->solution_card_six_id)->first();
+        $data['card7'] = SolutionCard::where('id',$data['solution']->solution_card_seven_id)->first();
+        $data['card8'] = SolutionCard::where('id',$data['solution']->solution_card_eight_id)->first();
+        $data['row_four'] = Row::where('id',$data['solution']->row_four_id)->first();
+        $data['solutions'] = SolutionDetail::where('id' , '!=' , $id )->get();
+        return view('frontend.pages.solution.solution_details',$data);
     }
 
 

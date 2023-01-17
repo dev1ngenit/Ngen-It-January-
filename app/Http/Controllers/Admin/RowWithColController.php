@@ -42,7 +42,7 @@ class RowWithColController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title' => 'required|max: 150',
+                'title' => 'required',
             ],
         );
 
@@ -103,7 +103,7 @@ class RowWithColController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title' => 'required|max: 150',
+                'title' => 'required',
             ],
         );
 

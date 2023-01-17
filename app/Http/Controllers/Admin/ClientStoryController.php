@@ -47,14 +47,11 @@ class ClientStoryController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'badge' => 'required|max:70',
-                'title' => 'required|max:200',
-                'tags'  => 'required|max:250',
+                'badge' => 'required',
+                'title' => 'required',
+                'tags'  => 'required',
                 'image' => 'image|mimes:png,jpg,jpeg|max:10000',
-            ],
-            [
-                'mimes' => 'The :attribute must be a file of type:PNG - JPEG - JPG'
-            ],
+            ]
 
         );
 
@@ -135,15 +132,14 @@ class ClientStoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //dd($request->all());
         $story = ClientStory::find($id);
 
         if (!empty($story)) {
             $validator =
                 [
-                    'badge' => 'required|max:70',
-                    'title' => 'required|max:200',
-                    'tags' => 'required|max:250',
+                    'badge' => 'required',
+                    'title' => 'required',
+                    'tags' => 'required',
                     'image' => 'required|image|mimes:png,jpg,jpeg|max:10000',
                 ];
         } else {

@@ -73,7 +73,7 @@
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <img id="showImage" src="{{ asset('storage/requestImg/' . $solutionCard->image) }}"
-                                            alt="Brand" height="87px" width="157px">
+                                            alt="" height="87px" width="157px">
                                     </div>
                                 </div>
 
@@ -83,7 +83,7 @@
                                         <h6 class="mb-0">Short Description </h6>
                                     </div>
                                     <div class="form-group col-sm-9 text-secondary">
-                                        <textarea name="short_des" id="" cols="30" rows="3">{{ $solutionCard->short_des }}</textarea>
+                                        <textarea name="short_des" class="form-control">{{ $solutionCard->short_des }}</textarea>
                                     </div>
                                 </div>
                                 <div class="row">

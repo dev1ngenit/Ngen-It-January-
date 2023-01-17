@@ -46,15 +46,11 @@ class TechGlossyController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'badge' => 'required|max:70',
-                'title' => 'required|max:200',
-                'tags'  => 'required|max:250',
+                'badge' => 'required',
+                'title' => 'required',
+                'tags'  => 'required',
                 'image'   => 'image|mimes:png,jpg,jpeg|max:10000',
-            ],
-            [
-                'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG'
-            ],
-
+            ]
         );
 
         if ($validator->passes()) {
@@ -138,10 +134,9 @@ class TechGlossyController extends Controller
         if (!empty($techglossy)) {
             $validator =
                 [
-
-                    'badge' => 'required|max:70',
-                    'title' => 'required|max:200',
-                    'tags' => 'required|max:250',
+                    'badge' => 'required',
+                    'title' => 'required',
+                    'tags' => 'required',
                     'image' => 'required|image|mimes:png,jpg,jpeg|max:5000',
 
                 ];
@@ -149,8 +144,8 @@ class TechGlossyController extends Controller
             $validator =
                 [
 
-                    'title' => 'required|max:200',
-                    'tags' => 'required|max:250',
+                    'title' => 'required',
+                    'tags' => 'required',
 
                 ];
         }

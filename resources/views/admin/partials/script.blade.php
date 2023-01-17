@@ -1,63 +1,63 @@
 <!-- Core JS files -->
 
 <script src="{{ asset('backend/assets/input-tags/js/tagsinput.js') }}"></script>
-<script src="{{ asset('/') }}backend/assets/demo/demo_configurator.js"></script>
-<script src="{{ asset('/') }}backend/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('backend/assets/demo/demo_configurator.js') }}"></script>
+<script src="{{ asset('backend/assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
 <!-- /core JS files -->
 
 <!-- Theme JS files -->
-<script src="{{ asset('/') }}backend/assets/js/vendor/visualization/d3/d3.min.js"></script>
-<script src="{{ asset('/') }}backend/assets/js/vendor/visualization/d3/d3_tooltip.js"></script>
+<script src="{{ asset('backend/assets/js/vendor/visualization/d3/d3.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/vendor/visualization/d3/d3_tooltip.js') }}"></script>
 
-<script src="{{ asset('/') }}backend/assets/js/jquery/jquery.min.js"></script>
-<script src="{{ asset('/') }}backend/assets/js/vendor/tables/datatables/datatables.min.js"></script>
+<script src="{{ asset('backend/assets/js/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('backend/assets/js/vendor/tables/datatables/datatables.min.js') }}"></script>
 
-<script src="{{ asset('/') }}backend/assets/js/vendor/forms/tags/tokenfield.min.js"></script>
+<script src="{{ asset('backend/assets/js/vendor/forms/tags/tokenfield.min.js') }}"></script>
 
-<script src="{{ asset('/') }}backend/assets/js/vendor/forms/inputs/maxlength.min.js"></script>
+<script src="{{ asset('backend/assets/js/vendor/forms/inputs/maxlength.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/vendor/notifications/sweet_alert.min.js') }}"></script>
 
-<script src="{{ asset('/') }}backend/assets/js/vendor/forms/selects/select2.min.js"></script>
+<script src="{{ asset('backend/assets/js/vendor/forms/selects/select2.min.js') }}"></script>
 
 
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
 
 
-<script src="{{ asset('/') }}backend/assets/js/app.js"></script>
+<script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
-<script src="{{ asset('/') }}backend/assets/demo/pages/form_select2.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/pages/components_modals.js"></script>
+<script src="{{ asset('backend/assets/demo/pages/form_select2.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/pages/components_modals.js') }}"></script>
 
 
 
 <script src="{{ asset('backend/assets/demo/pages/extra_sweetalert.js') }}"></script>
-<script src="{{ asset('/') }}backend/assets/demo/pages/form_controls_extended.js"></script>
+<script src="{{ asset('backend/assets/demo/pages/form_controls_extended.js') }}"></script>
 
-<script src="{{ asset('/') }}backend/assets/demo/pages/datatables_advanced.js"></script>
+<script src="{{ asset('backend/assets/demo/pages/datatables_advanced.js') }}"></script>
 
-<script src="{{ asset('/') }}backend/assets/js/vendor/editors/ckeditor/ckeditor_classic.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/pages/editor_ckeditor_classic.js"></script>
+<script src="{{ asset('backend/assets/js/vendor/editors/ckeditor/ckeditor_classic.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/pages/editor_ckeditor_classic.js') }}"></script>
 
-<script src="{{ asset('/') }}backend/assets/demo/pages/form_tags.js"></script>
+<script src="{{ asset('backend/assets/demo/pages/form_tags.js') }}"></script>
 
-<script src="{{ asset('/') }}backend/assets/js/custom.js"></script>
+<script src="{{ asset('backend/assets/js/custom.js') }}"></script>
 
-<script src="{{ asset('/') }}backend/assets/demo/pages/dashboard.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/charts/pages/dashboard/streamgraph.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/charts/pages/dashboard/sparklines.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/charts/pages/dashboard/lines.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/charts/pages/dashboard/areas.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/charts/pages/dashboard/donuts.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/charts/pages/dashboard/bars.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/charts/pages/dashboard/progress.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/charts/pages/dashboard/heatmaps.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/charts/pages/dashboard/pies.js"></script>
-<script src="{{ asset('/') }}backend/assets/demo/charts/pages/dashboard/bullets.js"></script>
+<script src="{{ asset('backend/assets/demo/pages/dashboard.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/charts/pages/dashboard/streamgraph.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/charts/pages/dashboard/sparklines.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/charts/pages/dashboard/lines.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/charts/pages/dashboard/areas.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/charts/pages/dashboard/donuts.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/charts/pages/dashboard/bars.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/charts/pages/dashboard/progress.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/charts/pages/dashboard/heatmaps.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/charts/pages/dashboard/pies.js') }}"></script>
+<script src="{{ asset('backend/assets/demo/charts/pages/dashboard/bullets.js') }}"></script>
 
 
 
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+<script src="{{ asset('backend/js/toastr.min.js') }}"></script>
 {!! Toastr::message() !!}
 
 

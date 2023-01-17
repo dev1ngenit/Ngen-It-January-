@@ -58,15 +58,8 @@ class CategoryController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title' => 'required|max:70',
+                'title' => 'required',
                 'image'   => 'required|image|mimes:png,jpg,jpeg|max:5000',
-            ],
-            [
-                'image' => [
-                    'max'      => 'The image field must be smaller than 10 MB.',
-                ],
-                'image'    => 'The file must be an image.',
-                'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG'
             ]
         );
 
@@ -134,7 +127,7 @@ class CategoryController extends Controller
                     'image' => 'required|image|mimes:jpg,jpg,jpeg|max:5000',
                 ];
         } else {
-            $validator = ['title' => 'required|max:30',];
+            $validator = ['title' => 'required',];
         }
         $validator = Validator::make($request->all(), $validator);
 
@@ -203,15 +196,8 @@ class CategoryController extends Controller
             $request->all(),
             [
                 'cat_id' => 'required',
-                'title' => 'required|max:70',
+                'title' => 'required',
                 'image'   => 'required|image|mimes:png,jpg,jpeg|max:5000',
-            ],
-            [
-                'image' => [
-                    'max'      => 'The image field must be smaller than 10 MB.',
-                ],
-                'image'    => 'The file must be an image.',
-                'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG'
             ]
         );
 
@@ -266,15 +252,8 @@ class CategoryController extends Controller
             [
                 'cat_id' => 'required',
                 'sub_cat_id' => 'required',
-                'title' => 'required|max:70',
+                'title' => 'required',
                 'image'   => 'required|image|mimes:png,jpg,jpeg|max:5000',
-            ],
-            [
-                'image' => [
-                    'max'      => 'The image field must be smaller than 10 MB.',
-                ],
-                'image'    => 'The file must be an image.',
-                'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG'
             ]
         );
 
@@ -332,7 +311,7 @@ class CategoryController extends Controller
                 'cat_id' => 'required',
                 'sub_cat_id' => 'required',
                 'sub_sub_cat_id' => 'required',
-                'title' => 'required|max:70',
+                'title' => 'required',
                 'image'   => 'required|image|mimes:png,jpg,jpeg|max:5000',
             ],
             [
@@ -409,7 +388,7 @@ class CategoryController extends Controller
             $validator =
                 [
                     [
-                        'title' => 'required|max:30',
+                        'title' => 'required',
                     ]
                 ];
         }
@@ -462,7 +441,7 @@ class CategoryController extends Controller
         } else {
             $validator =
                 [
-                    'title' => 'required|max:30',
+                    'title' => 'required',
                 ];
         }
         $validator = Validator::make($request->all(), $validator);
@@ -518,7 +497,7 @@ class CategoryController extends Controller
             $validator =
                 [
 
-                    'title' => 'required|max:30',
+                    'title' => 'required',
 
                 ];
         }

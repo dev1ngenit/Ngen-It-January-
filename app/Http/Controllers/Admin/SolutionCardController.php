@@ -48,10 +48,7 @@ class SolutionCardController extends Controller
                 'title' => 'required',
                 'image'   => 'required|image|mimes:png,jpg,jpeg|max:10000',
                 'short_des' => 'required',
-            ],
-            [
-                'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG'
-            ],
+            ]
 
         );
 

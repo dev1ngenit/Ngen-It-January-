@@ -49,7 +49,6 @@ class BrandPageController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         Helper::imageDirectory();
         $validator = Validator::make(
             $request->all(),
@@ -210,7 +209,7 @@ class BrandPageController extends Controller
     {
         $brandPage = BrandPage::find($id);
 
-        //image_banner
+        //banner_image
         if (File::exists(public_path('storage/') . $brandPage->banner_image)) {
             File::delete(public_path('storage/') . $brandPage->banner_image);
         }
@@ -221,7 +220,7 @@ class BrandPageController extends Controller
             File::delete(public_path('storage/thumb/') . $brandPage->banner_image);
         }
 
-        //background_image
+        //row_six_image
         if (File::exists(public_path('storage/') . $brandPage->row_six_image)) {
             File::delete(public_path('storage/') . $brandPage->row_six_image);
         }

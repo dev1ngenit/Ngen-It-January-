@@ -42,7 +42,7 @@ class BrandController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title' => 'required|max:100',
+                'title' => 'required',
                 'image'   => 'required|image|mimes:png,jpg,jpeg|max:10000',
             ],
             [
@@ -57,7 +57,7 @@ class BrandController extends Controller
             $slug = Str::slug($request->title);
             $count = Brand::where('slug', $slug)->count();
             if ($count > 0) {
-                $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
+                $slug = $slug . '-' . date('ymdis') . '-' . rand(0, 999);
             }
             $data['slug'] = $slug;
             if (empty($mainFile)) {
@@ -104,13 +104,13 @@ class BrandController extends Controller
         if (!empty($brand)) {
             $validator =
                 [
-                    'title' => 'required|max:100',
+                    'title' => 'required',
                     'image' => 'image|mimes:png,jpg,jpeg|max:5000',
                 ];
         } else {
             $validator =
                 [
-                    'title' => 'required|max:100',
+                    'title' => 'required',
                 ];
         }
         $validator = Validator::make($request->all(), $validator);

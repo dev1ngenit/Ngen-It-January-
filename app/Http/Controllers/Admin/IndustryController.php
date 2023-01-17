@@ -45,15 +45,11 @@ class IndustryController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title'      => 'required|max:70',
+                'title'      => 'required',
                 'logo'       => 'required|image|mimes:png,jpg,jpeg|max:10000',
                 'image'      => 'required|image|mimes:png,jpg,jpeg|max:10000',
                 'short_desc' => 'required|max:600',
-            ],
-            [
-                'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG'
-            ],
-
+            ]
         );
 
         if ($validator->passes()) {
@@ -111,20 +107,20 @@ class IndustryController extends Controller
         if (!empty($industry)) {
             $validator =
                 [
-                    [
-                        'title'      => 'required|max:70',
-                        'logo'       => 'required|image|mimes:png,jpg,jpeg|max:10000',
-                        'image'      => 'required|image|mimes:png,jpg,jpeg|max:10000',
-                        'short_desc' => 'required|max:600',
-                    ]
+
+                    'title'      => 'required',
+                    'logo'       => 'required|image|mimes:png,jpg,jpeg|max:10000',
+                    'image'      => 'required|image|mimes:png,jpg,jpeg|max:10000',
+                    'short_desc' => 'required|max:600',
+
                 ];
         } else {
             $validator =
                 [
-                    [
-                        'title'      => 'required|max:70',
-                        'short_desc' => 'required|max:600',
-                    ]
+
+                    'title'      => 'required',
+                    'short_desc' => 'required|max:600',
+
                 ];
         }
         $validator = Validator::make($request->all(), $validator);

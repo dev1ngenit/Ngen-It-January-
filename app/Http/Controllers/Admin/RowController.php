@@ -45,11 +45,8 @@ class RowController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title' => 'required|max: 100',
+                'title' => 'required',
                 'image'   => 'image|mimes:png,jpg,jpeg|max:10000',
-            ],
-            [
-                'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG'
             ],
 
         );
@@ -139,21 +136,13 @@ class RowController extends Controller
         if (!empty($row)) {
             $validator =
                 [
-                    [
-                        'title' => 'required|max: 100',
-                        'image' => 'image|mimes: png,jpg,jpeg|max:10000',
-                    ],
-                    [
-                        'image' => 'The file must be an image.',
-                        'mimes' => 'The: attribute must be a file of type: PNG - JPEG - JPG'
-                    ]
+                    'title' => 'required',
+                    'image' => 'image|mimes:png,jpg,jpeg|max:10000',
                 ];
         } else {
             $validator =
                 [
-                    [
-                        'title' => 'required|max: 100',
-                    ]
+                    'title' => 'required',
                 ];
         }
         $validator = Validator::make($request->all(), $validator);

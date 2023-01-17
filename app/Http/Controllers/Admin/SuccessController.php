@@ -42,7 +42,7 @@ class SuccessController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title'       => 'required|max: 100',
+                'title'       => 'required',
                 'description' => 'required',
             ],
         );
@@ -98,7 +98,7 @@ class SuccessController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'title'       => 'required|max: 100',
+                'title'       => 'required',
                 'description' => 'required',
             ],
         );

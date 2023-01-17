@@ -55,8 +55,8 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="js-tab1">
                     <div class="row">
-                        <div class="col-lg-3"></div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-10">
                             <div id="table1" class="card cardTd">
                                 <div class="card-header">
 
@@ -65,10 +65,58 @@
                                 </div>
                                 {{-- @if ($industrie->id == $industryPage->industry_id) selected @endif --}}
                                 <div class="card-body">
-                                    <form method="post"
-                                        action="{{ route('solutionDetails.update', $solutionDetail->id) }}">
+                                    <form method="post" action="{{ route('solutionDetails.update', $solutionDetail->id) }}" enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
+
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4">
+                                                <h6 class="mb-0">Industry Title </h6>
+                                            </div>
+                                            <div class="form-group col-sm-8 text-secondary">
+                                                <select data-placeholder="Select Your tags" class="form-control select"
+                                                    id="industry_id" name="industry_id" multiple="multiple"
+                                                    data-tags="false" data-maximum-input-length="30">
+                                                    @foreach ($industries as $industrie)
+                                                        <option @if ($industrie->id == $solutionDetail->industry_id) selected @endif
+                                                            value="{{ $industrie->id }}">{{ $industrie->title }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4">
+                                                <h6 class="mb-0">Name </h6>
+                                            </div>
+                                            <div class="form-group col-sm-8 text-secondary">
+                                                <input type="text" value="{{ $solutionDetail->name }}" name="name"
+                                                    class="form-control maxlength" maxlength="100" />
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-4">
+                                                <h6 class="mb-0">Header</h6>
+                                            </div>
+                                            <div class="form-group col-sm-8 text-secondary">
+                                                <textarea name="header" id="" class="form-control" cols="30" rows="3">{{ $solutionDetail->header }}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-sm-3">
+                                                <h6 class="mb-0">Banner Image </h6>
+                                            </div>
+                                            <div class="col-sm-9 text-secondary">
+                                                <input type="file" name="banner_image" class="form-control"
+                                                    id="image" accept="image/*" value="{{$solutionDetail->banner_image}}"/>
+                                                <div class="form-text">Accepts only png, jpg, jpeg images</div>
+                                                <img id="showImage" height="87px" width="157px"
+                                                    src="{{asset('storage/requestImg/'.$solutionDetail->banner_image)}}"
+                                                    alt="">
+                                            </div>
+                                        </div>
+
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
                                                 <h6 class="mb-0">row_one_id </h6>
@@ -87,7 +135,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">row_four_id </h6>
+                                                <h6 class="mb-0">Row Four Id </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="row_four_id" data-placeholder="Select row_four_id.."
@@ -105,7 +153,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">solution_card_one_id </h6>
+                                                <h6 class="mb-0">Solution Card One </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="solution_card_one_id" data-placeholder="Select row_four_id.."
@@ -121,7 +169,7 @@
                                         </div>
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
-                                                <h6 class="mb-0">solution_card_two_id </h6>
+                                                <h6 class="mb-0">Solution Card Two </h6>
                                             </div>
                                             <div class="form-group col-sm-8 text-secondary">
                                                 <select name="solution_card_two_id" data-placeholder="Select row_four_id.."
@@ -232,53 +280,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">Industry Title </h6>
-                                            </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <select data-placeholder="Select Your tags" class="form-control select"
-                                                    id="industry_id" name="industry_id" multiple="multiple"
-                                                    data-tags="false" data-maximum-input-length="30">
-                                                    @foreach ($industries as $industrie)
-                                                        <option @if ($industrie->id == $solutionDetail->industry_id) selected @endif
-                                                            value="{{ $industrie->id }}">{{ $industrie->title }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
 
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">Name </h6>
-                                            </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <input type="text" value="{{ $solutionDetail->name }}" name="name"
-                                                    class="form-control maxlength" maxlength="100" />
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-4">
-                                                <h6 class="mb-0">header</h6>
-                                            </div>
-                                            <div class="form-group col-sm-8 text-secondary">
-                                                <textarea name="header" id="" class="form-control" cols="30" rows="3">{{ $solutionDetail->header }}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">Banner Image </h6>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="file" name="banner_image" class="form-control"
-                                                    id="image" accept="image/*" />
-                                                <div class="form-text">Accepts only png, jpg, jpeg images</div>
-                                                <img id="showImage" height="87px" width="157px"
-                                                    src="https://cdn.pixabay.com/photo/2017/02/07/02/16/cloud-2044823_960_720.png"
-                                                    alt="">
-                                            </div>
-                                        </div>
 
                                         <div class="row mb-3">
                                             <div class="col-sm-4">
