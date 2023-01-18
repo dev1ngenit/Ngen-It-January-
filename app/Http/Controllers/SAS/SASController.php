@@ -11,13 +11,16 @@ use Illuminate\Support\Facades\Validator;
 
 class SASController extends Controller
 {
-    public function SourcingSas($id)
+
+
+    public function index()
     {
-        $data['product'] = Sourcing::where('slug', $id)->first();
-        return view('admin.pages.sas.sourcing_sas', $data);
+        $data['products'] = Sourcing::latest()->get();
+
+        return view('admin.pages.sas.all', $data);
     }
 
-    public function sasStore(Request $request)
+    public function store(Request $request)
     {
         $validator = Validator::make(
             $request->all(),
@@ -43,9 +46,9 @@ class SASController extends Controller
 
         if ($validator->passes()) {
             Sas::create([
-                'create'          => $request->create,
-                'item_name'          => $request->item_name,
-                'product_id'          => $request->product_id,
+                'create'            => $request->create,
+                'item_name'         => $request->item_name,
+                'product_id'        => $request->product_id,
                 'ref_code'          => $request->ref_code,
                 'cog_price'         => $request->cog_price,
                 'sales_price'       => $request->sales_price,
@@ -63,6 +66,9 @@ class SASController extends Controller
                 'net_profit'        => $request->net_profit,
                 'gross_profit'      => $request->gross_profit,
             ]);
+            Sourcing::findOrFail($request->product_id)->update([
+                'action_status'         => 'seek_approval',
+            ]);
             Toastr::success('Data Insert Successfully.');
         } else {
             $messages = $validator->messages();
@@ -70,18 +76,32 @@ class SASController extends Controller
                 Toastr::error($message, 'Failed', ['timeOut' => 30000]);
             }
         }
-        return redirect()->back();
+        return redirect()->route('sas.index');
     }
 
-    public function sasEdit($id)
+    public function show($id)
+    {
+
+        $data['product'] = Sourcing::where('ref_code' , $id)->first();
+        $data['sourcing'] = Sas::where('product_id' , $data['product']->id)->first();
+        //dd($data['sourcing']);
+        return view('admin.pages.sas.sas_approve', $data);
+    }
+
+    public function edit($id)
     {
         $data['product'] = Sourcing::first();
-        $data['sourcing'] = Sas::findOrFail($id);
+        $data['sourcing'] = Sas::where('ref_code',$id)->first();
         return view('admin.pages.sas.sourcing_sas_edit', $data);
     }
 
-    public function sasUpdate(Request $request, $id)
+    public function update(Request $request, $id)
+
     {
+
+        //dd($id);
+        $sas = Sas::where('ref_code',$id)->first();
+        //dd($sas);
         $validator = Validator::make(
             $request->all(),
             [
@@ -105,7 +125,7 @@ class SASController extends Controller
         );
 
         if ($validator->passes()) {
-            Sas::find($id)->update([
+            $sas->update([
                 'create'          => $request->create,
                 'item_name'          => $request->item_name,
                 'product_id'          => $request->product_id,
@@ -135,4 +155,12 @@ class SASController extends Controller
         }
         return redirect()->back();
     }
+
+    public function SourcingSas($id)
+    {
+        $data['product'] = Sourcing::where('slug', $id)->first();
+        return view('admin.pages.sas.sourcing_sas', $data);
+    }
+
+
 }

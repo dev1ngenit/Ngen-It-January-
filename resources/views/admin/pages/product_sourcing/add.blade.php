@@ -423,7 +423,19 @@
                                             </tr>
                                             <tr>
                                                 <th width="65%">Source Type :</th>
-                                                <td width="35%" colspan="2"></td>
+                                                <td width="35%" colspan="2">
+                                                    <select name="source_type" data-placeholder="Select Source Type.." class="form-select" required>
+                                                        <option></option>
+                                                        <option class="form-control" value="principal">
+                                                            Principal</option>
+                                                        <option class="form-control" value="distributor">
+                                                            Distributor</option>
+                                                        <option class="form-control" value="supplier">
+                                                            Supplier</option>
+                                                        <option class="form-control" value="retailer">
+                                                            Retailer</option>
+                                                    </select>
+                                                </td>
                                             </tr>
                                         </table>
 

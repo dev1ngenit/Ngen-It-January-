@@ -59,18 +59,18 @@
                 <li class="nav-item nav-item-submenu">
                     <a href="#" class="nav-link">
                         <i class="fas fa-boxes"></i>
-                        <span>Product Sourcing</span>
+                        <span>Product Sourcing, SAS</span>
                     </a>
                     <ul class="nav-group-sub collapse">
                         <li class="nav-item"><a href="{{ route('product-sourcing.index') }}" class="nav-link active"><i
                                     class="ph-layout"></i>
                                 <span>Product Sourcing</span></a></li>
-                        <li class="nav-item"><a href="{{ route('contact.index') }}" class="nav-link"><i
+                        <li class="nav-item"><a href="" class="nav-link"><i
                                     class="ph-layout"></i>
                                 <span>Product Approval</span></a></li>
-                        <li class="nav-item"><a href="{{ route('newsLetter.index') }}" class="nav-link"><i
+                        <li class="nav-item"><a href="{{ route('sas.index') }}" class="nav-link"><i
                                     class="ph-layout"></i>
-                                <span>List </span></a></li>
+                                <span>SAS List </span></a></li>
                     </ul>
                 </li>
 

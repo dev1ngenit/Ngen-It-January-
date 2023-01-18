@@ -20,7 +20,22 @@
                     <a href="#breadcrumb_elements"
                         class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto"
                         data-bs-toggle="collapse">
+                       
                         <i class="ph-caret-down collapsible-indicator ph-sm m-1"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="row py-2">
+                <div class="col-lg-7"></div>
+                <div class="col-lg-3">
+                    <a href="{{route('sas.index')}}" type="button" class="btn btn-sm btn-warning btn-labeled btn-labeled-start float-end">
+                        <span class="btn-labeled-icon bg-black bg-opacity-20">
+                            <i class="icon-plus2"></i>
+                        </span>
+                        Back To SAS List
                     </a>
                 </div>
             </div>
@@ -30,7 +45,9 @@
 
         <!-- Content area -->
         <div class="content">
-            <form action="{{ route('sas.update', $sourcing->id) }}" method="post">
+
+
+            <form method="post" action="{{ route('sas.update',[$sourcing->ref_code]) }}">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -86,46 +103,47 @@
                                                 <td class="text-white" colspan="3">Expenses</td>
                                             </tr>
                                             <tr>
-                                                <td style="width:10rem;">Bank & Remittance Charge - (1.5%)</td>
-                                                <td width="20%"><input class="multiplyValue" type="number"
-                                                        name="bank_charge" value="{{ $sourcing->bank_charge }}"></td>
-                                                <td width="20%"><input type="number" class="result" readonly
-                                                        value="">
+                                                <td >Bank & Remittance Charge - (1.5%)</td>
+                                                <td >
+                                                    <input class="multiplyValue" type="text" name="bank_charge" value="{{ $sourcing->bank_charge }}">
+                                                </td>
+                                                <td width="20%">
+                                                    <input type="text" class="result" readonly value="">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td width="60%">Customs & Duty - (5.0%)</td>
-                                                <td width="20%"><input class="multiplyValue" type="number"
+                                                <td width="20%"><input class="multiplyValue" type="text"
                                                         name="customs" value="{{ $sourcing->customs }}">
                                                 </td>
-                                                <td width="20%"><input type="number" class="result" readonly
+                                                <td width="20%"><input type="text" class="result" readonly
                                                         value="">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td width="60%">Tax / AIT / VAT - (10.0%)</td>
-                                                <td width="20%"><input class="multiplyValue" type="number"
+                                                <td width="20%"><input class="multiplyValue" type="text"
                                                         name="tax" value="{{ $sourcing->tax }}">
                                                 </td>
-                                                <td width="20%"><input class="result" type="number" readonly
+                                                <td width="20%"><input class="result" type="text" readonly
                                                         value="">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td width="60%">HR , Office & Utility Cost- (5.0%)</td>
-                                                <td width="20%"><input class="multiplyValue" type="number"
+                                                <td width="20%"><input class="multiplyValue" type="text"
                                                         name="utility_cost" value="{{ $sourcing->utility_cost }}">
                                                 </td>
-                                                <td width="20%"><input class="result" type="number" readonly
+                                                <td width="20%"><input class="result" type="text" readonly
                                                         value="">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td width="60%">Shipping & Handling Cost- (5.0%)</td>
-                                                <td width="20%"><input class="multiplyValue" type="number"
+                                                <td width="20%"><input class="multiplyValue" type="text"
                                                         name="shiping_cost" value="{{ $sourcing->shiping_cost }}">
                                                 </td>
-                                                <td width="20%"><input class="result" type="number" readonly
+                                                <td width="20%"><input class="result" type="text" readonly
                                                         value="">
                                                 </td>
                                             </tr>
@@ -133,19 +151,19 @@
                                             <tr>
                                                 <td width="60%">Sales / Consultancy Comission - (5.0%)</td>
                                                 <td width="20%"><input class="multiplyValue"
-                                                        value="{{ $sourcing->sales_comission }}" type="number"
+                                                        value="{{ $sourcing->sales_comission }}" type="text"
                                                         name="sales_comission">
                                                 </td>
-                                                <td width="20%"><input class="result" type="number" readonly
+                                                <td width="20%"><input class="result" type="text" readonly
                                                         value="">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td width="60%">Bank Loan / Liability / Debt - (5.0%)</td>
-                                                <td width="20%"><input class="multiplyValue" type="number"
+                                                <td width="20%"><input class="multiplyValue" type="text"
                                                         name="liability" value="{{ $sourcing->liability }}">
                                                 </td>
-                                                <td width="20%"><input class="result" type="number" readonly
+                                                <td width="20%"><input class="result" type="text" readonly
                                                         value="">
                                                 </td>
                                             </tr>
@@ -155,16 +173,16 @@
                                             <tr>
                                                 <td width="60%">Promo / Deal / Regular Discounts</td>
                                                 <td width="20%"><input class="multiplyValue"
-                                                        value="{{ $sourcing->regular_discounts }}" type="number"
+                                                        value="{{ $sourcing->regular_discounts }}" type="text"
                                                         name="regular_discounts"></td>
-                                                <td width="20%"><input class="result" type="number" readonly
+                                                <td width="20%"><input class="result" type="text" readonly
                                                         value=""></td>
                                             </tr>
                                             <tr>
                                                 <td width="60%">Deal Closing / Rebates</td>
-                                                <td width="20%"><input class="multiplyValue" type="number"
+                                                <td width="20%"><input class="multiplyValue" type="text"
                                                         name="rebates" value="{{ $sourcing->rebates }}"></td>
-                                                <td width="20%"><input class="result" type="number" readonly
+                                                <td width="20%"><input class="result" type="text" readonly
                                                         value=""></td>
                                             </tr>
                                             <tr>
@@ -173,32 +191,32 @@
                                             </tr>
                                             <tr>
                                                 <td width="60%">Loan / Capital / Partner Share - (5%)</td>
-                                                <td width="20%"><input class="multiplyValue" type="number"
+                                                <td width="20%"><input class="multiplyValue" type="text"
                                                         name="capital_share" value="{{ $sourcing->capital_share }}"></td>
-                                                <td width="20%"><input class="result" type="number" readonly
+                                                <td width="20%"><input class="result" type="text" readonly
                                                         value=""></td>
                                             </tr>
                                             <tr>
                                                 <td style="width:60%;">Management Cost - (5%)</td>
-                                                <td style="width:20%;"><input class="multiplyValue" type="number"
+                                                <td style="width:20%;"><input class="multiplyValue" type="text"
                                                         name="management_cost" value="{{ $sourcing->management_cost }}">
                                                 </td>
-                                                <td style="width:20%;"><input class="result" type="number" readonly
+                                                <td style="width:20%;"><input class="result" type="text" readonly
                                                         value=""></td>
                                             </tr>
                                             <tr>
                                                 <td style="width:60%;">Net Profit - (5%)</td>
-                                                <td style="width:20%;"><input class="multiplyValue" type="number"
+                                                <td style="width:20%;"><input class="multiplyValue" type="text"
                                                         name="net_profit" value="{{ $sourcing->net_profit }}"></td>
-                                                <td style="width:20%;"><input class="result" type="number" readonly
+                                                <td style="width:20%;"><input class="result" type="text" readonly
                                                         value=""></td>
                                             </tr>
                                             <tr>
                                                 <td style="width:60%;">Gross Profit (%) between Sales and Cost</td>
                                                 <td style="width:20%;">TK. <input class="gross_profit_subtot"
-                                                        type="number" name="gross_profit" readonly
+                                                        type="text" name="gross_profit" readonly
                                                         value="{{ $sourcing->gross_profit }}"></td>
-                                                <td style="width: 20%;">TK. <input type="number"
+                                                <td style="width: 20%;">TK. <input type="text"
                                                         class="additional_subtot" readonly
                                                         value="{{ $sourcing->net_profit }}">
                                                 </td>
@@ -262,8 +280,8 @@
                 <div class="row">
                     <div class="col-lg-8"></div>
                     <div class="col-lg-4">
-                        <button type="submit" class="btn btn-primary mx-3" id="submitbtn">Send For
-                            Approval<i class="ph-paper-plane-tilt mx-2"></i></button>
+                        <button type="submit" class="btn btn-primary mx-3">Send For Approval
+                            <i class="ph-paper-plane-tilt mx-2"></i></button>
                     </div>
 
                 </div>
@@ -278,6 +296,7 @@
 @once
     @push('scripts')
         <script type="text/javascript">
+
             $('.multiplyValue').on('mouseover keyup change', function() {
 
                 if ($('#source_price').val() == 1) {
@@ -293,7 +312,7 @@
                     // get the values from this row:
                     var $value = $('.multiplyValue', this).val();
 
-                    var $result = ($price * $value) / 100;
+                    var $result = parseFloat((($price * $value) / 100).toFixed(3));
                     // set total for the row
                     $('.result', this).val($result);
 
@@ -309,8 +328,14 @@
                 });
                 var $additional = additional;
                 var $sales_price = parseFloat($price) + parseFloat($additional);
-                var difference1 = parseFloat($('#competetor_price1').val()) - parseFloat($sales_price);
-                var difference2 = parseFloat($('#competetor_price2').val()) - parseFloat($sales_price);
+                var difference1 =  parseFloat($sales_price) - parseFloat($('#competetor_price1').val()) ;
+                var difference2 =  parseFloat($sales_price) - parseFloat($('#competetor_price2').val()) ;
+
+                var profit = parseFloat((profit).toFixed(2));
+                var additional = parseFloat((additional).toFixed(2));
+                var $sales_price = parseFloat(($sales_price).toFixed(2));
+                var difference1 = parseFloat((difference1).toFixed(2));
+                var difference2 = parseFloat((difference2).toFixed(2));
 
                 //alert($sales_price);
                 $('.gross_profit_subtot').val(profit);
@@ -322,6 +347,7 @@
                 $('#difference2').html(difference2);
 
             });
+
             //*
         </script>
     @endpush

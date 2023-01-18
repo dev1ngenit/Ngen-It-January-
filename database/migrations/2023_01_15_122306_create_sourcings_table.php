@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('sourcings', function (Blueprint $table) {
             $table->id();
-            $table->string('ref_code')->nullable();
+            $table->string('ref_code')->unique();
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('sku_code')->nullable();

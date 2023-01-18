@@ -80,7 +80,7 @@ class SourcingController extends Controller
             ]
         );
 
-
+            //dd($request->all());
             if (($request->action) == 'save') {
                 if ($validator->passes()) {
                 dd($input);
@@ -90,6 +90,12 @@ class SourcingController extends Controller
                     $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
                 }
                 $data['slug']=$slug;
+                $ref_code='REF'.Str::random(7);
+                $count=Sourcing::where('ref_code',$ref_code)->count();
+                if($count>0){
+                    $ref_code=$ref_code.'.'.date('ymdis').'.'.rand(0,999);
+                }
+                $data['ref_code']=$ref_code;
 
                 $image = $request->file('thumbnail');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
@@ -99,7 +105,7 @@ class SourcingController extends Controller
                 $product_id = Sourcing::insertGetId([
 
                     'name'                  => $request->name,
-                    'ref_code'              => 'REF'.mt_rand(10000000,99999999),
+                    'ref_code'              => $data['ref_code'],
                     'slug'                  => $data['slug'],
                     'sku_code'              => $request->sku_code,
                     'mf_code'               => $request->mf_code,
@@ -147,7 +153,7 @@ class SourcingController extends Controller
                     'agreement'             => $request->agreement,
                     'source_type'           => $request->source_type,
                     'source_contact'        => $request->source_contact,
-                    'action_status'         => $request->action_status,
+                    'action_status'         => 'save',
                     'created_at'            => Carbon::now(),
 
                 ]);
@@ -218,6 +224,12 @@ class SourcingController extends Controller
                     $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
                 }
                 $data['slug']=$slug;
+                $ref_code='REF'.Str::random(7);
+                $count=Sourcing::where('ref_code',$ref_code)->count();
+                if($count>0){
+                    $ref_code=$ref_code.'.'.date('ymdis').'.'.rand(0,999);
+                }
+                $data['ref_code']=$ref_code;
 
                 $image = $request->file('thumbnail');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
@@ -227,7 +239,7 @@ class SourcingController extends Controller
                 $product_id = Sourcing::insertGetId([
 
                     'name'                  => $request->name,
-                    'ref_code'              =>'REF'.mt_rand(10000000,99999999),
+                    'ref_code'              => $data['ref_code'],
                     'slug'                  => $data['slug'],
                     'sku_code'              => $request->sku_code,
                     'mf_code'               => $request->mf_code,
@@ -275,7 +287,7 @@ class SourcingController extends Controller
                     'agreement'             => $request->agreement,
                     'source_type'           => $request->source_type,
                     'source_contact'        => $request->source_contact,
-                    'action_status'         => $request->action_status,
+                    'action_status'         => 'listed',
                     'created_at'            => Carbon::now(),
 
                 ]);

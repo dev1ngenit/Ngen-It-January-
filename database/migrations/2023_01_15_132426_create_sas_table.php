@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('sas', function (Blueprint $table) {
                     $table->id();
                     $table->unsignedBigInteger('product_id');
-                    $table->string('ref_code')->nullable();
+                    $table->string('ref_code')->unique();
                     $table->date('create')->nullable();
                     $table->string('item_name')->nullable();
                     $table->float('cog_price')->nullable();

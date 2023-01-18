@@ -10,6 +10,7 @@ use App\Models\Admin\Industry;
 use App\Models\Admin\Solution;
 use App\Models\Admin\IndustryPage;
 use App\Http\Controllers\Controller;
+use App\Models\Admin\ClientStory;
 use App\Models\Admin\SolutionDetail;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Validator;
@@ -38,6 +39,7 @@ class IndustryPageController extends Controller
         $data['rows'] = Row::select('rows.id', 'rows.title')->get();
         // $data['solutions'] = Solution::select('solutions.id', 'solutions.title')->get();
         $data['clients'] = SolutionDetail::latest()->get();
+        $data['clientstory'] = ClientStory::latest()->get();
         return view('admin.pages.industryPage.add', $data);
     }
 
@@ -116,6 +118,7 @@ class IndustryPageController extends Controller
         $data['rows'] = Row::select('rows.id', 'rows.title')->get();
         // $data['solutions'] = Solution::select('solutions.id', 'solutions.title')->get();
         $data['clients'] = SolutionDetail::latest()->get();
+        $data['clientstory'] = ClientStory::latest()->get();
         $data['industryPage'] = IndustryPage::findOrFail($id);
         return view('admin.pages.industryPage.edit', $data);
     }

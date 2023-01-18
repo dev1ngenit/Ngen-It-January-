@@ -150,8 +150,11 @@
                                                 <select name="solution_one_id" data-placeholder="Select solution_one_id.."
                                                     class="form-control select">
                                                     <option></option>
-                                                    <option class="form-control" value="">
-                                                        solution_one_id</option>
+
+                                                    @foreach ($clients as $item)
+                                                        <option class="form-control" value="{{$item->id}}">
+                                                            {{$item->name}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -163,8 +166,10 @@
                                                 <select name="solution_two_id" data-placeholder="Select solution_two_id.."
                                                     class="form-control select">
                                                     <option></option>
-                                                    <option class="form-control" value="">
-                                                        solution_two_id</option>
+                                                    @foreach ($clients as $item)
+                                                        <option class="form-control" value="{{$item->id}}">
+                                                            {{$item->name}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -177,8 +182,10 @@
                                                     data-placeholder="Select solution_three_id.."
                                                     class="form-control select">
                                                     <option></option>
-                                                    <option class="form-control" value="">
-                                                        solution_three_id</option>
+                                                    @foreach ($clients as $item)
+                                                        <option class="form-control" value="{{$item->id}}">
+                                                            {{$item->name}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -192,8 +199,10 @@
                                                     class="form-control select">
                                                     <option></option>
 
-                                                    <option class="form-control" value="">
-                                                        solution_four_id</option>
+                                                    @foreach ($clients as $item)
+                                                        <option class="form-control" value="{{$item->id}}">
+                                                            {{$item->name}}</option>
+                                                    @endforeach
 
                                                 </select>
                                             </div>
@@ -206,9 +215,9 @@
                                                 <select name="client_story_id" data-placeholder="Select client_story_id.."
                                                     class="form-control select">
                                                     <option></option>
-                                                    @foreach ($clients as $client)
-                                                        <option class="form-control" value="{{ $client->id }}">
-                                                            {{ $client->title }}</option>
+                                                    @foreach ($clientstory as $item)
+                                                        <option class="form-control" value="{{ $item->id }}">
+                                                            {{ $item->title }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

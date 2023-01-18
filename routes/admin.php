@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\PartnerPermission;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SuccessController;
+use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomepageController;
 use App\Http\Controllers\Admin\IndustryController;
@@ -306,11 +307,13 @@ Route::get('job-register-user/download/{id}', [App\Http\Controllers\Frontend\Job
   Route::resource('product-sourcing', SourcingController::class);
   //Product Sourcing
  // SAS All Route
-    Route::controller(SASController::class)->group(function(){
 
-        Route::get('/sas/{id}/sourcing' , 'SourcingSas')->name('sourcing.sas');
+ Route::resource('sas', SASController::class);
 
-    });
+ Route::get('/sas/{id}/sourcing', [App\Http\Controllers\SAS\SASController::class, 'SourcingSas'])->name('sourcing.sas');
+
+
+
 
 
 

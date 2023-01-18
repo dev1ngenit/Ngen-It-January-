@@ -24,10 +24,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data['categorys']          = Category::orderBy('id', 'DESC')->paginate(10);
-        $data['sub_cats']           = SubCategory::orderBy('id', 'DESC')->paginate(8);
-        $data['sub_sub_cats']       = SubSubCategory::orderBy('id', 'DESC')->paginate(8);
-        $data['sub_sub_sub_cats']   = SubSubSubCategory::orderBy('id', 'DESC')->paginate(8);
+        $data['categorys']          = Category::orderBy('id', 'DESC')->get();
+        $data['sub_cats']           = SubCategory::orderBy('id', 'DESC')->get();
+        $data['sub_sub_cats']       = SubSubCategory::orderBy('id', 'DESC')->get();
+        $data['sub_sub_sub_cats']   = SubSubSubCategory::orderBy('id', 'DESC')->get();
         return view('admin.pages.category.all', $data);
     }
 

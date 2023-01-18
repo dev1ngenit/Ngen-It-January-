@@ -1,10 +1,13 @@
 @php
-    $setting=App\Models\Admin\Setting::first();
-    $industrys = App\Models\Admin\IndustryPage::orderBy('id','Desc')->limit(10)->get();
-    $features = App\Models\Admin\Feature::orderBy('id','Desc')->limit(10)->get();
-    $solutions = App\Models\Admin\SolutionDetail::orderBy('id','Desc')->limit(10)->get();
-    $brands = App\Models\Admin\BrandPage::orderBy('id','Desc')->limit(10)->get();
-    $categorys = App\Models\Admin\Category::orderBy('id','DESC')->limit(10)->get();
+    $setting = App\Models\Admin\Setting::first();
+    $industrys = App\Models\Admin\IndustryPage::orderBy('id', 'Desc')->limit(10)->get();
+    $features = App\Models\Admin\Feature::orderBy('id', 'Desc')->limit(10)->get();
+    $solutions = App\Models\Admin\SolutionDetail::orderBy('id', 'Desc')->limit(10)->get();
+    $brands = App\Models\Admin\BrandPage::orderBy('id', 'Desc')->limit(10)->get();
+    $categorys = App\Models\Admin\Category::orderBy('id', 'DESC')->limit(10)->get();
+    $blogs = App\Models\Admin\Blog::inRandomOrder()->limit(2)->get();
+    $clientstorys = App\Models\Admin\ClientStory::inRandomOrder()->limit(2)->get();
+    $techglossys = App\Models\Admin\Techglossy::inRandomOrder()->limit(2)->get();
     $jobs = App\Models\Admin\Job::all();
 @endphp
 
@@ -13,38 +16,46 @@
         <div class="header_top_menu">
             <div class="header_top_menu_item" style="font-size: 0.875rem;">
                 <div class="top_menu_item_wrapper">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Create an account
                     </a>
-                    <div class="dropdown-menu top_menu_item" aria-labelledby="navbarDropdown" style="border-radius: 8px">
+                    <div class="dropdown-menu top_menu_item" aria-labelledby="navbarDropdown"
+                        style="border-radius: 8px">
                         @if (Auth::guard('client')->user())
-
                         @else
-                        <a class="dropdown-item px-3 py-1 p-0" href="{{route('client.login')}}" style="border-bottom: 1px #ffffff dotted">Create Client Account</a>
+                            <a class="dropdown-item px-3 py-1 p-0" href="{{ route('client.login') }}"
+                                style="border-bottom: 1px #ffffff dotted">Create Client Account</a>
                         @endif
 
                         @if (Auth::guard('partner')->user())
-
                         @else
-                        <a class="dropdown-item px-3 py-1 p-0" href="{{route('partner.login')}}" style="border-bottom: 1px #ffffff dotted">Create Partner Account</a>
+                            <a class="dropdown-item px-3 py-1 p-0" href="{{ route('partner.login') }}"
+                                style="border-bottom: 1px #ffffff dotted">Create Partner Account</a>
                         @endif
                     </div>
                 </div>
                 <div class="top_menu_item_wrapper">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Your Dashboard
                     </a>
-                    <div class="dropdown-menu top_menu_item" aria-labelledby="navbarDropdown" style="border-radius: 8px">
+                    <div class="dropdown-menu top_menu_item" aria-labelledby="navbarDropdown"
+                        style="border-radius: 8px">
                         @if (Auth::guard('client')->user())
-                        <a class="dropdown-item px-3 py-1 p-0" href="{{route('client.dashboard')}}" style="border-bottom: 1px #ffffff dotted">Client Dashboard</a>
+                            <a class="dropdown-item px-3 py-1 p-0" href="{{ route('client.dashboard') }}"
+                                style="border-bottom: 1px #ffffff dotted">Client Dashboard</a>
                         @else
-                        <a class="dropdown-item px-3 py-1 p-0" href="{{route('client.login')}}" style="border-bottom: 1px #ffffff dotted">Sign In as Client</a>
+                            <a class="dropdown-item px-3 py-1 p-0" href="{{ route('client.login') }}"
+                                style="border-bottom: 1px #ffffff dotted">Sign In as Client</a>
                         @endif
 
                         @if (Auth::guard('partner')->user())
-                        <a class="dropdown-item px-3 py-1 p-0" href="{{route('partner.dashboard')}}" style="border-bottom: 1px #ffffff dotted">Partner Dashboard</a>
+                            <a class="dropdown-item px-3 py-1 p-0" href="{{ route('partner.dashboard') }}"
+                                style="border-bottom: 1px #ffffff dotted">Partner Dashboard</a>
                         @else
-                        <a class="dropdown-item px-3 py-1 p-0" href="{{route('partner.login')}}" style="border-bottom: 1px #ffffff dotted">Sign In as Partner</a>
+                            <a class="dropdown-item px-3 py-1 p-0" href="{{ route('partner.login') }}"
+                                style="border-bottom: 1px #ffffff dotted">Sign In as Partner</a>
                         @endif
                     </div>
                 </div>
@@ -59,18 +70,22 @@
                     </div>
                 </div> --}}
                 <div class="top_menu_item_wrapper">
-                    <button class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">Support</button>
+                    <button class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown">Support</button>
 
                     <div class="dropdown-menu top_menu_item sp">
-                    <a class="dropdown-item px-3 py-1 p-0" href="{{route('contact')}}" style="border-bottom: 1px #ffffff dotted">On Call Support</a>
-                    {{-- <div class="dropdown-divider"></div> --}}
-                    <a class="dropdown-item px-3 py-1 p-0" href="{{route('support')}}">web Support Assistance</a>
+                        <a class="dropdown-item px-3 py-1 p-0" href="{{ route('contact') }}"
+                            style="border-bottom: 1px #ffffff dotted">On Call Support</a>
+                        {{-- <div class="dropdown-divider"></div> --}}
+                        <a class="dropdown-item px-3 py-1 p-0" href="{{ route('support') }}">web Support Assistance</a>
                     </div>
                 </div>
-                    {{-- @php
+                {{-- @php
                        $total_cart = Cart::count();
                     @endphp --}}
-                <button class="add_cart"><a href="{{route('mycart')}}"><i class="fa-solid fa-cart-plus fa-1x"></i><span class="add_cart_count" id="cartQty">{{Cart::count()}}</span></a></button>
+                <button class="add_cart"><a href="{{ route('mycart') }}"><i
+                            class="fa-solid fa-cart-plus fa-1x"></i><span class="add_cart_count"
+                            id="cartQty">{{ Cart::count() }}</span></a></button>
             </div>
         </div>
     </section>
@@ -80,8 +95,9 @@
             <div class="mobile_view_wrapper d-flex justify-content-between">
                 <!--Logo-->
                 <div class="header_logo">
-                    <a href="{{route('homepage')}}">
-                        <img src="{{ (!file_exists('upload/logoimage/'.$setting->logo)) ? $setting->logo:url('upload/logoimage/'.$setting->logo) }}" alt="Ngen It">
+                    <a href="{{ route('homepage') }}">
+                        <img src="{{ !file_exists('upload/logoimage/' . $setting->logo) ? $setting->logo : url('upload/logoimage/' . $setting->logo) }}"
+                            alt="Ngen It">
                     </a>
                 </div>
                 <!--Menu icon-->
@@ -89,8 +105,10 @@
                     <div class="menu_icon">
                         <a href=""><i class="fa-solid fa-user"></i><span class="ipads_menu">Account</span></a>
                         <a href=""><i class="fa-solid fa-cart-plus"></i><span class="ipads_menu">Cart</span></a>
-                        <a onclick="switchSearchVisible();" value="Click"><i class="fa-solid fa-magnifying-glass" id="iconSearch" onclick="iconSearch();"></i><span class="ipads_menu">Search</span></a>
-                        <a onclick="switchMenuVisible();" value="Click"><i  class="fa-solid fa-bars" id="iconMenu" onclick="iconMenu()"></i><span class="ipads_menu">Menu</span></a>
+                        <a onclick="switchSearchVisible();" value="Click"><i class="fa-solid fa-magnifying-glass"
+                                id="iconSearch" onclick="iconSearch();"></i><span class="ipads_menu">Search</span></a>
+                        <a onclick="switchMenuVisible();" value="Click"><i class="fa-solid fa-bars" id="iconMenu"
+                                onclick="iconMenu()"></i><span class="ipads_menu">Menu</span></a>
                     </div>
                 </div>
             </div>
@@ -101,60 +119,73 @@
                 <div class="menu_item_wrapper">
                     <!--Menu Item-->
                     <div class="menu_item">
-                        <button class="country-btn-portugal">Our Services <i class="fa-solid fa-caret-down"></i></button>
+                        <button class="country-btn-portugal">Our Services <i
+                                class="fa-solid fa-caret-down"></i></button>
                         <div class="manege_nav sub_menu_wrapper mr-animate-left">
                             <!--Sub menu-->
                             <div class="back_menu">
-                                <div class="country-btn-portugal back_button_style"><i class="fa-solid fa-chevron-left"></i> Back</div>
+                                <div class="country-btn-portugal back_button_style"><i
+                                        class="fa-solid fa-chevron-left"></i> Back</div>
                             </div>
                             <div class="sub_menu">
                                 <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Products<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    <h3 class="toggleDetails">Products<i
+                                            class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
                                     <p>Harness the power of technology to achieve your most ambitious goals.</p>
                                     <div class="details hidden sub_sub_item">
-                                        <a href="{{route('software.common')}}">Software <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="{{route('hardware.common')}}">Hardware <i class="fa-solid fa-angle-right"></i></a>
-                                        <a href="{{route('shop')}}">Digital Services <i class="fa-solid fa-angle-right"></i></a>
+                                        <a href="{{ route('software.common') }}">Software <i
+                                                class="fa-solid fa-angle-right"></i></a>
+                                        <a href="{{ route('hardware.common') }}">Hardware <i
+                                                class="fa-solid fa-angle-right"></i></a>
+                                        <a href="{{ route('shop') }}">Digital Services <i
+                                                class="fa-solid fa-angle-right"></i></a>
                                         <!-- <a href="report.html">Developments <i class="fa-solid fa-angle-right"></i></a> -->
                                     </div>
                                 </div>
                                 <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Solutions <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Our deep expertise and end-to-end capabilities help you navigate complex IT challenges.</p>
+                                    <h3 class="toggleDetails">Solutions <i
+                                            class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    <p>Our deep expertise and end-to-end capabilities help you navigate complex IT
+                                        challenges.</p>
                                     <div class="details hidden sub_sub_item">
                                         @foreach ($solutions as $item)
-                                        <a href="{{route('solution.details',$item->id)}}"> {{$item->name}}<i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="{{ route('solution.details', $item->id) }}">
+                                                {{ $item->name }}<i class="fa-solid fa-angle-right"></i></a>
                                         @endforeach
                                     </div>
                                 </div>
                                 <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Industry <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    <h3 class="toggleDetails">Industry <i
+                                            class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
                                     <p>Our service offerings service offerings </p>
                                     <div class="details hidden sub_sub_item">
                                         @foreach ($industrys as $item)
-                                        <a href="{{route('industry.details',$item->id)}}">{{App\Models\Admin\Industry::where('id',$item->industry_id)->value('title')}} <i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="{{ route('industry.details', $item->id) }}">{{ App\Models\Admin\Industry::where('id', $item->industry_id)->value('title') }}
+                                                <i class="fa-solid fa-angle-right"></i></a>
                                         @endforeach
                                     </div>
                                 </div>
                                 <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Features <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    <h3 class="toggleDetails">Features <i
+                                            class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
 
                                     <div class="details hidden sub_sub_item">
                                         @foreach ($features as $item)
-                                        <a href="{{route('feature.details',$item->id)}}">{{$item->badge}} <i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="{{ route('feature.details', $item->id) }}">{{ $item->badge }}
+                                                <i class="fa-solid fa-angle-right"></i></a>
                                         @endforeach
                                     </div>
                                 </div>
                             </div>
                             <div class="sub_menu_footer">
                                 <div class="sub_menu_footer_item">
-                                    <a href="{{route('shop.html')}}">View All Products</a>
+                                    <a href="{{ route('shop.html') }}">View All Products</a>
                                 </div>
                                 <div class="sub_menu_footer_item">
                                     <a href="ngenit/solution_common.html">View All Solutions</a>
                                 </div>
                                 <div class="sub_menu_footer_item">
-                                    <a href="{{route('all.industry')}}">View All Industry</a>
+                                    <a href="{{ route('all.industry') }}">View All Industry</a>
                                 </div>
                                 <div class="sub_menu_footer_item">
                                     <a href="ngenit/service_common.html">View All Features</a>
@@ -164,63 +195,64 @@
                     </div>
                     <!--Menu Item-->
                     <div class="menu_item">
-                        <button class="country-btn-portugal">Tech Contents <i class="fa-solid fa-caret-down"></i></button>
+                        <button class="country-btn-portugal">Tech Contents <i
+                                class="fa-solid fa-caret-down"></i></button>
                         <div class="manege_nav sub_menu_wrapper mr-animate-left border-bottom ">
                             <!--Sub menu 2-->
                             <div class="back_menu">
-                                <div class="country-btn-portugal back_button_style"><i class="fa-solid fa-chevron-left"></i> Back</div>
+                                <div class="country-btn-portugal back_button_style"><i
+                                        class="fa-solid fa-chevron-left"></i> Back</div>
                             </div>
                             <div class="sub_menu row px-5">
                                 <div class="col-4 colum-12">
-                                    <h3 class="toggleDetails">Client Stories<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <div class="d-flex">
-                                    <div class="w-50">
-                                        <img class="w-100" src="./ngenit/images/menu/1.jpg" alt="">
-                                    </div>
-                                    <p class="w-50 ml-3">Lane Regional Medical Center Drives Ambitious Security and Workflow Enhancements</p>
-                                    </div>
-                                    <div class="d-flex mt-3">
-                                    <div class="w-50">
-                                        <img class="w-100" src="./ngenit/images/menu/2.jpg" alt="">
-                                    </div>
-                                    <p class="w-50 ml-3">Optimized Procurement Leads to Savings and Improved Productivity</p>
-                                    </div>
-                                    <button class="py-1 mt-1">View all client stories</button>
-                                    </div>
+                                    <h3 class="toggleDetails">Blogs<i
+                                            class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    @foreach ($blogs as $item)
+                                        <div class="d-flex mb-3">
+                                            <div class="w-50">
+                                                <img class="w-100"
+                                                    src="{{ asset('storage/requestImg/' . $item->image) }}"
+                                                    alt="">
+                                            </div>
+                                            <p class="w-50 ml-3">{{ $item->title }}</p>
+                                        </div>
+                                    @endforeach
+
+                                    <button class="py-1 mt-1">View all Blogs</button>
+                                </div>
 
                                 <div class="col-4 colum-12">
-                                    <h3 class="toggleDetails">Blogs<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <div class="d-flex">
-                                    <div class="w-50">
-                                        <img class="w-100" src="./ngenit/images/menu/3.jpg" alt="">
-                                    </div>
-                                    <p class="w-50 ml-3">How Westerra Prioritized Digital Transformation in the Face of Disruption</p>
-                                    </div>
-                                    <div class="d-flex mt-3">
-                                    <div class="w-50">
-                                        <img class="w-100" src="./ngenit/images/menu/4.jpg" alt="">
-                                    </div>
-                                    <p class="w-50 ml-3">Major Retailer Improves Operations and Employee Experience With Modern App Framework</p>
-                                    </div>
+                                    <h3 class="toggleDetails">Client Storys<i
+                                            class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    @foreach ($clientstorys as $item)
+                                        <div class="d-flex mb-3">
+                                            <div class="w-50">
+                                                <img class="w-100"
+                                                    src="{{ asset('storage/requestImg/' . $item->image) }}"
+                                                    alt="">
+                                            </div>
+                                            <p class="w-50 ml-3">{{ $item->title }}</p>
+                                        </div>
+                                    @endforeach
                                     <button class="py-1 mt-1">View all client stories</button>
-                                    </div>
+                                </div>
 
                                 <div class="col-4 colum-12">
-                                    <h3 class="toggleDetails">Tech glossary<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <div class="d-flex">
-                                    <div class="w-50">
-                                        <img class="w-100" src="./ngenit/images/menu/5.jpg" alt="">
-                                    </div>
-                                    <p class="w-50 ml-3">Counting on Computer Vision to Empower Workers by Automating Inventory Management</p>
-                                    </div>
-                                    <div class="d-flex mt-3">
-                                    <div class="w-50">
-                                        <img class="w-100" src="./ngenit/images/menu/6.jpg" alt="">
-                                    </div>
-                                    <p class="w-50 ml-3">Hidalgo County Brings Free Public Wi-Fi to More Than 30,000 Rural, Low-Income Students</p>
-                                    </div>
-                                    <button class="py-1 mt-1">View all client stories</button>
-                                    </div>
+                                    <h3 class="toggleDetails">Tech Glossary<i
+                                            class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    @foreach ($techglossys as $item)
+                                        <div class="d-flex mb-3">
+                                            <div class="w-50">
+                                                <img class="w-100"
+                                                    src="{{ asset('storage/requestImg/' . $item->image) }}"
+                                                    alt="">
+                                            </div>
+                                            <p class="w-50 ml-3">{{ $item->title }}</p>
+                                        </div>
+                                    @endforeach
+
+                                    <button class="py-1 mt-1">View all Tech Glossary</button>
+                                </div>
 
                             </div>
                             <!-- <div class="sub_menu_footer">
@@ -239,15 +271,18 @@
                     </div>
                     <!--Menu Item-->
                     <div class="menu_item">
-                        <button class="country-btn-portugal">Partner & Clients <i class="fa-solid fa-caret-down"></i></button>
+                        <button class="country-btn-portugal">Partner & Clients <i
+                                class="fa-solid fa-caret-down"></i></button>
                         <div class="manege_nav sub_menu_wrapper mr-animate-left">
                             <!--Sub menu 3-->
                             <div class="back_menu">
-                                <div class="country-btn-portugal back_button_style"><i class="fa-solid fa-chevron-left"></i> Back</div>
+                                <div class="country-btn-portugal back_button_style"><i
+                                        class="fa-solid fa-chevron-left"></i> Back</div>
                             </div>
                             <div class="sub_menu">
                                 <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Partners <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    <h3 class="toggleDetails">Partners <i
+                                            class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
                                     <p>Harness the power of technology to achieve your most ambitious goals.</p>
                                     <div class="details hidden sub_sub_item">
                                         <a href="">Bangladesh <i class="fa-solid fa-angle-right"></i></a>
@@ -257,8 +292,10 @@
                                     </div>
                                 </div>
                                 <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Clients <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Our deep expertise and end-to-end capabilities help you navigate complex IT challenges.</p>
+                                    <h3 class="toggleDetails">Clients <i
+                                            class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    <p>Our deep expertise and end-to-end capabilities help you navigate complex IT
+                                        challenges.</p>
                                     <div class="details hidden sub_sub_item">
                                         <a href="">Public Sector <i class="fa-solid fa-angle-right"></i></a>
                                         <a href="">Academic <i class="fa-solid fa-angle-right"></i></a>
@@ -267,7 +304,8 @@
                                     </div>
                                 </div>
                                 <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Principals <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    <h3 class="toggleDetails">Principals <i
+                                            class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
                                     <p>Our service offerings service offerings </p>
                                     <div class="details hidden sub_sub_item">
                                         <a href="">Software <i class="fa-solid fa-angle-right"></i></a>
@@ -277,7 +315,8 @@
                                     </div>
                                 </div>
                                 <div class="colum-3 colum-12">
-                                    <h3 class="toggleDetails">Investors <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                    <h3 class="toggleDetails">Investors <i
+                                            class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
                                     <p>No Data</p>
                                     <div class="details hidden sub_sub_item">
                                         <a href="">Empty <i class="fa-solid fa-angle-right"></i></a>
@@ -302,52 +341,69 @@
                     </div>
                     <!--Menu Item-->
                     <div class="menu_item">
-                        <button class="country-btn-portugal">Connect Us <i class="fa-solid fa-caret-down"></i></button>
+                        <button class="country-btn-portugal">Connect Us <i
+                                class="fa-solid fa-caret-down"></i></button>
                         <div class="manege_nav sub_menu_wrapper mr-animate-left">
                             <!--Sub menu 4-->
                             <div class="back_menu">
-                                <div class="country-btn-portugal back_button_style"><i class="fa-solid fa-chevron-left"></i> Back</div>
+                                <div class="country-btn-portugal back_button_style"><i
+                                        class="fa-solid fa-chevron-left"></i> Back</div>
                             </div>
                             <div class="sub_menu row border-bottom">
                                 <div class="col-4 colum-12 p-4">
                                     <h3 class="text-center">Upload your CV</h3>
-                                    <div class="common_button2" style="border-radius: 5px;margin:5rem">
-                                        <a class="text-white" href="{{route('job.registration')}}">Upload CV</a>
+                                    <div class="col-lg-6 common_button2"
+                                        style="border-radius: 5px;margin-top:2rem;margin-left:6rem;">
+                                        <a class="text-white" href="{{ route('job.registration') }}">Upload CV</a>
                                     </div>
                                     {{-- <a href="{{route('job.registration')}}" class="common_button2">CV Upload</a> --}}
                                 </div>
                                 <div class="col-8 row">
                                     <div class="col-4 colum-12">
-                                        <h3 class="toggleDetails">Contacts <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                        <h3 class="toggleDetails">Contacts <i
+                                                class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
                                         <p>Harness the power of technology to achieve your most ambitious goals.</p>
                                         <div class="details hidden sub_sub_item">
-                                            <a href="{{route('support')}}">Direct Reach <i class="fa-solid fa-angle-right"></i></a>
-                                            <a href="{{route('contact')}}">Social Connects <i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="{{ route('support') }}">Direct Reach <i
+                                                    class="fa-solid fa-angle-right"></i></a>
+                                            <a href="{{ route('contact') }}">Social Connects <i
+                                                    class="fa-solid fa-angle-right"></i></a>
                                             <a href="">Datasheets <i class="fa-solid fa-angle-right"></i></a>
-                                            <a href="{{route('about')}}">About Us <i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="{{ route('about') }}">About Us <i
+                                                    class="fa-solid fa-angle-right"></i></a>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-start">
-                                            <p class="mt-1"><strong><span class="border-top">Stay</span> Connected</strong></p>
+                                            <p class="mt-1"><strong><span class="border-top">Stay</span>
+                                                    Connected</strong></p>
                                             <ul class="sub_menu_footer_icon">
-                                                <li><a href="{{$setting->facebook}}"><i class="h4 fa-brands fa-square-facebook"></i></a></li>
-                                                <li><a href="{{$setting->linked_in}}"></a><i class="h4 fa-brands fa-linkedin"></i></a></li>
-                                                <li><a href="{{$setting->twitter}}"></a><i class="h4 fa-brands fa-square-twitter"></i></a></li>
-                                                <li><a href="{{$setting->youtube}}"><i class="h4 fa-brands fa-youtube"></i></a></li>
-                                                <li><a href="{{$setting->instagram}}"></a><i class="h4 fa-brands fa-square-instagram"></i></a></li>
+                                                <li><a href="{{ $setting->facebook }}"><i
+                                                            class="h4 fa-brands fa-square-facebook"></i></a></li>
+                                                <li><a href="{{ $setting->linked_in }}"></a><i
+                                                        class="h4 fa-brands fa-linkedin"></i></a></li>
+                                                <li><a href="{{ $setting->twitter }}"></a><i
+                                                        class="h4 fa-brands fa-square-twitter"></i></a></li>
+                                                <li><a href="{{ $setting->youtube }}"><i
+                                                            class="h4 fa-brands fa-youtube"></i></a></li>
+                                                <li><a href="{{ $setting->instagram }}"></a><i
+                                                        class="h4 fa-brands fa-square-instagram"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
 
                                     <div class="col-4 colum-12">
-                                        <h3 class="toggleDetails">Career <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                        <h3 class="toggleDetails">Career <i
+                                                class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
                                         <p>Our service offerings drive new business outcomes.</p>
                                         <div class="details hidden sub_sub_item">
-                                            <a href="{{route('job.registration')}}">Join our team <i class="fa-solid fa-angle-right"></i></a>
-                                            <a href="{{route('job.openings')}}">Available Jobs <i class="fa-solid fa-angle-right"></i></a>
+                                            <a href="{{ route('job.registration') }}">Join our team <i
+                                                    class="fa-solid fa-angle-right"></i></a>
+                                            <a href="{{ route('job.openings') }}">Available Jobs <i
+                                                    class="fa-solid fa-angle-right"></i></a>
                                         </div>
                                     </div>
                                     <div class="col-4 colum-12">
-                                        <h3 class="toggleDetails">Media relations <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                        <h3 class="toggleDetails">Media relations <i
+                                                class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
                                         <p>Our service offerings drive new business outcomes.</p>
                                         <div class="details hidden sub_sub_item">
                                             <a href="javascript:void(0);">Under Construction </a>
@@ -383,53 +439,64 @@
                         <div class="manege_nav sub_menu_wrapper mr-animate-left border-bottom">
                             <!--Sub menu 5-->
                             <div class="back_menu">
-                                <div class="country-btn-portugal back_button_style"><i class="fa-solid fa-chevron-left"></i> Back</div>
+                                <div class="country-btn-portugal back_button_style"><i
+                                        class="fa-solid fa-chevron-left"></i> Back</div>
                             </div>
                             <div class="sub_menu row px-3">
                                 <div class="col-8">
                                     <div class="row">
-                                    <div class="col-4 colum-12">
-                                        <h3 class="toggleDetails">Shop by Product <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                        <p>Harness the power of technology to achieve your most ambitious goals.</p>
-                                        <div class="details hidden sub_sub_item">
-                                            <a href="ngenit/product_filters.html">Product <i class="fa-solid fa-angle-right"></i></a>
-                                        </div>
-                                        <div class="common_button py-0">Show all products</div>
-                                    </div>
-                                    <div class="col-4 colum-12">
-                                        <h3 class="toggleDetails">Shop by Brand <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                        <div class="row">
-                                            @foreach ($brands as $item)
-                                            <div class="details hidden sub_sub_item col-6">
-                                                <a href="{{route('custom.product',$item->slug)}}">{{App\Models\Admin\Brand::where('id',$item->brand_id)->value('title')}} <i class="fa-solid fa-angle-right"></i></a>
+                                        <div class="col-4 colum-12">
+                                            <h3 class="toggleDetails">Shop by Product <i
+                                                    class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                            <p>Harness the power of technology to achieve your most ambitious goals.</p>
+                                            <div class="details hidden sub_sub_item">
+                                                <a href="ngenit/product_filters.html">Product <i
+                                                        class="fa-solid fa-angle-right"></i></a>
                                             </div>
-                                            @endforeach
+                                            <div class="common_button py-0">Show all products</div>
                                         </div>
-                                        <div class="common_button py-0">Show all brands</div>
-                                    </div>
-                                    <div class="col-4 colum-12">
-                                        <h3 class="toggleDetails">Shop by Category <i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                        <div class="row">
-                                            @foreach ($categorys as $item)
-                                            <div class="details hidden sub_sub_item col-6">
-                                                <a href="{{route('category.html',$item->slug)}}">{{$item->title}} <i class="fa-solid fa-angle-right"></i></a>
+                                        <div class="col-4 colum-12">
+                                            <h3 class="toggleDetails">Shop by Brand <i
+                                                    class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                            <div class="row">
+                                                @foreach ($brands as $item)
+                                                    <div class="details hidden sub_sub_item col-6">
+                                                        <a
+                                                            href="{{ route('custom.product', App\Models\Admin\Brand::where('id', $item->brand_id)->value('slug')) }}">{{ App\Models\Admin\Brand::where('id', $item->brand_id)->value('title') }}
+                                                            <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                @endforeach
                                             </div>
-                                            @endforeach
+                                            <div class="common_button py-0">Show all brands</div>
                                         </div>
-                                        <div class="common_button py-0">Show all categories</div>
-                                    </div>
+                                        <div class="col-4 colum-12">
+                                            <h3 class="toggleDetails">Shop by Category <i
+                                                    class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                            <div class="row">
+                                                @foreach ($categorys as $item)
+                                                    <div class="details hidden sub_sub_item col-6">
+                                                        <a href="{{ route('category.html', $item->slug) }}">{{ $item->title }}
+                                                            <i class="fa-solid fa-angle-right"></i></a>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            <div class="common_button py-0">Show all categories</div>
+                                        </div>
                                     </div>
                                     <hr>
                                     <div class="row">
-                                    <div class="col-6 colum-12">
-                                        <h3 class="toggleDetails">Explore our deals<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                        <p>Harness the power of technology to achieve your most ambitious goals.</p>
-                                        <div class="details hidden sub_sub_item">
-                                            <a href="{{ route('tech.deals') }}">Technology deals <i class="fa-solid fa-angle-right"></i></a>
-                                            <a href="{{ route('refurbished') }}">certified refurbished <i class="fa-solid fa-angle-right"></i></a>
+                                        <div class="col-6 colum-12">
+                                            <h3 class="toggleDetails">Explore our deals<i
+                                                    class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
+                                            <p>Harness the power of technology to achieve your most ambitious goals.</p>
+                                            <div class="details hidden sub_sub_item">
+                                                <a href="{{ route('tech.deals') }}">Technology deals <i
+                                                        class="fa-solid fa-angle-right"></i></a>
+                                                <a href="{{ route('refurbished') }}">certified refurbished <i
+                                                        class="fa-solid fa-angle-right"></i></a>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- <div class="col-6 colum-12">
+                                        <!-- <div class="col-6 colum-12">
                                         <h3 class="toggleDetails">Purchasing contracts<i class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
                                         <p>Our service offerings drive new business outcomes.</p>
                                         <div class="details hidden sub_sub_item">
@@ -444,16 +511,20 @@
 
                                 <div class="col-4 colum-12 border-left">
                                     <div>
-                                    <p class="font-weight-bold">Manage your purchasing and products.</p>
-                                    <p>Log in to NGenIT for smarter shopping, hardware, software and cloud management, and tailored reporting</p>
-                                    <div class="common_button2 py-1">Log in to your NGenIT account</div>
-                                    <a class="text-danger" href="">Create my NGenIT account</a>
-                                </div>
-                                <hr>
-                                <div>
-                                    <p class="font-weight-bold">Simplify and streamline with a myInsight account.</p>
-                                    <p>We’ll help you procure and manage your products throughout their lifecycle.</p>
-                                    <a class="text-danger" href="">See the benefits of our e-procurement solutions</a>
+                                        <p class="font-weight-bold">Manage your purchasing and products.</p>
+                                        <p>Log in to NGenIT for smarter shopping, hardware, software and cloud
+                                            management, and tailored reporting</p>
+                                        <div class="common_button2 py-1">Log in to your NGenIT account</div>
+                                        <a class="text-danger" href="">Create my NGenIT account</a>
+                                    </div>
+                                    <hr>
+                                    <div>
+                                        <p class="font-weight-bold">Simplify and streamline with a myInsight account.
+                                        </p>
+                                        <p>We’ll help you procure and manage your products throughout their lifecycle.
+                                        </p>
+                                        <a class="text-danger" href="">See the benefits of our e-procurement
+                                            solutions</a>
                                     </div>
                                 </div>
                             </div>
@@ -480,14 +551,14 @@
             <div class="search_menu display_none" id="Search_menu">
                 <div class="header_search">
                     <div class="row">
-                    <form method="post" action="{{ route('product.search') }}">
-                        @csrf
-                            <input type="search" placeholder="What can we help you find?"
-                             id="search_text" name="search" onchange="this.form.submit()">
-                        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        <div id="searchProducts"></div>
-                    </form>
-                </div>
+                        <form method="post" action="{{ route('product.search') }}">
+                            @csrf
+                            <input type="search" placeholder="What can we help you find?" id="search_text"
+                                name="search" onchange="this.form.submit()">
+                            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <div id="searchProducts"></div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -496,12 +567,11 @@
 
 
 <style>
-
-    .search-area{
-      position: relative;
+    .search-area {
+        position: relative;
     }
 
-      #searchProducts {
+    #searchProducts {
         position: absolute;
         top: 100%;
         left: 0;
@@ -510,21 +580,17 @@
         z-index: 999;
         border-radius: 8px;
         margin-top: 5px;
-      }
-
-
-    </style>
+    }
+</style>
 
 
 
-    <script>
-      function search_result_hide(){
+<script>
+    function search_result_hide() {
         $("#searchProducts").slideUp();
-      }
+    }
 
-       function search_result_show(){
-          $("#searchProducts").slideDown();
-      }
-
-
-    </script>
+    function search_result_show() {
+        $("#searchProducts").slideDown();
+    }
+</script>

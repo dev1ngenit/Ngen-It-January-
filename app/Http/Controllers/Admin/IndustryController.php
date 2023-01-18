@@ -109,8 +109,6 @@ class IndustryController extends Controller
                 [
 
                     'title'      => 'required',
-                    'logo'       => 'required|image|mimes:png,jpg,jpeg|max:10000',
-                    'image'      => 'required|image|mimes:png,jpg,jpeg|max:10000',
                     'short_desc' => 'required|max:600',
 
                 ];

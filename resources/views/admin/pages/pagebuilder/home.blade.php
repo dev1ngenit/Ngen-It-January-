@@ -115,7 +115,7 @@
                                                                  id="select1">
                                                                 <option></option>
                                                                 @foreach ($client_experiences as $item)
-                                                                    <option class="col-8" value="{{ $item->title }}">{{ $item->title }}
+                                                                    <option class="col-8" value="{{ $item->id }}">{{ $item->title }}
                                                                     </option>
                                                                 @endforeach
                                                             </select>
@@ -133,7 +133,7 @@
                                                                 >
                                                                 <option></option>
                                                                 @foreach ($client_experiences as $item)
-                                                                    <option class="col-8" value="{{ $item->title }}">{{ $item->title }}
+                                                                    <option class="col-8" value="{{ $item->id }}">{{ $item->title }}`
                                                                     </option>
                                                                 @endforeach
                                                             </select>
@@ -151,7 +151,7 @@
                                                                  id="select3">
                                                                 <option></option>
                                                                 @foreach ($client_experiences as $item)
-                                                                    <option class="col-8" value="{{ $item->title }}">
+                                                                    <option class="col-8" value="{{ $item->id }}">
                                                                         {{ $item->title }}</option>
                                                                 @endforeach
                                                             </select>
@@ -171,7 +171,7 @@
                                                                  id="select4">
                                                                 <option></option>
                                                                 @foreach ($client_experiences as $item)
-                                                                    <option class="col-8" value="{{ $item->title }}">
+                                                                    <option class="col-8" value="{{ $item->id }}">
                                                                         {{ $item->title }}</option>
                                                                 @endforeach
                                                             </select>
@@ -189,7 +189,7 @@
                                                                  id="select5">
                                                                 <option></option>
                                                                 @foreach ($client_experiences as $item)
-                                                                    <option class="col-8" value="{{ $item->title }}">
+                                                                    <option class="col-8" value="{{ $item->id }}">
                                                                         {{ $item->title }}</option>
                                                                 @endforeach
                                                             </select>
@@ -291,7 +291,7 @@
                                                  id="select10">
                                                 <option></option>
                                                 @foreach ($successes as $item)
-                                                    <option class="col-8" value="{{ $item->title }}">{{ $item->title }}
+                                                    <option class="col-8" value="{{ $item->tid}}">{{ $item->title }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -304,7 +304,7 @@
                                                  id="select11">
                                                 <option></option>
                                                 @foreach ($successes as $item)
-                                                    <option class="col-8" value="{{ $item->title }}">{{ $item->title }}
+                                                    <option class="col-8" value="{{ $item->tid}}">{{ $item->title }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -317,7 +317,7 @@
                                                  id="select12">
                                                 <option></option>
                                                 @foreach ($successes as $item)
-                                                    <option class="col-8" value="{{ $item->title }}">{{ $item->title }}
+                                                    <option class="col-8" value="{{ $item->id }}">{{ $item->title }}
                                                     </option>
                                                 @endforeach
                                             </select>
