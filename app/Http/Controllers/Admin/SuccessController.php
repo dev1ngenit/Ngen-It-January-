@@ -16,7 +16,7 @@ class SuccessController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         $data['success'] = Success::latest()->get();
         return view('admin.pages.success.all', $data);
     }

@@ -248,23 +248,23 @@
                                     <div class="border border-3 p-2 rounded mt-1">
 
                                         <div class="row">
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-6 basic-form">
                                                 <label class="col-form-label col-lg-12">Product Brand</label>
 
-                                                    <select class="form-select" name="brand_id" data-placeholder="Select Brand...">
+                                                    <select class="form-control select" name="brand_id" data-placeholder="Select Brand...">
                                                         <option></option>
                                                         @foreach ($brands as $brand)
-                                                            <option class="form-select" value="{{ $brand->id }}">
+                                                            <option class="form-control select" value="{{ $brand->id }}">
                                                                 {{ $brand->title }}</option>
                                                         @endforeach
 
                                                     </select>
                                             </div>
 
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-6 basic-form">
                                                 <label class="col-form-label col-lg-12">Product Category</label>
 
-                                                    <select class="form-select" name="cat_id" data-placeholder="Select Category...">
+                                                    <select class="form-control select" name="cat_id" data-placeholder="Select Category...">
                                                         <option></option>
                                                         @foreach ($categories as $cat)
                                                         <option class="form-control" value="{{ $cat->id }}">
@@ -276,22 +276,24 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputCollection" class="form-label">Product Sub Category</label>
-                                                <select name="sub_cat_id" class="form-select"
-                                                    id="inputCollection" data-placeholder="Select Sub Category...">
-                                                    <option></option>
-                                                    @foreach ($sub_cats as $item)
-                                                    <option class="form-control" value="{{ $item->id }}">
-                                                        {{ $item->title }}</option>
-                                                    @endforeach
-                                                </select>
+                                            <div class="form-group col-md-6 basic-form">
+                                                <label class="col-form-label col-lg-12">Product Sub Category</label>
+
+                                                    <select class="form-control select" name="cat_id" data-placeholder="Select Sub Category...">
+                                                        <option></option>
+                                                        @foreach ($sub_cats as $item)
+                                                        <option class="form-control" value="{{ $item->id }}">
+                                                            {{ $item->title }}</option>
+                                                        @endforeach
+
+                                                    </select>
                                             </div>
 
-                                            <div class="form-group col-md-6">
+
+                                            <div class="form-group col-md-6 basic-form">
                                                 <label for="inputCollection" class="form-label">Product Sub Sub Category</label>
-                                                <select name="sub_sub_cat_id" class="form-select"
-                                                    id="inputCollection" data-placeholder="Select Sub Sub Category...">
+                                                <select name="sub_sub_cat_id" class="form-control select"
+                                                    data-placeholder="Select Sub Sub Category...">
                                                     <option></option>
                                                     @foreach ($sub_sub_cats as $item)
                                                     <option class="form-control" value="{{ $item->id }}">
@@ -300,9 +302,9 @@
                                                 </select>
                                             </div>
 
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-6 basic-form">
                                                 <label for="inputCollection" class="form-label">Product Sub Sub Sub Category</label>
-                                                <select name="sub_sub_sub_cat_id" class="form-select"
+                                                <select name="sub_sub_sub_cat_id" class="form-control select"
                                                     id="inputCollection" data-placeholder="Select Sub Sub Sub Category...">
                                                     <option></option>
                                                     @foreach ($sub_sub_sub_cats as $item)
@@ -326,23 +328,23 @@
                                         </div>
 
                                         <div class="row">
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-6 bassic-form">
                                                 <label class="col-form-label col-lg-12">Related Solutions</label>
                                                 <select class="form-control select" name="solution_id[]" data-placeholder="Select related Solutions..."
-                                                    multiple="multiple" data-tags="true">
+                                                    multiple="multiple">
                                                         @foreach ($solutions as $item)
                                                         <option value="{{ $item->title }}"> {{ $item->title }}</option>
                                                         @endforeach
                                                     </select>
                                             </div>
 
-                                            <div class="form-group col-md-6">
+                                            <div class="form-group col-md-6 bassic-form">
                                                 <label class="col-form-label col-lg-12">Related Industries</label>
 
                                                     <select class="form-control select" name="industry_id[]" data-placeholder="Select related Industries..."
-                                                    multiple="multiple" data-tags="true">
+                                                    multiple="multiple">
                                                         @foreach ($industrys as $item)
-                                                        <option value="{{ $item->id }}"> {{ $item->title }}</option>
+                                                        <option class="form-control" value="{{ $item->id }}"> {{ $item->title }}</option>
                                                         @endforeach
                                                     </select>
                                             </div>

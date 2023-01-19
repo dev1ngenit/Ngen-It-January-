@@ -25,6 +25,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\SubSubCategory;
 use App\Models\Admin\SubSubSubCategory;
 use App\Http\Controllers\Admin\ClientController;
+use App\Models\Admin\BrandPage;
 use App\Models\Admin\Feature;
 use App\Models\Admin\Row;
 use App\Models\Admin\SolutionCard;
@@ -70,6 +71,7 @@ class HomeController extends Controller
         $data['feature4'] = Feature::where('id',$data['home']->story4_id)->first();
         $data['feature5'] = Feature::where('id',$data['home']->story5_id)->first();
         $data['success1'] = Success::where('id',$data['home']->success1_id)->first();
+        //dd($data['success1']);
         $data['success2'] = Success::where('id',$data['home']->success2_id)->first();
         $data['success3'] = Success::where('id',$data['home']->success3_id)->first();
         $data['story1'] = ClientStory::where('id',$data['home']->solution1_id)->first();
@@ -422,6 +424,27 @@ class HomeController extends Controller
         return view('frontend.pages.brand.brand_common', $data);
     }
 
+    public function BrandPage($id)
+    {
+        $data['brand'] = Brand::where('slug' , $id)->first();
+        $data['brandpage'] = BrandPage::where('brand_id' , $data['brand']->id)->first();
+        $data['storys'] = ClientStory::inRandomOrder()->limit(4)->get();
+            $data['setting'] = Setting::latest()->first();
+        if ($data['brandpage']) {
+            $data['row_one'] = Row::where('id', $data['brandpage']->row_four_id)->first();
+            $data['row_three'] = Row::where('id',$data['brandpage']->row_five_id)->first();
+            $data['row_four'] = Row::where('id',$data['brandpage']->row_seven_id)->first();
+            $data['row_five'] = Row::where('id',$data['brandpage']->row_eight_id)->first();
+            $data['card1'] = SolutionCard::where('id',$data['brandpage']->solution_card_one_id)->first();
+            $data['card2'] = SolutionCard::where('id',$data['brandpage']->solution_card_two_id)->first();
+            $data['card3'] = SolutionCard::where('id',$data['brandpage']->solution_card_three_id)->first();
+
+
+        }
+
+        return view('frontend.pages.brand.brand_page', $data);
+    }
+
     public function AllBrand()
     {
         $data['top_brands'] = Brand::where('category','Top')->latest()->get();
@@ -617,7 +640,25 @@ class HomeController extends Controller
     public function TermsPolicy()
     {
         $data['terms'] = Policy::where('condition','terms')->get();
+        $data['sale_terms'] = Policy::where('condition','sale_terms')->get();
+        $data['service_terms'] = Policy::where('condition','service_terms')->get();
         $data['policy'] = Policy::where('condition','policy')->get();
+        return view('frontend.pages.policy.terms_policy',$data);
+    }
+
+    public function TermsPolicyDetails($id)
+    {
+        $data['terms'] = Policy::where('condition','terms')->get();
+        $data['sale_terms'] = Policy::where('condition','sale_terms')->get();
+        $data['service_terms'] = Policy::where('condition','service_terms')->get();
+        $data['policy'] = Policy::where('condition','policy')->get();
+        if ($id) {
+            $data['details'] = Policy::where('id', $id)->first();
+        } else {
+            $data['details'] = '';
+        }
+
+
         return view('frontend.pages.policy.terms_policy',$data);
     }
 

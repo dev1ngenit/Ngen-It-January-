@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('policies', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->enum('condition', ['terms', 'policy'])->default('terms');
+            $table->enum('condition', ['terms', 'policy','sale_terms','service_terms'])->default('terms');
             $table->longText('description');
             $table->timestamps();
         });

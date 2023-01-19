@@ -140,7 +140,7 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         $blog = Blog::find($id);
-        if (!empty($blog)) {
+        if (!empty($request->image)) {
             $validator =
                 [
 

@@ -92,7 +92,8 @@ class ProductController extends Controller
 
         $image = $request->file('thumbnail');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(800,800)->save('upload/Products/thumbnail/'.$name_gen);
+        $path = public_path('upload/Products/thumbnail/'.$name_gen);
+        Image::make($image)->resize(376,282)->save($path);
         $save_url = 'upload/Products/thumbnail/'.$name_gen;
 
         $product_id = Product::insertGetId([
@@ -136,7 +137,8 @@ class ProductController extends Controller
         $images = $request->file('multi_img');
         foreach($images as $img){
         $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-        Image::make($img)->resize(800,800)->save('upload/Products/multi-image/'.$make_name);
+        $path = public_path('upload/Products/multi-image/'.$name_gen);
+        Image::make($image)->resize(376,282)->save($path);
         $uploadPath = 'upload/Products/multi-image/'.$make_name;
 
 
@@ -173,11 +175,6 @@ class ProductController extends Controller
         }
     }
 
-        /// End Multiple Image Upload From it //////
-
-        /// Multiple Industry Upload From it //////
-
-        /// End Multiple Industry Upload From it //////
 
             Toastr::success('Data Inserted Successfully');
         } else {
@@ -288,7 +285,8 @@ class ProductController extends Controller
 
         $image = $request->file('thumbnail');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-        Image::make($image)->resize(800,800)->save('upload/Products/thumbnail/'.$name_gen);
+        $path = public_path('upload/Products/thumbnail/'.$name_gen);
+        Image::make($image)->resize(376,282)->save($path);
         $save_url = 'upload/Products/thumbnail/'.$name_gen;
 
          if (File::exists($oldImage)) {
@@ -345,7 +343,8 @@ class ProductController extends Controller
                 //dd($request->file('photo'));
                 $image = $request->file('photo');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(800,800)->save('upload/Products/multi-image/'.$name_gen);
+                $path = public_path('upload/Products/multi-image/'.$name_gen);
+                Image::make($image)->resize(376,282)->save($path);
                 $save_url = 'upload/Products/multi-image/'.$name_gen;
 
                 $oldImage = $request->old_img;

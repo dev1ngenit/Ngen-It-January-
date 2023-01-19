@@ -7,17 +7,17 @@
             <!-- slider -->
             @if ($home)
             <div class="slider_inage">
-                <img src="{{ asset('storage/requestImg/' . $home->branner1) }}" alt="">
+                <img src="{{ asset('storage/requestImg/' . $home->branner1) }}" alt="" style="background-repeat: no-repeat;">
             </div>
 
             <!-- slider -->
             <div class="slider_inage">
-                <img src="{{ asset('storage/requestImg/' . $home->branner2) }}" alt="">
+                <img src="{{ asset('storage/requestImg/' . $home->branner2) }}" alt="" style="background-repeat: no-repeat;">
             </div>
 
             <!-- slider -->
             <div class="slider_inage">
-                <img src="{{ asset('storage/requestImg/' . $home->branner3) }}" alt="">
+                <img src="{{ asset('storage/requestImg/' . $home->branner3) }}" alt="" style="background-repeat: no-repeat;">
             </div>
             @endif
         </div>
@@ -167,7 +167,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="client_stories_item">
                         <a href="{{route('story.details',$story1->id)}}">
-                            <img class="img-fluid" src="{{ asset('storage/' . $story1->image) }}" alt="{{$story1->badge}}" >
+                            <img class="" src="{{ asset('storage/' . $story1->image) }}" alt="{{$story1->badge}}" width="280px" height="160px" >
                             <h6 class="mt-4">{{$story1->badge}}</h6>
                             <h3><strong>{{$story1->title}}</strong></h3>
                         </a>
@@ -178,7 +178,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="client_stories_item">
                         <a href="{{route('story.details',$story2->id)}}">
-                            <img class="img-fluid" src="{{ asset('storage/' . $story2->image) }}" alt="{{$story2->badge}}" >
+                            <img class="" src="{{ asset('storage/' . $story2->image) }}" alt="{{$story2->badge}}" width="280px" height="160px" >
                             <h6 class="mt-4">{{$story2->badge}}</h6>
                             <h3><strong>{{$story2->title}}</strong></h3>
                         </a>
@@ -189,7 +189,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="client_stories_item">
                         <a href="{{route('story.details',$story3->id)}}">
-                            <img class="img-fluid" src="{{ asset('storage/' . $story3->image) }}" alt="{{$story3->badge}}" >
+                            <img class="" src="{{ asset('storage/' . $story3->image) }}" alt="{{$story3->badge}}" width="280px" height="160px" >
                             <h6 class="mt-4">{{$story3->badge}}</h6>
                             <h3><strong>{{$story3->title}}</strong></h3>
                         </a>
@@ -200,7 +200,7 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="client_stories_item">
                         <a href="{{route('story.details',$story4->id)}}">
-                            <img class="img-fluid" src="{{ asset('storage/' . $story4->image) }}" alt="{{$story4->badge}}" >
+                            <img class="" src="{{ asset('storage/' . $story4->image) }}" alt="{{$story4->badge}}" width="280px" height="160px" >
                             <h6 class="mt-4">{{$story4->badge}}</h6>
                             <h3><strong>{{$story4->title}}</strong></h3>
                         </a>
@@ -359,34 +359,41 @@
             @if ($home)
             <div class="row">
                 <!-- item -->
-                <div class="col-lg-4 col-sm-12">
-                    <div class="our_success_item">
-                        <p class="our_success_item_title">{{$success1->title}}</p>
-                        <div class="our_success_item_body">
-                           {{$success1->description}}
-                        </div>
-                    </div>
-                </div>
-                <!-- item -->
-                <div class="col-lg-4 col-sm-12">
-                    <div class="our_success_item">
-                        <p class="our_success_item_title our_success_item_title2">{{$success2->title}}</p>
 
-                        <div class="our_success_item_body">
-                            {{$success2->description}}
+                @if ($success1)
+                    <div class="col-lg-4 col-sm-12">
+                        <div class="our_success_item">
+                            <p class="our_success_item_title">{{$success1->title}}</p>
+                            <div class="our_success_item_body">
+                               {{$success1->description}}
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
                 <!-- item -->
-                <div class="col-lg-4 col-sm-12">
-                    <div class="our_success_item">
-                        <p class="our_success_item_title our_success_item_title3">{{$success3->title}}</p>
+                @if ($success2)
+                    <div class="col-lg-4 col-sm-12">
+                        <div class="our_success_item">
+                            <p class="our_success_item_title our_success_item_title2">{{$success2->title}}</p>
 
-                        <div class="our_success_item_body">
-                            {{$success3->description}}
+                            <div class="our_success_item_body">
+                                {{$success2->description}}
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
+                <!-- item -->
+                @if ($success3)
+                    <div class="col-lg-4 col-sm-12">
+                        <div class="our_success_item">
+                            <p class="our_success_item_title our_success_item_title3">{{$success3->title}}</p>
+
+                            <div class="our_success_item_body">
+                                {{$success3->description}}
+                            </div>
+                        </div>
+                    </div>
+                @endif
             </div>
             @endif
         </div>

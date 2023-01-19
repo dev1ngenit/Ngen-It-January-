@@ -1,13 +1,22 @@
 @extends('frontend.master')
 @section('content')
 <style>
-    .custom .active{
-        border: none;
+    .active{
+        border: none !important;
+        text-decoration: none !important;
+        font-size: 16px !important;
+        font-weight: 800 !important;
     }
 </style>
 <!--=======// Header Title //=======-->
 <section class="header_title_terms_policy" style="margin-top: 100px;">
-    <h2 class="container">All Terms & Policies</h2>
+    <h2 class="container">
+        @if (!empty($details))
+            {{$details->name}}
+        @else
+        All Terms & Policies
+        @endif
+    </h2>
 </section>
 <!-------End------->
 
@@ -17,85 +26,124 @@
         <div class="row mt-4">
             <!----------content left --------->
             <div class="col-lg-8 col-md-8 col-sm-12">
-                <div class="tab-content" id="myTabContent">
-                    @foreach ($policy as $count => $item)
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">{{$item->description}}</div>
-                   @endforeach
-                </div>
+                @if (!empty($details))
+                    <div class="content_privacy_policy">
+                        {!! $details->description !!}
+                    </div>
+                @endif
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12">
-                <div class="left_terms_policy">
-                    <h3>All Terms & Policies</h3>
-                    <h5>Policies</h5>
 
-                    <ul class="nav nav-tabs pl-3" id="myTab" role="tablist" style="display: block;">
+                @if (!empty($details))
+                    <div class="left_terms_policy">
+                        <h3>All Terms & Policies</h3>
+                        <h5>Policies</h5>
 
-                        <li class="nav-item py-1 custom" role="presentation">
-                            <a href="#home" aria-controls="#home" role="tab" role="tab"
-                                data-toggle="tab">Privacy Policy</a>
-                        </li>
+                        <ul>
 
-                    </ul>
+                            @if ($policy)
+                                @foreach ($policy as $item)
+                                    <li>
+                                        <a class="{{ ($item->id == $details->id) ? 'active' : ''}}" href="{{route('terms.details',$item->id)}}" >{{$item->name}}</a>
+                                    </li>
+                                @endforeach
+                            @endif
+
+                        </ul>
 
 
-                    <h5>Terms & Conditions</h5>
-                    <ul>
-                        <li><a href="#">eCommerce Product Returns</a></li>
-                    </ul>
+                        <h5>Terms & Conditions</h5>
+                        <ul>
+                            @if ($terms)
+                                @foreach ($terms as $item)
+                                    <li>
+                                        <a class="{{ ($item->id == $details->id) ? 'active' : ''}}" href="{{route('terms.details',$item->id)}}">{{$item->name}}</a>
+                                    </li>
+                                @endforeach
+                            @endif
+                        </ul>
+
+                        <h5>Terms of Sale</h5>
+                        <ul>
+                            @if ($sale_terms)
+                                @foreach ($sale_terms as $item)
+                                    <li>
+                                        <a class="{{ ($item->id == $details->id) ? 'active' : ''}}" href="{{route('terms.details',$item->id)}}">{{$item->name}}</a>
+                                    </li>
+                                @endforeach
+                            @endif
+                        </ul>
+
+                        <h5>Terms of Service</h5>
+                        <ul>
+                            @if ($service_terms)
+                                @foreach ($service_terms as $item)
+                                    <li>
+                                        <a class="{{ ($item->id == $details->id) ? 'active' : ''}}" href="{{route('terms.details',$item->id)}}">{{$item->name}}</a>
+                                    </li>
+                                @endforeach
+                            @endif
+                        </ul>
 
 
-                </div>
+                    </div>
+                @else
+                    <div class="left_terms_policy">
+                        <h3>All Terms & Policies</h3>
+                        <h5>Policies</h5>
+
+                        <ul>
+
+                            @if ($policy)
+                                @foreach ($policy as $item)
+                                    <li>
+                                        <a href="{{route('terms.details',$item->id)}}">{{$item->name}}</a>
+                                    </li>
+                                @endforeach
+                            @endif
+
+                        </ul>
+
+
+                        <h5>Terms & Conditions</h5>
+                        <ul>
+                            @if ($terms)
+                                @foreach ($terms as $item)
+                                    <li>
+                                        <a href="{{route('terms.details',$item->id)}}">{{$item->name}}</a>
+                                    </li>
+                                @endforeach
+                            @endif
+                        </ul>
+
+                        <h5>Terms of Sale</h5>
+                        <ul>
+                            @if ($sale_terms)
+                                @foreach ($sale_terms as $item)
+                                    <li>
+                                        <a href="{{route('terms.details',$item->id)}}">{{$item->name}}</a>
+                                    </li>
+                                @endforeach
+                            @endif
+                        </ul>
+
+                        <h5>Terms of Service</h5>
+                        <ul>
+                            @if ($service_terms)
+                                @foreach ($service_terms as $item)
+                                    <li>
+                                        <a href="{{route('terms.details',$item->id)}}">{{$item->name}}</a>
+                                    </li>
+                                @endforeach
+                            @endif
+                        </ul>
+
+
+                    </div>
+                @endif
+
             </div>
             <!----------conternt right--------->
-            {{-- <div class="col-lg-6 col-md-6 col-sm-12">
-                <div class="right_terms_policy">
-                    <h4>Supplier License and Use Terms</h4>
-                    <input type="Search" placeholder="Search by partner">
-
-                    <!--Table-->
-                    <table class="order-table table">
-                        <thead>
-                            <tr>
-                                <th style="width: 25.0%;">Partner</th>
-                                <th style="width: 75.0%;">Link</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!--Brand-->
-                            <tr>
-                                <td rowspan="3" valign="top" class="firstLine"><img src="{{asset('frontend')}}/images/company_logo/8x8.png"></td>
-                                <td valign="top"><a href="https://www.8x8.com/terms-and-conditions/privacy-policy" target="_blank">8x8 Privacy Policy</a></td>
-                            </tr>
-                            <tr>
-                                <td valign="top"><a href="#" target="_blank" rel="nofollow">8x8 Terms and Conditions</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td valign="top"><a href="#" target="_blank">8x8 VoIP Business Phone Systems</a></td>
-                            </tr>
-
-                            <!--Brand-->
-                            <tr>
-                                <td valign="top" class="firstLine"><img src="{{asset('frontend')}}/images/company_logo/atlassian.png"></td>
-                                <td valign="top"><a href="#" target="_blank">Atlassian Customer Agreement</a></td>
-                            </tr>
-                            <!--Brand-->
-                            <tr>
-                                <td valign="top" class="firstLine"><img src="{{asset('frontend')}}/images/company_logo/valimail.png"></td>
-                                <td valign="top"><a href="#" target="_blank">Valimail Channel Terms of Service</a></td>
-                            </tr>
-                            <!--Brand-->
-                            <tr>
-                                <td valign="top" class="firstLine"><img src="{{asset('frontend')}}/images/company_logo/valimail.png"></td>
-                                <td valign="top"><a href="#" target="_blank">Valimail Channel Terms of Service</a></td>
-                            </tr>
-
-
-
-                        </tbody>
-                    </table>
-                </div>
-            </div> --}}
 
         </div>
     </div>

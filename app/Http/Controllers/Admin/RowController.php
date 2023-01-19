@@ -69,7 +69,7 @@ class RowController extends Controller
                     'description' => $request->description,
                 ]);
             } else {
-                $globalFunImg =  Helper::singleImageUpload($mainFile, $imgPath, 383, 580);
+                $globalFunImg =  Helper::singleImageUpload($mainFile, $imgPath, 492, 308);
                 if ($globalFunImg['status'] == 1) {
                     Row::create([
                         'title'       => $request->title,
@@ -152,7 +152,7 @@ class RowController extends Controller
             $uploadPath = storage_path('app/public/');
 
             if (isset($mainFile)) {
-                $globalFunImg = Helper::singleImageUpload($mainFile, $uploadPath, 383, 580);
+                $globalFunImg = Helper::singleImageUpload($mainFile, $uploadPath, 492, 308);
             } else {
                 $globalFunImg['status'] = 0;
             }

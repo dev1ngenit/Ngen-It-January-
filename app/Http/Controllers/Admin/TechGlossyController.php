@@ -131,7 +131,7 @@ class TechGlossyController extends Controller
     public function update(Request $request, $id)
     {
         $techglossy = TechGlossy::find($id);
-        if (!empty($techglossy)) {
+        if (!empty($request->image)) {
             $validator =
                 [
                     'badge' => 'required',

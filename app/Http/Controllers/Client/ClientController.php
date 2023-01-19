@@ -197,10 +197,11 @@ class ClientController extends Controller
                     {
                         File::delete($destination);
                     }
-                    $image = $request->photo;
-                    $imagename = time() . '.' . $image->getClientoriginalExtension();
-                    $request->photo->move('upload/Profile/user', $imagename);
-                    $data['photo'] = $imagename;
+                    $image = $request->file('photo');
+                    $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+                    $path = public_path('upload/Profile/admin/'.$name_gen);
+                    Image::make($image)->resize(376,282)->save($path);
+                    $data['photo'] = $name_gen;
                 }
 
             $status = $profile->fill($data)->save();

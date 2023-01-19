@@ -134,7 +134,7 @@ class ClientStoryController extends Controller
     {
         $story = ClientStory::find($id);
 
-        if (!empty($story)) {
+        if (!empty($request->image)) {
             $validator =
                 [
                     'badge' => 'required',

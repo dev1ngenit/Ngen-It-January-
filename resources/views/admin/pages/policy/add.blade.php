@@ -98,6 +98,20 @@
                                                         Policy
                                                     </label>
                                                 </div>
+                                                <div class="form-check mt-2">
+                                                    <input class="form-check-input" type="radio" name="condition"
+                                                        value="sale_terms" id="flexRadioDefault2">
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                        Terms of Sale
+                                                    </label>
+                                                </div>
+                                                <div class="form-check mt-2">
+                                                    <input class="form-check-input" type="radio" name="condition"
+                                                        value="service_terms" id="flexRadioDefault2">
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                        Terms of Service
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
 

@@ -70,7 +70,7 @@
                                             accept="image/*" />
                                         <div class="form-text">Accepts only png, jpg, jpeg images</div>
                                         <img id="showImage" height="100px" width="100px"
-                                            src="https://cdn.pixabay.com/photo/2017/02/07/02/16/cloud-2044823_960_720.png"
+                                            src="{{asset('storage/requestImg/'.$row->image)}}"
                                             alt="">
                                     </div>
                                 </div>

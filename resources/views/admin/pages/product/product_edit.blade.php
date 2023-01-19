@@ -105,13 +105,18 @@
                                         <textarea class="form-control" name="accessories" id="accessories" style=" font-size: 12px; font-weight: 500;">{!! $products->accessories !!}</textarea>
                                     </div>
 
-
-
-
-
                                 </div>
                             </div>
                             <div class="col-lg-5">
+                                <div class="mb-3">
+
+                                    <textarea class="form-control" name="specification" id="specification" style=" font-size: 12px; font-weight: 500;">{!! $products->specification !!}</textarea>
+                                </div>
+
+                                <div class="mb-3">
+
+                                    <textarea class="form-control" name="accessories" id="accessories" style=" font-size: 12px; font-weight: 500;">{!! $products->accessories !!}</textarea>
+                                </div>
                                 <div class="mb-1">
 
                                     <textarea class="form-control" name="warranty" id="warranty"  style=" font-size: 12px; font-weight: 500;" ></textarea>
@@ -211,7 +216,7 @@
                                 <div class="border border-3 p-2 rounded mt-1">
 
                                     <div class="row">
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-6 basic-form">
                                             <label class="col-form-label col-lg-12">Product Brand</label>
 
                                                 <select class="form-select" name="brand_id" data-placeholder="Select Brand...">
@@ -224,7 +229,7 @@
                                                 </select>
                                         </div>
 
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-6 basic-form">
                                             <label class="col-form-label col-lg-12">Product Category</label>
 
                                                 <select class="form-select" name="cat_id" data-placeholder="Select Category...">
@@ -239,7 +244,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-6 basic-form">
                                             <label for="inputCollection" class="form-label">Product Sub Category</label>
                                             <select name="sub_cat_id" class="form-select"
                                                 id="inputCollection" data-placeholder="Select Sub Category...">
@@ -251,7 +256,7 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-6 basic-form">
                                             <label for="inputCollection" class="form-label">Product Sub Sub Category</label>
                                             <select name="sub_sub_cat_id" class="form-select"
                                                 id="inputCollection" data-placeholder="Select Sub Sub Category...">
@@ -263,7 +268,7 @@
                                             </select>
                                         </div>
 
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-6 basic-form">
                                             <label for="inputCollection" class="form-label">Product Sub Sub Sub Category</label>
                                             <select name="sub_sub_sub_cat_id" class="form-select"
                                                 id="inputCollection" data-placeholder="Select Sub Sub Sub Category..." >
@@ -307,7 +312,7 @@
 
                                                 <select class="form-control select" name="industry_id[]" data-placeholder="Select related Industries..."
                                                 multiple="multiple" data-tags="true" value="{{ $products->industry }}">
-                                                
+
                                                     @foreach ($industrys as $item)
                                                     <option value="{{ $item->title }}"> {{ $item->title }}</option>
                                                     @endforeach
@@ -317,19 +322,21 @@
 
                                 </div>
 
-                                <div class="col-12 mt-2 mb-2">
-                                    <div class="row">
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-4">
-                                            <div class="d-grid">
-                                                <button type="submit" class="btn btn-primary" id="submitbtn">Submit<i
-                                                    class="ph-paper-plane-tilt ms-2"></i></button>
 
-                                            </div>
+                            </div>
+
+                            <div class="col-12 mt-2 mb-2">
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <div class="d-grid">
+                                            <button type="submit" class="btn btn-primary" id="submitbtn">Submit<i
+                                                class="ph-paper-plane-tilt ms-2"></i></button>
+
                                         </div>
                                     </div>
-
                                 </div>
+
                             </div>
 
                         </div>

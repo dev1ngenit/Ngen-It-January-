@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Image;
 use Illuminate\Http\Request;
 use App\Models\Admin\Setting;
 use App\Http\Controllers\Controller;
@@ -41,7 +42,7 @@ class SettingController extends Controller
     public function store(Request $request)
     {
 
-
+        $settings = Setting::first();
         $validator = Validator::make(
             $request->all(),
             [
@@ -60,26 +61,29 @@ class SettingController extends Controller
         if ($validator->passes()) {
             $data = $request->all();
             if ($request->logo) {
-                $destination = 'upload/logoimage' . $request->logo;
+                $destination = $settings->logo;
                 if (File::exists($destination)) {
                     File::delete($destination);
                 }
-                $image = $request->logo;
-                $imagename = time() . '.' . $image->getClientoriginalExtension();
-                $request->logo->move('upload/logoimage', $imagename);
-                $data['logo'] = $imagename;
+
+                $image = $request->file('logo');
+                $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+                $path = public_path('upload/logoimage/'.$name_gen);
+                Image::make($image)->resize(376,282)->save($path);
+                $data['logo'] = $name_gen;
             }
             if ($request->favicon) {
-                $destination = 'upload/faviconimage' . $request->favicon;
+                $destination = $settings->favicon;
                 if (File::exists($destination)) {
                     File::delete($destination);
                 }
-                $image     = $request->favicon;
-                $imagename = time() . '.' . $image->getClientoriginalExtension();
-                $request->favicon->move('upload/faviconimage', $imagename);
-                $data['favicon'] = $imagename;
+                $image = $request->file('favicon');
+                $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+                $path = public_path('upload/faviconimage/'.$name_gen);
+                Image::make($image)->resize(376,282)->save($path);
+                $data['favicon'] = $name_gen;
             }
-            $settings = Setting::first();
+
             $status = $settings->fill($data)->save();
 
             if ($status) {

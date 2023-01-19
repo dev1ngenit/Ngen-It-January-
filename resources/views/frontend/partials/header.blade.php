@@ -7,9 +7,10 @@
     $categorys = App\Models\Admin\Category::orderBy('id', 'DESC')->limit(10)->get();
     $blogs = App\Models\Admin\Blog::inRandomOrder()->limit(2)->get();
     $clientstorys = App\Models\Admin\ClientStory::inRandomOrder()->limit(2)->get();
-    $techglossys = App\Models\Admin\Techglossy::inRandomOrder()->limit(2)->get();
+
     $jobs = App\Models\Admin\Job::all();
 @endphp
+
 
 <header class="fixed-top">
     <section class="header_top_menu_wrapper">
@@ -60,6 +61,9 @@
                     </div>
                 </div>
 
+                 @php
+                    $techglossys = App\Models\Admin\ClientStory::inRandomOrder()->limit(2)->get();
+                @endphp
 
                 {{-- <div class="top_menu_item_wrapper">
                     <button class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">Tools</button>
@@ -453,7 +457,7 @@
                                                 <a href="ngenit/product_filters.html">Product <i
                                                         class="fa-solid fa-angle-right"></i></a>
                                             </div>
-                                            <div class="common_button py-0">Show all products</div>
+                                            <div class="common_button py-0"><a href="{{ route('shop.html') }}">Show all products</a></div>
                                         </div>
                                         <div class="col-4 colum-12">
                                             <h3 class="toggleDetails">Shop by Brand <i
@@ -462,12 +466,12 @@
                                                 @foreach ($brands as $item)
                                                     <div class="details hidden sub_sub_item col-6">
                                                         <a
-                                                            href="{{ route('custom.product', App\Models\Admin\Brand::where('id', $item->brand_id)->value('slug')) }}">{{ App\Models\Admin\Brand::where('id', $item->brand_id)->value('title') }}
+                                                            href="{{ route('brandpage.html', App\Models\Admin\Brand::where('id', $item->brand_id)->value('slug')) }}">{{ App\Models\Admin\Brand::where('id', $item->brand_id)->value('title') }}
                                                             <i class="fa-solid fa-angle-right"></i></a>
                                                     </div>
                                                 @endforeach
                                             </div>
-                                            <div class="common_button py-0">Show all brands</div>
+                                            <div class="common_button py-0"><a href="{{route('all.brand')}}">Show all brands</a></div>
                                         </div>
                                         <div class="col-4 colum-12">
                                             <h3 class="toggleDetails">Shop by Category <i
@@ -480,7 +484,7 @@
                                                     </div>
                                                 @endforeach
                                             </div>
-                                            <div class="common_button py-0">Show all categories</div>
+                                            <div class="common_button py-0"><a href="{{ route('all.category') }}">Show all categories</a></div>
                                         </div>
                                     </div>
                                     <hr>

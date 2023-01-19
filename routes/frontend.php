@@ -77,6 +77,7 @@ Route::get('/refurbished.html', [HomeController::class, 'Refurbished'])->name('r
 //Brand wise Shop
 Route::get('/brands/all', [HomeController::class, 'AllBrand'])->name('all.brand');
 Route::get('/brand/{id}/html', [HomeController::class, 'BrandCommon'])->name('brand.html');
+Route::get('/brandpage/{id}/html', [HomeController::class, 'BrandPage'])->name('brandpage.html');
 
 
 //Category wise Shop
@@ -134,10 +135,9 @@ Route::post('/feedback/save', [FeedbackController::class, 'feedback'])->name('fe
 Route::post('add/support', [SupportController::class, 'addSupport'])->name('add.support');
 
 
-
-
 //Terms & Policy
 Route::get('terms_policy', [HomeController::class, 'TermsPolicy'])->name('terms.policy');
+Route::get('terms_policy/{id}/details', [HomeController::class, 'TermsPolicyDetails'])->name('terms.details');
 
 
 // card route start -----------

@@ -208,7 +208,7 @@
                                     <h6 class="text-center" style="background:white;">Client Stories Row</h6>
                                     <div class="row pt-3 pb-3">
 
-                                        <div class="form-group col-3">
+                                        <div class="form-group col-3 basic-form">
 
                                             <label>Client Story 1</label>
                                             <select name="solution1_id" class="form-control select">
@@ -220,7 +220,7 @@
                                             </select>
 
                                         </div>
-                                        <div class="form-group col-3">
+                                        <div class="form-group col-3 basic-form">
 
                                             <label>Client Story 2</label>
                                             <select name="solution2_id" class="form-control select"
@@ -233,7 +233,7 @@
                                             </select>
 
                                         </div>
-                                        <div class="form-group col-3">
+                                        <div class="form-group col-3 basic-form">
 
                                             <label>Client Story 3</label>
                                             <select name="solution3_id" class="form-control select"
@@ -246,7 +246,7 @@
                                             </select>
 
                                         </div>
-                                        <div class="form-group col-3">
+                                        <div class="form-group col-3 basic-form">
 
                                             <label>Client Story 4</label>
                                             <select name="solution4_id" class="form-control select"
@@ -267,7 +267,7 @@
                                     <h6 class="text-center" style="background:white;">Single Tech Glosy Row</h6>
                                     <div class="row pt-3 pb-3">
 
-                                        <div class="form-group col-10">
+                                        <div class="form-group col-10 basic-form">
                                             <label>Sigle Tech Glossy</label>
                                             <select class="form-control select" name="techglossy_id">
 
@@ -284,7 +284,7 @@
                                 <div class="col-12" style="border-bottom: 1px solid black;margin-top:10px">
                                     <h6 class="text-center" style="background:white;">Client Success Row</h6>
                                     <div class="row pt-3 pb-3">
-                                        <div class="form-group col-4">
+                                        <div class="form-group col-4 basic-form">
 
                                             <label>Client Success 1</label>
                                             <select name="success1_id" class="form-control select"
@@ -297,7 +297,7 @@
                                             </select>
 
                                         </div>
-                                        <div class="form-group col-4">
+                                        <div class="form-group col-4 basic-form">
 
                                             <label>Client Success 2</label>
                                             <select name="success2_id" class="form-control select"
@@ -310,7 +310,7 @@
                                             </select>
 
                                         </div>
-                                        <div class="form-group col-4">
+                                        <div class="form-group col-4 basic-form">
 
                                             <label>Client Success 3</label>
                                             <select name="success3_id" class="form-control select"

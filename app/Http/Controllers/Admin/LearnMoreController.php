@@ -75,7 +75,7 @@ class LearnMoreController extends Controller
                 'mimes' => 'The :attribute must be a file of type: PNG - JPEG - JPG'
             ],
 
-        );
+        ); 
 
         if ($validator->passes()) {
             $imageBanner = $request->image_banner;

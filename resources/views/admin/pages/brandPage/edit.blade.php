@@ -55,17 +55,17 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="js-tab1">
                     <div class="row">
-                        <div class="col-lg-3"></div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-10">
                             <div id="table1" class="card cardTd">
                                 <div class="card-header">
 
-                                    <h5 class="mb-0 text-center">Add brandPage Form</h5>
+                                    <h5 class="mb-0 text-center">Edit BrandPage Form</h5>
 
                                 </div>
                                 {{-- @if ($industrie->id == $industryPage->industry_id) selected @endif --}}
                                 <div class="card-body">
-                                    <form method="post" action="{{ route('brandPage.update', $brandPage->id) }}">
+                                    <form method="post" action="{{ route('brandPage.update', $brandPage->id) }}"  enctype="multipart/form-data">
                                         @csrf
                                         @method('PUT')
                                         <div class="row mb-3">
@@ -230,7 +230,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">row_six Image </h6>
+                                                <h6 class="mb-0">Row Six Image </h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <input type="file" name="row_six_image" class="form-control"
@@ -244,7 +244,7 @@
 
                                         <div class="row mb-3">
                                             <div class="col-sm-3">
-                                                <h6 class="mb-0">banner Image </h6>
+                                                <h6 class="mb-0">Banner Image </h6>
                                             </div>
                                             <div class="col-sm-9 text-secondary">
                                                 <input type="file" name="banner_image" class="form-control"

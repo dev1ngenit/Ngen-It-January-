@@ -112,10 +112,10 @@
             <!-- footer bottom list -->
             <div class="footer_bottom_list">
                 <ul>
-                    <li><a href="ngenit/privacy_policy.html">Privacy policy</a></li>
-                    <li><a href="ngenit/terms_policy.html">All Terms & Policies</a></li>
+                    <li><a href="{{route('terms.policy')}}">Privacy policy</a></li>
+                    <li><a href="{{route('terms.policy')}}">All Terms & Policies</a></li>
                     <li><a href="ngenit/web_accessibility.html">Web Accessibility</a></li>
-                    <li><a href="ngenit/tech_glossary.html">Tech glossary</a></li>
+                    <li><a href="{{route('all.techglossy')}}">Tech glossary</a></li>
                     <li><a href="ngenit/sitemap.html">Sitemap</a></li>
                     <li><label for="show_cookies">Cookies settings</label></li>
                 </ul>

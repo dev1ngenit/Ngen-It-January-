@@ -66,7 +66,7 @@
                                             <tr>
                                                 <td>{{ ++$key }}</td>
                                                 <td>{{ $succes->title }}</td>
-                                                <td>{{ $succes->description }}</td>
+                                                <td>{{ Str::limit($succes->description , 200) }}</td>
                                                 <td class="text-center">
                                                     <a href="{{ route('success.edit', [$succes->id]) }}"
                                                         class="text-primary">

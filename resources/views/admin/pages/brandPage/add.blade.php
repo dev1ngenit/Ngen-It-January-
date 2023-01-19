@@ -128,6 +128,41 @@
 
                                 </div>
 
+
+                                <div class="row border mb-1">
+                                    <div class="row my-2">
+                                        <div class="col-lg-9">
+                                            <h3 class="text-center text-primary">Right Image with Button Row</h3>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <a href="{{ route('row.create') }}" type="button"
+                                                class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
+                                                <span class="btn-labeled-icon bg-black bg-opacity-20">
+                                                    <i class="icon-eye"></i>
+                                                </span>
+                                                Add Row
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <hr class="p-0 m-0">
+
+                                    <div class="row mb-3 mt-2">
+                                        <div class="col-sm-4">
+                                            <h6 class="mb-0">Right Image with Button Row </h6>
+                                        </div>
+                                        <div class="form-group col-sm-8 text-secondary">
+                                            <select name="row_four_id" data-placeholder="Select row_four.."
+                                                class="form-control select">
+                                                <option></option>
+                                                @foreach ($rows as $row)
+                                                    <option class="form-control" value="{{ $row->id }}">
+                                                        {{ $row->title }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row border mb-1">
                                     <div class="row my-2">
                                         <div class="col-lg-9">
@@ -222,40 +257,6 @@
                                         </div>
                                     </div>
 
-                                </div>
-
-                                <div class="row border mb-1">
-                                    <div class="row my-2">
-                                        <div class="col-lg-9">
-                                            <h3 class="text-center text-primary">Right Image with Button Row</h3>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <a href="{{ route('row.create') }}" type="button"
-                                                class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
-                                                <span class="btn-labeled-icon bg-black bg-opacity-20">
-                                                    <i class="icon-eye"></i>
-                                                </span>
-                                                Add Row
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <hr class="p-0 m-0">
-
-                                    <div class="row mb-3 mt-2">
-                                        <div class="col-sm-4">
-                                            <h6 class="mb-0">Row Four </h6>
-                                        </div>
-                                        <div class="form-group col-sm-8 text-secondary">
-                                            <select name="row_four_id" data-placeholder="Select row_four.."
-                                                class="form-control select">
-                                                <option></option>
-                                                @foreach ($rows as $row)
-                                                    <option class="form-control" value="{{ $row->id }}">
-                                                        {{ $row->title }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
                                 </div>
 
 
@@ -385,10 +386,10 @@
                                 <div class="row border mb-1">
                                     <div class="row my-2">
                                         <div class="col-lg-9">
-                                            <h3 class="text-center text-primary">Row with Two Columns</h3>
+                                            <h3 class="text-center text-primary">Row with Image</h3>
                                         </div>
                                         <div class="col-lg-3">
-                                            <a href="{{ route('rowWithCol.create') }}" type="button"
+                                            <a href="{{ route('row.create') }}" type="button"
                                                 class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
                                                 <span class="btn-labeled-icon bg-black bg-opacity-20">
                                                     <i class="icon-eye"></i>

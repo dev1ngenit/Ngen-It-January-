@@ -55,8 +55,8 @@
             <div class="tab-content">
                 <div class="tab-pane fade show active" id="js-tab1">
                     <div class="row">
-                        <div class="col-lg-3"></div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-10">
                             <div id="table1" class="card cardTd">
                                 <div class="card-header">
 
@@ -99,14 +99,28 @@
                                                         Policy
                                                     </label>
                                                 </div>
+                                                <div class="form-check mt-2">
+                                                    <input class="form-check-input" type="radio" name="condition"
+                                                        value="sale_terms" id="flexRadioDefault2" {{ $policy->condition == 'sale_terms' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                        Terms of Sale
+                                                    </label>
+                                                </div>
+                                                <div class="form-check mt-2">
+                                                    <input class="form-check-input" type="radio" name="condition"
+                                                        value="service_terms" id="flexRadioDefault2" {{ $policy->condition == 'service_terms' ? 'checked' : '' }}>
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                        Terms of Service
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
 
                                         <div class="row mb-3">
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-12">
                                                 <h6 class="mb-0">Description </h6>
                                             </div>
-                                            <div class="form-group col-sm-8 text-secondary">
+                                            <div class="form-group col-sm-12 text-secondary">
                                                 <textarea class="form-control" name="description" id="overview" style=" font-size: 12px; font-weight: 500;">{{ $policy->description }}</textarea>
                                             </div>
                                         </div>

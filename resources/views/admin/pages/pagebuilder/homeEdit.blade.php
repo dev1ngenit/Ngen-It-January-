@@ -29,7 +29,7 @@
                         <div class="card-header">
 
                             <h5 class="mb-0 float-start">Home Page Edit Form</h5>
-                            <a href="{{ route('homepage.index') }}" type="button"
+                            <a href="{{ route('allpage') }}" type="button"
                                 class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
                                 <span class="btn-labeled-icon bg-black bg-opacity-20">
                                     <i class="icon-eye"></i>
@@ -164,8 +164,7 @@
                                                         <label>Features 2</label>
                                                         <div class="form-group row">
 
-                                                            <select name="story2_id" class="form-control select"
-                                                                data-minimum-results-for-search="Infinity">
+                                                            <select name="story2_id" class="form-control select">
                                                                 <option></option>
                                                                 @foreach ($client_experiences as $item)
                                                                     <option value="{{ $item->id }}" {{ ( $item->id == $homePage->story2_id ) ? 'selected' : '' }}>

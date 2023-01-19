@@ -858,7 +858,7 @@
                                         @endif
                                     </tbody>
                                 </table>
-                                {{ $sub_sub_sub_cats->links() }}
+                                
                             </div>
                         </div>
                     </div>

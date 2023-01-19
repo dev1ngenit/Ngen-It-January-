@@ -37,7 +37,7 @@ class BrandPageController extends Controller
         $data['brands'] = Brand::select('brands.id', 'brands.title')->get();
         $data['solution_cards'] = SolutionCard::select('solution_cards.id', 'solution_cards.title')->get();
         $data['rows'] = Row::select('rows.id', 'rows.title')->get();
-        $data['row_with_cols'] = RowWithCol::select('row_with_cols.id', 'row_with_cols.title')->get();
+        $data['row_with_cols'] = Row::select('rows.id', 'rows.title')->get();
         return view('admin.pages.brandPage.add', $data);
     }
 
@@ -153,13 +153,13 @@ class BrandPageController extends Controller
             $row_six_image = $request->row_six_image;
             $uploadPath    = storage_path('app/public/');
             if (isset($banner_image)) {
-                $globalFunImgimage_banner_image = Helper::singleImageUpload($banner_image, $uploadPath, 230, 227);
+                $globalFunImgimage_banner_image = Helper::singleImageUpload($banner_image, $uploadPath, 1800, 625);
             } else {
                 $globalFunImgimage_banner_image = ['status' => 0];
             }
 
             if (isset($row_six_image)) {
-                $globalFunrow_six_image = Helper::singleImageUpload($row_six_image, $uploadPath, 230, 227);
+                $globalFunrow_six_image = Helper::singleImageUpload($row_six_image, $uploadPath, 1920, 1080);
             } else {
                 $globalFunrow_six_image = ['status' => 0];
             }
