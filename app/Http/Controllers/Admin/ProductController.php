@@ -50,20 +50,8 @@ class ProductController extends Controller
 
     public function StoreProduct(Request $request){
 
-        $input   = $request->all();
 
-        if ($request->industry_id) {
-            $string['industry'] = implode(',', $input['industry_id']);
-        }else{
-            $string['industry'] = '';
-        }
 
-        if ($request->solution_id) {
-            $string['solution'] = implode(',', $input['solution_id']);
-        }else{
-            $string['solution'] = '';
-        }
-        //dd($string['industry']);
 
         $validator = Validator::make(
             $request->all(),
@@ -126,8 +114,6 @@ class ProductController extends Controller
             'sub_sub_cat_id'     => $request->sub_sub_cat_id,
             'sub_sub_sub_cat_id' => $request->sub_sub_sub_cat_id,
             'brand_id'           => $request->brand_id,
-            'industry'           => $string['industry'],
-            'solution'           => $string['solution'],
             'created_at'         => Carbon::now(),
 
         ]);
@@ -137,9 +123,10 @@ class ProductController extends Controller
         $images = $request->file('multi_img');
         foreach($images as $img){
         $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-        $path = public_path('upload/Products/multi-image/'.$name_gen);
-        Image::make($image)->resize(376,282)->save($path);
+        $path = public_path('upload/Products/multi-image/'.$make_name);
+        Image::make($img)->resize(376,282)->save($path);
         $uploadPath = 'upload/Products/multi-image/'.$make_name;
+
 
 
         MultiImage::insert([
@@ -379,8 +366,12 @@ class ProductController extends Controller
 
 
     public function MulitImageDelelte($id){
+        //dd($id);
         $oldImg = MultiImage::findOrFail($id);
-        unlink($oldImg->photo);
+        if (File::exists($oldImg->photo)) {
+            File::delete($oldImg->photo);
+        }
+        //unlink($oldImg->photo);
 
         MultiImage::findOrFail($id)->delete();
 
@@ -420,12 +411,18 @@ class ProductController extends Controller
     public function ProductDelete($id){
 
         $product = Product::findOrFail($id);
-        unlink($product->thumbnail);
+        //unlink($product->thumbnail);
+        if (File::exists($product->thumbnail)) {
+            File::delete($product->thumbnail);
+        }
         Product::findOrFail($id)->delete();
 
         $imges = MultiImage::where('product_id',$id)->get();
         foreach($imges as $img){
-            unlink($img->photo_name);
+            //unlink($img->photo_name);
+            if (File::exists($img->photo_name)) {
+                File::delete($img->photo_name);
+            }
             MultiImage::where('product_id',$id)->delete();
         }
 

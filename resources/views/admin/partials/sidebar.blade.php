@@ -92,6 +92,24 @@
                     </ul>
                 </li>
 
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-industry"></i>
+                        <span>RFQ, Deal, Quote</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+
+                        <li class="nav-item"><a href="{{ route('rfq.index') }}" class="nav-link"><i
+                                    class="ph-layout"></i>
+                                <span>RFQ list</span></a></li>
+                        <li class="nav-item"><a href="{{ route('rfq.create') }}" class="nav-link"><i
+                                    class="ph-layout"></i>
+                                <span>Deal Registration</span></a></li>
+
+                    </ul>
+                </li>
+
                 <li class="nav-item nav-item-submenu">
                     <a href="#" class="nav-link">
                         <i class="fas fa-industry"></i>

@@ -332,8 +332,8 @@
                                                 <label class="col-form-label col-lg-12">Related Solutions</label>
                                                 <select class="form-control select" name="solution_id[]" data-placeholder="Select related Solutions..."
                                                     multiple="multiple">
-                                                        @foreach ($solutions as $item)
-                                                        <option value="{{ $item->title }}"> {{ $item->title }}</option>
+                                                        @foreach ($solutions as $key => $item)
+                                                        <option value="{{ $item->id }}"><h5 style="font-size: 14px;font-weight:700;">{{ $key + 1 }}</h5>. {{ $item->name }}</option>
                                                         @endforeach
                                                     </select>
                                             </div>
@@ -343,8 +343,8 @@
 
                                                     <select class="form-control select" name="industry_id[]" data-placeholder="Select related Industries..."
                                                     multiple="multiple">
-                                                        @foreach ($industrys as $item)
-                                                        <option class="form-control" value="{{ $item->id }}"> {{ $item->title }}</option>
+                                                        @foreach ($industrys as $key => $item)
+                                                        <option class="form-control" value="{{ $item->id }}"><h5 style="font-size: 14px;font-weight:700;">{{ $key + 1 }}</h5>. {{ $item->title }}</option>
                                                         @endforeach
                                                     </select>
                                             </div>

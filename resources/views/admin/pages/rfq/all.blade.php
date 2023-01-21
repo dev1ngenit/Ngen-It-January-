@@ -35,9 +35,9 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-9">
-                                    <h4 class="text-center">All rfqs</h4>
+                                    <h4 class="text-center">All RFQs</h4>
                                 </div>
-                                {{-- <div class="col-lg-3">
+                               <div class="col-lg-3">
                                     <a href="{{ route('rfq.create') }}" type="button"
                                         class="btn btn-sm btn-success btn-labeled btn-labeled-start float-end">
                                         <span class="btn-labeled-icon bg-black bg-opacity-20">
@@ -45,7 +45,7 @@
                                         </span>
                                         Add New
                                     </a>
-                                </div> --}}
+                                </div> 
                             </div>
 
                         </div>

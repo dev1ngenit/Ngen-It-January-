@@ -41,6 +41,7 @@ use App\Http\Controllers\Order\AdminOrderController;
 use App\Http\Controllers\Admin\ClientStoryController;
 use App\Http\Controllers\Admin\IndustryPageController;
 use App\Http\Controllers\Admin\SolutionCardController;
+use App\Http\Controllers\Admin\SalesTeamTargetController;
 use App\Http\Controllers\Admin\SolutionDetailsController;
 
 
@@ -311,6 +312,9 @@ Route::get('job-register-user/download/{id}', [App\Http\Controllers\Frontend\Job
  Route::resource('sas', SASController::class);
 
  Route::get('/sas/{id}/sourcing', [App\Http\Controllers\SAS\SASController::class, 'SourcingSas'])->name('sourcing.sas');
+
+ // RFQ
+ Route::resource('salesTeamTarget', SalesTeamTargetController::class);
 
 
 

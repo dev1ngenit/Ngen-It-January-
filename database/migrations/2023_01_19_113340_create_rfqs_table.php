@@ -16,12 +16,14 @@ return new class extends Migration
         Schema::create('rfqs', function (Blueprint $table) {
             $table->id();
             $table->string('rfq_code')->unique();
-            $table->unsignedBigInteger('sales_man_id')->nullable();
+            $table->unsignedBigInteger('sales_man_id_L1')->nullable();
+            $table->unsignedBigInteger('sales_man_id_T1')->nullable();
+            $table->unsignedBigInteger('sales_man_id_T2')->nullable();
             $table->unsignedBigInteger('client_id')->nullable();
             $table->unsignedBigInteger('partner_id')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
             $table->unsignedBigInteger('solution_id')->nullable();
-
+            $table->enum('client_type', ['client', 'partner'])->nullable();
             $table->string('name');
             $table->string('email');
             $table->string('phone');
@@ -33,14 +35,11 @@ return new class extends Migration
             $table->string('pq_code')->nullable();
             $table->string('pqr_code_one')->nullable();
             $table->string('pqr_code_two')->nullable();
-
             $table->integer('qty')->nullable();
             $table->string('image')->nullable();
             $table->text('message')->nullable();
-            $table->string('message_type')->nullable();
             $table->enum('call', ['0', '1'])->default('0')->nullable();
             $table->string('status')->nullable();
-
             $table->string('validity')->nullable();
             $table->string('payment')->nullable();
             $table->string('payment_mode')->nullable();
@@ -57,7 +56,9 @@ return new class extends Migration
             $table->float('total_price')->nullable();
             $table->text('price_text')->nullable();
 
-            $table->foreign('sales_man_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('sales_man_id_L1')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('sales_man_id_T1')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('sales_man_id_T2')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('solution_id')->references('id')->on('solution_details')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade')->onUpdate('cascade');

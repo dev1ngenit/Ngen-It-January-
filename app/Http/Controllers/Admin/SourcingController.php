@@ -99,7 +99,8 @@ class SourcingController extends Controller
 
                 $image = $request->file('thumbnail');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(800,800)->save('upload/Products/thumbnail/'.$name_gen);
+                $path = public_path('upload/Products/thumbnail/'.$name_gen);
+                Image::make($image)->resize(376,282)->save($path);
                 $save_url = 'upload/Products/thumbnail/'.$name_gen;
 
                 $product_id = Sourcing::insertGetId([
@@ -162,10 +163,10 @@ class SourcingController extends Controller
 
                 $images = $request->file('multi_img');
                 foreach($images as $img){
-                $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
-                Image::make($img)->resize(800,800)->save('upload/Products/multi-image/'.$make_name);
-                $uploadPath = 'upload/Products/multi-image/'.$make_name;
-
+                    $make_name = hexdec(uniqid()).'.'.$img->getClientOriginalExtension();
+                    $path = public_path('upload/Products/multi-image/'.$make_name);
+                    Image::make($img)->resize(376,282)->save($path);
+                    $uploadPath = 'upload/Products/multi-image/'.$make_name;
 
                 SourcingMultiImage::insert([
 

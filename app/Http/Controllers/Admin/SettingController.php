@@ -61,7 +61,7 @@ class SettingController extends Controller
         if ($validator->passes()) {
             $data = $request->all();
             if ($request->logo) {
-                $destination = $settings->logo;
+                $destination = 'upload/logoimage/'.$settings->logo;
                 if (File::exists($destination)) {
                     File::delete($destination);
                 }
@@ -73,7 +73,7 @@ class SettingController extends Controller
                 $data['logo'] = $name_gen;
             }
             if ($request->favicon) {
-                $destination = $settings->favicon;
+                $destination = 'upload/faviconimage/'.$settings->favicon;
                 if (File::exists($destination)) {
                     File::delete($destination);
                 }
