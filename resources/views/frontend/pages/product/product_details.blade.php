@@ -43,7 +43,7 @@
             <div class="row">
 
                 <div class="col-lg-8">
-                    @if (!empty($sproduct->price))
+                    @if ($sproduct->rfq != 1)
                         <div class="product__details__price">
                             @if (!empty($sproduct->discount))
                             <h4>USD</h4><span style="text-decoration: line-through; color:red">$
@@ -76,8 +76,8 @@
                         <p tabindex="0" class="prod-stock" id="product-avalialability-by-warehouse"> <span
                                 aria-label="Stock Availability" class="js-prod-available"> <i
                                     class="fa fa-info-circle text-success"></i> Stock</span> <br>
-                            @if (($sproduct->stock) > 0)
-                            <span class="badge rounded-pill badge-success" style="font-size:17px">{{ $sproduct->stock }} in stock</span>
+                            @if (($sproduct->qty) > 0)
+                            <span class="badge rounded-pill badge-success" style="font-size:17px">{{ $sproduct->qty }} in stock</span>
 
                                 @else
                                 <span class="badge rounded-pill badge-danger" style="font-size:17px">Out of Stock</span>
@@ -102,7 +102,7 @@
 
 
             <div class="row product_quantity_wraper justify-content-between">
-                @if (!empty($sproduct->price))
+                @if ($sproduct->rfq != 1))
                     @php
                         $cart = Gloudemans\Shoppingcart\Facades\Cart::content();
                     @endphp
@@ -216,7 +216,7 @@
                         <a href="{{ route('product.details', $item->slug) }}" class="product_item_content_name"
                             style="height:3rem;">{{$item->name}}</a>
 
-                            @if (!empty($item->price))
+                            @if ($item->rfq != 1)
                             <!-- price -->
                             <div class="product_item_price">
                                 <span class="price_currency">USD</span>

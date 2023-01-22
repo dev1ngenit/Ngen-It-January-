@@ -39,7 +39,7 @@
 
                         <div class="col-lg-3"></div>
                         <div class="col-lg-2">
-                            <a href="{{ route('rfq.index') }}" type="button"
+                            <a href="{{ route('salesTeamTarget.index') }}" type="button"
                                 class="btn btn-sm btn-warning btn-labeled btn-labeled-start float-end">
                                 <span class="btn-labeled-icon bg-black bg-opacity-20">
                                     <i class="icon-eye"></i>
@@ -52,72 +52,124 @@
                 </div>
             </div>
 
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="js-tab1">
-                    <div class="row">
-                        <div class="col-lg-1"></div>
-                        <div class="col-lg-10">
-                            <div id="table1" class="card cardTd">
 
-                                <div class="card-body">
-                                    <form method="post" action="{{ route('rfq.store') }}" enctype="multipart/form-data">
-                                        @csrf
 
-                                        <div class="row mb-3 p-2 border">
-                                            <div class="col-lg-4"></div>
-                                            <div class="col-lg-4">
-                                                <div class="col-sm-12">
-                                                    <h6 class="mb-0">Sales Manager Name<span class="text-danger">*</span></h6>
-                                                </div>
-                                                <div class="form-group text-secondary col-sm-8">
-                                                    <select name="sales_man_id" class="form-control select"
-                                                        data-minimum-results-for-search="Infinity"
-                                                        data-placeholder="Choose  ">
-                                                        <option></option>
-                                                        @foreach ($users as $user)
-                                                            <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <div id="table1" class="card cardTd">
+
+                        <div class="card-body">
+                            <form action="{{ route('salesTeamTarget.store') }}"  method="POST">
+                                @csrf
+
+                                <div class="row mb-3 p-2 border">
+                                    <div class="col-lg-4"></div>
+                                    <div class="col-lg-4">
+                                        <div class="col-sm-12">
+                                            <h6 class="mb-0">Sales Manager Name<span class="text-danger">*</span></h6>
                                         </div>
-
-                                        <div class="row mb-3 p-2 border">
-                                            <div class="col-lg-4">
-                                                <div class="col-sm-12">
-                                                    <h6 class="mb-0">Fiscal Year<span class="text-danger">*</span></h6>
-                                                </div>
-                                                <div class="form-group text-secondary col-sm-12">
-                                                    <input class="form-control" type="text" id="datepicker" name="fiscal_year"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4"></div>
-                                            <div class="col-lg-4">
-                                                <div class="col-sm-12">
-                                                    <h6 class="mb-0">Total Target </h6>
-                                                </div>
-                                                <div class="form-group col-sm-12 text-secondary">
-                                                    <input type="text" name="validity" class="form-control maxlength"
-                                                        maxlength="100" />
-                                                </div>
-                                            </div>
+                                        <div class="form-group text-secondary col-sm-8">
+                                            <select name="sales_man_id" class="form-control select"
+                                                data-minimum-results-for-search="Infinity"
+                                                data-placeholder="Choose  ">
+                                                <option></option>
+                                                @foreach ($users as $user)
+                                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
-
-                                        <div class="row">
-                                            <div class="col-sm-4"></div>
-                                            <div class="col-sm-8 text-secondary">
-                                                <input type="submit" class="btn btn-primary px-4 mt-5" value="Submit" />
-                                            </div>
-                                        </div>
-
-                                    </form>
+                                    </div>
                                 </div>
-                            </div>
+
+                                <div class="row mb-3 p-2 border">
+                                    <div class="col-lg-4">
+                                        <div class="col-sm-12">
+                                            <h6 class="mb-0">Fiscal Year<span class="text-danger">*</span></h6>
+                                        </div>
+                                        <div class="form-group text-secondary col-sm-12">
+                                            {{-- <input class="form-control yearselect" type="text" name="fiscal_year"/> --}}
+                                            <select class="yearselect form-select" name="fiscal_year"></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mb-3">
+                                        <div class="col-sm-12">
+                                            <h6 class="mb-0">Year Started</h6>
+                                        </div>
+                                        <div class="form-group text-secondary col-sm-12">
+                                            <select name="year_started" class="form-control select"
+                                                data-minimum-results-for-search="Infinity"
+                                                data-placeholder="Chose year started ">
+                                                <option></option>
+                                                <option value="january">January</option>
+                                                <option value="june">June</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="col-sm-12">
+                                            <h6 class="mb-0">Total Target </h6>
+                                        </div>
+                                        <div class="form-group col-sm-12 text-secondary">
+                                            <input type="text" name="year_target" class="form-control maxlength"
+                                                maxlength="100" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3 p-2 border">
+                                    <div class="col-lg-6">
+                                        <div class="col-sm-12">
+                                            <h6 class="mb-0">Quarter One </h6>
+                                        </div>
+                                        <div class="form-group col-sm-12 text-secondary">
+                                            <input type="text" name="quarter_one_target" class="form-control maxlength"
+                                                maxlength="100" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-sm-12">
+                                            <h6 class="mb-0">Quarter Two </h6>
+                                        </div>
+                                        <div class="form-group col-sm-12 text-secondary">
+                                            <input type="text" name="quarter_two_target" class="form-control maxlength"
+                                                maxlength="100" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-sm-12">
+                                            <h6 class="mb-0">Quarter Three </h6>
+                                        </div>
+                                        <div class="form-group col-sm-12 text-secondary">
+                                            <input type="text" name="quarter_three_target" class="form-control maxlength"
+                                                maxlength="100" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="col-sm-12">
+                                            <h6 class="mb-0">Quarter Four </h6>
+                                        </div>
+                                        <div class="form-group col-sm-12 text-secondary">
+                                            <input type="text" name="quarter_four_target" class="form-control maxlength"
+                                                maxlength="100" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-4"></div>
+                                    <div class="col-sm-8 text-secondary">
+                                        <input type="submit" class="btn btn-primary px-4 mt-5" value="Submit" />
+                                    </div>
+                                </div>
+
+                            </form>
                         </div>
                     </div>
-
                 </div>
             </div>
+
+
 
 
         </div>
@@ -151,34 +203,12 @@
 </script>
 <script>
 
-
-        $("#datepicker").on('change', function(){
-        alert(10);
-        changeYear: true,
-        showButtonPanel: true,
-        dateFormat: 'yy',
-        onClose: function(dateText, inst) {
-            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-            $(this).datepicker('setDate', new Date(year, 1));
-        }
-    });
- $(".date-picker-year").focus(function () {
-        $(".ui-datepicker-month").hide();
+    $('.yearselect').yearselect({
+    start: 2000,
+    end: 2016
     });
 
 </script>
 @endpush
-@push('styles')
-<style>
- .ui-datepicker-calendar {
-    display: none;
- }
- .ui-datepicker-month {
-    display: none;
- }
- .ui-datepicker-next,.ui-datepicker-prev {
-   display:none;
- }
-</style>
-@endpush
+
 @endonce

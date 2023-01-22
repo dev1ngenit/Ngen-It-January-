@@ -177,12 +177,12 @@
                                         <div class="row" id="rfqExpand">
                                             <div class="form-group col-md-6">
                                                 <label for="inputPrice" class="form-label">Product Price</label>
-                                                <input type="text" name="price" class="form-control" id="inputPrice"
+                                                <input type="number" name="price" class="form-control" id="inputPrice"
                                                     placeholder="00.00">
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="inputCompareatprice" class="form-label">Discount Price </label>
-                                                <input type="text" name="discount" class="form-control"
+                                                <input type="number" name="discount" class="form-control"
                                                     id="inputCompareatprice" placeholder="00.00">
                                             </div>
                                         </div>

@@ -2,18 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Admin\Product;
-use App\Models\Client\Client;
-use App\Models\Partner\Partner;
+use App\Models\Admin\Country;
 use App\Http\Controllers\Controller;
-use App\Models\Admin\SolutionDetail;
 use Brian2694\Toastr\Facades\Toastr;
-use App\Models\Admin\SalesTeamTarget;
+use App\Models\Admin\SalesYearTarget;
 use Illuminate\Support\Facades\Validator;
 
-class SalesTeamTargetController extends Controller
+class SalesYearTargetController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,8 +18,8 @@ class SalesTeamTargetController extends Controller
      */
     public function index()
     {
-        $data['salesTeamTargets'] = SalesTeamTarget::get();
-        return view('admin.pages.salesTeamTarget.all', $data);
+        $data['salesYearTargets'] = SalesYearTarget::get();
+        return view('admin.pages.salesYearTarget.all', $data);
     }
 
     /**
@@ -33,8 +29,8 @@ class SalesTeamTargetController extends Controller
      */
     public function create()
     {
-        $data['users'] = User::where('role', 'sales')->select('users.id', 'users.name')->get();
-        return view('admin.pages.salesTeamTarget.add', $data);
+        $data['country'] = Country::select('countries.id', 'countries.country_name')->get();
+        return view('admin.pages.salesYearTarget.add', $data);
     }
 
     /**
@@ -48,26 +44,33 @@ class SalesTeamTargetController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'sales_man_id'         => 'nullable',
-                'fiscal_year'          => 'nullable',
-                'year_started'         => 'nullable',
-                'year_target'             => 'nullable',
-                'quarter_one_target'   => 'nullable',
-                'quarter_two_target'   => 'nullable',
-                'quarter_three_target' => 'nullable',
-                'quarter_four_target'  => 'nullable',
+                'fiscal_year'  => 'required',
+                'year_target'  => 'required',
+                'year_started' => 'required',
             ],
         );
         if ($validator->passes()) {
-            SalesTeamTarget::create([
-                'sales_man_id'         => $request->sales_man_id,
+            SalesYearTarget::create([
+                'country_id'           => $request->country_id,
                 'fiscal_year'          => $request->fiscal_year,
-                'year_started'         => $request->year_started,
-                'year_target'             => $request->year_target,
+                'year_target'          => $request->year_target,
                 'quarter_one_target'   => $request->quarter_one_target,
                 'quarter_two_target'   => $request->quarter_two_target,
                 'quarter_three_target' => $request->quarter_three_target,
                 'quarter_four_target'  => $request->quarter_four_target,
+                'year_started'         => $request->year_started,
+                'january_target'       => $request->january_target,
+                'february_target'      => $request->february_target,
+                'march_target'         => $request->march_target,
+                'april_target'         => $request->april_target,
+                'may_target'           => $request->may_target,
+                'june_target'          => $request->june_target,
+                'july_target'          => $request->july_target,
+                'august_target'        => $request->august_target,
+                'september_target'     => $request->september_target,
+                'october_target'       => $request->october_target,
+                'november_target'      => $request->november_target,
+                'december_target'      => $request->december_target,
             ]);
             Toastr::success('Data Insert Successfully');
         } else {
@@ -98,9 +101,9 @@ class SalesTeamTargetController extends Controller
      */
     public function edit($id)
     {
-        $data['users'] = User::where('role', 'sales')->select('users.id', 'users.name')->get();
-        $data['salesTeamTarget'] = SalesTeamTarget::findOrfail($id);
-        return view('admin.pages.salesTeamTarget.edit', $data);
+        $data['salesYearTarget'] = SalesYearTarget::findOrfail($id);
+        $data['country'] = Country::select('countries.id', 'countries.country_name')->get();
+        return view('admin.pages.salesYearTarget.edit', $data);
     }
 
     /**
@@ -115,26 +118,33 @@ class SalesTeamTargetController extends Controller
         $validator = Validator::make(
             $request->all(),
             [
-                'sales_man_id'         => 'nullable',
-                'fiscal_year'          => 'nullable',
-                'year_started'         => 'nullable',
-                'year_target'          => 'nullable',
-                'quarter_one_target'   => 'nullable',
-                'quarter_two_target'   => 'nullable',
-                'quarter_three_target' => 'nullable',
-                'quarter_four_target'  => 'nullable',
+                'fiscal_year'  => 'required',
+                'year_target'  => 'required',
+                'year_started' => 'required',
             ],
         );
         if ($validator->passes()) {
-            SalesTeamTarget::find($id)->update([
-                'sales_man_id'         => $request->sales_man_id,
+            SalesYearTarget::find($id)->update([
+                'country_id'           => $request->country_id,
                 'fiscal_year'          => $request->fiscal_year,
-                'year_started'         => $request->year_started,
                 'year_target'          => $request->year_target,
                 'quarter_one_target'   => $request->quarter_one_target,
                 'quarter_two_target'   => $request->quarter_two_target,
                 'quarter_three_target' => $request->quarter_three_target,
                 'quarter_four_target'  => $request->quarter_four_target,
+                'year_started'         => $request->year_started,
+                'january_target'       => $request->january_target,
+                'february_target'      => $request->february_target,
+                'march_target'         => $request->march_target,
+                'april_target'         => $request->april_target,
+                'may_target'           => $request->may_target,
+                'june_target'          => $request->june_target,
+                'july_target'          => $request->july_target,
+                'august_target'        => $request->august_target,
+                'september_target'     => $request->september_target,
+                'october_target'       => $request->october_target,
+                'november_target'      => $request->november_target,
+                'december_target'      => $request->december_target,
             ]);
             Toastr::success('Data Update Successfully');
         } else {
@@ -154,6 +164,6 @@ class SalesTeamTargetController extends Controller
      */
     public function destroy($id)
     {
-        SalesTeamTarget::find($id)->delete();
+        SalesYearTarget::find($id)->delete();
     }
 }

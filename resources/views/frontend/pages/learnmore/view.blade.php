@@ -1,5 +1,6 @@
 @extends('frontend.master')
 @section('content')
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <!--======// Header Title //======-->
@@ -36,7 +37,7 @@
                         <img href = "#" src ="{{asset('frontend')}}/images/solution/business-team-card1.jpg">
                     </div>
                     <div class = "solution_cart_content">
-                        <h3> {{$learnmore->box_one_title}}</h3>
+                        <h4> {{$learnmore->box_one_title}}</h4>
                         <p>{!! $learnmore->box_one_short_des !!}</p>
                         <a href="{{$learnmore->box_one_link}}" class="common_button2">Explore {{$learnmore->box_one_title}}</a>
                     </div>
@@ -53,7 +54,7 @@
                         <img href = "#" src ="{{asset('frontend')}}/images/solution/business-team-card2.jpg">
                     </div>
                     <div class = "solution_cart_content">
-                        <h3> {{$learnmore->box_two_title}}</h3>
+                        <h4> {{$learnmore->box_two_title}}</h4>
                         <p>{!! $learnmore->box_two_short_des !!}</p>
                         <a href="{{$learnmore->box_two_link}}" class="common_button2">Explore {{$learnmore->box_two_title}}</a>
                     </div>
@@ -70,7 +71,7 @@
                         <img href = "#" src ="{{asset('frontend')}}/images/solution/business-team-card3.jpg">
                     </div>
                     <div class = "solution_cart_content">
-                        <h3> {{$learnmore->box_three_title}}</h3>
+                        <h4> {{$learnmore->box_three_title}}</h4>
                         <p>{!! $learnmore->box_three_short_des !!}</p>
                         <a href="{{$learnmore->box_three_link}}" class="common_button2">Explore {{$learnmore->box_three_title}}</a>
                     </div>
@@ -470,7 +471,7 @@
                 @foreach ($industrys as $item)
 
                 <div class="col-lg-3 col-sm-6">
-                    <a href="" class="we_serve_item" style="height:11rem;">
+                    <a href="{{route('industry.details',$item->id)}}" class="we_serve_item" style="height:11rem;">
                         <div class="we_serve_item_image">
                             <img src="{{asset('storage/requestImg/'.$item->logo)}}" alt="{{$item->title}}">
                         </div>
@@ -657,3 +658,14 @@
 <!---------End -------->
 
 @endsection
+@once
+@section('styles')
+  <style>
+    .active, .collapsible:focus{
+        border-top: none !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+  </style>
+@endsection
+@endonce

@@ -78,6 +78,13 @@ class ProductController extends Controller
             }
             $data['slug']=$slug;
 
+            if (($request->rfq) !== NULL) {
+                $data['rfq'] = $request->rfq;
+            } else {
+                $data['rfq'] = '0';
+            }
+
+
         $image = $request->file('thumbnail');
         $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
         $path = public_path('upload/Products/thumbnail/'.$name_gen);
@@ -102,7 +109,7 @@ class ProductController extends Controller
             'thumbnail'          => $save_url,
             'stock'              => $request->stock,
             'qty'                => $request->qty,
-            'rfq'                => $request->rfq,
+            'rfq'                => $data['rfq'],
             'status'             => 'active',
             'price'              => $request->price,
             'discount'           => $request->discount,
@@ -203,6 +210,11 @@ class ProductController extends Controller
                 $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
             }
             $data['slug']=$slug;
+            if (($request->rfq) !== NULL) {
+                $data['rfq'] = $request->rfq;
+            } else {
+                $data['rfq'] = '0';
+            }
 
              Product::findOrFail($product_id)->update([
 
@@ -221,7 +233,7 @@ class ProductController extends Controller
                 'warranty'           => $request->warranty,
                 'stock'              => $request->stock,
                 'qty'                => $request->qty,
-                'rfq'                => $request->rfq,
+                'rfq'                => $data['rfq'],
                 'status'             => 'active',
                 'price'              => $request->price,
                 'discount'           => $request->discount,

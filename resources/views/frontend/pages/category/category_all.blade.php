@@ -832,22 +832,40 @@
 
                         <!-- product content -->
                         <div class="product_item_content">
-                            <a href="{{ route('product.details', $item->slug) }}" class="product_item_content_name" style="height: 3rem;">{{$item->name}}</a>
+                            <a href="{{ route('product.details', $item->slug) }}" class="product_item_content_name" style="height: 4rem;">{{$item->name}}</a>
 
-                            <!-- price -->
-                            <div class="product_item_price">
-                                <span class="price_currency">USD</span>
-                                @if (!empty($item->discount))
-                                <span class="price_currency_value" style="text-decoration: line-through; color:red">$ {{ $item->price }}</span>
-                                <span class="price_currency_value" style="color: black">$ {{ $item->discount }}</span>
-                                @else
-                                <span class="price_currency_value">$ {{ $item->price }}</span>
-                                @endif
+                           @if ($item->rfq != 1)
+                             <!-- price -->
+                             <div class="product_item_price">
+                                 <span class="price_currency">USD</span>
+                                 @if (!empty($item->discount))
+                                 <span class="price_currency_value" style="text-decoration: line-through; color:red">$ {{ $item->price }}</span>
+                                 <span class="price_currency_value" style="color: black">$ {{ $item->discount }}</span>
+                                 @else
+                                 <span class="price_currency_value">$ {{ $item->price }}</span>
+                                 @endif
+                             </div>
 
-                            </div>
-
-                            <!-- button -->
-                            <a href="" class="product_button">Add to Basket</a>
+                             <!-- button -->
+                             @php
+                             $cart = Cart::content();
+                             $exist = $cart->where('id' , $item->id );
+                             //dd($cart->where('image' , $item->thumbnail )->count());
+                             @endphp
+                             @if ($cart->where('id' , $item->id )->count())
+                             <a href="javascript:void(0);" class="common_button2 p-0 py-2 px-1 pb-2" style="height: 2.5rem"> Already in Cart</a>
+                             @else
+                             <form action="{{route('add.cart')}}" method="post">
+                                 @csrf
+                                 <input type="hidden" name="product_id" id="product_id" value="{{ $item->id }}">
+                                 <input type="hidden" name="name" id="name" value="{{ $item->name }}">
+                                 <input type="hidden" name="qty" id="qty" value="1">
+                                 <button type="submit" class="product_button" >Add to Basket</button>
+                             </form>
+                             @endif
+                           @else
+                           <a class="product_button mt-3" href="{{ route('product.details', $item->slug) }}">Details</a>
+                           @endif
                         </div>
 
                     </div>

@@ -90,6 +90,13 @@ class SourcingController extends Controller
                     $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
                 }
                 $data['slug']=$slug;
+
+                if (($request->rfq) !== NULL) {
+                    $data['rfq'] = $request->rfq;
+                } else {
+                    $data['rfq'] = '0';
+                }
+
                 $ref_code='REF'.Str::random(7);
                 $count=Sourcing::where('ref_code',$ref_code)->count();
                 if($count>0){
@@ -122,7 +129,7 @@ class SourcingController extends Controller
                     'thumbnail'             => $save_url,
                     'stock'                 => $request->stock,
                     'qty'                   => $request->qty,
-                    'rfq'                   => $request->rfq,
+                    'rfq'                   => $data['rfq'],
                     // 'status'                => 'active',
                     // 'price'                 => $request->price,
                     // 'discount'              => $request->discount,
@@ -225,6 +232,11 @@ class SourcingController extends Controller
                     $slug=$slug.'-'.date('ymdis').'-'.rand(0,999);
                 }
                 $data['slug']=$slug;
+                if (($request->rfq) !== NULL) {
+                    $data['rfq'] = $request->rfq;
+                } else {
+                    $data['rfq'] = '0';
+                }
                 $ref_code='REF'.Str::random(7);
                 $count=Sourcing::where('ref_code',$ref_code)->count();
                 if($count>0){
@@ -256,7 +268,7 @@ class SourcingController extends Controller
                     'thumbnail'             => $save_url,
                     'stock'                 => $request->stock,
                     'qty'                   => $request->qty,
-                    'rfq'                   => $request->rfq,
+                    'rfq'                => $data['rfq'],
                     // 'status'             => 'active',
                     // 'price'                 => $request->price,
                     // 'discount'              => $request->discount,

@@ -9,7 +9,7 @@
     @php
     $setting=App\Models\Admin\Setting::first();
     @endphp
-    <link rel="icon" type="image/x-icon" href="{{ (!file_exists('upload/faviconimage/'.$setting->favicon)) ? $setting->favicon:url('upload/faviconimage/'.$setting->favicon) }}">
+    <link rel="icon" type="image/x-icon" href="{{ (!file_exists($setting->favicon)) ? url('upload/faviconimage/'.$setting->favicon):url('upload/no_image.jpg') }}">
 
 	<link href="{{ asset('backend/assets/fonts/inter/inter.css') }}" rel="stylesheet" type="text/css">
 	<link href="{{ asset('backend/assets/icons/phosphor/styles.min.css') }}" rel="stylesheet" type="text/css">

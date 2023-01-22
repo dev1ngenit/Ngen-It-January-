@@ -1,6 +1,7 @@
 <!-- Core JS files -->
+{{-- <script src="{{ asset('backend/assets/js/jquery/jquery.min.js') }}"></script> --}}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-<script src="{{ asset('backend/assets/input-tags/js/tagsinput.js') }}"></script>
 <script src="{{ asset('backend/assets/demo/demo_configurator.js') }}"></script>
 <script src="{{ asset('backend/assets/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
 <!-- /core JS files -->
@@ -9,16 +10,16 @@
 <script src="{{ asset('backend/assets/js/vendor/visualization/d3/d3.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/vendor/visualization/d3/d3_tooltip.js') }}"></script>
 
-<script src="{{ asset('backend/assets/js/jquery/jquery.min.js') }}"></script>
+
 <script src="{{ asset('backend/assets/js/vendor/tables/datatables/datatables.min.js') }}"></script>
 
-<script src="{{ asset('backend/assets/js/vendor/forms/tags/tokenfield.min.js') }}"></script>
+
 
 <script src="{{ asset('backend/assets/js/vendor/forms/inputs/maxlength.min.js') }}"></script>
 <script src="{{ asset('backend/assets/js/vendor/notifications/sweet_alert.min.js') }}"></script>
-
+{{-- <script src="{{ asset('backend/assets/js/vendor/editors/ckeditor/ckeditor_classic.js') }}"></script> --}}
 <script src="{{ asset('backend/assets/js/vendor/forms/selects/select2.min.js') }}"></script>
-
+<script src="{{ asset('backend/assets/js/vendor/forms/tags/tokenfield.min.js') }}"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
@@ -36,8 +37,8 @@
 
 <script src="{{ asset('backend/assets/demo/pages/datatables_advanced.js') }}"></script>
 
-<script src="{{ asset('backend/assets/js/vendor/editors/ckeditor/ckeditor_classic.js') }}"></script>
-<script src="{{ asset('backend/assets/demo/pages/editor_ckeditor_classic.js') }}"></script>
+
+{{-- <script src="{{ asset('backend/assets/demo/pages/editor_ckeditor_classic.js') }}"></script> --}}
 
 <script src="{{ asset('backend/assets/demo/pages/form_tags.js') }}"></script>
 
@@ -58,9 +59,21 @@
 
 
 <script src="{{ asset('backend/js/toastr.min.js') }}"></script>
+<script src="{{ asset('backend/assets/input-tags/js/tagsinput.js') }}"></script>
+<script src="{{(asset('backend/lib/year-select.js'))}}"></script>
 {!! Toastr::message() !!}
 
+<script>
+$(document).ready(function(e) {
 
+    $('.yearselect').yearselect({
+        //alert(10);
+    start: 2019,
+    end: 2040
+    });
+});
+
+</script>
 
 <script type="text/javascript">
 	$(document).ready(function(){

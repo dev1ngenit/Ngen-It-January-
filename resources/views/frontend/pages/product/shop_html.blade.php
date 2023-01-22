@@ -55,28 +55,41 @@
                         </div>
 
                         <!-- product content -->
-                        <div class="product_item_content mt-1">
-                            <a href="{{ route('product.details', $item->slug) }}"
-                              class="product_item_content_name" style="font-weight: 700">{{ $item->name }}</a>
+                        <div class="product_item_content">
+                            <a href="{{ route('product.details', $item->slug) }}" class="product_item_content_name" style="height: 4rem;">{{$item->name}}</a>
 
-                            <!-- price -->
+                           @if ($item->rfq != 1)
+                             <!-- price -->
                              <div class="product_item_price">
-                                <span class="price_currency">USD</span>
-                                <span class="price_currency_value">${{ $item->price }}</span>
-                            </div>
+                                 <span class="price_currency">USD</span>
+                                 @if (!empty($item->discount))
+                                 <span class="price_currency_value" style="text-decoration: line-through; color:red">$ {{ $item->price }}</span>
+                                 <span class="price_currency_value" style="color: black">$ {{ $item->discount }}</span>
+                                 @else
+                                 <span class="price_currency_value">$ {{ $item->price }}</span>
+                                 @endif
+                             </div>
 
-                            <form class="myForm">
-                                @csrf
-                                <input type="hidden" value="{{ $item->id }}" name="id" id="id">
-                                <input type="hidden" value="{{ $item->name }}" name="name" id="name">
-                                <input type="hidden" value="{{ $item->price }}" name="price" id="price">
-                                <input type="hidden" value="{{ $item->thumbnail }}" name="image" id="image">
-                                <input type="hidden" value="1" name="quantity" id="quantity">
-                                <button type="submit" class="product_button product_button_change" data-toggle="modal"
-                                    id="addToBasket" data-target="#mediumModal"
-                                    data-attr="{{ route('modal', ['id' => $item->id]) }}">Add to Basket</button>
-                            </form>
-                            <!-- button -->
+                             <!-- button -->
+                             @php
+                             $cart = Cart::content();
+                             $exist = $cart->where('id' , $item->id );
+                             //dd($cart->where('image' , $item->thumbnail )->count());
+                             @endphp
+                             @if ($cart->where('id' , $item->id )->count())
+                             <a href="javascript:void(0);" class="common_button2 p-0 py-2 px-1 pb-2" style="height: 2.5rem"> Already in Cart</a>
+                             @else
+                             <form action="{{route('add.cart')}}" method="post">
+                                 @csrf
+                                 <input type="hidden" name="product_id" id="product_id" value="{{ $item->id }}">
+                                 <input type="hidden" name="name" id="name" value="{{ $item->name }}">
+                                 <input type="hidden" name="qty" id="qty" value="1">
+                                 <button type="submit" class="product_button" >Add to Basket</button>
+                             </form>
+                             @endif
+                           @else
+                           <a class="product_button mt-3" href="{{ route('product.details', $item->slug) }}">Details</a>
+                           @endif
                         </div>
 
                     </div>
@@ -99,9 +112,9 @@
             <!--Category item-->
             @foreach ($categories as $item)
                 <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 p-4">
-                    <img class="img-fluid mb-4" src="{{ asset('storage/requestImg/' . $item->image) }}" alt="">
+                    <img class="img-fluid mb-4" src="{{ asset('storage/requestImg/' . $item->image) }}" alt="" style="height: 60px; width:120px;">
                     <div class="common_product_item_text">
-                        <a href="{{ route('category.html',$item->id) }}">{{ $item->title }}</a>
+                        <a href="{{ route('category.html',$item->id) }}" style="font-size: 16px">{{ $item->title }}</a>
                     </div>
                 </div>
             @endforeach
@@ -136,7 +149,7 @@
     <section class="need_help_finding_prodcut"
         style="background-image:url('{{ asset('frontend/images/help-background-imges.jpg') }}')">
         <div class="container">
-            <h2>Need help finding the right products?</h2>
+            <h2>Need Help To Find The Right Products?</h2>
             {{-- <h3>Our product selectors and configurators will pinpoint the right item for your organization. These
                 easy-to-use Insight Intelligent Technology™ tools let you choose your needs and requirements, and then
                 generate the results that are the best match.</h3> --}}
@@ -180,9 +193,9 @@
             @foreach ($brands as $item)
                 <!--Category item-->
                 <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 p-4">
-                    <img class="img-fluid mb-4" src="{{ asset('storage/requestImg/'.$item->image) }}" alt="" >
+                    <img class="img-fluid mb-4" src="{{ asset('storage/requestImg/'.$item->image) }}" alt="" style="height: 60px; width:120px;">
                     <div class="common_product_item_text">
-                        <a style="font-size: 18px" href="{{ url('hardware/' . $item->title) }}">Shop
+                        <a style="font-size: 16px" href="{{ url('hardware/' . $item->title) }}">Shop
                             {{ $item->title }}</a>
                     </div>
                 </div>

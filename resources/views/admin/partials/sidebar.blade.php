@@ -112,6 +112,25 @@
 
                 <li class="nav-item nav-item-submenu">
                     <a href="#" class="nav-link">
+                        <i class="fas fa-boxes"></i>
+                        <span>Sales</span>
+                    </a>
+                    <ul class="nav-group-sub collapse">
+                        <li class="nav-item"><a href="{{ route('salesYearTarget.index') }}" class="nav-link active"><i
+                                    class="ph-layout"></i>
+                                <span>Sales Year Target</span>
+                            </a>
+                        </li>
+                        <li class="nav-item"><a href="{{ route('salesTeamTarget.index') }}" class="nav-link active"><i
+                                    class="ph-layout"></i>
+                                <span>Sales Team Target</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item nav-item-submenu">
+                    <a href="#" class="nav-link">
                         <i class="fas fa-industry"></i>
                         <span>Solution & Industry</span>
                     </a>

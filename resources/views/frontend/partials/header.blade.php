@@ -16,30 +16,11 @@
     <section class="header_top_menu_wrapper">
         <div class="header_top_menu">
             <div class="header_top_menu_item" style="font-size: 0.875rem;">
-                <div class="top_menu_item_wrapper">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Create an account
-                    </a>
-                    <div class="dropdown-menu top_menu_item" aria-labelledby="navbarDropdown"
-                        style="border-radius: 8px">
-                        @if (Auth::guard('client')->user())
-                        @else
-                            <a class="dropdown-item px-3 py-1 p-0" href="{{ route('client.login') }}"
-                                style="border-bottom: 1px #ffffff dotted">Create Client Account</a>
-                        @endif
 
-                        @if (Auth::guard('partner')->user())
-                        @else
-                            <a class="dropdown-item px-3 py-1 p-0" href="{{ route('partner.login') }}"
-                                style="border-bottom: 1px #ffffff dotted">Create Partner Account</a>
-                        @endif
-                    </div>
-                </div>
                 <div class="top_menu_item_wrapper">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Your Dashboard
+                        Sign In / Sign Up
                     </a>
                     <div class="dropdown-menu top_menu_item" aria-labelledby="navbarDropdown"
                         style="border-radius: 8px">
@@ -48,7 +29,7 @@
                                 style="border-bottom: 1px #ffffff dotted">Client Dashboard</a>
                         @else
                             <a class="dropdown-item px-3 py-1 p-0" href="{{ route('client.login') }}"
-                                style="border-bottom: 1px #ffffff dotted">Sign In as Client</a>
+                                style="border-bottom: 1px #ffffff dotted">Client</a>
                         @endif
 
                         @if (Auth::guard('partner')->user())
@@ -56,7 +37,7 @@
                                 style="border-bottom: 1px #ffffff dotted">Partner Dashboard</a>
                         @else
                             <a class="dropdown-item px-3 py-1 p-0" href="{{ route('partner.login') }}"
-                                style="border-bottom: 1px #ffffff dotted">Sign In as Partner</a>
+                                style="border-bottom: 1px #ffffff dotted">Partner</a>
                         @endif
                     </div>
                 </div>
@@ -65,14 +46,7 @@
                     $techglossys = App\Models\Admin\ClientStory::inRandomOrder()->limit(2)->get();
                 @endphp
 
-                {{-- <div class="top_menu_item_wrapper">
-                    <button class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown">Tools</button>
 
-                    <div class="dropdown-menu top_menu_item">
-                    <a class="dropdown-item" href="#">Empty</a>
-                    <a class="dropdown-item" href="#">Empty</a>
-                    </div>
-                </div> --}}
                 <div class="top_menu_item_wrapper">
                     <button class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                         data-toggle="dropdown">Support</button>
@@ -100,8 +74,8 @@
                 <!--Logo-->
                 <div class="header_logo">
                     <a href="{{ route('homepage') }}">
-                        <img src="{{ !file_exists('upload/logoimage/' . $setting->logo) ? $setting->logo : url('upload/logoimage/' . $setting->logo) }}"
-                            alt="Ngen It">
+                        <img src="{{ (!file_exists($setting->logo)) ? url('upload/logoimage/'.$setting->logo):url('upload/no_image.jpg') }}"
+                            alt="Ngen It" height="47px">
                     </a>
                 </div>
                 <!--Menu icon-->
@@ -135,21 +109,21 @@
                                 <div class="colum-3 colum-12">
                                     <h3 class="toggleDetails">Products<i
                                             class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Harness the power of technology to achieve your most ambitious goals.</p>
+                                    <p style="font-size: 14px; color: #5f5753;">Harness the power of technology to achieve your most ambitious goals.</p>
                                     <div class="details hidden sub_sub_item">
                                         <a href="{{ route('software.common') }}">Software <i
                                                 class="fa-solid fa-angle-right"></i></a>
                                         <a href="{{ route('hardware.common') }}">Hardware <i
                                                 class="fa-solid fa-angle-right"></i></a>
-                                        <a href="{{ route('shop') }}">Digital Services <i
-                                                class="fa-solid fa-angle-right"></i></a>
+                                        {{-- <a href="{{ route('shop') }}">Digital Services <i
+                                                class="fa-solid fa-angle-right"></i></a> --}}
                                         <!-- <a href="report.html">Developments <i class="fa-solid fa-angle-right"></i></a> -->
                                     </div>
                                 </div>
                                 <div class="colum-3 colum-12">
                                     <h3 class="toggleDetails">Solutions <i
                                             class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Our deep expertise and end-to-end capabilities help you navigate complex IT
+                                    <p style="font-size: 14px; color: #5f5753;">Our deep expertise and end-to-end capabilities help you navigate complex IT
                                         challenges.</p>
                                     <div class="details hidden sub_sub_item">
                                         @foreach ($solutions as $item)
@@ -161,7 +135,7 @@
                                 <div class="colum-3 colum-12">
                                     <h3 class="toggleDetails">Industry <i
                                             class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                    <p>Our service offerings service offerings </p>
+                                    <p style="font-size: 14px; color: #5f5753;">Our service offerings service offerings </p>
                                     <div class="details hidden sub_sub_item">
                                         @foreach ($industrys as $item)
                                             <a href="{{ route('industry.details', $item->id) }}">{{ App\Models\Admin\Industry::where('id', $item->industry_id)->value('title') }}
@@ -186,13 +160,13 @@
                                     <a href="{{ route('shop.html') }}">View All Products</a>
                                 </div>
                                 <div class="sub_menu_footer_item">
-                                    <a href="ngenit/solution_common.html">View All Solutions</a>
+                                    <a href="">View All Solutions</a>
                                 </div>
                                 <div class="sub_menu_footer_item">
                                     <a href="{{ route('all.industry') }}">View All Industry</a>
                                 </div>
                                 <div class="sub_menu_footer_item">
-                                    <a href="ngenit/service_common.html">View All Features</a>
+                                    <a href="">View All Features</a>
                                 </div>
                             </div>
                         </div>
@@ -212,65 +186,71 @@
                                     <h3 class="toggleDetails">Blogs<i
                                             class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
                                     @foreach ($blogs as $item)
-                                        <div class="d-flex mb-3">
-                                            <div class="w-50">
-                                                <img class="w-100"
-                                                    src="{{ asset('storage/requestImg/' . $item->image) }}"
-                                                    alt="">
+                                        <a href="{{route('blog.details',$item->id)}}">
+                                            <div class="d-flex mb-3">
+                                                <div class="w-50">
+                                                    <img class="w-100"
+                                                        src="{{ asset('storage/requestImg/' . $item->image) }}"
+                                                        alt="">
+                                                </div>
+                                                <p class="w-50 ml-3" style="font-size:14px; font-weight:700;"> {{ Str::limit($item->title, 150) }}</p>
                                             </div>
-                                            <p class="w-50 ml-3">{{ $item->title }}</p>
-                                        </div>
+                                        </a>
                                     @endforeach
 
-                                    <button class="py-1 mt-1">View all Blogs</button>
+
                                 </div>
 
                                 <div class="col-4 colum-12">
                                     <h3 class="toggleDetails">Client Storys<i
                                             class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
                                     @foreach ($clientstorys as $item)
+                                    <a href="{{route('story.details',$item->id)}}">
                                         <div class="d-flex mb-3">
                                             <div class="w-50">
                                                 <img class="w-100"
                                                     src="{{ asset('storage/requestImg/' . $item->image) }}"
                                                     alt="">
                                             </div>
-                                            <p class="w-50 ml-3">{{ $item->title }}</p>
+                                            <p class="w-50 ml-3" style="font-size:14px; font-weight:700;">{{ Str::limit($item->title, 150) }}</p>
                                         </div>
+                                    </a>
                                     @endforeach
-                                    <button class="py-1 mt-1">View all client stories</button>
+
                                 </div>
 
                                 <div class="col-4 colum-12">
                                     <h3 class="toggleDetails">Tech Glossary<i
                                             class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
                                     @foreach ($techglossys as $item)
+                                    <a href="{{route('story.details',$item->id)}}">
                                         <div class="d-flex mb-3">
                                             <div class="w-50">
                                                 <img class="w-100"
                                                     src="{{ asset('storage/requestImg/' . $item->image) }}"
                                                     alt="">
                                             </div>
-                                            <p class="w-50 ml-3">{{ $item->title }}</p>
+                                            <p class="w-50 ml-3" style="font-size:14px; font-weight:700;">{{ Str::limit($item->title, 150) }}</p>
                                         </div>
+                                    </a>
                                     @endforeach
 
-                                    <button class="py-1 mt-1">View all Tech Glossary</button>
+
                                 </div>
 
                             </div>
-                            <!-- <div class="sub_menu_footer">
-                                <div class="sub_menu_footer_item">
-                                    <a href="">View All Industries</a>
+                            <div class="sub_menu_footer">
+                                <div class="sub_menu_footer_item" style="width: 33%; text-align:center;">
+                                    <a href="{{ route('all.blog') }}" >View All Blogs</a>
                                 </div>
-                                <div class="sub_menu_footer_item">
-                                    <a href="">View All Solutions</a>
+                                <div class="sub_menu_footer_item" style="width: 33%; text-align:center;">
+                                    <a href="{{route('all.story')}}" >View All ClientStorys</a>
                                 </div>
-                                <div class="sub_menu_footer_item">
-                                    <a href="">View All Technology</a>
+                                <div class="sub_menu_footer_item" style="width: 33%; text-align:center;">
+                                    <a href="{{route('all.techglossy')}}" >View All TechGlossary</a>
                                 </div>
 
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                     <!--Menu Item-->
@@ -452,7 +432,6 @@
                                         <div class="col-4 colum-12">
                                             <h3 class="toggleDetails">Shop by Product <i
                                                     class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                            <p>Harness the power of technology to achieve your most ambitious goals.</p>
                                             <div class="details hidden sub_sub_item">
                                                 <a href="ngenit/product_filters.html">Product <i
                                                         class="fa-solid fa-angle-right"></i></a>
@@ -492,7 +471,6 @@
                                         <div class="col-6 colum-12">
                                             <h3 class="toggleDetails">Explore our deals<i
                                                     class="fa-solid fa-angle-right mb_sh float-right"></i></h3>
-                                            <p>Harness the power of technology to achieve your most ambitious goals.</p>
                                             <div class="details hidden sub_sub_item">
                                                 <a href="{{ route('tech.deals') }}">Technology deals <i
                                                         class="fa-solid fa-angle-right"></i></a>
@@ -518,18 +496,28 @@
                                         <p class="font-weight-bold">Manage your purchasing and products.</p>
                                         <p>Log in to NGenIT for smarter shopping, hardware, software and cloud
                                             management, and tailored reporting</p>
-                                        <div class="common_button2 py-1">Log in to your NGenIT account</div>
-                                        <a class="text-danger" href="">Create my NGenIT account</a>
+                                            @if (Auth::guard('client')->user())
+                                                <div class="common_button2 py-1"><a style="color: #ffffff" href="{{ route('client.dashboard') }}"> Your Client Dashboard</a></div>
+                                            @else
+                                                <div class="common_button2 py-1"><a style="color: #ffffff" href="{{ route('client.login') }}">Log in to your NGenIT Client account</a> </div>
+                                            @endif
+                                            <a class="text-danger" href="{{ route('client.login') }}">Create NGenIT Client account</a>
+                                            @if (Auth::guard('partner')->user())
+                                                <div class="common_button2 py-1" ><a style="color: #ffffff" href="{{ route('partner.dashboard') }}">Your Partner Dashboard</a> </div>
+                                            @else
+                                                <div class="common_button2 py-1" ><a style="color: #ffffff" href="{{ route('partner.login') }}">Log in to your NGenIT Partner account</a> </div>
+                                            @endif
+                                            <a class="text-danger" href="{{ route('partner.login') }}">Create NGenIT Client Partner account</a>
                                     </div>
                                     <hr>
-                                    <div>
+                                    {{-- <div>
                                         <p class="font-weight-bold">Simplify and streamline with a myInsight account.
                                         </p>
                                         <p>We’ll help you procure and manage your products throughout their lifecycle.
                                         </p>
                                         <a class="text-danger" href="">See the benefits of our e-procurement
                                             solutions</a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <!-- <div class="sub_menu_footer">

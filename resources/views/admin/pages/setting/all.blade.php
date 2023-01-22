@@ -97,7 +97,7 @@
                             <div class="card-body box-profile">
                                 <div class="text-center">
                                     <img class="profile-user-img img-fluid"
-                                        src="{{ !file_exists('upload/logoimage/' . $setting->logo) ? $setting->logo : url('upload/logoimage/' . $setting->logo) }}"
+                                        src="{{ (!file_exists($setting->logo)) ? url('upload/logoimage/'.$setting->logo):url('upload/no_image.jpg') }}"
                                         alt="Ngen It" width="150" />
 
 
@@ -121,7 +121,7 @@
                             <div class="card-body box-profile">
                                 <div class="text-center">
                                     <img class="profile-user-img img-fluid"
-                                        src="{{ !file_exists('upload/faviconimage/' . $setting->favicon) ? $setting->favicon : url('upload/faviconimage/' . $setting->favicon) }}"
+                                        src="{{ (!file_exists($setting->favicon)) ? url('upload/faviconimage/'.$setting->favicon):url('upload/no_image.jpg') }}"
                                         alt="Ngen It" width="100" />
 
                                 </div>

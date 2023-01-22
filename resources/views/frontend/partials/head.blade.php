@@ -10,7 +10,7 @@
         $setting=App\Models\Admin\Setting::first();
     @endphp
     {{-- <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=63b14113592bb2001af01a1d&product=inline-share-buttons&source=platform" async="async"></script> --}}
-    <link rel="icon" type="image/x-icon" href="{{ (!file_exists('upload/faviconimage/'.$setting->favicon)) ? $setting->favicon:url('upload/faviconimage/'.$setting->favicon) }}">
+    <link rel="icon" type="image/x-icon" href="{{ (!file_exists($setting->favicon)) ? url('upload/faviconimage/'.$setting->favicon):url('upload/no_image.jpg') }}">
 
     <link href="{{ asset('backend/assets/icons/phosphor/styles.min.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
@@ -49,8 +49,10 @@
 
  <style>
     .product_item_content_name{
-        height: 2.8rem;
+        height: 3rem;
+        font-size: 13px !important;
     }
+
  </style>
 
  <style>

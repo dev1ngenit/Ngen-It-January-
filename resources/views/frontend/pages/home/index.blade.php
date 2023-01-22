@@ -273,7 +273,7 @@
                         <div class="product_item_content">
                             <a href="{{ route('product.details', $item->slug) }}" class="product_item_content_name" style="height: 4rem;">{{$item->name}}</a>
 
-                           @if (!empty($item->price))
+                           @if (($item->rfq) !== 1)
                              <!-- price -->
                              <div class="product_item_price">
                                  <span class="price_currency">USD</span>

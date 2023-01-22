@@ -20574,7 +20574,7 @@ html[data-color-theme=dark] .offcanvas-header .btn-close {
 .select2-container {
     --s2-bg: var(--white);
     --s2-color: var(--body-color);
-    --s2-padding-y: 1rem;
+    --s2-padding-y: 0.5rem;
     --s2-padding-x: 0.875rem;
     --s2-placeholder-color: var(--gray-600);
     --s2-border-width: var(--border-width);
